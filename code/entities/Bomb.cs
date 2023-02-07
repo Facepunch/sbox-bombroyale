@@ -6,9 +6,9 @@ namespace Facepunch.BombsAway;
 public partial class Bomb : ModelEntity
 {
 	public BombsAwayPlayer Player { get; private set; }
+	public bool IsPlaced { get; private set; }
 
 	private TimeSince TimeSincePlaced { get; set; }
-	private bool IsPlaced { get; set; }
 
 	public override void Spawn()
 	{
@@ -40,6 +40,15 @@ public partial class Bomb : ModelEntity
 		Scale = 1f;
 	}
 
+	public void Pickup( BombsAwayPlayer player )
+	{
+		player.HoldingBomb = this;
+
+		SetParent( player );
+		Position = player.Position + Vector3.Up * 80f + player.Rotation.Forward * 4f;
+		IsPlaced = false;
+	}
+
 	[Event.Tick.Server]
 	private void ServerTick()
 	{
@@ -63,7 +72,7 @@ public partial class Bomb : ModelEntity
 	{
 		var startPosition = WorldSpaceBounds.Center;
 		var cellSize = 32f;
-		var totalRange = (Player.BombRange * cellSize) + (cellSize * 0.5f);
+		var totalRange = (Player.BombRange * cellSize);
 		var trace = Trace.Ray( startPosition, startPosition + direction * totalRange )
 			.WithAnyTags( "solid", "player" )
 			.Ignore( this )

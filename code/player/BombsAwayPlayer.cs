@@ -10,7 +10,7 @@ public partial class BombsAwayPlayer : AnimatedEntity
 {
 	public static BombsAwayPlayer Me => Game.LocalPawn as BombsAwayPlayer;
 
-	[Net] public Bomb HoldingBomb { get; private set; }
+	[Net] public Bomb HoldingBomb { get; set; }
 	[Net] public int BombRange { get; private set; }
 	[Net] public int MaxBombs { get; private set; }
 
@@ -60,7 +60,7 @@ public partial class BombsAwayPlayer : AnimatedEntity
 
 	public int GetPlacedBombCount()
 	{
-		return All.OfType<Bomb>().Count( b => b.Player == this );
+		return All.OfType<Bomb>().Count( b => b.Player == this && b.IsPlaced );
 	}
 
 	public virtual void Respawn()
@@ -200,8 +200,14 @@ public partial class BombsAwayPlayer : AnimatedEntity
 			{
 				if ( HoldingBomb.IsValid() )
 				{
+					// TODO: Throw bomb.
 					HoldingBomb.Place( this );
 					HoldingBomb = null;
+				}
+				else if ( GetPlacedBombCount() < MaxBombs )
+				{
+					var bomb = new Bomb();
+					bomb.Place( this );
 				}
 			}
 
@@ -227,13 +233,6 @@ public partial class BombsAwayPlayer : AnimatedEntity
 		if ( LifeState == LifeState.Dead )
 		{
 			return;
-		}
-
-		if ( !HoldingBomb.IsValid() && GetPlacedBombCount() < MaxBombs )
-		{
-			HoldingBomb = new();
-			HoldingBomb.SetParent( this );
-			HoldingBomb.Position = Position + Vector3.Up * 80f + Vector3.Forward * 4f;
 		}
 	}
 

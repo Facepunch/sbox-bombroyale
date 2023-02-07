@@ -1,8 +1,8 @@
 {
-  "Title": "Forsaken",
+  "Title": "Bombs Away",
   "Type": "game",
   "Org": "facepunch",
-  "Ident": "forsaken",
+  "Ident": "bombsaway",
   "Tags": "",
   "Schema": 1,
   "HasAssets": true,
@@ -15,11 +15,13 @@
   "HasCode": true,
   "CodePath": "/code/",
   "Metadata": {
-    "MaxPlayers": 32,
-    "MinPlayers": 1,
+    "MaxPlayers": 4,
+    "MinPlayers": 2,
     "GameNetworkType": "Multiplayer",
-    "MapSelect": "Tagged",
-    "MapList": [],
+    "MapSelect": "Official",
+    "MapList": [
+      "ba_dev"
+    ],
     "RankType": "None",
     "PerMapRanking": false,
     "LeaderboardType": "None",
@@ -117,6 +119,7 @@
         "Description": "Enable the isometric camera. The alternative option is a top-down view.",
         "Group": ""
       }
-    ]
+    ],
+    "CsProjName": ""
   }
 }

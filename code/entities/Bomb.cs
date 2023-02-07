@@ -12,14 +12,13 @@ public partial class Bomb : ModelEntity
 
 	public override void Spawn()
 	{
-		EnableAllCollisions = true;
 		Transmit = TransmitType.Always;
 		Scale = 0.6f;
 
 		SetModel( "models/bomb.vmdl" );
 		SetupPhysicsFromModel( PhysicsMotionType.Keyframed );
 
-		Tags.Add( "passplayers" );
+		Tags.Add( "solid", "bomb" );
 
 		base.Spawn();
 	}

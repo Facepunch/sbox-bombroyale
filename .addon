@@ -47,7 +47,9 @@
         "ladder": "Ignore",
         "water": "Trigger",
         "player": "Collide",
-        "passplayers": "Collide"
+        "passplayers": "Collide",
+        "bomb": "Collide",
+        "passbombs": "Collide"
       },
       "Pairs": [
         {
@@ -78,6 +80,16 @@
         {
           "a": "player",
           "b": "passplayers",
+          "r": "Ignore"
+        },
+        {
+          "a": "bomb",
+          "b": "passbombs",
+          "r": "Ignore"
+        },
+        {
+          "a": "player",
+          "b": "bomb",
           "r": "Ignore"
         }
       ]

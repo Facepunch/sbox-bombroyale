@@ -1,4 +1,5 @@
 ﻿using Sandbox;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Facepunch.BombsAway;
@@ -92,13 +93,18 @@ public partial class MoveController
 			maxs = maxs.WithZ( maxs.z - liftFeet );
 		}
 
-		var tr = Trace.Ray( start + TraceOffset, end + TraceOffset )
+		var query = Trace.Ray( start + TraceOffset, end + TraceOffset )
 			.Size( mins, maxs )
 			.WithoutTags( "passplayers" )
 			.WithAnyTags( "solid", "playerclip", "passbullets", "player" )
-			.Ignore( Player )
-			.Run();
+			.Ignore( Player );
 
+		if ( IsInsideBomb( start ) )
+		{
+			query = query.WithoutTags( "bomb" );
+		}
+
+		var tr = query.Run();
 		tr.EndPosition -= TraceOffset;
 		return tr;
 	}
@@ -248,6 +254,18 @@ public partial class MoveController
 		StayOnGround();
 	}
 
+	private bool IsInsideBomb( Vector3 position )
+	{
+		// TODO: Is this the best way to do this?
+		var bomb = Trace.Ray( position, position )
+			.Size( Mins, Maxs )
+			.Ignore( Player )
+			.WithTag( "bomb" )
+			.Run();
+
+		return (bomb.StartedSolid && bomb.Hit);
+	}
+
 	private void StepMove()
 	{
 		var mover = new MoveHelper( Player.Position, Player.Velocity );
@@ -257,6 +275,11 @@ public partial class MoveController
 			.WithAnyTags( "solid", "playerclip", "passbullets", "player" )
 			.Size( Mins, Maxs )
 			.Ignore( Player );
+
+		if ( IsInsideBomb( Player.Position ) )
+		{
+			mover.Trace = mover.Trace.WithoutTags( "bomb" );
+		}
 
 		mover.MaxStandableAngle = GroundAngle;
 		mover.TryMoveWithStep( Time.Delta, StepSize );
@@ -274,6 +297,11 @@ public partial class MoveController
 			.WithAnyTags( "solid", "playerclip", "passbullets", "player" )
 			.Size( Mins, Maxs )
 			.Ignore( Player );
+
+		if ( IsInsideBomb( Player.Position ) )
+		{
+			mover.Trace = mover.Trace.WithoutTags( "bomb" );
+		}
 
 		mover.MaxStandableAngle = GroundAngle;
 		mover.TryMove( Time.Delta );

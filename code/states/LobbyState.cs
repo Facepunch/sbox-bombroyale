@@ -1,16 +1,22 @@
 ﻿using Sandbox;
+using System.Linq;
 
 namespace Facepunch.BombsAway;
 
 public partial class LobbyState : BaseState
 {
 	[Net] public RealTimeUntil StateEndTime { get; set; }
-	public float StateDuration => 15f;
+	public float StateDuration => 10f;
 
 	public override void OnEnter()
 	{
 		if ( Game.IsServer )
 		{
+			foreach ( var pawn in Entity.All.OfType<BombsAwayPlayer>() )
+			{
+				pawn.Delete();
+			}
+
 			StateEndTime = StateDuration;
 		}
 	}

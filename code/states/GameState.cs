@@ -9,9 +9,11 @@ public partial class GameState : BaseState
 	{
 		if ( Game.IsServer )
 		{
-			foreach ( var player in Entity.All.OfType<BombsAwayPlayer>() )
+			foreach ( var client in Game.Clients )
 			{
-				player.Respawn();
+				var pawn = new BombsAwayPlayer();
+				pawn.MakePawnOf( client );
+				pawn.Respawn();
 			}
 		}
 	}

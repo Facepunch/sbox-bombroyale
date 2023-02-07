@@ -40,10 +40,6 @@ public partial class BombsAwayGame : GameManager
 
 	public override void ClientJoined( IClient client )
 	{
-		var pawn = new BombsAwayPlayer();
-		pawn.MakePawnOf( client );
-		pawn.Respawn();
-
 		base.ClientJoined( client );
 	}
 

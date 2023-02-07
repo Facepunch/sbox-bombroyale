@@ -1,0 +1,122 @@
+{
+  "Title": "Forsaken",
+  "Type": "game",
+  "Org": "facepunch",
+  "Ident": "forsaken",
+  "Tags": "",
+  "Schema": 1,
+  "HasAssets": true,
+  "AssetsPath": "",
+  "ResourcePaths": [
+    "fonts/*",
+    "shaders/*",
+    "textures/*"
+  ],
+  "HasCode": true,
+  "CodePath": "/code/",
+  "Metadata": {
+    "MaxPlayers": 32,
+    "MinPlayers": 1,
+    "GameNetworkType": "Multiplayer",
+    "MapSelect": "Tagged",
+    "MapList": [],
+    "RankType": "None",
+    "PerMapRanking": false,
+    "LeaderboardType": "None",
+    "ProjectTemplate": null,
+    "ParentPackage": "",
+    "GameCategory": "Survival",
+    "Compiler": {
+      "RootNamespace": "Sandbox",
+      "DefineConstants": "SANDBOX;ADDON;DEBUG",
+      "NoWarn": "1701;1702;1591;"
+    },
+    "ControlModes": {
+      "Keyboard": true,
+      "Gamepad": true
+    },
+    "GeneralExtensions": false,
+    "TargettedExtensions": true,
+    "ExtensionApiVersion": 1001,
+    "Collision": {
+      "Defaults": {
+        "solid": "Collide",
+        "trigger": "Trigger",
+        "ladder": "Ignore",
+        "water": "Trigger",
+        "player": "Collide",
+        "passplayers": "Collide",
+        "npc": "Collide"
+      },
+      "Pairs": [
+        {
+          "a": "solid",
+          "b": "solid",
+          "r": "Collide"
+        },
+        {
+          "a": "trigger",
+          "b": "playerclip",
+          "r": "Ignore"
+        },
+        {
+          "a": "trigger",
+          "b": "solid",
+          "r": "Trigger"
+        },
+        {
+          "a": "solid",
+          "b": "trigger",
+          "r": "Collide"
+        },
+        {
+          "a": "playerclip",
+          "b": "solid",
+          "r": "Collide"
+        },
+        {
+          "a": "player",
+          "b": "passplayers",
+          "r": "Ignore"
+        },
+        {
+          "a": "passplayers",
+          "b": "npc",
+          "r": "Ignore"
+        },
+        {
+          "a": "player",
+          "b": "npc",
+          "r": "Ignore"
+        }
+      ]
+    },
+    "DefaultLeaderboards": null,
+    "Summary": "A co-op game with a mysterious lore where players must adapt to survive.",
+    "Description": "PvE or optionally PvP with other players in this base building and survival game with a mysterious lore.\n\nGather and craft resources and items during the day, and hide away from or brave the night. You might find some odd strangers on your journey with potentially questionable motives. \n\nWho can survive the longest?",
+    "Public": true,
+    "SavedGames": true,
+    "MapDependentSaves": true,
+    "SaveFormatVersion": 1001,
+    "PackageSettings": [
+      {
+        "DisplayType": "Boolean",
+        "Choices": [],
+        "ConVarName": "fsk.pvp",
+        "DisplayName": "Enable PvP",
+        "DefaultValue": "true",
+        "Description": "Whether or not players are allowed to attack eachother.",
+        "Group": ""
+      },
+      {
+        "DisplayType": "Boolean",
+        "Choices": [],
+        "ConVarName": "fsk.isometric",
+        "DisplayName": "Isometric Camera",
+        "DefaultValue": "true",
+        "Description": "Enable the isometric camera. The alternative option is a top-down view.",
+        "Group": ""
+      }
+    ]
+  }
+}

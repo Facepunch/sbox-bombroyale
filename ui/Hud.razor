@@ -1,0 +1,23 @@
+﻿@using System;
+@using Sandbox;
+@using Sandbox.UI;
+@using Sandbox.UI.Construct;
+@using Facepunch.BombsAway;
+
+@namespace Facepunch.BombsAway.UI
+@attribute [StyleSheet( "/ui/Hud.scss" )]
+@inherits RootPanel
+
+<root>
+    
+</root>
+
+@code
+{
+    public static Hud Current { get; private set; }
+
+    protected override void OnParametersSet()
+    {
+        Current = this;
+    }
+}

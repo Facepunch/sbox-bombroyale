@@ -188,6 +188,16 @@ public partial class BombsAwayPlayer : AnimatedEntity
 
 		if ( LifeState == LifeState.Alive )
 		{
+			if ( Game.IsServer && Input.Released( InputButton.PrimaryAttack ) )
+			{
+				if ( HoldingBomb.IsValid() )
+				{
+					HoldingBomb.SetParent( null );
+					HoldingBomb.Place( Position );
+					HoldingBomb = null;
+				}
+			}
+
 			Controller?.Simulate();
 			SimulateAnimation();
 		}

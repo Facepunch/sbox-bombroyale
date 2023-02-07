@@ -47,8 +47,7 @@
         "ladder": "Ignore",
         "water": "Trigger",
         "player": "Collide",
-        "passplayers": "Collide",
-        "npc": "Collide"
+        "passplayers": "Collide"
       },
       "Pairs": [
         {
@@ -79,16 +78,6 @@
         {
           "a": "player",
           "b": "passplayers",
-          "r": "Ignore"
-        },
-        {
-          "a": "passplayers",
-          "b": "npc",
-          "r": "Ignore"
-        },
-        {
-          "a": "player",
-          "b": "npc",
           "r": "Ignore"
         }
       ]

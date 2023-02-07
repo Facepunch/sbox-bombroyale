@@ -1,4 +1,5 @@
 ﻿using Sandbox;
+using System.Linq;
 
 namespace Facepunch.BombsAway;
 
@@ -8,7 +9,10 @@ public partial class GameState : BaseState
 	{
 		if ( Game.IsServer )
 		{
-			
+			foreach ( var player in Entity.All.OfType<BombsAwayPlayer>() )
+			{
+				player.Respawn();
+			}
 		}
 	}
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 using Sandbox;
 
@@ -9,8 +10,9 @@ public partial class BombsAwayPlayer : AnimatedEntity
 {
 	public static BombsAwayPlayer Me => Game.LocalPawn as BombsAwayPlayer;
 
-	[Net] public int BombsRemaining { get; private set; }
 	[Net] public Bomb HoldingBomb { get; private set; }
+	[Net] public int BombRange { get; private set; }
+	[Net] public int MaxBombs { get; private set; }
 
 	[ClientInput] public Vector3 InputDirection { get; protected set; }
 	[ClientInput] public Angles ViewAngles { get; set; }
@@ -56,13 +58,19 @@ public partial class BombsAwayPlayer : AnimatedEntity
 		client.Pawn = this;
 	}
 
+	public int GetPlacedBombCount()
+	{
+		return All.OfType<Bomb>().Count( b => b.Player == this );
+	}
+
 	public virtual void Respawn()
 	{
 		TimeSinceLastKilled = 0f;
 		EnableAllCollisions = true;
-		BombsRemaining = 1; 
 		EnableDrawing = true;
 		LifeState = LifeState.Alive;
+		BombRange = 2;
+		MaxBombs = 1; 
 		Health = 100f;
 		Velocity = Vector3.Zero;
 
@@ -192,8 +200,7 @@ public partial class BombsAwayPlayer : AnimatedEntity
 			{
 				if ( HoldingBomb.IsValid() )
 				{
-					HoldingBomb.SetParent( null );
-					HoldingBomb.Place( Position );
+					HoldingBomb.Place( this );
 					HoldingBomb = null;
 				}
 			}
@@ -222,7 +229,7 @@ public partial class BombsAwayPlayer : AnimatedEntity
 			return;
 		}
 
-		if ( BombsRemaining > 0 && !HoldingBomb.IsValid() )
+		if ( !HoldingBomb.IsValid() && GetPlacedBombCount() < MaxBombs )
 		{
 			HoldingBomb = new();
 			HoldingBomb.SetParent( this );

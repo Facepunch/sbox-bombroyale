@@ -5,6 +5,8 @@ namespace Facepunch.BombsAway;
 
 public partial class Bomb : ModelEntity
 {
+	public BombsAwayPlayer Player { get; private set; }
+
 	private TimeSince TimeSincePlaced { get; set; }
 	private bool IsPlaced { get; set; }
 
@@ -12,6 +14,7 @@ public partial class Bomb : ModelEntity
 	{
 		EnableAllCollisions = true;
 		Transmit = TransmitType.Always;
+		Scale = 0.6f;
 
 		SetModel( "models/bomb.vmdl" );
 		SetupPhysicsFromModel( PhysicsMotionType.Keyframed );
@@ -21,17 +24,20 @@ public partial class Bomb : ModelEntity
 		base.Spawn();
 	}
 
-	public void Place( Vector3 position )
+	public void Place( BombsAwayPlayer player )
 	{
 		TimeSincePlaced = 0f;
 
 		var cellSize = 32f;
-		var gridX = cellSize * (position.x / cellSize).Floor();
-		var gridY = cellSize * (position.y / cellSize).Floor();
+		var gridX = cellSize * (player.Position.x / cellSize).Floor();
+		var gridY = cellSize * (player.Position.y / cellSize).Floor();
 
-		position = new Vector3( gridX + cellSize * 0.5f, gridY + cellSize * 0.5f, position.z + CollisionBounds.Size.z * 0.5f );
-		Position = position;
+		SetParent( null );
+
+		Position = new Vector3( gridX + cellSize * 0.5f, gridY + cellSize * 0.5f, player.Position.z + CollisionBounds.Size.z * 0.5f );
 		IsPlaced = true;
+		Player = player;
+		Scale = 1f;
 	}
 
 	[Event.Tick.Server]
@@ -56,14 +62,17 @@ public partial class Bomb : ModelEntity
 	private void BlastInDirection( Vector3 direction )
 	{
 		var startPosition = WorldSpaceBounds.Center;
-		var trace = Trace.Ray( startPosition, startPosition + direction * 200f )
+		var cellSize = 32f;
+		var totalRange = (Player.BombRange * cellSize) + (cellSize * 0.5f);
+		var trace = Trace.Ray( startPosition, startPosition + direction * totalRange )
+			.WithAnyTags( "solid", "player" )
 			.Ignore( this )
 			.Run();
 
 		var fx = Particles.Create( "particles/bomb_path.vpcf" );
-		fx.SetPosition( 0, new Vector3( 32f, 32f, 32f ) );
 		fx.SetPosition( 1, trace.StartPosition );
 		fx.SetPosition( 2, trace.EndPosition );
+		fx.Set( "radius", 1f );
 
 		if ( trace.Entity is BombableEntity e )
 		{

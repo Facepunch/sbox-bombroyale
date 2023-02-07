@@ -9,6 +9,9 @@ public partial class BombsAwayPlayer : AnimatedEntity
 {
 	public static BombsAwayPlayer Me => Game.LocalPawn as BombsAwayPlayer;
 
+	[Net] public int BombsRemaining { get; private set; }
+	[Net] public Bomb HoldingBomb { get; private set; }
+
 	[ClientInput] public Vector3 InputDirection { get; protected set; }
 	[ClientInput] public Angles ViewAngles { get; set; }
 	public Angles OriginalViewAngles { get; private set; }
@@ -57,6 +60,7 @@ public partial class BombsAwayPlayer : AnimatedEntity
 	{
 		TimeSinceLastKilled = 0f;
 		EnableAllCollisions = true;
+		BombsRemaining = 1; 
 		EnableDrawing = true;
 		LifeState = LifeState.Alive;
 		Health = 100f;
@@ -206,6 +210,13 @@ public partial class BombsAwayPlayer : AnimatedEntity
 		if ( LifeState == LifeState.Dead )
 		{
 			return;
+		}
+
+		if ( BombsRemaining > 0 && !HoldingBomb.IsValid() )
+		{
+			HoldingBomb = new();
+			HoldingBomb.SetParent( this );
+			HoldingBomb.Position = Position + Vector3.Up * 80f + Vector3.Forward * 4f;
 		}
 	}
 

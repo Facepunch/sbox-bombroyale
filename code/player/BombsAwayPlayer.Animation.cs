@@ -24,10 +24,32 @@ public partial class BombsAwayPlayer
 		animHelper.IsSwimming = false;
 		animHelper.Handedness = CitizenAnimationHelper.Hand.Both;
 		animHelper.IsWeaponLowered = false;
+		animHelper.HoldType = CitizenAnimationHelper.HoldTypes.None;
 
 		if ( Controller.HasEvent( "jump" ) ) animHelper.TriggerJump();
 
-		animHelper.HoldType = CitizenAnimationHelper.HoldTypes.None;
+		if ( HoldingBomb.IsValid() )
+		{
+			var lhp = Vector3.Left * 11f + Vector3.Up * 66f + Vector3.Forward * 8f;
+			var rhp = Vector3.Right * 11f + Vector3.Up * 66f + Vector3.Forward * 8f;
+
+			SetAnimParameter( "b_vr", true );
+			SetAnimParameter( "left_hand_ik.position", lhp );
+			SetAnimParameter( "left_hand_ik.rotation", Rotation.LookAt( Vector3.Up, Vector3.Backward )
+				.RotateAroundAxis( Vector3.Forward, 90f )
+				.RotateAroundAxis( Vector3.Left, 30f )
+			);
+			SetAnimParameter( "right_hand_ik.position", rhp );
+			SetAnimParameter( "right_hand_ik.rotation", Rotation.LookAt( Vector3.Up, Vector3.Backward )
+				.RotateAroundAxis( Vector3.Forward, 90f )
+				.RotateAroundAxis( Vector3.Left, -30f )
+			);
+		}
+		else
+		{
+			SetAnimParameter( "b_vr", false );
+		}
+
 		animHelper.AimBodyWeight = 0.5f;
 	}
 }

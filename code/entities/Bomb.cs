@@ -1,14 +1,17 @@
 ﻿using Sandbox;
+using Sandbox.Component;
+using Sandbox.Utility;
 using System;
 
 namespace Facepunch.BombsAway;
 
 public partial class Bomb : ModelEntity
 {
-	public BombsAwayPlayer Player { get; private set; }
-	public bool IsPlaced { get; private set; }
+	[Net] public BombsAwayPlayer Player { get; private set; }
+	[Net] public bool IsPlaced { get; private set; }
 
 	private TimeSince TimeSincePlaced { get; set; }
+	private float LifeTime { get; set; } = 3f;
 
 	public override void Spawn()
 	{
@@ -37,6 +40,10 @@ public partial class Bomb : ModelEntity
 		IsPlaced = true;
 		Player = player;
 		Scale = 1f;
+
+		var glow = Components.GetOrCreate<Glow>();
+		glow.InsideObscuredColor = Color.White;
+		glow.Color = Color.White;
 	}
 
 	public void Pickup( BombsAwayPlayer player )
@@ -52,9 +59,27 @@ public partial class Bomb : ModelEntity
 	private void ServerTick()
 	{
 		if ( !IsPlaced ) return;
-		if ( TimeSincePlaced < 3f ) return;
+
+		var fraction = (1f / LifeTime) * TimeSincePlaced;
+		var glow = Components.GetOrCreate<Glow>();
+		glow.InsideObscuredColor = Color.Lerp( Color.White, Color.Red, fraction );
+		glow.InsideColor = glow.InsideObscuredColor;
+		glow.Color = glow.InsideObscuredColor;
+
+		if ( TimeSincePlaced < LifeTime ) return;
 
 		Explode();
+	}
+
+	[Event.PreRender]
+	private void ClientTick()
+	{
+		if ( IsPlaced )
+		{
+			var tx = SceneObject.Transform;
+			tx.Scale = 1f + (MathF.Sin( Time.Now * 12f ) * 0.15f);
+			SceneObject.Transform = tx;
+		}
 	}
 
 	private void Explode()

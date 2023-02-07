@@ -379,22 +379,6 @@ public partial class MoveController
 		Player.Velocity -= Player.BaseVelocity;
 	}
 
-	private void WaterMove()
-	{
-		var wishDir = WishVelocity.Normal;
-		var wishSpeed = WishVelocity.Length;
-
-		wishSpeed *= 0.8f;
-
-		Accelerate( wishDir, wishSpeed, 100f, Acceleration );
-
-		Player.Velocity += Player.BaseVelocity;
-
-		Move();
-
-		Player.Velocity -= Player.BaseVelocity;
-	}
-
 	private void CategorizePosition( bool stayOnGround )
 	{
 		SurfaceFriction = 1f;
@@ -443,8 +427,6 @@ public partial class MoveController
 
 	private void UpdateGroundEntity( TraceResult trace )
 	{
-		var wasOnGround = Player.GroundEntity.IsValid();
-
 		Player.GroundEntity = trace.Entity;
 		SurfaceFriction = trace.Surface.Friction * 1.25f;
 		GroundNormal = trace.Normal;

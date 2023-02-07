@@ -13,8 +13,6 @@ public partial class TopDownCamera
 
 		if ( pawn.IsValid() )
 		{
-			Sound.Listener = new Transform( pawn.EyePosition, Camera.Rotation );
-
 			var worldBounds = Game.PhysicsWorld.Body.GetBounds();
 			var totalHeight = worldBounds.Size.Length;
 
@@ -32,6 +30,8 @@ public partial class TopDownCamera
 			*/
 
 			Camera.FirstPersonViewer = null;
+
+			Sound.Listener = new Transform( pawn.Position, Rotation.LookAt( Vector3.Forward ) );
 		}
 	}
 }

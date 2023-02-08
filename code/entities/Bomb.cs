@@ -153,5 +153,16 @@ public partial class Bomb : ModelEntity
 			Breakables.Break( e );
 			e.Hide();
 		}
+		else if ( trace.Entity is BombRoyalePlayer player )
+		{
+			var damage = new DamageInfo()
+				.WithAttacker( this )
+				.WithPosition( trace.EndPosition )
+				.WithWeapon( this )
+				.WithDamage( 0f )
+				.WithTag( "bomb" );
+
+			player.TakeDamage( damage );
+		}
 	}
 }

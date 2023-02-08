@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using Sandbox;
+using Sandbox.Utility;
 
 namespace Facepunch.BombRoyale;
 
@@ -21,10 +22,12 @@ public partial class BombRoyalePlayer : AnimatedEntity
 	[ClientInput] public Angles ViewAngles { get; set; }
 	public Angles OriginalViewAngles { get; private set; }
 
+	public ClothingContainer Clothing { get; private set; } = new();
 	public MoveController Controller { get; private set; }
 	public DamageInfo LastDamageTaken { get; private set; }
 
 	private TimeSince TimeSinceLastKilled { get; set; }
+	private TimeSince LastTakeDamageTime { get; set; }
 
 	public Vector3 EyePosition
 	{
@@ -58,6 +61,8 @@ public partial class BombRoyalePlayer : AnimatedEntity
 	{
 		Game.AssertServer();
 
+		Clothing.LoadFromClient( client );
+
 		client.Pawn = this;
 	}
 
@@ -80,6 +85,8 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		MaxBombs = 1; 
 		Health = 100f;
 		Velocity = Vector3.Zero;
+
+		Clothing.DressEntity( this );
 
 		CreateHull();
 
@@ -161,17 +168,30 @@ public partial class BombRoyalePlayer : AnimatedEntity
 
 	public override void TakeDamage( DamageInfo info )
 	{
+		if ( LifeState == LifeState.Dead ) return;
+
 		if ( info.Attacker is BombRoyalePlayer attacker )
 		{
 			
 		}
 
+		if ( info.Tags.Contains( "bomb" ) )
+		{
+			LastTakeDamageTime = 0f;
+			LivesLeft--;
+
+			if ( LivesLeft <= 0 )
+			{
+				var direction = Vector3.Up + new Vector3( Game.Random.Float( -0.25f, 0.25f ), Game.Random.Float( -0.25f, 0.25f ), 0f );
+				BecomeRagdollOnClient( To.Everyone, direction * 100f * 10f, 0 );
+				EnableAllCollisions = false;
+				EnableDrawing = false;
+				LifeState = LifeState.Dead;
+			}
+		}
+
 		LastDamageTaken = info;
 
-		if ( LifeState == LifeState.Dead )
-			return;
-
-		base.TakeDamage( info );
 		this.ProceduralHitReaction( info );
 	}
 
@@ -248,11 +268,38 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		{
 			return;
 		}
+
+		var tx = Transform;
+
+		if ( LastTakeDamageTime < 2f )
+		{
+			var fraction = 1f - (LastTakeDamageTime / 2f);
+			tx.Scale = 1f + (0.2f * MathF.Sin( Time.Now * 20f )) * fraction;
+		}
+		else
+		{
+			tx.Scale = tx.Scale.LerpTo( 1f, Time.Delta * 4f );
+		}
+
+		Transform = tx;
 	}
 
 	protected override void OnDestroy()
 	{
 		base.OnDestroy();
+	}
+
+	[ClientRpc]
+	private void BecomeRagdollOnClient( Vector3 force, int forceBone )
+	{
+		var ragdoll = new PlayerCorpse
+		{
+			Position = Position,
+			Rotation = Rotation
+		};
+
+		ragdoll.CopyFrom( this );
+		ragdoll.ApplyForceToBone( force, forceBone );
 	}
 
 	private Vector3[] Cardinals = new Vector3[]

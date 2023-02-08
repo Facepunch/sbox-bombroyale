@@ -50,7 +50,8 @@
         "passplayers": "Collide",
         "bomb": "Collide",
         "passbombs": "Collide",
-        "pickup": "Trigger"
+        "pickup": "Trigger",
+        "corpse": "Ignore"
       },
       "Pairs": [
         {

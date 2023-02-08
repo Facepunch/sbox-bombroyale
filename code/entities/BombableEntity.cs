@@ -10,11 +10,12 @@ namespace Facepunch.BombRoyale;
 [Model]
 public partial class BombableEntity : ModelEntity
 {
-	private bool IsHidden { get; set; }
+	[Net] private bool IsHidden { get; set; }
 
 	public override void Spawn()
 	{
 		EnableAllCollisions = true;
+		EnableShadowCasting = true;
 		Transmit = TransmitType.Always;
 
 		SetupPhysicsFromModel( PhysicsMotionType.Keyframed );
@@ -28,14 +29,18 @@ public partial class BombableEntity : ModelEntity
 		p.Position = WorldSpaceBounds.Center;
 
 		EnableAllCollisions = false;
-		EnableDrawing = false;
 		IsHidden = true;
 	}
 
 	public void Show()
 	{
 		EnableAllCollisions = true;
-		EnableDrawing = true;
 		IsHidden = false;
+	}
+
+	[Event.Tick.Client]
+	private void ClientTick()
+	{
+		EnableDrawing = !IsHidden;
 	}
 }

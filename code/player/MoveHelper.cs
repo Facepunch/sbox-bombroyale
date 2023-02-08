@@ -95,30 +95,4 @@ public struct MoveHelper
 		Position = tr.EndPosition;
 		return tr;
 	}
-
-	public float TryMoveWithStep( float timeDelta, float stepSize )
-	{
-		var startPosition = Position;
-		var stepMove = this;
-		var fraction = TryMove( timeDelta );
-
-		stepMove.TraceMove( Vector3.Up * stepSize );
-
-		var stepFraction = stepMove.TryMove( timeDelta );
-		var trace = stepMove.TraceMove( Vector3.Down * stepSize );
-
-		if ( !trace.Hit ) return fraction;
-
-		if ( trace.Normal.Angle( Vector3.Up ) > MaxStandableAngle )
-			return fraction;
-
-		if ( startPosition.Distance( Position.WithZ( startPosition.z ) ) > startPosition.Distance( stepMove.Position.WithZ( startPosition.z ) ) )
-			return fraction;
-
-		Position = stepMove.Position;
-		Velocity = stepMove.Velocity;
-		HitWall = stepMove.HitWall;
-
-		return stepFraction;
-	}
 }

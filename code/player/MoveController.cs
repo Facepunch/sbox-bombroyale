@@ -13,7 +13,6 @@ public partial class MoveController
 	public float StopSpeed { get; set; } = 100f;
 	public float StayOnGroundAngle { get; set; } = 270f;
 	public float GroundAngle { get; set; } = 46f;
-	public float StepSize { get; set; } = 4f;
 	public float MaxNonJumpVelocity { get; set; } = 140f;
 	public float BodyGirth { get; set; } = 24f;
 	public float BodyHeight { get; set; } = 72f;
@@ -179,6 +178,14 @@ public partial class MoveController
 		WishVelocity = WishVelocity.Normal * inSpeed;
 		WishVelocity *= GetWishSpeed();
 
+		var trace = TraceBBox( Player.Position, Player.Position + WishVelocity * Time.Delta );
+
+		if ( trace.Hit )
+		{
+			TryDirectionalMove( Player.Rotation.Left );
+			TryDirectionalMove( Player.Rotation.Right );
+		}
+
 		var stayOnGround = false;
 
 		if ( Player.GroundEntity.IsValid() )
@@ -198,6 +205,26 @@ public partial class MoveController
 		if ( Player.GroundEntity.IsValid() )
 		{
 			Player.Velocity = Player.Velocity.WithZ( 0 );
+		}
+	}
+
+	private TraceResult TraceRay( Vector3 start, Vector3 end )
+	{
+		return Trace.Ray( start, end )
+			.WithoutTags( "passplayers" )
+			.WithAnyTags( "solid", "playerclip", "passbullets", "player" )
+			.Ignore( Player )
+			.Run();
+	}
+
+	private void TryDirectionalMove( Vector3 direction )
+	{
+		var position = Player.Position + direction * BodyGirth * 0.7f;
+		var trace = TraceRay( position, position + Player.Rotation.Forward * BodyGirth );
+
+		if ( !trace.Hit )
+		{
+			WishVelocity += (trace.EndPosition - Player.Position).Normal * WishVelocity.Length;
 		}
 	}
 
@@ -256,7 +283,7 @@ public partial class MoveController
 				return;
 			}
 
-			StepMove();
+			Move();
 		}
 		finally
 		{
@@ -264,28 +291,6 @@ public partial class MoveController
 		}
 
 		StayOnGround();
-	}
-
-	private void StepMove()
-	{
-		var mover = new MoveHelper( Player.Position, Player.Velocity );
-
-		mover.Trace = mover.SetupTrace()
-			.WithoutTags( "passplayers" )
-			.WithAnyTags( "solid", "playerclip", "passbullets", "player" )
-			.Size( Mins, Maxs )
-			.Ignore( Player );
-
-		if ( IsInsideBomb( Player.Position ) )
-		{
-			mover.Trace = mover.Trace.WithoutTags( "bomb" );
-		}
-
-		mover.MaxStandableAngle = GroundAngle;
-		mover.TryMoveWithStep( Time.Delta, StepSize );
-
-		Player.Position = mover.Position;
-		Player.Velocity = mover.Velocity;
 	}
 
 	private void Move()
@@ -418,12 +423,10 @@ public partial class MoveController
 		if ( Player.GroundEntity.IsValid() )
 		{
 			moveToEndPos = true;
-			point.z -= StepSize;
 		}
 		else if ( stayOnGround )
 		{
 			moveToEndPos = true;
-			point.z -= StepSize;
 		}
 
 		if ( Player.Velocity.z > MaxNonJumpVelocity )
@@ -471,7 +474,7 @@ public partial class MoveController
 	private void StayOnGround()
 	{
 		var start = Player.Position + Vector3.Up * 2;
-		var end = Player.Position + Vector3.Down * StepSize;
+		var end = Player.Position + Vector3.Down;
 
 		var trace = TraceBBox( Player.Position, start );
 		start = trace.EndPosition;

@@ -8,10 +8,13 @@ namespace Facepunch.BombRoyale;
 public partial class Bomb : ModelEntity
 {
 	[Net] public BombRoyalePlayer Player { get; private set; }
-	[Net] public bool IsPlaced { get; private set; }
+	[Net, Change( nameof( OnIsPlacedChanged ))] public bool IsPlaced { get; private set; }
+	[Net] private TimeSince TimeSincePlaced { get; set; }
 
-	private TimeSince TimeSincePlaced { get; set; }
-	private float LifeTime { get; set; } = 3f;
+	private TimeUntil NextBlinkTime { get; set; }
+	private TimeUntil BlinkEndTime { get; set; }
+	private float LifeTime { get; set; } = 4f;
+	private Sound FuseSound { get; set; }
 
 	public override void Spawn()
 	{
@@ -43,7 +46,12 @@ public partial class Bomb : ModelEntity
 
 		var glow = Components.GetOrCreate<Glow>();
 		glow.InsideObscuredColor = Color.White;
-		glow.Color = Color.White;
+		glow.InsideColor = glow.InsideObscuredColor;
+		glow.Color = Color.Transparent;
+
+		FuseSound = Sound.FromEntity( To.Everyone, "bomb.fuse", this );
+
+		PlaySound( "bomb.place" );
 	}
 
 	public void Pickup( BombRoyalePlayer player )
@@ -53,6 +61,8 @@ public partial class Bomb : ModelEntity
 		SetParent( player );
 		Position = player.Position + Vector3.Up * 80f + player.Rotation.Forward * 4f;
 		IsPlaced = false;
+
+		FuseSound.Stop();
 	}
 
 	[Event.Tick.Server]
@@ -64,7 +74,7 @@ public partial class Bomb : ModelEntity
 		var glow = Components.GetOrCreate<Glow>();
 		glow.InsideObscuredColor = Color.Lerp( Color.White, Color.Red, fraction );
 		glow.InsideColor = glow.InsideObscuredColor;
-		glow.Color = glow.InsideObscuredColor;
+		glow.Color = Color.Transparent;
 
 		if ( TimeSincePlaced < LifeTime ) return;
 
@@ -74,11 +84,38 @@ public partial class Bomb : ModelEntity
 	[Event.PreRender]
 	private void ClientTick()
 	{
+		var tx = SceneObject.Transform;
+
 		if ( IsPlaced )
 		{
-			var tx = SceneObject.Transform;
-			tx.Scale = 1f + (MathF.Sin( Time.Now * 12f ) * 0.15f);
-			SceneObject.Transform = tx;
+			tx.Scale = 1f + (MathF.Sin( Time.Now * 10f ) * 0.15f);
+
+			if ( NextBlinkTime )
+			{
+				SceneObject.Attributes.Set( "Whiteness", 1f );
+
+				if ( BlinkEndTime )
+					NextBlinkTime = 1f * (1f - (TimeSincePlaced / LifeTime)).Clamp( 0.1f, 1f );
+			}
+			else
+			{
+				SceneObject.Attributes.Set( "Whiteness", 0f );
+				BlinkEndTime = 0.1f;
+			}
+		}
+		else
+		{
+			tx.Scale = 1f;
+		}
+
+		SceneObject.Transform = tx;
+	}
+
+	private void OnIsPlacedChanged()
+	{
+		if ( IsPlaced )
+		{
+			NextBlinkTime = LifeTime * 0.4f;
 		}
 	}
 
@@ -88,6 +125,10 @@ public partial class Bomb : ModelEntity
 		BlastInDirection( Vector3.Backward );
 		BlastInDirection( Vector3.Left );
 		BlastInDirection( Vector3.Right );
+
+		Sound.FromWorld( To.Everyone, "bomb.explode", Position );
+
+		FuseSound.Stop();
 
 		Delete();
 	}

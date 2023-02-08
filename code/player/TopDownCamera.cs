@@ -17,20 +17,12 @@ public partial class TopDownCamera
 		var direction = (worldBounds.Center - Camera.Position).Normal;
 		Camera.Rotation = Rotation.LookAt( direction );
 		Camera.FieldOfView = Screen.CreateVerticalFieldOfView( 30f );
-
-		/*
-		Camera.Position = worldBounds.Center + Vector3.Up * 1000f;
-		Camera.Main.Ortho = true;
-		Camera.Main.OrthoWidth = worldBounds.Size.x;
-		Camera.Main.OrthoHeight = worldBounds.Size.y;
-		*/
-
 		Camera.FirstPersonViewer = null;
 
 		var pawn = BombRoyalePlayer.Me;
 
 		if ( pawn.IsValid() )
-			Sound.Listener = new Transform( pawn.Position, Rotation.LookAt( Vector3.Forward ) );
+			Sound.Listener = new Transform( pawn.EyePosition, Rotation.LookAt( Vector3.Forward ) );
 		else
 			Sound.Listener = new Transform( Camera.Position, Camera.Rotation );
 	}

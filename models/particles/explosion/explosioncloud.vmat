@@ -8,6 +8,7 @@ Layer0
 	F_TINT_MASK 1
 
 	//---- PBR ----
+	F_SELF_ILLUM 1
 	F_SPECULAR 1
 
 	//---- Ambient Occlusion ----
@@ -19,7 +20,7 @@ Layer0
 	g_flModelTintAmount "1.000"
 	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
 	TextureColor "models/particles/explosion/explosioncloud_ao.png"
-	TextureTintMask "models/particles/explosion/explosioncloud_mask.png"
+	TextureTintMask "materials/default/default_mask.tga"
 
 	//---- Fade ----
 	g_flFadeExponent "1.000"
@@ -39,6 +40,14 @@ Layer0
 
 	//---- Roughness ----
 	TextureRoughness "materials/default/default_rough.tga"
+
+	//---- Self Illum ----
+	g_flSelfIllumAlbedoFactor "1.000"
+	g_flSelfIllumBrightness "2.492"
+	g_flSelfIllumScale "1.807"
+	g_vSelfIllumScrollSpeed "[0.000 0.000]"
+	g_vSelfIllumTint "[1.000000 1.000000 1.000000 0.000000]"
+	TextureSelfIllumMask "models/particles/explosion/explosioncloud_selfillum.png"
 
 	//---- Texture Coordinates ----
 	g_nScaleTexCoordUByModelScaleAxis "0"

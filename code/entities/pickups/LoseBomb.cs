@@ -5,6 +5,7 @@ namespace Facepunch.BombRoyale;
 
 public partial class LoseBomb : Pickup
 {
+	public override string PickupSound => "pickup.bad";
 	public override string Icon => "textures/losebomb.png";
 
 	protected override void OnPickup( BombRoyalePlayer player )

@@ -209,16 +209,19 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		{
 			if ( Game.IsServer && Input.Released( InputButton.PrimaryAttack ) )
 			{
-				if ( HoldingBomb.IsValid() )
+				if ( !Controller.IsInsideBomb( Position ) )
 				{
-					// TODO: Throw bomb.
-					HoldingBomb.Place( this );
-					HoldingBomb = null;
-				}
-				else if ( GetPlacedBombCount() < MaxBombs )
-				{
-					var bomb = new Bomb();
-					bomb.Place( this );
+					if ( HoldingBomb.IsValid() )
+					{
+						// TODO: Throw bomb.
+						HoldingBomb.Place( this );
+						HoldingBomb = null;
+					}
+					else if ( GetPlacedBombCount() < MaxBombs )
+					{
+						var bomb = new Bomb();
+						bomb.Place( this );
+					}
 				}
 			}
 

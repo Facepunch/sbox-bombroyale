@@ -2,6 +2,7 @@
 
 public partial class SuperBomb : Pickup
 {
+	public override string PickupSound => "pickup.good";
 	public override string Icon => "textures/superbomb.png";
 
 	protected override void OnPickup( BombRoyalePlayer player )

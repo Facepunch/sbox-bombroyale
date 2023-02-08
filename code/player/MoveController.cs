@@ -85,6 +85,18 @@ public partial class MoveController
 		Tags.Add( tagName );
 	}
 
+	public bool IsInsideBomb( Vector3 position )
+	{
+		// TODO: Is this the best way to do this?
+		var bomb = Trace.Ray( position, position )
+			.Size( Mins, Maxs )
+			.Ignore( Player )
+			.WithTag( "bomb" )
+			.Run();
+
+		return (bomb.StartedSolid && bomb.Hit);
+	}
+
 	public virtual TraceResult TraceBBox( Vector3 start, Vector3 end, Vector3 mins, Vector3 maxs, float liftFeet = 0.0f )
 	{
 		if ( liftFeet > 0 )
@@ -252,18 +264,6 @@ public partial class MoveController
 		}
 
 		StayOnGround();
-	}
-
-	private bool IsInsideBomb( Vector3 position )
-	{
-		// TODO: Is this the best way to do this?
-		var bomb = Trace.Ray( position, position )
-			.Size( Mins, Maxs )
-			.Ignore( Player )
-			.WithTag( "bomb" )
-			.Run();
-
-		return (bomb.StartedSolid && bomb.Hit);
 	}
 
 	private void StepMove()

@@ -13,8 +13,6 @@ public partial class TopDownCamera
 
 		BBox worldBounds;
 
-		Log.Info( BombRoyaleGame.Arena );
-
 		if ( arena.IsValid() )
 			worldBounds = arena.WorldSpaceBounds;
 		else

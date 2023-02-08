@@ -11,8 +11,11 @@ public partial class BombRoyalePlayer : AnimatedEntity
 	public static BombRoyalePlayer Me => Game.LocalPawn as BombRoyalePlayer;
 
 	[Net] public Bomb HoldingBomb { get; set; }
-	[Net] public int BombRange { get; private set; }
-	[Net] public int MaxBombs { get; private set; }
+	[Net] public bool HasSuperBomb { get; set; }
+	[Net] public int SpeedBoosts { get; set; }
+	[Net] public int LivesLeft { get; set; }
+	[Net] public int BombRange { get; set; }
+	[Net] public int MaxBombs { get; set; }
 
 	[ClientInput] public Vector3 InputDirection { get; protected set; }
 	[ClientInput] public Angles ViewAngles { get; set; }
@@ -69,6 +72,8 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		EnableAllCollisions = true;
 		EnableDrawing = true;
 		LifeState = LifeState.Alive;
+		SpeedBoosts = 0;
+		LivesLeft = 1;
 		BombRange = 2;
 		MaxBombs = 1; 
 		Health = 100f;

@@ -151,7 +151,7 @@ public partial class Bomb : ModelEntity
 		if ( trace.Entity is BombableEntity e )
 		{
 			Breakables.Break( e );
-			e.Delete();
+			e.Hide();
 		}
 	}
 }

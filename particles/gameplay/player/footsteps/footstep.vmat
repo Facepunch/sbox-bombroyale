@@ -1,0 +1,16 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "projected_decals.vfx"
+
+	//---- Decal ----
+	F_BLEND_MODE 1 // Mod2X
+	F_TRIPLANAR_MAPPING 1
+
+	//---- Color ----
+	TextureColor "particles/gameplay/player/footsteps/footstep_color.png"
+
+	//---- Translucent ----
+	TextureTranslucency "particles/gameplay/player/footsteps/footstep_trans.png"
+}

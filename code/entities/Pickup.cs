@@ -50,6 +50,8 @@ public abstract class Pickup : ModelEntity
 	{
 		if ( Game.IsServer && other is BombRoyalePlayer player )
 		{
+			Particles.Create( "particles/gameplay/player/collectpickup/collectpickup.vpcf", Position );
+
 			if ( !string.IsNullOrEmpty( PickupSound ) )
 			{
 				Sound.FromScreen( To.Single( player ), PickupSound );

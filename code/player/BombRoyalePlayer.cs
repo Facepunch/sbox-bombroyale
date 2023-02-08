@@ -68,6 +68,8 @@ public partial class BombRoyalePlayer : AnimatedEntity
 
 	public virtual void Respawn()
 	{
+		Particles.Create( "particles/gameplay/player/respawn/respawn_effect.vpcf", this );
+
 		TimeSinceLastKilled = 0f;
 		EnableAllCollisions = true;
 		EnableDrawing = true;
@@ -115,6 +117,10 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		volume *= GetFootstepVolume();
 
 		TimeSinceLastFootstep = 0f;
+
+		var footletter = foot == 0 ? "l" : "r";
+		var particle = Particles.Create( $"particles/gameplay/player/footsteps/footstep_{footletter}.vpcf", position );
+		particle.SetOrientation( 0, Transform.Rotation );
 
 		var tr = Trace.Ray( position, position + Vector3.Down * 20f )
 			.WithoutTags( "trigger" )

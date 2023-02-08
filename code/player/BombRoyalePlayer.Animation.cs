@@ -15,18 +15,16 @@ public partial class BombRoyalePlayer
 		animHelper.WithVelocity( Velocity );
 		animHelper.WithLookAt( lookAtPosition, 1f, 1f, 0.5f );
 		animHelper.AimAngle = Rotation;
-		animHelper.DuckLevel = MathX.Lerp( animHelper.DuckLevel, Controller.HasTag( "ducked" ) ? 1f : 0f, Time.Delta * 10f );
+		animHelper.DuckLevel = 0f;
 		animHelper.VoiceLevel = (Game.IsClient && Client.IsValid()) ? Client.Voice.LastHeard < 0.5f ? Client.Voice.CurrentLevel : 0f : 0f;
-		animHelper.IsGrounded = GroundEntity != null;
-		animHelper.IsSitting = Controller.HasTag( "sitting" );
-		animHelper.IsNoclipping = Controller.HasTag( "noclip" );
-		animHelper.IsClimbing = Controller.HasTag( "climbing" );
+		animHelper.IsGrounded = true;
+		animHelper.IsSitting = false;
+		animHelper.IsNoclipping = false;
+		animHelper.IsClimbing = false;
 		animHelper.IsSwimming = false;
 		animHelper.Handedness = CitizenAnimationHelper.Hand.Both;
 		animHelper.IsWeaponLowered = false;
 		animHelper.HoldType = CitizenAnimationHelper.HoldTypes.None;
-
-		if ( Controller.HasEvent( "jump" ) ) animHelper.TriggerJump();
 
 		if ( HoldingBomb.IsValid() )
 		{

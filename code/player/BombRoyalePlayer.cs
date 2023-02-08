@@ -26,7 +26,6 @@ public partial class BombRoyalePlayer : AnimatedEntity
 	public MoveController Controller { get; private set; }
 	public DamageInfo LastDamageTaken { get; private set; }
 
-	private TimeSince TimeSinceLastKilled { get; set; }
 	private TimeSince LastTakeDamageTime { get; set; }
 
 	public Vector3 EyePosition
@@ -75,7 +74,6 @@ public partial class BombRoyalePlayer : AnimatedEntity
 	{
 		Particles.Create( "particles/gameplay/player/respawn/respawn_effect.vpcf", this );
 
-		TimeSinceLastKilled = 0f;
 		EnableAllCollisions = true;
 		EnableDrawing = true;
 		LifeState = LifeState.Alive;
@@ -195,18 +193,6 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		this.ProceduralHitReaction( info );
 	}
 
-	public override void OnKilled()
-	{
-		GameManager.Current?.OnKilled( this );
-
-		TimeSinceLastKilled = 0f;
-		EnableAllCollisions = false;
-		EnableDrawing = false;
-		LifeState = LifeState.Dead;
-
-		base.OnKilled();
-	}
-
 	public override void FrameSimulate( IClient cl )
 	{
 		if ( LifeState == LifeState.Alive )
@@ -217,14 +203,6 @@ public partial class BombRoyalePlayer : AnimatedEntity
 
 	public override void Simulate( IClient client )
 	{
-		if ( LifeState == LifeState.Dead )
-		{
-			if ( TimeSinceLastKilled > 5f && Game.IsServer )
-			{
-				Respawn();
-			}
-		}
-
 		if ( LifeState == LifeState.Alive )
 		{
 			if ( Game.IsServer && Input.Released( InputButton.PrimaryAttack ) )

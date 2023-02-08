@@ -11,7 +11,6 @@ public partial class MoveController
 	public float AirAcceleration { get; set; } = 24f;
 	public float GroundFriction { get; set; } = 6f;
 	public float StopSpeed { get; set; } = 100f;
-	public float StayOnGroundAngle { get; set; } = 270f;
 	public float GroundAngle { get; set; } = 46f;
 	public float MaxNonJumpVelocity { get; set; } = 140f;
 	public float BodyGirth { get; set; } = 24f;
@@ -25,9 +24,6 @@ public partial class MoveController
 	protected Vector3 PreVelocity { get; set; }
 	protected Vector3 Mins { get; set; }
 	protected Vector3 Maxs { get; set; }
-
-	protected HashSet<string> Events { get; set; } = new();
-	protected HashSet<string> Tags { get; set; } = new();
 
 	public Vector3 GroundNormal { get; set; }
 	public Vector3 WishVelocity { get; set; }
@@ -49,39 +45,6 @@ public partial class MoveController
 		Player.GroundEntity = null;
 		GroundNormal = Vector3.Up;
 		SurfaceFriction = 1f;
-	}
-
-	public bool HasEvent( string eventName )
-	{
-		if ( Events == null ) return false;
-		return Events.Contains( eventName );
-	}
-
-	public bool HasTag( string tagName )
-	{
-		if ( Tags == null ) return false;
-		return Tags.Contains( tagName );
-	}
-
-	public void AddEvent( string eventName )
-	{
-		if ( Events == null )
-			Events = new HashSet<string>();
-
-		if ( Events.Contains( eventName ) )
-			return;
-
-		Events.Add( eventName );
-	}
-
-	public void SetTag( string tagName )
-	{
-		Tags ??= new HashSet<string>();
-
-		if ( Tags.Contains( tagName ) )
-			return;
-
-		Tags.Add( tagName );
 	}
 
 	public bool IsInsideBomb( Vector3 position )
@@ -141,9 +104,6 @@ public partial class MoveController
 
 	public virtual void Simulate()
 	{
-		Events?.Clear();
-		Tags?.Clear();
-
 		Player.EyeLocalPosition = Vector3.Up * Scale( EyeHeight );
 		UpdateBBox();
 
@@ -334,42 +294,6 @@ public partial class MoveController
 		Player.Velocity += wishDir * accelSpeed;
 	}
 
-	private bool CheckStuckAndFix()
-	{
-		var result = TraceBBox( Player.Position, Player.Position );
-
-		if ( !result.StartedSolid )
-		{
-			StuckTries = 0;
-			return false;
-		}
-
-		if ( Game.IsClient ) return true;
-
-		var attemptsPerTick = 20;
-
-		for ( int i = 0; i < attemptsPerTick; i++ )
-		{
-			var pos = Player.Position + Vector3.Random.Normal * (StuckTries / 2.0f);
-
-			if ( i == 0 )
-			{
-				pos = Player.Position + Vector3.Up * 5;
-			}
-
-			result = TraceBBox( pos, pos );
-
-			if ( !result.StartedSolid )
-			{
-				Player.Position = pos;
-				return false;
-			}
-		}
-
-		StuckTries++;
-		return true;
-	}
-
 	private void ApplyFriction( float frictionAmount = 1f )
 	{
 		var speed = Player.Velocity.Length;
@@ -416,7 +340,7 @@ public partial class MoveController
 	{
 		SurfaceFriction = 1f;
 
-		var point = Player.Position - Vector3.Up * 2f;
+		var point = Player.Position + Vector3.Down * 2f;
 		var bumpOrigin = Player.Position;
 		var moveToEndPos = false;
 
@@ -437,7 +361,7 @@ public partial class MoveController
 
 		var pm = TraceBBox( bumpOrigin, point, 16f );
 
-		if ( pm.Entity == null || Vector3.GetAngle( Vector3.Up, pm.Normal ) > StayOnGroundAngle )
+		if ( !pm.Entity.IsValid() )
 		{
 			ClearGroundEntity();
 			moveToEndPos = false;
@@ -454,6 +378,42 @@ public partial class MoveController
 		{
 			Player.Position = pm.EndPosition;
 		}
+	}
+
+	private bool CheckStuckAndFix()
+	{
+		var result = TraceBBox( Player.Position, Player.Position );
+
+		if ( !result.StartedSolid )
+		{
+			StuckTries = 0;
+			return false;
+		}
+
+		if ( Game.IsClient ) return true;
+
+		var attemptsPerTick = 20;
+
+		for ( int i = 0; i < attemptsPerTick; i++ )
+		{
+			var pos = Player.Position + Vector3.Random.Normal * (StuckTries / 2f);
+
+			if ( i == 0 )
+			{
+				pos = Player.Position + Vector3.Up * 5;
+			}
+
+			result = TraceBBox( pos, pos );
+
+			if ( !result.StartedSolid )
+			{
+				Player.Position = pos;
+				return false;
+			}
+		}
+
+		StuckTries++;
+		return true;
 	}
 
 	private void UpdateGroundEntity( TraceResult trace )
@@ -484,7 +444,6 @@ public partial class MoveController
 		if ( trace.Fraction <= 0 ) return;
 		if ( trace.Fraction >= 1 ) return;
 		if ( trace.StartedSolid ) return;
-		if ( Vector3.GetAngle( Vector3.Up, trace.Normal ) > StayOnGroundAngle ) return;
 
 		Player.Position = trace.EndPosition;
 	}

@@ -6,7 +6,7 @@ public partial class BombRoyalePlayer
 {
 	protected void SimulateAnimation()
 	{
-		Rotation = Rotation.Lerp( Rotation, ViewAngles.ToRotation(), Time.Delta * 10f );
+		Rotation = Rotation.Lerp( Rotation, ViewAngles.ToRotation(), Time.Delta * 20f );
 
 		var animHelper = new CitizenAnimationHelper( this );
 		var lookAtPosition = EyePosition + EyeRotation.Forward * 100f;

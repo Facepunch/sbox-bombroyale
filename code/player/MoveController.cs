@@ -15,7 +15,7 @@ public partial class MoveController
 	public float GroundAngle { get; set; } = 46f;
 	public float StepSize { get; set; } = 4f;
 	public float MaxNonJumpVelocity { get; set; } = 140f;
-	public float BodyGirth { get; set; } = 16f;
+	public float BodyGirth { get; set; } = 24f;
 	public float BodyHeight { get; set; } = 72f;
 	public float EyeHeight { get; set; } = 72f;
 	public float Gravity { get; set; } = 800f;

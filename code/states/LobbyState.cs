@@ -1,7 +1,7 @@
 ﻿using Sandbox;
 using System.Linq;
 
-namespace Facepunch.BombsAway;
+namespace Facepunch.BombRoyale;
 
 public partial class LobbyState : BaseState
 {
@@ -12,7 +12,7 @@ public partial class LobbyState : BaseState
 	{
 		if ( Game.IsServer )
 		{
-			foreach ( var pawn in Entity.All.OfType<BombsAwayPlayer>() )
+			foreach ( var pawn in Entity.All.OfType<BombRoyalePlayer>() )
 			{
 				pawn.Delete();
 			}
@@ -26,7 +26,7 @@ public partial class LobbyState : BaseState
 
 	}
 
-	public override void OnPlayerJoined( BombsAwayPlayer player )
+	public override void OnPlayerJoined( BombRoyalePlayer player )
 	{
 
 	}

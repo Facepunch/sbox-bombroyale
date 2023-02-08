@@ -4,11 +4,11 @@ using System.Linq;
 using System.Numerics;
 using Sandbox;
 
-namespace Facepunch.BombsAway;
+namespace Facepunch.BombRoyale;
 
-public partial class BombsAwayPlayer : AnimatedEntity
+public partial class BombRoyalePlayer : AnimatedEntity
 {
-	public static BombsAwayPlayer Me => Game.LocalPawn as BombsAwayPlayer;
+	public static BombRoyalePlayer Me => Game.LocalPawn as BombRoyalePlayer;
 
 	[Net] public Bomb HoldingBomb { get; set; }
 	[Net] public int BombRange { get; private set; }
@@ -43,7 +43,7 @@ public partial class BombsAwayPlayer : AnimatedEntity
 
 	public override Ray AimRay => new Ray( EyePosition, EyeRotation.Forward );
 
-	public BombsAwayPlayer() : base()
+	public BombRoyalePlayer() : base()
 	{
 		Controller = new MoveController( this )
 		{
@@ -76,7 +76,7 @@ public partial class BombsAwayPlayer : AnimatedEntity
 
 		CreateHull();
 
-		BombsAwayGame.Entity?.MoveToSpawnpoint( this );
+		BombRoyaleGame.Entity?.MoveToSpawnpoint( this );
 		ResetInterpolation();
 	}
 
@@ -150,7 +150,7 @@ public partial class BombsAwayPlayer : AnimatedEntity
 
 	public override void TakeDamage( DamageInfo info )
 	{
-		if ( info.Attacker is BombsAwayPlayer attacker )
+		if ( info.Attacker is BombRoyalePlayer attacker )
 		{
 			
 		}

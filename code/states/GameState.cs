@@ -1,7 +1,7 @@
 ﻿using Sandbox;
 using System.Linq;
 
-namespace Facepunch.BombsAway;
+namespace Facepunch.BombRoyale;
 
 public partial class GameState : BaseState
 {
@@ -11,7 +11,7 @@ public partial class GameState : BaseState
 		{
 			foreach ( var client in Game.Clients )
 			{
-				var pawn = new BombsAwayPlayer();
+				var pawn = new BombRoyalePlayer();
 				pawn.MakePawnOf( client );
 				pawn.Respawn();
 			}

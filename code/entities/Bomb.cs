@@ -3,11 +3,11 @@ using Sandbox.Component;
 using Sandbox.Utility;
 using System;
 
-namespace Facepunch.BombsAway;
+namespace Facepunch.BombRoyale;
 
 public partial class Bomb : ModelEntity
 {
-	[Net] public BombsAwayPlayer Player { get; private set; }
+	[Net] public BombRoyalePlayer Player { get; private set; }
 	[Net] public bool IsPlaced { get; private set; }
 
 	private TimeSince TimeSincePlaced { get; set; }
@@ -26,7 +26,7 @@ public partial class Bomb : ModelEntity
 		base.Spawn();
 	}
 
-	public void Place( BombsAwayPlayer player )
+	public void Place( BombRoyalePlayer player )
 	{
 		TimeSincePlaced = 0f;
 
@@ -46,7 +46,7 @@ public partial class Bomb : ModelEntity
 		glow.Color = Color.White;
 	}
 
-	public void Pickup( BombsAwayPlayer player )
+	public void Pickup( BombRoyalePlayer player )
 	{
 		player.HoldingBomb = this;
 

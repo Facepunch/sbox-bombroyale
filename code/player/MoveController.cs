@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Facepunch.BombsAway;
+namespace Facepunch.BombRoyale;
 
 public partial class MoveController
 {
@@ -33,11 +33,11 @@ public partial class MoveController
 	public Vector3 GroundNormal { get; set; }
 	public Vector3 WishVelocity { get; set; }
 
-	public BombsAwayPlayer Player { get; private set; }
+	public BombRoyalePlayer Player { get; private set; }
 
 	private int StuckTries { get; set; } = 0;
 
-	public MoveController( BombsAwayPlayer player )
+	public MoveController( BombRoyalePlayer player )
 	{
 		Player = player;
 	}

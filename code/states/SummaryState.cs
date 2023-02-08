@@ -1,7 +1,7 @@
 ﻿using Sandbox;
 using System.Linq;
 
-namespace Facepunch.BombsAway;
+namespace Facepunch.BombRoyale;
 
 public partial class SummaryState : BaseState
 {

@@ -1,6 +1,6 @@
 ﻿using Sandbox;
 
-namespace Facepunch.BombsAway;
+namespace Facepunch.BombRoyale;
 
 public partial class TopDownCamera
 {
@@ -27,7 +27,7 @@ public partial class TopDownCamera
 
 		Camera.FirstPersonViewer = null;
 
-		var pawn = BombsAwayPlayer.Me;
+		var pawn = BombRoyalePlayer.Me;
 
 		if ( pawn.IsValid() )
 			Sound.Listener = new Transform( pawn.Position, Rotation.LookAt( Vector3.Forward ) );

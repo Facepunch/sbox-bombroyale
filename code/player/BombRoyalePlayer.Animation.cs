@@ -1,8 +1,8 @@
 ﻿using Sandbox;
 
-namespace Facepunch.BombsAway;
+namespace Facepunch.BombRoyale;
 
-public partial class BombsAwayPlayer
+public partial class BombRoyalePlayer
 {
 	protected void SimulateAnimation()
 	{

@@ -1,8 +1,8 @@
 {
-  "Title": "Bombs Away",
+  "Title": "Bomb Royale",
   "Type": "game",
   "Org": "facepunch",
-  "Ident": "bombsaway",
+  "Ident": "bombroyale",
   "Tags": "",
   "Schema": 1,
   "HasAssets": true,

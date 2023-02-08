@@ -1,6 +1,6 @@
 ﻿using Sandbox;
 
-namespace Facepunch.BombsAway;
+namespace Facepunch.BombRoyale;
 
 public partial class StateSystem : BaseNetworkable
 {

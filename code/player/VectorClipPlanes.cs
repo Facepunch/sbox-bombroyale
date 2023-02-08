@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Buffers;
 
-namespace Facepunch.BombsAway;
+namespace Facepunch.BombRoyale;
 
 public struct VelocityClipPlanes : IDisposable
 {

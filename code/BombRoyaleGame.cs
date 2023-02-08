@@ -4,18 +4,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Facepunch.BombsAway;
+namespace Facepunch.BombRoyale;
 
-public partial class BombsAwayGame : GameManager
+public partial class BombRoyaleGame : GameManager
 {
-	public static BombsAwayGame Entity => Current as BombsAwayGame;
+	public static BombRoyaleGame Entity => Current as BombRoyaleGame;
 	public static StateSystem StateSystem => Entity?.InernalStateSystem;
 
 	[Net] private StateSystem InernalStateSystem { get; set; }
 
 	private TopDownCamera TopDownCamera { get; set; }
 
-	public BombsAwayGame() : base()
+	public BombRoyaleGame() : base()
 	{
 
 	}

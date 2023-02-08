@@ -1,6 +1,6 @@
 ﻿using Sandbox;
 
-namespace Facepunch.BombsAway;
+namespace Facepunch.BombRoyale;
 
 public class BaseState : BaseNetworkable
 {
@@ -15,11 +15,11 @@ public class BaseState : BaseNetworkable
 		return false;
 	}
 
-	public virtual void OnPlayerKilled( BombsAwayPlayer player, DamageInfo info ) { }
+	public virtual void OnPlayerKilled( BombRoyalePlayer player, DamageInfo info ) { }
 
-	public virtual void OnPlayerJoined( BombsAwayPlayer player ) { }
+	public virtual void OnPlayerJoined( BombRoyalePlayer player ) { }
 
-	public virtual void OnPlayerRespawned( BombsAwayPlayer player ) { }
+	public virtual void OnPlayerRespawned( BombRoyalePlayer player ) { }
 
-	public virtual void OnPlayerDisconnected( BombsAwayPlayer player ) { }
+	public virtual void OnPlayerDisconnected( BombRoyalePlayer player ) { }
 }

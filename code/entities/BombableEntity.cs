@@ -1,7 +1,7 @@
 ﻿using Editor;
 using Sandbox;
 
-namespace Facepunch.BombsAway;
+namespace Facepunch.BombRoyale;
 
 [HammerEntity]
 [Title( "Bombable Entity")]

@@ -1,9 +1,20 @@
 ﻿using Sandbox;
+using System.Linq;
 
 namespace Facepunch.BombRoyale;
 
-public partial class Pickup : ModelEntity
+public abstract class Pickup : ModelEntity
 {
+	public static Pickup CreateRandom()
+	{
+		var types = TypeLibrary.GetTypes<Pickup>()
+			.Where( t => !t.IsAbstract )
+			.ToList();
+
+		var type = Game.Random.FromList( types );
+		return type.Create<Pickup>();
+	}
+
 	public virtual string PickupSound => null;
 	public virtual string SpawnSound => null;
 	public virtual string Icon => null;

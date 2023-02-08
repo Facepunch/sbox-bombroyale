@@ -24,7 +24,7 @@ public partial class BombableEntity : ModelEntity
 
 	public void Hide()
 	{
-		var p = new Pickup();
+		var p = Pickup.CreateRandom();
 		p.Position = WorldSpaceBounds.Center;
 
 		EnableAllCollisions = false;

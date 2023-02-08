@@ -318,7 +318,7 @@
 							attachment_point = ""
 							center_on_damage_point = false
 							limit_to_piece = ""
-							burst_scale = 2000.0
+							burst_scale = 1000.0
 							burst_randomize = 1.0
 							forcetype = "0"
 						}

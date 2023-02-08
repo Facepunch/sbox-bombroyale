@@ -20,7 +20,7 @@
     "GameNetworkType": "Multiplayer",
     "MapSelect": "Official",
     "MapList": [
-      "ba_dev"
+      "br_multiple_arena"
     ],
     "RankType": "None",
     "PerMapRanking": false,
@@ -95,9 +95,9 @@
       ]
     },
     "DefaultLeaderboards": null,
-    "Summary": "A co-op game with a mysterious lore where players must adapt to survive.",
-    "Description": "PvE or optionally PvP with other players in this base building and survival game with a mysterious lore.\n\nGather and craft resources and items during the day, and hide away from or brave the night. You might find some odd strangers on your journey with potentially questionable motives. \n\nWho can survive the longest?",
-    "Public": true,
+    "Summary": "",
+    "Description": "",
+    "Public": false,
     "SavedGames": true,
     "MapDependentSaves": true,
     "SaveFormatVersion": 1001,

@@ -1,10 +1,11 @@
 ﻿using Sandbox;
-using System.Linq;
 
 namespace Facepunch.BombRoyale;
 
 public partial class GameState : BaseState
 {
+	private Sound Music { get; set; }
+
 	public override void OnEnter()
 	{
 		if ( Game.IsServer )
@@ -16,10 +17,17 @@ public partial class GameState : BaseState
 				pawn.Respawn();
 			}
 		}
+		else
+		{
+			Music = Sound.FromScreen( "battle.music" );
+		}
 	}
 
 	public override void OnLeave()
 	{
-
+		if ( Game.IsClient )
+		{
+			Music.Stop();
+		}
 	}
 }

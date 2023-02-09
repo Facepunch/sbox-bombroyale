@@ -10,6 +10,9 @@ public partial class LobbyState : BaseState
 
 	[Net] private TimeUntil RoundEndTime { get; set; }
 
+	private bool PlayedCountdown { get; set; }
+	private Sound Countdown { get; set; }
+
 	public override void OnEnter()
 	{
 		if ( Game.IsServer )
@@ -25,7 +28,7 @@ public partial class LobbyState : BaseState
 
 	public override void OnLeave()
 	{
-
+		Countdown.Stop();
 	}
 
 	public override void OnPlayerJoined( BombRoyalePlayer player )
@@ -33,8 +36,18 @@ public partial class LobbyState : BaseState
 
 	}
 
+	[Event.Tick.Client]
+	private void ClientTick()
+	{
+		if ( RoundEndTime <= 5f && !PlayedCountdown )
+		{
+			PlayedCountdown = true;
+			Countdown = Sound.FromScreen( "round.countdown" );
+		}
+	}
+
 	[Event.Tick.Server]
-	private  void ServerTick()
+	private void ServerTick()
 	{
 		if ( RoundEndTime )
 		{

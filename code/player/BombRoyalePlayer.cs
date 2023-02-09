@@ -194,11 +194,17 @@ public partial class BombRoyalePlayer : AnimatedEntity
 
 			if ( LivesLeft <= 0 )
 			{
+				Sound.FromScreen( To.Single( this ), "player.die" );
+
 				var direction = Vector3.Up + new Vector3( Game.Random.Float( -0.25f, 0.25f ), Game.Random.Float( -0.25f, 0.25f ), 0f );
 				BecomeRagdollOnClient( To.Everyone, direction * 100f * 10f, 0 );
 				EnableAllCollisions = false;
 				EnableDrawing = false;
 				LifeState = LifeState.Dead;
+			}
+			else
+			{
+				Sound.FromScreen( To.Single( this ), "lose.life" );
 			}
 		}
 

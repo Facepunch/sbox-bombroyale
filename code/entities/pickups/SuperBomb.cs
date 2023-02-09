@@ -1,6 +1,6 @@
 ﻿namespace Facepunch.BombRoyale;
 
-[PickupChance( 0.3f )]
+[PickupChance( 0.1f )]
 public partial class SuperBomb : Pickup
 {
 	public override string PickupSound => "pickup.good";

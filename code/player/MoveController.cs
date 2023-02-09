@@ -207,7 +207,7 @@ public partial class MoveController
 
 	private float GetWishSpeed()
 	{
-		return Scale( WalkSpeed );
+		return Scale( WalkSpeed + (25f * Player.SpeedBoosts) );
 	}
 
 	private void WalkMove()

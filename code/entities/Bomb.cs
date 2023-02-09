@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Facepunch.BombRoyale;
 
-public partial class Bomb : ModelEntity
+public partial class Bomb : ModelEntity, IResettable
 {
 	[Net] public BombRoyalePlayer Player { get; private set; }
 	[Net, Change( nameof( OnIsPlacedChanged ))] public bool IsPlaced { get; private set; }
@@ -17,6 +17,11 @@ public partial class Bomb : ModelEntity
 	private TimeUntil BlinkEndTime { get; set; }
 	private float LifeTime { get; set; } = 4f;
 	private Sound FuseSound { get; set; }
+
+	public void Reset()
+	{
+		Delete();
+	}
 
 	public override void Spawn()
 	{

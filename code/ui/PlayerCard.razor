@@ -31,6 +31,28 @@
             }
         }
     </div>
+
+    <div class="pickups">
+        <div class="pickup bombs">
+            <div class="icon"></div>
+            <label class="amount">@GetMaxBombs()</label>
+        </div>
+
+        <div class="pickup range">
+            <div class="icon"></div>
+            <label class="amount">@GetBombRange()</label>
+        </div>
+
+        <div class="pickup speed">
+            <div class="icon"></div>
+            <label class="amount">@GetSpeedBoosts()</label>
+        </div>
+
+        @if ( Player.IsValid() && Player.HasSuperBomb )
+        {
+            @:<div class="superbomb"><div>
+        }
+    </div>
 </div>
 
 @code
@@ -41,6 +63,10 @@
     protected override int BuildHash()
     {
         if ( !Player.IsValid() ) return 0;
-        return HashCode.Combine( Player, Player.LifeState );
+        return HashCode.Combine( Player, Player.LifeState, Player.LivesLeft, Player.HasSuperBomb );
     }
+
+    private string GetMaxBombs() => (Player?.MaxBombs ?? 0).ToString();
+    private string GetBombRange() => (Player?.BombRange ?? 0).ToString();
+    private string GetSpeedBoosts() => (Player?.SpeedBoosts ?? 0).ToString();
 }

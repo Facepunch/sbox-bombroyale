@@ -20,12 +20,32 @@ PlayerCard {
         &.dead {
             > .avatar {
                 > .inner {
+                    transition: all 0.2s ease-in;
+                    filter: brightness( 0.2 );
                     filter: saturate( 0.5 );
                 }
 
                 > .head {
+                    transition: all 0.2s ease-in;
+                    filter: brightness( 0.2 );
                     filter: saturate( 0.1 );
                 }
+            }
+
+            > .pickups .pickup .label {
+                transition: all 0.2s ease-in;
+                color: gray;
+            }
+
+            > .pickups .pickup .icon {
+                transition: all 0.2s ease-in;
+                filter: brightness( 0.2 );
+                filter: saturate( 0.1 );
+            }
+
+            > .pickups .pickup .superbomb {
+                transition: all 0.2s ease-in;
+                display: none;
             }
         }
 
@@ -62,13 +82,63 @@ PlayerCard {
             }
         }
 
+        > .pickups {
+            position: absolute;
+            align-items: center;
+            top: 72px;
+
+            .pickup {
+                background-color: black;
+                justify-content: center;
+                align-items: center;
+                border-radius: 24px;
+                width: 88px;
+                height: 32px;
+
+                .icon {
+                    position: absolute;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    width: 48px;
+                    height: 48px;
+                    left: 8px;
+                }
+
+                .label {
+                    font-family: LilitaOne;
+                    font-size: 24px;
+                    color: white;
+                    left: 8px;
+                }
+            }
+
+            .superbomb {
+                position: absolute;
+                background-image: url( textures/ui/superbomb.png );
+                background-repeat: no-repeat;
+                background-size: contain;
+                transition: all 0.5s bounce-out;
+                width: 48px;
+                height: 48px;
+
+                &:intro {
+                    transform: scale( 0.5 0.5 );
+                }
+            }
+        }
+
         > .lives {
             position: absolute;
 
             .life {
+                transition: all 0.5s bounce-out;
                 background-size: cover;
                 width: 40px;
                 height: 40px;
+
+                &:intro {
+                    transform: scale( 0.5 0.5 );
+                }
             }
         }
 
@@ -98,6 +168,36 @@ PlayerCard {
             .lives .life {
                 background-image: url( textures/ui/p1/life.png );
             }
+
+            .pickups .bombs {
+                .icon {
+                    background-image: url( textures/ui/p1/bomb.png );
+                }
+
+                .label {
+                    color: $p1;
+                }
+            }
+
+            .pickups .range {
+                .icon {
+                    background-image: url( textures/ui/p1/range.png );
+                }
+
+                .label {
+                    color: $p1;
+                }
+            }
+
+            .pickups .speed {
+                .icon {
+                    background-image: url( textures/ui/p1/speed.png );
+                }
+
+                .label {
+                    color: $p1;
+                }
+            }
         }
 
         &.p2 {
@@ -111,6 +211,36 @@ PlayerCard {
 
             .lives .life {
                 background-image: url( textures/ui/p2/life.png );
+            }
+
+            .pickups .bombs {
+                .icon {
+                    background-image: url( textures/ui/p2/bomb.png );
+                }
+
+                .label {
+                    color: $p2;
+                }
+            }
+
+            .pickups .range {
+                .icon {
+                    background-image: url( textures/ui/p2/range.png );
+                }
+
+                .label {
+                    color: $p2;
+                }
+            }
+
+            .pickups .speed {
+                .icon {
+                    background-image: url( textures/ui/p2/speed.png );
+                }
+
+                .label {
+                    color: $p2;
+                }
             }
         }
 
@@ -126,6 +256,36 @@ PlayerCard {
             .lives .life {
                 background-image: url( textures/ui/p3/life.png );
             }
+
+            .pickups .bombs {
+                .icon {
+                    background-image: url( textures/ui/p3/bomb.png );
+                }
+
+                .label {
+                    color: $p3;
+                }
+            }
+
+            .pickups .range {
+                .icon {
+                    background-image: url( textures/ui/p3/range.png );
+                }
+
+                .label {
+                    color: $p3;
+                }
+            }
+
+            .pickups .speed {
+                .icon {
+                    background-image: url( textures/ui/p3/speed.png );
+                }
+
+                .label {
+                    color: $p3;
+                }
+            }
         }
 
         &.p4 {
@@ -140,10 +300,48 @@ PlayerCard {
             .lives .life {
                 background-image: url( textures/ui/p4/life.png );
             }
+
+            .pickups .bombs {
+                .icon {
+                    background-image: url( textures/ui/p4/bomb.png );
+                }
+
+                .label {
+                    color: $p4;
+                }
+            }
+
+            .pickups .range {
+                .icon {
+                    background-image: url( textures/ui/p4/range.png );
+                }
+
+                .label {
+                    color: $p4;
+                }
+            }
+
+            .pickups .speed {
+                .icon {
+                    background-image: url( textures/ui/p4/speed.png );
+                }
+
+                .label {
+                    color: $p4;
+                }
+            }
         }
     }
 
     &.left-side {
+        .container .pickups .superbomb {
+            right: -48px;
+        }
+
+        .container .pickups .pickup {
+            margin-right: 16px;
+        }
+
         .container .avatar {
             left: 10%;
             bottom: -35%;
@@ -164,6 +362,18 @@ PlayerCard {
     }
 
     &.right-side {
+        .container .pickups .superbomb {
+            left: -40px;
+        }
+
+        .container .pickups .pickup {
+            margin-left: 16px;
+        }
+
+        .container .pickups {
+            right: 0px;
+        }
+
         .container .avatar {
             right: 10%;
             bottom: -35%;

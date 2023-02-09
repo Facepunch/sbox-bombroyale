@@ -35,7 +35,7 @@
     <div class="pickups">
         <div class="pickup bombs">
             <div class="icon"></div>
-            <label class="amount">@GetMaxBombs()</label>
+            <label class="amount">@GetBombsLeft()</label>
         </div>
 
         <div class="pickup range">
@@ -63,10 +63,10 @@
     protected override int BuildHash()
     {
         if ( !Player.IsValid() ) return 0;
-        return HashCode.Combine( Player, Player.LifeState, Player.LivesLeft, Player.HasSuperBomb, Player.BombRange, Player.MaxBombs, Player.SpeedBoosts );
+        return HashCode.Combine( Player, Player.LifeState, Player.LivesLeft, Player.HasSuperBomb, Player.BombRange, Player.GetBombsLeft(), Player.SpeedBoosts );
     }
 
-    private string GetMaxBombs() => (Player?.MaxBombs ?? 0).ToString();
+    private string GetBombsLeft() => (Player?.GetBombsLeft() ?? 0).ToString();
     private string GetBombRange() => (Player?.BombRange ?? 0).ToString();
     private string GetSpeedBoosts() => (Player?.SpeedBoosts ?? 0).ToString();
 }

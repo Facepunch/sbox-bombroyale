@@ -78,6 +78,8 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		return Colors[index];
 	}
 
+	public int GetBombsLeft() => MaxBombs - GetPlacedBombCount();
+
 	public int GetPlacedBombCount()
 	{
 		return All.OfType<Bomb>().Count( b => b.Player == this && b.IsPlaced );
@@ -235,10 +237,14 @@ public partial class BombRoyalePlayer : AnimatedEntity
 						HoldingBomb.Place( this );
 						HoldingBomb = null;
 					}
-					else if ( GetPlacedBombCount() < MaxBombs )
+					else if ( GetBombsLeft() > 0 )
 					{
 						var bomb = new Bomb();
 						bomb.Place( this );
+					}
+					else
+					{
+						Sound.FromScreen( To.Single( this ), "bomb.nobomb" );
 					}
 				}
 			}

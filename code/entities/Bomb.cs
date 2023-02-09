@@ -157,7 +157,7 @@ public partial class Bomb : ModelEntity
 		//var fx = Particles.Create( "particles/gameplay/bomb/bomb_explosion.vpcf" );
 		//fx.SetPosition( 0, trace.StartPosition );
 
-		fx = Particles.Create( "particles/bomb_path.vpcf" );
+		var fx = Particles.Create( "particles/bomb_path.vpcf" );
 		fx.SetPosition( 1, trace.StartPosition );
 		fx.SetPosition( 2, trace.EndPosition );
 		fx.Set( "radius", 1f );

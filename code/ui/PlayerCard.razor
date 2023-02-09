@@ -63,7 +63,7 @@
     protected override int BuildHash()
     {
         if ( !Player.IsValid() ) return 0;
-        return HashCode.Combine( Player, Player.LifeState, Player.LivesLeft, Player.HasSuperBomb );
+        return HashCode.Combine( Player, Player.LifeState, Player.LivesLeft, Player.HasSuperBomb, Player.BombRange, Player.MaxBombs, Player.SpeedBoosts );
     }
 
     private string GetMaxBombs() => (Player?.MaxBombs ?? 0).ToString();

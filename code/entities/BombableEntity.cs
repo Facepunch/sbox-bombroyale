@@ -11,7 +11,7 @@ namespace Facepunch.BombRoyale;
 [Model]
 public partial class BombableEntity : ModelEntity
 {
-	[Net] private bool IsHidden { get; set; }
+	[Net] public bool IsHidden { get; private set; }
 
 	public override void Spawn()
 	{
@@ -26,26 +26,11 @@ public partial class BombableEntity : ModelEntity
 
 	public void TrySpawnPickup()
 	{
-		if ( Game.Random.Float() > 0.8f )
+		if ( Game.Random.Float() < 0.25f )
 		{
 			var p = Pickup.CreateRandom();
 			p.Position = WorldSpaceBounds.Center;
 			return;
-		}
-		
-		if ( Game.Random.Float() >= 0.6f )
-		{
-			var availableBlocks = All.OfType<BombableEntity>()
-				.Where( e => e.IsHidden )
-				.ToList();
-
-			var randomBlock = Game.Random.FromList( availableBlocks );
-
-			if ( randomBlock.IsValid() )
-			{
-				var p = Pickup.CreateRandom();
-				p.Position = randomBlock.WorldSpaceBounds.Center;
-			}
 		}
 	}
 

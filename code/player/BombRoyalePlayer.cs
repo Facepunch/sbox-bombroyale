@@ -11,6 +11,14 @@ public partial class BombRoyalePlayer : AnimatedEntity
 {
 	public static BombRoyalePlayer Me => Game.LocalPawn as BombRoyalePlayer;
 
+	private static Color[] Colors = new Color[4]
+	{
+		Color.Red,
+		Color.Cyan,
+		Color.Green,
+		Color.Magenta
+	};
+
 	[Net] public Bomb HoldingBomb { get; set; }
 	[Net] public bool HasSuperBomb { get; set; }
 	[Net] public int SpeedBoosts { get; set; }
@@ -65,6 +73,12 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		client.Pawn = this;
 	}
 
+	public Color GetTeamColor()
+	{
+		var index = Client.NetworkIdent - 1;
+		return Colors[index];
+	}
+
 	public int GetPlacedBombCount()
 	{
 		return All.OfType<Bomb>().Count( b => b.Player == this && b.IsPlaced );
@@ -72,7 +86,8 @@ public partial class BombRoyalePlayer : AnimatedEntity
 
 	public virtual void Respawn()
 	{
-		Particles.Create( "particles/gameplay/player/respawn/respawn_effect.vpcf", this );
+		var fx = Particles.Create( "particles/gameplay/player/respawn/respawn_effect.vpcf", this );
+		fx.Set( "color", GetTeamColor() * 255f );
 
 		EnableAllCollisions = true;
 		EnableDrawing = true;

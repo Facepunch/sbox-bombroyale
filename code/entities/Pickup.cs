@@ -21,6 +21,7 @@ public abstract class Pickup : ModelEntity
 		var possibleTypes = TypeLibrary.GetTypes<Pickup>()
 			.Where( t => !t.IsAbstract )
 			.Where( t => t.HasAttribute<PickupChanceAttribute>() )
+			.Shuffle()
 			.ToList();
 
 		if ( !possibleTypes.Any() )
@@ -83,6 +84,7 @@ public abstract class Pickup : ModelEntity
 		Light.Color = Color;
 
 		Effect = Particles.Create( "particles/gameplay/idle_coin/idle_coin.vpcf", this );
+		Effect.Set( "color", Color * 255f );
 
 		base.ClientSpawn();
 	}
@@ -91,7 +93,8 @@ public abstract class Pickup : ModelEntity
 	{
 		if ( Game.IsServer && other is BombRoyalePlayer player )
 		{
-			Particles.Create( "particles/gameplay/player/collectpickup/collectpickup.vpcf", Position );
+			var fx = Particles.Create( "particles/gameplay/player/collectpickup/collectpickup.vpcf", Position );
+			fx.Set( "color", Color * 255f );
 
 			if ( !string.IsNullOrEmpty( PickupSound ) )
 			{

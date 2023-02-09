@@ -2,6 +2,7 @@
 using Sandbox.Component;
 using Sandbox.Utility;
 using System;
+using System.Linq;
 
 namespace Facepunch.BombRoyale;
 
@@ -138,6 +139,20 @@ public partial class Bomb : ModelEntity
 		BlastInDirection( Vector3.Right );
 
 		Sound.FromWorld( To.Everyone, "bomb.explode", Position );
+
+		if ( Game.Random.Float() < 0.4f )
+		{
+			var availableBlock = All.OfType<BombableEntity>()
+				.Where( e => e.IsHidden )
+				.Shuffle()
+				.FirstOrDefault();
+
+			if ( availableBlock.IsValid() )
+			{
+				var p = BombRoyale.Pickup.CreateRandom();
+				p.Position = availableBlock.WorldSpaceBounds.Center;
+			}
+		}
 
 		FuseSound.Stop();
 

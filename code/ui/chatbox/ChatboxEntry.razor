@@ -1,0 +1,51 @@
+﻿@using System;
+@using Sandbox;
+@using Sandbox.UI;
+@using Facepunch.BombRoyale;
+@using System.Threading.Tasks;
+
+@namespace Facepunch.BombRoyale.UI
+@inherits Panel
+
+<root class=@(HasFaded ? "faded" : string.Empty)>
+    <label @ref="NameLabel" class="name">@Name</label>
+    <label class="message">@Message</label>
+</root>
+
+@code
+{
+    public bool HasFaded { get; private set; }
+    public string Name { get; set; }
+    public string Message { get; set; }
+    public Color? Color { get; set; }
+    public Label NameLabel { get; set; }
+
+    protected override async void OnParametersSet()
+    {
+        try
+        {
+            await Task.DelaySeconds( 10f );
+            HasFaded = true;
+        }
+        catch ( TaskCanceledException )
+        {
+        }
+        catch ( Exception e )
+        {
+            Log.Error( e.Message );
+        }
+    }
+
+    protected override void OnAfterTreeRender( bool firstTime )
+    {
+        if ( Color.HasValue )
+            NameLabel.Style.FontColor = Color;
+
+        base.OnAfterTreeRender( firstTime );
+    }
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine( Name, Message, HasFaded );
+    }
+}

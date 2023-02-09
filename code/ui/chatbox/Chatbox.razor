@@ -1,0 +1,97 @@
+﻿@using System;
+@using Sandbox;
+@using Sandbox.UI;
+@using Facepunch.BombRoyale;
+
+@namespace Facepunch.BombRoyale.UI
+@attribute [StyleSheet( "/ui/chatbox/Chatbox.scss" )]
+@inherits Panel
+
+<root class=@(IsOpen ? "open" : "closed")>
+    <div @ref="EntryCanvas" class="entries"></div>
+
+    <div class="input">
+        <textentry @onblur=@OnEntryBlur @onsubmit=@OnEntrySubmit @ref="Entry"></textentry>
+    </div>
+</root>
+
+@code{
+    private TextEntry Entry { get; set; }
+    private Panel EntryCanvas { get; set; }
+    private bool IsOpen { get; set; }
+
+    protected override void OnAfterTreeRender(bool firstTime)
+    {
+        base.OnAfterTreeRender(firstTime);
+
+        EntryCanvas.PreferScrollToBottom = true;
+    }
+
+    private void OnEntrySubmit()
+    {
+        if ( !string.IsNullOrWhiteSpace( Entry.Text ) )
+        {
+            Chatbox.SendChat( Entry.Text.Trim() );
+        }
+    }
+
+    private void OnEntryBlur()
+    {
+        IsOpen = false;
+        Entry.Text = string.Empty;
+    }
+
+    public void AddNamedMessage( string name, Color color, string message, string className = null )
+    {
+        var entry = new ChatboxEntry()
+        {
+            Name = name,
+            Color = color,
+            Message = message
+        };
+
+        if ( !string.IsNullOrEmpty( className ) )
+        {
+            entry.AddClass( className );
+        }
+
+        if ( string.IsNullOrEmpty( name ) )
+        {
+            entry.AddClass( "no-name" );
+        }
+
+        EntryCanvas.AddChild( entry );
+    }
+
+    public void AddMessage( string message, string className = null )
+    {
+        var entry = new ChatboxEntry()
+        {
+            Message = message
+        };
+
+        if ( !string.IsNullOrEmpty( className ) )
+        {
+            entry.AddClass( className );
+        }
+
+        entry.AddClass( "no-name" );
+
+        EntryCanvas.AddChild( entry );
+    }
+
+    [Event.Client.BuildInput]
+    private void BuildInput()
+    {
+        if ( !IsOpen && Input.Pressed( InputButton.Chat ) )
+        {
+            IsOpen = true;
+            Entry.Focus();
+        }
+    }
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine( IsOpen );
+    }
+}

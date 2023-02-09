@@ -3,6 +3,7 @@ using System;
 
 namespace Facepunch.BombRoyale;
 
+[PickupChance( 0.2f )]
 public partial class ExtraLife : Pickup
 {
 	public override string PickupSound => "pickup.extralife";

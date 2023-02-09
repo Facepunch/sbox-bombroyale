@@ -1,18 +1,48 @@
 ﻿using Sandbox;
+using System;
 using System.Linq;
 
 namespace Facepunch.BombRoyale;
+
+public class PickupChanceAttribute : Attribute
+{
+	public float Chance { get; set; } = 0.5f;
+	
+	public PickupChanceAttribute( float chance )
+	{
+		Chance = chance;
+	}
+}
 
 public abstract class Pickup : ModelEntity
 {
 	public static Pickup CreateRandom()
 	{
-		var types = TypeLibrary.GetTypes<Pickup>()
+		var possibleTypes = TypeLibrary.GetTypes<Pickup>()
 			.Where( t => !t.IsAbstract )
+			.Where( t => t.HasAttribute<PickupChanceAttribute>() )
 			.ToList();
 
-		var type = Game.Random.FromList( types );
-		return type.Create<Pickup>();
+		if ( !possibleTypes.Any() )
+			return default;
+
+		var u = possibleTypes.Sum( p => p.GetAttribute<PickupChanceAttribute>().Chance );
+		var r = Game.Random.Float() * u;
+		var s = 0f;
+
+		foreach ( var type in possibleTypes )
+		{
+			var chance = type.GetAttribute<PickupChanceAttribute>().Chance;
+
+			s += chance;
+
+			if ( r < s )
+			{
+				return type.Create<Pickup>();
+			}
+		}
+
+		return default;
 	}
 
 	public virtual string PickupSound => null;

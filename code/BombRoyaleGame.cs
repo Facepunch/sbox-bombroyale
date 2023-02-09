@@ -1,4 +1,5 @@
 ﻿using Sandbox;
+using Sandbox.Effects;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,6 +17,7 @@ public partial class BombRoyaleGame : GameManager
 	[Net] private Arena InternalArena { get; set; }
 
 	private TopDownCamera TopDownCamera { get; set; }
+	private ScreenEffects PostProcessing { get; set; }
 
 	public BombRoyaleGame() : base()
 	{
@@ -47,6 +49,9 @@ public partial class BombRoyaleGame : GameManager
 		Game.RootPanel = new UI.Hud();
 
 		TopDownCamera = new();
+		PostProcessing = new();
+
+		Camera.Main.AddHook( PostProcessing );
 
 		base.ClientSpawn();
 	}
@@ -107,6 +112,8 @@ public partial class BombRoyaleGame : GameManager
 	[Event.Client.Frame]
 	private void OnFrame()
 	{
+		
+
 		TopDownCamera?.Update();
 	}
 }

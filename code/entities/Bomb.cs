@@ -141,8 +141,17 @@ public partial class Bomb : ModelEntity, IResettable
 		}
 	}
 
+	[ClientRpc]
+	private void DoScreenShake()
+	{
+		var shake = new ScreenShake.Random( 1.5f, 1f + (Range * 0.5f) );
+		ScreenShake.Add( shake );
+	}
+
 	private void Explode()
 	{
+		DoScreenShake( To.Everyone );
+
 		BlastInDirection( Vector3.Forward );
 		BlastInDirection( Vector3.Backward );
 		BlastInDirection( Vector3.Left );

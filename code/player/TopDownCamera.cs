@@ -27,6 +27,8 @@ public partial class TopDownCamera
 		Camera.FieldOfView = Screen.CreateVerticalFieldOfView( 30f );
 		Camera.FirstPersonViewer = null;
 
+		ScreenShake.Apply();
+
 		var pawn = BombRoyalePlayer.Me;
 
 		if ( pawn.IsValid() )

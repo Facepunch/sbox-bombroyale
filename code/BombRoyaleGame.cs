@@ -112,8 +112,8 @@ public partial class BombRoyaleGame : GameManager
 	[Event.Client.Frame]
 	private void OnFrame()
 	{
-		
-
+		var sum = ScreenShake.List.OfType<ScreenShake.Random>().Sum( s => (1f - s.Delta) );
+		PostProcessing.Pixelation = 0.05f * sum;
 		TopDownCamera?.Update();
 	}
 }

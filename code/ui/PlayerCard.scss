@@ -6,11 +6,16 @@ $p4: #FF881B;
 PlayerCard {
     > .container {
         background-color: black;
+        transition: all 0.2s ease-in;
         border-radius: 8px;
         margin-top: 48px;
         align-items: center;
         width: 350px;
         height: 48px;
+
+        &.empty {
+            opacity: 0.2;
+        }
 
         &.dead {
             > .avatar {

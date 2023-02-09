@@ -1,0 +1,104 @@
+﻿$p1: #F6D953;
+$p2: #DB3D76;
+$p3: #3DBFDB;
+$p4: #FF881B;
+
+PlayerCard {
+    > .container {
+        background-color: black;
+        border-radius: 8px;
+        margin-top: 48px;
+        justify-content: center;
+        align-items: center;
+        width: 350px;
+        height: 48px;
+
+        > .avatar {
+            position: absolute;
+            background-image: url( textures/ui/diamond-outer.png );
+            background-size: cover;
+            justify-content: center;
+            align-items: center;
+            width: 155px;
+            height: 162px;
+            left: 10%;
+            bottom: -35%;
+
+            > .inner {
+                background-size: cover;
+                width: 112px;
+                height: 120px;
+            }
+
+            > .head {
+                position: absolute;
+            }
+        }
+
+        > .name {
+            position: absolute;
+            font-family: LilitaOne;
+            font-size: 30px;
+            color: white;
+            right: 16px;
+        }
+
+        > .index {
+            position: absolute;
+            font-family: LilitaOne;
+            font-size: 30px;
+            color: white;
+            left: 16px;
+        }
+    }
+
+    &.right-side {
+        .container .name {
+            left: 16px;
+        }
+
+        .container .index {
+            right: 16px;
+        }
+    }
+
+    &.p1 {
+        .container .index {
+            color: $p1;
+        }
+
+        .container .avatar .inner {
+            background-image: url( textures/ui/p1/inner-diamond.png );
+        }
+    }
+
+    &.p2 {
+        .container .index {
+            color: $p2;
+        }
+
+        .container .avatar .inner {
+            background-image: url( textures/ui/p2/inner-diamond.png );
+        }
+    }
+
+    &.p3 {
+        .container .index {
+            color: $p3;
+        }
+
+        .container .avatar .inner {
+            background-image: url( textures/ui/p3/inner-diamond.png );
+        }
+    }
+
+    &.p4 {
+        .container .index {
+            color: $p4;
+        }
+
+        .container .avatar .inner {
+            background-image: url( textures/ui/p4/inner-diamond.png );
+        }
+    }
+}

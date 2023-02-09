@@ -1,0 +1,37 @@
+﻿@using System;
+@using Sandbox;
+@using Sandbox.UI;
+@using Sandbox.UI.Construct;
+@using Facepunch.BombRoyale;
+
+@namespace Facepunch.BombRoyale.UI
+@attribute [StyleSheet( "/ui/PlayerCards.scss" )]
+@inherits Panel
+
+<div class="left-side">
+    <PlayerCard Player=@GetPlayer( 1 )></PlayerCard>
+    <PlayerCard Player=@GetPlayer( 2 )></PlayerCard>
+</div>
+
+<div class="right-side">
+    <PlayerCard Player=@GetPlayer( 3 )></PlayerCard>
+    <PlayerCard Player=@GetPlayer( 4 )></PlayerCard>
+</div>
+
+@code
+{
+    protected override int BuildHash()
+    {
+        return HashCode.Combine( GetPlayer( 1 ), GetPlayer( 2 ), GetPlayer( 3 ), GetPlayer( 4 ) );
+    }
+
+    private BombRoyalePlayer GetPlayer( int index )
+    {
+        var player = (Entity.FindByIndex( index ) as IClient)?.Pawn as BombRoyalePlayer;
+
+        if (!player.IsValid() && index > 1)
+            return GetPlayer(1);
+
+        return player;
+    }
+}

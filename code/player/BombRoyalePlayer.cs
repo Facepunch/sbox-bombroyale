@@ -13,10 +13,10 @@ public partial class BombRoyalePlayer : AnimatedEntity
 
 	private static Color[] Colors = new Color[4]
 	{
-		Color.Red,
-		Color.Cyan,
-		Color.Green,
-		Color.Magenta
+		((Color)"#F6D953").WithAlpha( 1f ),
+		((Color)"#DB3D76").WithAlpha( 1f ),
+		((Color)"#3DBFDB").WithAlpha( 1f ),
+		((Color)"#FF881B").WithAlpha( 1f )
 	};
 
 	[Net] public Bomb HoldingBomb { get; set; }

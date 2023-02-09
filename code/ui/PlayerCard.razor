@@ -1,0 +1,51 @@
+﻿@using System;
+@using Sandbox;
+@using Sandbox.UI;
+@using Sandbox.UI.Construct;
+@using Facepunch.BombRoyale;
+
+@namespace Facepunch.BombRoyale.UI
+@attribute [StyleSheet( "/ui/PlayerCard.scss" )]
+@inherits Panel
+
+@if ( !Player.IsValid() ) return;
+
+<root class=@GetRootClass()>
+    <div class="container">
+        <label class="name">@Player.Client.Name</label>
+        <label class="index">P@(Player.Client.NetworkIdent)</label>
+
+        <div class="avatar">
+            <div class="inner">
+
+            </div>
+
+            <div class="head">
+
+            </div>
+        </div>
+    </div>
+</root>
+
+@code
+{
+    public BombRoyalePlayer Player { get; set; }
+    public bool IsRightSide { get; set; }
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine( Player );
+    }
+
+    private string GetRootClass()
+    {
+        var classNames = IsRightSide ? "right-side" : "";
+
+        if ( Player.IsValid() )
+        {
+            classNames += $" p{Player.Client.NetworkIdent}";
+        }
+
+        return classNames;
+    }
+}

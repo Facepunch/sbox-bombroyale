@@ -1,0 +1,21 @@
+﻿PlayerCards {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    .left-side {
+        position: absolute;
+        flex-direction: column;
+        row-gap: 100px;
+        bottom: 64px;
+        left: 64px;
+    }
+
+    .right-side {
+        position: absolute;
+        flex-direction: column;
+        row-gap: 100px;
+        bottom: 64px;
+        right: 64px;
+    }
+}

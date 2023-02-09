@@ -7,6 +7,7 @@ public partial class ExtraBomb : Pickup
 {
 	public override string PickupSound => "pickup.good";
 	public override string Icon => "textures/extrabomb.png";
+	public override Color Color => Color.Cyan;
 
 	protected override void OnPickup( BombRoyalePlayer player )
 	{

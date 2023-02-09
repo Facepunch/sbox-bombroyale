@@ -7,6 +7,7 @@ public partial class LoseBomb : Pickup
 {
 	public override string PickupSound => "pickup.bad";
 	public override string Icon => "textures/losebomb.png";
+	public override Color Color => Color.Red;
 
 	protected override void OnPickup( BombRoyalePlayer player )
 	{

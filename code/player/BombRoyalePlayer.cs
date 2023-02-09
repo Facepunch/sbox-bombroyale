@@ -50,12 +50,6 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		set => EyeLocalRotation = Transform.RotationToLocal( value );
 	}
 
-	[ConCmd.Server]
-	public static void ResetDamage()
-	{
-		(ConsoleSystem.Caller.Pawn as BombRoyalePlayer).LastTakeDamageTime = 0f;
-	}
-
 	[Net, Predicted]
 	public Rotation EyeLocalRotation { get; set; }
 

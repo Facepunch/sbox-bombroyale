@@ -60,257 +60,12 @@
 				]
 			},
 			{
-				_class = "BreakPieceList"
-				children = 
-				[
-					{
-						_class = "BreakPieceEmbedded"
-						children = 
-						[
-							{
-								_class = "RenderMeshFile"
-								name = "block_gibs_1"
-								filename = "models/block_gibs.fbx"
-								import_translation = [ 0.0, -3.137, 14.127 ]
-								import_rotation = [ 0.0, 0.0, 0.0 ]
-								import_scale = 1.0
-								align_origin_x_type = "None"
-								align_origin_y_type = "None"
-								align_origin_z_type = "None"
-								parent_bone = ""
-								import_filter = 
-								{
-									exclude_by_default = true
-									exception_list = 
-									[
-										"gib1",
-									]
-								}
-							},
-						]
-						placement_mode = "default"
-						placement_bone = ""
-						placement_attach = ""
-						is_ragdoll = false
-						offset = [ 0.0, 0.0, 0.0 ]
-						fadetime = 0.01
-						fade_min_dist = 0.0
-						fade_max_dist = 0.0
-						name_mode = "none"
-						random_spawn_chance = 1.0
-						is_essential_piece = false
-						collision_tags = "debris"
-						manual_mode = false
-						surface_prop_override = ""
-					},
-					{
-						_class = "BreakPieceEmbedded"
-						children = 
-						[
-							{
-								_class = "RenderMeshFile"
-								name = "block_gibs_2"
-								filename = "models/block_gibs.fbx"
-								import_translation = [ 3.636, 0.0, 21.187 ]
-								import_rotation = [ 0.0, 0.0, 0.0 ]
-								import_scale = 1.0
-								align_origin_x_type = "None"
-								align_origin_y_type = "None"
-								align_origin_z_type = "None"
-								parent_bone = ""
-								import_filter = 
-								{
-									exclude_by_default = true
-									exception_list = 
-									[
-										"gib2",
-									]
-								}
-							},
-						]
-						placement_mode = "default"
-						placement_bone = ""
-						placement_attach = ""
-						is_ragdoll = false
-						offset = [ 0.0, 0.0, 0.0 ]
-						fadetime = 0.01
-						fade_min_dist = 0.0
-						fade_max_dist = 0.0
-						name_mode = "none"
-						random_spawn_chance = 1.0
-						is_essential_piece = false
-						collision_tags = "debris"
-						manual_mode = false
-						surface_prop_override = ""
-					},
-					{
-						_class = "BreakPieceEmbedded"
-						children = 
-						[
-							{
-								_class = "RenderMeshFile"
-								name = "block_gibs_3"
-								filename = "models/block_gibs.fbx"
-								import_translation = [ -2.582, 0.0, 20.238001 ]
-								import_rotation = [ 0.0, 0.0, 0.0 ]
-								import_scale = 1.0
-								align_origin_x_type = "None"
-								align_origin_y_type = "None"
-								align_origin_z_type = "None"
-								parent_bone = ""
-								import_filter = 
-								{
-									exclude_by_default = true
-									exception_list = 
-									[
-										"gib3",
-									]
-								}
-							},
-						]
-						placement_mode = "default"
-						placement_bone = ""
-						placement_attach = ""
-						is_ragdoll = false
-						offset = [ 0.0, 0.0, 0.0 ]
-						fadetime = 0.01
-						fade_min_dist = 0.0
-						fade_max_dist = 0.0
-						name_mode = "none"
-						random_spawn_chance = 1.0
-						is_essential_piece = false
-						collision_tags = "debris"
-						manual_mode = false
-						surface_prop_override = ""
-					},
-					{
-						_class = "BreakPieceEmbedded"
-						children = 
-						[
-							{
-								_class = "RenderMeshFile"
-								name = "block_gibs_4"
-								filename = "models/block_gibs.fbx"
-								import_translation = [ 0.613, 6.007, 17.733999 ]
-								import_rotation = [ 0.0, 0.0, 0.0 ]
-								import_scale = 1.0
-								align_origin_x_type = "None"
-								align_origin_y_type = "None"
-								align_origin_z_type = "None"
-								parent_bone = ""
-								import_filter = 
-								{
-									exclude_by_default = true
-									exception_list = 
-									[
-										"gib4",
-									]
-								}
-							},
-						]
-						placement_mode = "default"
-						placement_bone = ""
-						placement_attach = ""
-						is_ragdoll = false
-						offset = [ 0.0, 0.0, 0.0 ]
-						fadetime = 0.01
-						fade_min_dist = 0.0
-						fade_max_dist = 0.0
-						name_mode = "none"
-						random_spawn_chance = 1.0
-						is_essential_piece = false
-						collision_tags = "debris"
-						manual_mode = false
-						surface_prop_override = ""
-					},
-					{
-						_class = "BreakPieceEmbedded"
-						children = 
-						[
-							{
-								_class = "RenderMeshFile"
-								name = "block_gibs_5"
-								filename = "models/block_gibs.fbx"
-								import_translation = [ 0.0, 7.342, 9.429 ]
-								import_rotation = [ 0.0, 0.0, 0.0 ]
-								import_scale = 1.0
-								align_origin_x_type = "None"
-								align_origin_y_type = "None"
-								align_origin_z_type = "None"
-								parent_bone = ""
-								import_filter = 
-								{
-									exclude_by_default = true
-									exception_list = 
-									[
-										"gib5",
-									]
-								}
-							},
-						]
-						placement_mode = "default"
-						placement_bone = ""
-						placement_attach = ""
-						is_ragdoll = false
-						offset = [ 0.0, 0.0, 0.0 ]
-						fadetime = 0.01
-						fade_min_dist = 0.0
-						fade_max_dist = 0.0
-						name_mode = "none"
-						random_spawn_chance = 1.0
-						is_essential_piece = false
-						collision_tags = "debris"
-						manual_mode = false
-						surface_prop_override = ""
-					},
-					{
-						_class = "BreakPieceEmbedded"
-						children = 
-						[
-							{
-								_class = "RenderMeshFile"
-								name = "block_gibs_6"
-								filename = "models/block_gibs.fbx"
-								import_translation = [ 0.0, 8.214, 21.944 ]
-								import_rotation = [ 0.0, 0.0, 0.0 ]
-								import_scale = 1.0
-								align_origin_x_type = "None"
-								align_origin_y_type = "None"
-								align_origin_z_type = "None"
-								parent_bone = ""
-								import_filter = 
-								{
-									exclude_by_default = true
-									exception_list = 
-									[
-										"gib6",
-									]
-								}
-							},
-						]
-						placement_mode = "default"
-						placement_bone = ""
-						placement_attach = ""
-						is_ragdoll = false
-						offset = [ 0.0, 0.0, 0.0 ]
-						fadetime = 0.01
-						fade_min_dist = 0.0
-						fade_max_dist = 0.0
-						name_mode = "none"
-						random_spawn_chance = 1.0
-						is_essential_piece = false
-						collision_tags = "debris"
-						manual_mode = false
-						surface_prop_override = ""
-					},
-				]
-			},
-			{
 				_class = "GameDataList"
 				children = 
 				[
 					{
 						_class = "BreakCommand"
+						disabled = true
 						game_class = "break_apply_force"
 						game_keys = 
 						{
@@ -345,6 +100,22 @@
 							impact_damage = 10.0
 							parent_bodygroup_name = ""
 							parent_bodygroup_value = 0
+						}
+					},
+					{
+						_class = "BreakCommand"
+						game_class = "break_create_particle"
+						game_keys = 
+						{
+							name = resource:"particles/block_explosion/block_brick_explode.vpcf"
+							cp0_model = resource:""
+							cp0_snapshot = resource:""
+							damage_position_cp = -1
+							damage_direction_cp = -1
+							velocity_cp = -1
+							angular_velocity_cp = -1
+							local_gravity_cp = -1
+							tint_cp = -1
 						}
 					},
 				]

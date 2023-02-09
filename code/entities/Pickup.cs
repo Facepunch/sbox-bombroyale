@@ -56,8 +56,8 @@ public abstract class Pickup : ModelEntity
 
 	public override void Spawn()
 	{
-		Transmit = TransmitType.Always;
 		EnableTouch = true;
+		Transmit = TransmitType.Always;
 
 		SetupPhysicsFromSphere( PhysicsMotionType.Keyframed, Vector3.Zero, 8f );
 

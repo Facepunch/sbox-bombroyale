@@ -150,7 +150,7 @@ public partial class Bomb : ModelEntity
 		var cellSize = 32f;
 		var totalRange = (Range * cellSize);
 		var trace = Trace.Ray( startPosition, startPosition + direction * totalRange )
-			.WithAnyTags( "solid", "player" )
+			.WithAnyTags( "solid", "player", "pickup" )
 			.Ignore( this )
 			.Run();
 
@@ -175,6 +175,10 @@ public partial class Bomb : ModelEntity
 				.WithTag( "bomb" );
 
 			player.TakeDamage( damage );
+		}
+		else if ( trace.Entity is Pickup pickup )
+		{
+			pickup.Delete();
 		}
 	}
 }

@@ -12,6 +12,18 @@ PlayerCard {
         width: 350px;
         height: 48px;
 
+        &.dead {
+            > .avatar {
+                > .inner {
+                    filter: saturate( 0.5 );
+                }
+
+                > .head {
+                    filter: saturate( 0.1 );
+                }
+            }
+        }
+
         > .avatar {
             position: absolute;
             background-image: url( textures/ui/diamond-outer.png );

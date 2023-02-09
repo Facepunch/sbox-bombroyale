@@ -8,7 +8,7 @@
 @attribute [StyleSheet( "/ui/PlayerCard.scss" )]
 @inherits Panel
 
-<div class="container p@(PlayerIndex)">
+<div class="container p@(PlayerIndex) @((Player.IsValid() && Player.LifeState == LifeState.Dead) ? "dead" : "")">
     <label class="name">@(Player.IsValid() ? Player.Client.Name : "Empty")</label>
     <label class="index">P@(PlayerIndex)</label>
 

@@ -13,10 +13,10 @@ public partial class BombRoyalePlayer : AnimatedEntity
 
 	private static Color[] Colors = new Color[4]
 	{
-		((Color)"#F6D953").WithAlpha( 1f ),
-		((Color)"#DB3D76").WithAlpha( 1f ),
-		((Color)"#3DBFDB").WithAlpha( 1f ),
-		((Color)"#FF881B").WithAlpha( 1f )
+		(Color)"#F6D953",
+		(Color)"#DB3D76",
+		(Color)"#3DBFDB",
+		(Color)"#FF881B"
 	};
 
 	[Net] public Bomb HoldingBomb { get; set; }
@@ -87,7 +87,7 @@ public partial class BombRoyalePlayer : AnimatedEntity
 	public virtual void Respawn()
 	{
 		var fx = Particles.Create( "particles/gameplay/player/respawn/respawn_effect.vpcf", this );
-		fx.Set( "color", GetTeamColor() * 255f );
+		fx.Set( "Color", GetTeamColor() * 255f );
 
 		EnableAllCollisions = true;
 		EnableDrawing = true;

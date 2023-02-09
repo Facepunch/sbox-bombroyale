@@ -181,7 +181,7 @@ public partial class Bomb : ModelEntity, IResettable
 
 		var fx = Particles.Create( "particles/gameplay/bombline/bomb_explosion.vpcf" );
 		fx.SetPosition( 1, trace.StartPosition );
-		fx.SetPosition( 2, trace.EndPosition );
+		fx.SetPosition( 2, trace.EndPosition + trace.Direction * (cellSize * 0.5f) );
 		fx.Set( "radius", 1f );
 
 		if ( trace.Entity is BombableEntity e )

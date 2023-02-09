@@ -8,45 +8,39 @@
 @attribute [StyleSheet( "/ui/PlayerCard.scss" )]
 @inherits Panel
 
-@if ( !Player.IsValid() ) return;
-
-<div class="container @GetRootClass()">
-    <label class="name">@Player.Client.Name</label>
-    <label class="index">P@(Player.Client.NetworkIdent)</label>
+<div class="container p@(PlayerIndex)">
+    <label class="name">@(Player.IsValid() ? Player.Client.Name : "Empty")</label>
+    <label class="index">P@(PlayerIndex)</label>
 
     <div class="avatar">
         <div class="inner"></div>
         <div class="head"></div>
 
-        @if ( Player.LifeState == LifeState.Dead )
+        @if ( Player.IsValid() && Player.LifeState == LifeState.Dead )
         {
             <div class="dead"></div>
         }
     </div>
 
     <div class="lives">
-        @for ( var i = 0; i < Player.LivesLeft; i++ )
+        @if ( Player.IsValid() )
         {
-            @:<div class="life"><div>
+            for ( var i = 0; i < Player.LivesLeft; i++ )
+            {
+                @:<div class="life"><div>
+            }
         }
     </div>
 </div>
 
 @code
 {
-    public BombRoyalePlayer Player { get; set; }
+    public BombRoyalePlayer Player => (Entity.FindByIndex( PlayerIndex ) as IClient)?.Pawn as BombRoyalePlayer;
+    public int PlayerIndex { get; set; }
 
     protected override int BuildHash()
     {
         if ( !Player.IsValid() ) return 0;
         return HashCode.Combine( Player, Player.LifeState );
-    }
-
-    private string GetRootClass()
-    {
-        if ( Player.IsValid() )
-            return $"p{Player.Client.NetworkIdent}";
-        else
-            return string.Empty;
     }
 }

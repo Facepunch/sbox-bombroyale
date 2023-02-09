@@ -3,7 +3,7 @@
     height: 100%;
     width: 100%;
 
-    .left-side {
+    > .left-side {
         position: absolute;
         flex-direction: column;
         row-gap: 100px;
@@ -11,7 +11,7 @@
         left: 64px;
     }
 
-    .right-side {
+    > .right-side {
         position: absolute;
         flex-direction: column;
         row-gap: 100px;

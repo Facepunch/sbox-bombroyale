@@ -9,29 +9,11 @@
 @inherits Panel
 
 <div class="left-side">
-    <PlayerCard class="left-side" Player=@GetPlayer( 1 )></PlayerCard>
-    <PlayerCard class="left-side" Player=@GetPlayer( 2 )></PlayerCard>
+    <PlayerCard class="left-side" PlayerIndex=@(1)></PlayerCard>
+    <PlayerCard class="left-side" PlayerIndex=@(2)></PlayerCard>
 </div>
 
 <div class="right-side">
-    <PlayerCard class="right-side" Player=@GetPlayer( 3 )></PlayerCard>
-    <PlayerCard class="right-side" Player=@GetPlayer( 4 )></PlayerCard>
+    <PlayerCard class="right-side" PlayerIndex=@(3)></PlayerCard>
+    <PlayerCard class="right-side" PlayerIndex=@(4)></PlayerCard>
 </div>
-
-@code
-{
-    protected override int BuildHash()
-    {
-        return HashCode.Combine( GetPlayer( 1 ), GetPlayer( 2 ), GetPlayer( 3 ), GetPlayer( 4 ) );
-    }
-
-    private BombRoyalePlayer GetPlayer( int index )
-    {
-        var player = (Entity.FindByIndex( index ) as IClient)?.Pawn as BombRoyalePlayer;
-
-        if (!player.IsValid() && index > 1)
-            return GetPlayer(1);
-
-        return player;
-    }
-}

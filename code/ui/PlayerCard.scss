@@ -66,9 +66,14 @@ PlayerCard {
             position: absolute;
 
             .life {
+                transition: all 0.5s bounce-out;
                 background-size: cover;
                 width: 40px;
                 height: 40px;
+
+                &:intro {
+                    transform: scale( 0.5 0.5 );
+                }
             }
         }
 

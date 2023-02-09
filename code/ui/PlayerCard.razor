@@ -41,6 +41,6 @@
     protected override int BuildHash()
     {
         if ( !Player.IsValid() ) return 0;
-        return HashCode.Combine( Player, Player.LifeState );
+        return HashCode.Combine( Player, Player.LifeState, Player.LivesLeft );
     }
 }

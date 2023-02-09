@@ -19,6 +19,7 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		(Color)"#FF881B"
 	};
 
+	[Net] public TimeSince LastTakeDamageTime { get; private set; }
 	[Net] public Bomb HoldingBomb { get; set; }
 	[Net] public bool HasSuperBomb { get; set; }
 	[Net] public int SpeedBoosts { get; set; }
@@ -34,8 +35,6 @@ public partial class BombRoyalePlayer : AnimatedEntity
 	public MoveController Controller { get; private set; }
 	public DamageInfo LastDamageTaken { get; private set; }
 
-	private TimeSince LastTakeDamageTime { get; set; }
-
 	public Vector3 EyePosition
 	{
 		get => Transform.PointToWorld( EyeLocalPosition );
@@ -49,6 +48,12 @@ public partial class BombRoyalePlayer : AnimatedEntity
 	{
 		get => Transform.RotationToWorld( EyeLocalRotation );
 		set => EyeLocalRotation = Transform.RotationToLocal( value );
+	}
+
+	[ConCmd.Server]
+	public static void ResetDamage()
+	{
+		(ConsoleSystem.Caller.Pawn as BombRoyalePlayer).LastTakeDamageTime = 0f;
 	}
 
 	[Net, Predicted]

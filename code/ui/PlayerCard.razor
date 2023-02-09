@@ -10,42 +10,43 @@
 
 @if ( !Player.IsValid() ) return;
 
-<root class=@GetRootClass()>
-    <div class="container">
-        <label class="name">@Player.Client.Name</label>
-        <label class="index">P@(Player.Client.NetworkIdent)</label>
+<div class="container @GetRootClass()">
+    <label class="name">@Player.Client.Name</label>
+    <label class="index">P@(Player.Client.NetworkIdent)</label>
 
-        <div class="avatar">
-            <div class="inner">
+    <div class="avatar">
+        <div class="inner"></div>
+        <div class="head"></div>
 
-            </div>
-
-            <div class="head">
-
-            </div>
-        </div>
+        @if ( Player.LifeState == LifeState.Dead )
+        {
+            <div class="dead"></div>
+        }
     </div>
-</root>
+
+    <div class="lives">
+        @for ( var i = 0; i < Player.LivesLeft; i++ )
+        {
+            @:<div class="life"><div>
+        }
+    </div>
+</div>
 
 @code
 {
     public BombRoyalePlayer Player { get; set; }
-    public bool IsRightSide { get; set; }
 
     protected override int BuildHash()
     {
-        return HashCode.Combine( Player );
+        if ( !Player.IsValid() ) return 0;
+        return HashCode.Combine( Player, Player.LifeState );
     }
 
     private string GetRootClass()
     {
-        var classNames = IsRightSide ? "right-side" : "";
-
         if ( Player.IsValid() )
-        {
-            classNames += $" p{Player.Client.NetworkIdent}";
-        }
-
-        return classNames;
+            return $"p{Player.Client.NetworkIdent}";
+        else
+            return string.Empty;
     }
 }

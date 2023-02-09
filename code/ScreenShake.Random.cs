@@ -7,7 +7,7 @@ public partial class ScreenShake
 {
 	public class Random : ScreenShake
 	{
-		public float Delta => Easing.EaseOut( ((float)LifeTime).LerpInverse( 0, Length, true ) );
+		public float Progress => Easing.EaseOut( ((float)LifeTime).LerpInverse( 0, Length, true ) );
 
 		private float Length { get; set; } = 5f;
 		private float Size { get; set; } = 1f;
@@ -21,12 +21,11 @@ public partial class ScreenShake
 
 		public override bool Update()
 		{
-			var delta = Delta;
 			var random = Vector3.Random;
 			random.z = 0;
 			random = random.Normal;
 
-			Camera.Position += (Camera.Rotation.Right * random.x + Camera.Rotation.Up * random.y) * (1f - delta) * Size;
+			Camera.Position += (Camera.Rotation.Right * random.x + Camera.Rotation.Up * random.y) * (1f - Progress) * Size;
 
 			return LifeTime < Length;
 		}

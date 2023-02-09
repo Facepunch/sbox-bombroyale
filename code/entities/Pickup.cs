@@ -48,7 +48,7 @@ public abstract class Pickup : ModelEntity
 		Light = new();
 		Light.SetParent( this );
 		Light.Position = Position;
-		Light.Brightness = 0.25f;
+		Light.Brightness = 0.1f;
 		Light.Range = 40f;
 		Light.Color = Color;
 

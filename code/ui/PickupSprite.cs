@@ -29,8 +29,8 @@ public class PickupSprite : WorldPanel
 			var direction = (Camera.Position - Pickup.Position).Normal;
 			var targetRotation = Rotation.LookAt( direction );
 
-			transform.Position = Pickup.Position + Vector3.Up * (16f + (MathF.Sin( Time.Now * 4f ) * 4f));
-			transform.Rotation = targetRotation;
+			transform.Position = Pickup.Position + Vector3.Up * (4f + (MathF.Sin( Time.Now * 4f ) * 4f));
+			transform.Rotation = Rotation.LookAt( Vector3.Up ).RotateAroundAxis( Vector3.Forward, 180f );
 
 			Transform = transform;
 		}

@@ -167,7 +167,7 @@ public partial class Bomb : ModelEntity, IResettable
 		if ( Game.Random.Float() < 0.5f )
 		{
 			var availableBlock = All.OfType<BombableEntity>()
-				.Where( e => e.IsHidden )
+				.Where( e => !e.IsSpaceOccupied() )
 				.Shuffle()
 				.FirstOrDefault();
 

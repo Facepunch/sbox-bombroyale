@@ -165,6 +165,7 @@ public partial class Bomb : ModelEntity
 		if ( trace.Entity is BombableEntity e )
 		{
 			Breakables.Break( e );
+			e.TrySpawnPickup();
 			e.Hide();
 		}
 		else if ( trace.Entity is BombRoyalePlayer player )

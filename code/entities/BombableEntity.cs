@@ -9,9 +9,14 @@ namespace Facepunch.BombRoyale;
 [Description( "A player blocker that can be destroyed by a bomb." )]
 [SupportsSolid]
 [Model]
-public partial class BombableEntity : ModelEntity
+public partial class BombableEntity : ModelEntity, IResettable
 {
 	[Net] public bool IsHidden { get; private set; }
+
+	public void Reset()
+	{
+		Show();
+	}
 
 	public override void Spawn()
 	{

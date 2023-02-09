@@ -14,7 +14,7 @@ public class PickupChanceAttribute : Attribute
 	}
 }
 
-public abstract class Pickup : ModelEntity
+public abstract class Pickup : ModelEntity, IResettable
 {
 	public static Pickup CreateRandom()
 	{
@@ -54,6 +54,11 @@ public abstract class Pickup : ModelEntity
 	private PointLightEntity Light { get; set; }
 	private PickupSprite Sprite { get; set; }
 	private Particles Effect { get; set; }
+
+	public void Reset()
+	{
+		Delete();
+	}
 
 	public override void Spawn()
 	{

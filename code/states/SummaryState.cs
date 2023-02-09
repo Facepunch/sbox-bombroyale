@@ -1,17 +1,19 @@
 ﻿using Sandbox;
-using System.Linq;
 
 namespace Facepunch.BombRoyale;
 
 public partial class SummaryState : BaseState
 {
-	[Net] public RealTimeUntil StateEndTime { get; private set; }
+	public override string Name => "END";
+	public override int TimeLeft => RoundEndTime.Relative.CeilToInt();
+
+	[Net] private TimeUntil RoundEndTime { get; set; }
 
 	public override void OnEnter()
 	{
 		if ( Game.IsServer )
 		{
-			StateEndTime = 10f;
+			RoundEndTime = 10f;
 		}
 	}
 
@@ -21,11 +23,11 @@ public partial class SummaryState : BaseState
 	}
 
 	[Event.Tick.Server]
-	protected virtual void ServerTick()
+	private void ServerTick()
 	{
-		if ( StateEndTime )
+		if ( RoundEndTime )
 		{
-			System.Set( new GameState() );
+			System.Set( new LobbyState() );
 		}
 	}
 }

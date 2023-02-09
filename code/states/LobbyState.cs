@@ -5,8 +5,10 @@ namespace Facepunch.BombRoyale;
 
 public partial class LobbyState : BaseState
 {
-	[Net] public RealTimeUntil StateEndTime { get; set; }
-	public float StateDuration => 10f;
+	public override string Name => "WAIT";
+	public override int TimeLeft => RoundEndTime.Relative.CeilToInt();
+
+	[Net] private TimeUntil RoundEndTime { get; set; }
 
 	public override void OnEnter()
 	{
@@ -17,7 +19,7 @@ public partial class LobbyState : BaseState
 				pawn.Delete();
 			}
 
-			StateEndTime = StateDuration;
+			RoundEndTime = 10f;
 		}
 	}
 
@@ -32,9 +34,9 @@ public partial class LobbyState : BaseState
 	}
 
 	[Event.Tick.Server]
-	protected virtual void ServerTick()
+	private  void ServerTick()
 	{
-		if ( StateEndTime )
+		if ( RoundEndTime )
 		{
 			System.Set( new GameState() );
 		}

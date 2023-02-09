@@ -26,7 +26,7 @@ public partial class BombableEntity : ModelEntity
 
 	public void TrySpawnPickup()
 	{
-		if ( Game.Random.Float() < 0.25f )
+		if ( Game.Random.Float() < 0.35f )
 		{
 			var p = Pickup.CreateRandom();
 			p.Position = WorldSpaceBounds.Center;

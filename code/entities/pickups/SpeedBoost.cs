@@ -3,7 +3,7 @@ using System;
 
 namespace Facepunch.BombRoyale;
 
-[PickupChance( 0.25f )]
+[PickupChance( 0.2f )]
 public partial class SpeedBoost : Pickup
 {
 	public override string PickupSound => "pickup.good";

@@ -75,7 +75,7 @@ public partial class MoveController
 
 		if ( IsInsideBomb( start ) )
 		{
-			query = query.WithoutTags( "bomb" );
+			query = query.WithoutTags( $"bomb{Player.Client.NetworkIdent}" );
 		}
 
 		var tr = query.Run();
@@ -265,7 +265,7 @@ public partial class MoveController
 
 		if ( IsInsideBomb( Player.Position ) )
 		{
-			mover.Trace = mover.Trace.WithoutTags( "bomb" );
+			mover.Trace = mover.Trace.WithoutTags( $"bomb{Player.Client.NetworkIdent}" );
 		}
 
 		mover.MaxStandableAngle = GroundAngle;

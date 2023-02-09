@@ -49,6 +49,8 @@ public partial class Bomb : ModelEntity
 			Range = player.BombRange;
 		}
 
+		Tags.Add( $"bomb{player.Client.NetworkIdent}" );
+
 		SetParent( null );
 
 		Position = new Vector3( gridX + cellSize * 0.5f, gridY + cellSize * 0.5f, player.Position.z + CollisionBounds.Size.z * 0.5f );
@@ -69,6 +71,9 @@ public partial class Bomb : ModelEntity
 	public void Pickup( BombRoyalePlayer player )
 	{
 		player.HoldingBomb = this;
+
+		Tags.Clear();
+		Tags.Add( "solid", "bomb" );
 
 		SetParent( player );
 		Position = player.Position + Vector3.Up * 80f + player.Rotation.Forward * 4f;
@@ -140,7 +145,7 @@ public partial class Bomb : ModelEntity
 
 		Sound.FromWorld( To.Everyone, "bomb.explode", Position );
 
-		if ( Game.Random.Float() < 0.4f )
+		if ( Game.Random.Float() < 0.5f )
 		{
 			var availableBlock = All.OfType<BombableEntity>()
 				.Where( e => e.IsHidden )

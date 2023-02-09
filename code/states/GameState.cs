@@ -27,7 +27,7 @@ public partial class GameState : BaseState
 				pawn.Respawn();
 			}
 
-			RoundEndTime = 120f;
+			RoundEndTime = 180f;
 		}
 		else
 		{

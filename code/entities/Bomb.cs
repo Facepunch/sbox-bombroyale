@@ -10,6 +10,7 @@ public partial class Bomb : ModelEntity
 	[Net] public BombRoyalePlayer Player { get; private set; }
 	[Net, Change( nameof( OnIsPlacedChanged ))] public bool IsPlaced { get; private set; }
 	[Net] private TimeSince TimeSincePlaced { get; set; }
+	[Net] public int Range { get; private set; }
 
 	private TimeUntil NextBlinkTime { get; set; }
 	private TimeUntil BlinkEndTime { get; set; }
@@ -36,6 +37,16 @@ public partial class Bomb : ModelEntity
 		var cellSize = 32f;
 		var gridX = cellSize * (player.Position.x / cellSize).Floor();
 		var gridY = cellSize * (player.Position.y / cellSize).Floor();
+
+		if ( player.HasSuperBomb )
+		{
+			player.HasSuperBomb = false;
+			Range = 10;
+		}
+		else
+		{
+			Range = player.BombRange;
+		}
 
 		SetParent( null );
 
@@ -137,13 +148,16 @@ public partial class Bomb : ModelEntity
 	{
 		var startPosition = WorldSpaceBounds.Center;
 		var cellSize = 32f;
-		var totalRange = (Player.BombRange * cellSize);
+		var totalRange = (Range * cellSize);
 		var trace = Trace.Ray( startPosition, startPosition + direction * totalRange )
 			.WithAnyTags( "solid", "player" )
 			.Ignore( this )
 			.Run();
 
-		var fx = Particles.Create( "particles/bomb_path.vpcf" );
+		//var fx = Particles.Create( "particles/gameplay/bomb/bomb_explosion.vpcf" );
+		//fx.SetPosition( 0, trace.StartPosition );
+
+		fx = Particles.Create( "particles/bomb_path.vpcf" );
 		fx.SetPosition( 1, trace.StartPosition );
 		fx.SetPosition( 2, trace.EndPosition );
 		fx.Set( "radius", 1f );

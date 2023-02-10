@@ -6,16 +6,24 @@
     > .left-side {
         position: absolute;
         flex-direction: column;
-        row-gap: 150px;
+        margin-bottom: 64px;
         bottom: 64px;
         left: 64px;
+
+        PlayerCard {
+            margin-top: 150px;
+        }
     }
 
     > .right-side {
         position: absolute;
         flex-direction: column;
-        row-gap: 150px;
+        margin-bottom: 64px;
         bottom: 64px;
         right: 64px;
+
+        PlayerCard {
+            margin-top: 150px;
+        }
     }
 }

@@ -62,6 +62,12 @@ public partial class LobbyState : BaseState
 		if ( RoundEndTime )
 		{
 			System.Set( new GameState() );
+			return;
+		}
+		
+		if ( RoundEndTime > 5f && Game.Clients.Count == Game.Server.MaxPlayers )
+		{
+			RoundEndTime = 5f;
 		}
 	}
 }

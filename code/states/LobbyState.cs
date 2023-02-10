@@ -13,10 +13,19 @@ public partial class LobbyState : BaseState
 	private bool PlayedCountdown { get; set; }
 	private Sound Countdown { get; set; }
 
+	public bool RandomizeArena { get; set; }
+
 	public override void OnEnter()
 	{
 		if ( Game.IsServer )
 		{
+			if ( RandomizeArena )
+			{
+				BombRoyaleGame.RandomizeArena();
+			}
+
+			IResettable.ResetAll();
+
 			foreach ( var pawn in Entity.All.OfType<BombRoyalePlayer>() )
 			{
 				pawn.Delete();

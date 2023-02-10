@@ -114,6 +114,11 @@ public partial class Bomb : ModelEntity, IResettable
 		{
 			tx.Scale = 1f + (MathF.Sin( Time.Now * 10f ) * 0.15f);
 
+			if ( Player.IsValid() )
+			{
+				SceneObject.Attributes.Set( "BombColor", Player.GetTeamColor() );
+			}
+
 			if ( NextBlinkTime )
 			{
 				SceneObject.Attributes.Set( "Whiteness", 1f );

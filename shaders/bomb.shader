@@ -16,6 +16,7 @@ COMMON
 	#include "common/shared.hlsl"
 
 	float g_ExplodeTime < UiType( Slider ); Default( 0.0 ); Range( 0.0, 1.0 ); UiGroup( "Settings,10/20" ); >;
+	float3 g_vBombColor < UiType( Color ); Default3( 1.0, 1.0, 1.0 ); UiGroup( "Settings,10/20" ); >;
 }
 
 struct VertexInput
@@ -49,8 +50,8 @@ PS
 
 		if ( g_ExplodeTime > 0.0 )
 		{
-			m.Albedo = lerp( m.Albedo, float3( 1.0, 1.0, 1.0 ), g_ExplodeTime );
-			m.Emission = lerp( m.Emission, float3( 1.0, 1.0, 1.0 ), g_ExplodeTime );
+			m.Albedo = lerp( m.Albedo, g_vBombColor, g_ExplodeTime );
+			m.Emission = lerp( m.Emission, g_vBombColor, g_ExplodeTime );
 			m.Metalness = lerp( m.Metalness, float3( 0.0, 0.0, 0.0 ), g_ExplodeTime );
 			m.Roughness = lerp( m.Roughness, float3( 0.0, 0.0, 0.0 ), g_ExplodeTime );
 			m.AmbientOcclusion = lerp( m.AmbientOcclusion, float3( 0.0, 0.0, 0.0 ), g_ExplodeTime );

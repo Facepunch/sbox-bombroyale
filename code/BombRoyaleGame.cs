@@ -24,7 +24,7 @@ public partial class BombRoyaleGame : GameManager
 
 	}
 
-	public static void ChooseRandomArena()
+	public static void RandomizeArena()
 	{
 		if ( !Current.IsValid() ) return;
 
@@ -98,7 +98,7 @@ public partial class BombRoyaleGame : GameManager
 
 	public override void PostLevelLoaded()
 	{
-		ChooseRandomArena();
+		RandomizeArena();
 
 		base.PostLevelLoaded();
 	}

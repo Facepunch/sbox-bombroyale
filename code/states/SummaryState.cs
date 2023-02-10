@@ -27,7 +27,12 @@ public partial class SummaryState : BaseState
 	{
 		if ( RoundEndTime )
 		{
-			System.Set( new LobbyState() );
+			var lobby = new LobbyState
+			{
+				RandomizeArena = true
+			};
+
+			System.Set( lobby );
 		}
 	}
 }

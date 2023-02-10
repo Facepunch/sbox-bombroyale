@@ -24,6 +24,7 @@
 					{
 						_class = "MaterialGroup"
 						name = "metal"
+						disabled = true
 						remaps = 
 						[
 							{

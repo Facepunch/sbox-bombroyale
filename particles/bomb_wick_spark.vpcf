@@ -4,7 +4,7 @@
 	m_nBehaviorVersion = 10
 	m_nInitialParticles = 8
 	m_flConstantRadius = 1.0
-	m_nMaxParticles = 64
+	m_nMaxParticles = 100
 	m_controlPointConfigurations = 
 	[
 		{
@@ -86,7 +86,7 @@
 		},
 		{
 			_class = "C_OP_MaintainEmitter"
-			m_flEmissionRate = 64.0
+			m_flEmissionRate = 100.0
 			m_flStartTime = -1.0
 		},
 	]
@@ -97,7 +97,7 @@
 			m_LocalCoordinateSystemSpeedMin = 
 			{
 				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ 0.0, 0.0, 8.0 ]
+				m_vLiteralValue = [ 0.0, 0.0, 12.0 ]
 				m_NamedValue = ""
 				m_LiteralColor = [ 0, 0, 0, 0 ]
 				m_nVectorAttribute = 6
@@ -302,7 +302,7 @@
 			m_LocalCoordinateSystemSpeedMax = 
 			{
 				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ 0.0, 0.0, 16.0 ]
+				m_vLiteralValue = [ 0.0, 0.0, 24.0 ]
 				m_NamedValue = ""
 				m_LiteralColor = [ 0, 0, 0, 0 ]
 				m_nVectorAttribute = 6
@@ -543,7 +543,7 @@
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
 				m_NamedValue = ""
-				m_flLiteralValue = 60.0
+				m_flLiteralValue = 70.0
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
@@ -590,7 +590,7 @@
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
 				m_NamedValue = ""
-				m_flLiteralValue = 40.0
+				m_flLiteralValue = 50.0
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6

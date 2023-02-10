@@ -50,6 +50,10 @@ public partial class Bomb : ModelEntity, IResettable
 			player.HasSuperBomb = false;
 			Range = 10;
 		}
+		else if ( player.Disease == DiseaseType.LowRange )
+		{
+			Range = 1;
+		}
 		else
 		{
 			Range = player.BombRange;
@@ -71,8 +75,6 @@ public partial class Bomb : ModelEntity, IResettable
 		glow.Color = Color.Transparent;
 
 		FuseSound = Sound.FromEntity( To.Everyone, "bomb.fuse", this );
-
-		PlaySound( "bomb.place" );
 	}
 
 	public void Pickup( BombRoyalePlayer player )

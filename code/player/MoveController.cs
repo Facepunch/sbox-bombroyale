@@ -207,6 +207,11 @@ public partial class MoveController
 
 	private float GetWishSpeed()
 	{
+		if ( Player.Disease == DiseaseType.MoveFast )
+			return WalkSpeed * 1.75f;
+		else if ( Player.Disease == DiseaseType.MoveSlow )
+			return WalkSpeed * 0.75f;
+
 		return Scale( WalkSpeed + (25f * Player.SpeedBoosts) );
 	}
 

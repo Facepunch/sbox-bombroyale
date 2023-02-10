@@ -177,6 +177,12 @@ PlayerCard {
                 .label {
                     color: $p1;
                 }
+
+                &.diseased {
+                    .label {
+                        color: palevioletred;
+                    }
+                }
             }
 
             .pickups .range {
@@ -187,6 +193,12 @@ PlayerCard {
                 .label {
                     color: $p1;
                 }
+
+                &.diseased {
+                    .label {
+                        color: palevioletred;
+                    }
+                }
             }
 
             .pickups .speed {
@@ -196,6 +208,12 @@ PlayerCard {
 
                 .label {
                     color: $p1;
+                }
+
+                &.diseased {
+                    .label {
+                        color: palevioletred;
+                    }
                 }
             }
         }
@@ -221,6 +239,12 @@ PlayerCard {
                 .label {
                     color: $p2;
                 }
+
+                &.diseased {
+                    .label {
+                        color: palevioletred;
+                    }
+                }
             }
 
             .pickups .range {
@@ -231,6 +255,12 @@ PlayerCard {
                 .label {
                     color: $p2;
                 }
+
+                &.diseased {
+                    .label {
+                        color: palevioletred;
+                    }
+                }
             }
 
             .pickups .speed {
@@ -240,6 +270,12 @@ PlayerCard {
 
                 .label {
                     color: $p2;
+                }
+
+                &.diseased {
+                    .label {
+                        color: palevioletred;
+                    }
                 }
             }
         }
@@ -265,6 +301,12 @@ PlayerCard {
                 .label {
                     color: $p3;
                 }
+
+                &.diseased {
+                    .label {
+                        color: palevioletred;
+                    }
+                }
             }
 
             .pickups .range {
@@ -275,6 +317,12 @@ PlayerCard {
                 .label {
                     color: $p3;
                 }
+
+                &.diseased {
+                    .label {
+                        color: palevioletred;
+                    }
+                }
             }
 
             .pickups .speed {
@@ -284,6 +332,12 @@ PlayerCard {
 
                 .label {
                     color: $p3;
+                }
+
+                &.diseased {
+                    .label {
+                        color: palevioletred;
+                    }
                 }
             }
         }
@@ -309,6 +363,12 @@ PlayerCard {
                 .label {
                     color: $p4;
                 }
+
+                &.diseased {
+                    .label {
+                        color: palevioletred;
+                    }
+                }
             }
 
             .pickups .range {
@@ -319,6 +379,12 @@ PlayerCard {
                 .label {
                     color: $p4;
                 }
+
+                &.diseased {
+                    .label {
+                        color: palevioletred;
+                    }
+                }
             }
 
             .pickups .speed {
@@ -328,6 +394,12 @@ PlayerCard {
 
                 .label {
                     color: $p4;
+                }
+
+                &.diseased {
+                    .label {
+                        color: palevioletred;
+                    }
                 }
             }
         }

@@ -20,6 +20,8 @@ public partial class BombRoyalePlayer : AnimatedEntity
 	};
 
 	[Net] public TimeSince LastTakeDamageTime { get; private set; }
+	[Net] public DiseaseType Disease { get; set; } = DiseaseType.None;
+	[Net] public TimeUntil RemoveDiseaseTime { get; set; }
 	[Net] public Bomb HoldingBomb { get; set; }
 	[Net] public bool HasSuperBomb { get; set; }
 	[Net] public int SpeedBoosts { get; set; }
@@ -34,6 +36,10 @@ public partial class BombRoyalePlayer : AnimatedEntity
 	public ClothingContainer Clothing { get; private set; } = new();
 	public MoveController Controller { get; private set; }
 	public DamageInfo LastDamageTaken { get; private set; }
+	public TimeUntil NextRandomTeleport { get; set; }
+	public TimeUntil NextRandomBomb { get; set; }
+
+	private DiseaseSprite DiseaseSprite { get; set; }
 
 	public Vector3 EyePosition
 	{
@@ -78,6 +84,17 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		return Colors[index];
 	}
 
+	public void GiveDisease( DiseaseType disease )
+	{
+		RemoveDiseaseTime = Game.Random.Float( 10f, 20f );
+		Disease = disease;
+
+		if ( disease == DiseaseType.RandomBomb )
+			NextRandomBomb = Game.Random.Float( 1f, 2f );
+		else if ( disease == DiseaseType.Teleport )
+			NextRandomTeleport = Game.Random.Float( 0.5f, 1f );
+	}
+
 	public int GetBombsLeft() => MaxBombs - GetPlacedBombCount();
 
 	public int GetPlacedBombCount()
@@ -85,10 +102,16 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		return All.OfType<Bomb>().Count( b => b.Player == this && b.IsPlaced );
 	}
 
-	public virtual void Respawn()
+	public void ShowRespawnEffect()
 	{
 		var fx = Particles.Create( "particles/gameplay/player/respawn/respawn_effect.vpcf", this );
 		fx.Set( "Color", GetTeamColor() * 255f );
+		PlaySound( "player.teleport" );
+	}
+
+	public virtual void Respawn()
+	{
+		ShowRespawnEffect();
 
 		EnableAllCollisions = true;
 		EnableDrawing = true;
@@ -96,6 +119,7 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		SpeedBoosts = 0;
 		LivesLeft = 1;
 		BombRange = 2;
+		Disease = DiseaseType.None;
 		MaxBombs = 1; 
 		Health = 100f;
 		Velocity = Vector3.Zero;
@@ -113,6 +137,7 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		SetModel( "models/citizen/citizen.vmdl" );
 
 		EnableLagCompensation = true;
+		EnableTouch = true;
 		Tags.Add( "player" );
 
 		base.Spawn();
@@ -171,6 +196,13 @@ public partial class BombRoyalePlayer : AnimatedEntity
 
 	public override void StartTouch( Entity other )
 	{
+		if ( other is BombRoyalePlayer target && Disease > DiseaseType.None )
+		{
+			if ( target.Disease == DiseaseType.None )
+			{
+				target.GiveDisease( Disease );
+			}
+		}
 
 		base.StartTouch( other );
 	}
@@ -242,7 +274,7 @@ public partial class BombRoyalePlayer : AnimatedEntity
 			{
 				if ( HoldingBomb.IsValid() )
 				{
-					// TODO: Throw bomb.
+					PlaySound( "bomb.place" );
 					HoldingBomb.Place( this );
 					HoldingBomb = null;
 				}
@@ -250,6 +282,7 @@ public partial class BombRoyalePlayer : AnimatedEntity
 				{
 					var bomb = new Bomb();
 					bomb.Place( this );
+					PlaySound( "bomb.place" );
 				}
 				else
 				{
@@ -276,9 +309,52 @@ public partial class BombRoyalePlayer : AnimatedEntity
 	[Event.Tick.Server]
 	protected virtual void ServerTick()
 	{
+		if ( Disease > DiseaseType.None && RemoveDiseaseTime )
+		{
+			Disease = DiseaseType.None;
+		}
+
 		if ( LifeState == LifeState.Dead )
 		{
 			return;
+		}
+
+		if ( Disease == DiseaseType.RandomBomb && NextRandomBomb )
+		{
+			NextRandomBomb = Game.Random.Float( 1f, 2f );
+
+			if ( !Controller.IsInsideBomb( Position ) )
+			{
+				if ( GetBombsLeft() > 0 )
+				{
+					PlaySound( "disease.poop" );
+					var bomb = new Bomb();
+					bomb.Place( this );
+				}
+			}
+		}
+		else if ( Disease == DiseaseType.Teleport && NextRandomTeleport )
+		{
+			NextRandomTeleport = Game.Random.Float( 4f, 8f );
+
+			var randomPlayer = All.OfType<BombRoyalePlayer>()
+				.Where( p => !p.Equals( this ) )
+				.Shuffle()
+				.FirstOrDefault();
+
+			if ( randomPlayer.IsValid() )
+			{
+				var a = randomPlayer.Position;
+				var b = Position;
+
+				randomPlayer.Position = b;
+				randomPlayer.ResetInterpolation();
+				randomPlayer.ShowRespawnEffect();
+
+				Position = a;
+				ResetInterpolation();
+				ShowRespawnEffect();
+			}
 		}
 
 		var tx = Transform;
@@ -294,6 +370,21 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		}
 
 		Transform = tx;
+	}
+
+	[Event.Tick.Client]
+	protected virtual void ClientTick()
+	{
+		if ( Disease == DiseaseType.None && DiseaseSprite.IsValid() )
+		{
+			DiseaseSprite.Delete();
+			return;
+		}
+
+		if ( Disease > DiseaseType.None && !DiseaseSprite.IsValid() )
+		{
+			DiseaseSprite = new( this );
+		}
 	}
 
 	protected override void OnDestroy()

@@ -13,5 +13,6 @@ public partial class ExtraLife : Pickup
 	protected override void OnPickup( BombRoyalePlayer player )
 	{
 		player.LivesLeft = Math.Min( player.LivesLeft + 1, 2 );
+		player.Disease = DiseaseType.None;
 	}
 }

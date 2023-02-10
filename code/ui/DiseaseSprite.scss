@@ -1,0 +1,18 @@
+﻿DiseaseSprite {
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s bounce-out;
+
+    &:intro, &:outro {
+        transform: scale( 0.5 0.5 );
+        opacity: 0;
+    }
+
+    .icon {
+        background-image: url( textures/ui/disease.png );
+        background-size: cover;
+        transform: translate( 0% 50% );
+        width: 320px;
+        height: 320px;
+    }
+}

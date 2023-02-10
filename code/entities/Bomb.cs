@@ -92,7 +92,7 @@ public partial class Bomb : ModelEntity, IResettable
 	[Event.Tick.Server]
 	private void ServerTick()
 	{
-		if ( !IsPlaced ) return;
+		if ( !IsPlaced || BombRoyaleGame.IsPaused ) return;
 
 		var fraction = (1f / LifeTime) * TimeSincePlaced;
 		var glow = Components.GetOrCreate<Glow>();

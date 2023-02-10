@@ -225,33 +225,41 @@ public partial class BombRoyalePlayer : AnimatedEntity
 
 	public override void Simulate( IClient client )
 	{
-		if ( LifeState == LifeState.Alive )
+		if ( LifeState == LifeState.Dead )
+			return;
+
+		if ( BombRoyaleGame.IsPaused )
 		{
-			if ( Game.IsServer && Input.Released( InputButton.PrimaryAttack ) )
+			Controller.WishVelocity = 0f;
+			Velocity = 0f;
+			SimulateAnimation();
+			return;
+		}
+
+		if ( Game.IsServer && Input.Released( InputButton.PrimaryAttack ) )
+		{
+			if ( !Controller.IsInsideBomb( Position ) )
 			{
-				if ( !Controller.IsInsideBomb( Position ) )
+				if ( HoldingBomb.IsValid() )
 				{
-					if ( HoldingBomb.IsValid() )
-					{
-						// TODO: Throw bomb.
-						HoldingBomb.Place( this );
-						HoldingBomb = null;
-					}
-					else if ( GetBombsLeft() > 0 )
-					{
-						var bomb = new Bomb();
-						bomb.Place( this );
-					}
-					else
-					{
-						Sound.FromScreen( To.Single( this ), "bomb.nobomb" );
-					}
+					// TODO: Throw bomb.
+					HoldingBomb.Place( this );
+					HoldingBomb = null;
+				}
+				else if ( GetBombsLeft() > 0 )
+				{
+					var bomb = new Bomb();
+					bomb.Place( this );
+				}
+				else
+				{
+					Sound.FromScreen( To.Single( this ), "bomb.nobomb" );
 				}
 			}
-
-			Controller?.Simulate();
-			SimulateAnimation();
 		}
+
+		Controller?.Simulate();
+		SimulateAnimation();
 	}
 
 	protected virtual float GetFootstepVolume()

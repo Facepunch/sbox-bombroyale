@@ -12,6 +12,7 @@ public partial class BombRoyaleGame : GameManager
 	public static BombRoyaleGame Entity => Current as BombRoyaleGame;
 	public static StateSystem StateSystem => Entity?.InernalStateSystem;
 	public static Arena Arena => Entity?.InternalArena;
+	public static bool IsPaused => StateSystem?.Active?.IsPaused ?? false;
 
 	[Net] private StateSystem InernalStateSystem { get; set; }
 	[Net] private Arena InternalArena { get; set; }
@@ -116,6 +117,12 @@ public partial class BombRoyaleGame : GameManager
 
 		PostProcessing.Pixelation = 0.02f * sum;
 		PostProcessing.Saturation = 1.1f;
+
+		if ( StateSystem.Active is SummaryState )
+		{
+			PostProcessing.Saturation = 0.25f;
+		}
+
 		PostProcessing.Contrast = 1f;
 
 		var me = BombRoyalePlayer.Me;
@@ -130,6 +137,7 @@ public partial class BombRoyaleGame : GameManager
 
 		PostProcessing.ChromaticAberration.Scale = 0.03f + (0.05f * sum);
 		PostProcessing.Sharpen = 0.1f;
+
 		TopDownCamera?.Update();
 	}
 }

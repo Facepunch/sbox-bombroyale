@@ -39,7 +39,6 @@ public partial class GameState : BaseState
 	{
 		if ( Game.IsClient )
 		{
-			Sound.FromScreen( "round.end" );
 			Music.Stop();
 		}
 	}

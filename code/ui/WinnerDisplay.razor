@@ -1,0 +1,40 @@
+﻿@using System;
+@using Sandbox;
+@using Sandbox.UI;
+@using Sandbox.UI.Construct;
+@using Facepunch.BombRoyale;
+
+@namespace Facepunch.BombRoyale.UI
+@attribute [StyleSheet( "/ui/WinnerDisplay.scss" )]
+@inherits Panel
+
+@{
+    var state = BombRoyaleGame.StateSystem?.Active as SummaryState;
+    if ( state is null || state.WinnerIndex == 0 ) return;
+}
+
+<root>
+    <div class="banner p@(state.WinnerIndex)"></div>
+
+    <div class="container p@(state.WinnerIndex)">
+        <div class="logo"></div>
+
+        <div class="avatar">
+            <div class="inner"></div>
+            <div class="head"></div>
+        </div>
+
+        <div class="name">
+            <div class="label">@state.WinnerName</div>
+        </div>
+    </div>
+</root>
+
+@code
+{
+    protected override int BuildHash()
+    {
+        var state = BombRoyaleGame.StateSystem?.Active as SummaryState;
+        return HashCode.Combine( state, state?.WinnerIndex ?? 0 );
+    }
+}

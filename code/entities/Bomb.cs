@@ -142,6 +142,14 @@ public partial class Bomb : ModelEntity, IResettable
 		SceneObject.Transform = tx;
 	}
 
+	private void ShortenFuse( float time )
+	{
+		if ( TimeSincePlaced < LifeTime - time )
+		{
+			TimeSincePlaced = LifeTime - time;
+		}
+	}
+
 	private void OnIsPlacedChanged()
 	{
 		if ( IsPlaced )
@@ -228,7 +236,8 @@ public partial class Bomb : ModelEntity, IResettable
 		}
 		else if ( trace.Entity is Bomb bomb )
 		{
-			bomb.Explode();
+			var fuseDelay = Game.Random.Float( 0.15f, 0.3f );
+			bomb.ShortenFuse( fuseDelay );
 		}
 	}
 }

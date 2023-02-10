@@ -11,14 +11,6 @@ public partial class BombRoyalePlayer : AnimatedEntity
 {
 	public static BombRoyalePlayer Me => Game.LocalPawn as BombRoyalePlayer;
 
-	private static Color[] Colors = new Color[4]
-	{
-		(Color)"#F6D953",
-		(Color)"#DB3D76",
-		(Color)"#3DBFDB",
-		(Color)"#FF881B"
-	};
-
 	[Net] public TimeSince LastTakeDamageTime { get; private set; }
 	[Net] public DiseaseType Disease { get; set; } = DiseaseType.None;
 	[Net] public TimeUntil RemoveDiseaseTime { get; set; }
@@ -80,8 +72,7 @@ public partial class BombRoyalePlayer : AnimatedEntity
 
 	public Color GetTeamColor()
 	{
-		var index = Client.NetworkIdent - 1;
-		return Colors[index];
+		return Client.GetTeamColor();
 	}
 
 	public void PassDisease( BombRoyalePlayer target )

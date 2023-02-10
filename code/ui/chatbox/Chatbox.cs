@@ -17,10 +17,7 @@ public partial class Chatbox : Panel
 	{
 		if ( !ConsoleSystem.Caller.IsValid() ) return;
 
-		if ( ConsoleSystem.Caller.Pawn is BombRoyalePlayer player )
-		{
-			AddChat( To.Everyone, ConsoleSystem.Caller.Name, player.GetTeamColor(), message );
-		}
+		AddChat( To.Everyone, ConsoleSystem.Caller.Name, ConsoleSystem.Caller.GetTeamColor(), message );
 	}
 
 	[ConCmd.Server( "br.chat.system" )]

@@ -8,15 +8,15 @@
 @attribute [StyleSheet( "/ui/PlayerCard.scss" )]
 @inherits Panel
 
-<div class="container p@(PlayerIndex) @(!Player.IsValid() ? "empty" : "") @((Player.IsValid() && Player.LifeState == LifeState.Dead) ? "dead" : "")">
-    <label class="name">@(Player.IsValid() ? Player.Client.Name : "Empty")</label>
+<div class="container p@(PlayerIndex) @(!Client.IsValid() ? "empty" : "") @((!Player.IsValid() || Player.LifeState == LifeState.Dead) ? "dead" : "")">
+    <label class="name">@(Client.IsValid() ? Client.Name : "Empty")</label>
     <label class="index">P@(PlayerIndex)</label>
 
     <div class="avatar">
         <div class="inner"></div>
         <div class="head"></div>
 
-        @if ( Player.IsValid() && Player.LifeState == LifeState.Dead )
+        @if ( !Player.IsValid() || Player.LifeState == LifeState.Dead )
         {
             <div class="dead"></div>
         }
@@ -57,13 +57,18 @@
 
 @code
 {
-    public BombRoyalePlayer Player => (Entity.FindByIndex( PlayerIndex ) as IClient)?.Pawn as BombRoyalePlayer;
+    public BombRoyalePlayer Player => Client?.Pawn as BombRoyalePlayer;
+    public IClient Client => Entity.FindByIndex( PlayerIndex ) as IClient;
     public int PlayerIndex { get; set; }
 
     protected override int BuildHash()
     {
-        if ( !Player.IsValid() ) return 0;
-        return HashCode.Combine( Player, Player.LifeState, Player.LivesLeft, Player.HasSuperBomb, Player.BombRange, Player.GetBombsLeft(), Player.SpeedBoosts, Player.Disease );
+        if ( Player.IsValid() )
+            return HashCode.Combine( Player, Player.LifeState, Player.LivesLeft, Player.HasSuperBomb, Player.BombRange, Player.GetBombsLeft(), Player.SpeedBoosts, Player.Disease );
+        else if ( Client.IsValid() )
+            return HashCode.Combine( Client, Client.Name );
+
+        return 0;
     }
 
     private bool HasRangeDisease() => Player.IsValid() && Player.Disease == DiseaseType.LowRange;

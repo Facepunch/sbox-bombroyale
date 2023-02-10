@@ -196,10 +196,11 @@ public partial class BombRoyalePlayer : AnimatedEntity
 
 	public override void StartTouch( Entity other )
 	{
-		if ( other is BombRoyalePlayer target && Disease > DiseaseType.None )
+		if ( Game.IsServer && other is BombRoyalePlayer target && Disease > DiseaseType.None )
 		{
 			if ( target.Disease == DiseaseType.None )
 			{
+				Sound.FromWorld( To.Everyone, "player.cough", Position );
 				target.GiveDisease( Disease );
 			}
 		}

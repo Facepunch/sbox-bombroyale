@@ -17,6 +17,7 @@ public partial class Bomb : ModelEntity, IResettable
 	private TimeUntil BlinkEndTime { get; set; }
 	private float LifeTime { get; set; } = 4f;
 	private Sound FuseSound { get; set; }
+	private bool HasExploded { get; set; }
 
 	public void Reset()
 	{
@@ -54,6 +55,7 @@ public partial class Bomb : ModelEntity, IResettable
 			Range = player.BombRange;
 		}
 
+		Tags.Add( "placed_bomb" );
 		Tags.Add( $"bomb{player.Client.NetworkIdent}" );
 
 		SetParent( null );
@@ -90,7 +92,7 @@ public partial class Bomb : ModelEntity, IResettable
 	[Event.Tick.Server]
 	private void ServerTick()
 	{
-		if ( !IsPlaced ) return;
+		if ( !IsPlaced || BombRoyaleGame.IsPaused ) return;
 
 		var fraction = (1f / LifeTime) * TimeSincePlaced;
 		var glow = Components.GetOrCreate<Glow>();
@@ -111,6 +113,11 @@ public partial class Bomb : ModelEntity, IResettable
 		if ( IsPlaced )
 		{
 			tx.Scale = 1f + (MathF.Sin( Time.Now * 10f ) * 0.15f);
+
+			if ( Player.IsValid() )
+			{
+				SceneObject.Attributes.Set( "BombColor", Player.GetTeamColor() );
+			}
 
 			if ( NextBlinkTime )
 			{
@@ -150,7 +157,10 @@ public partial class Bomb : ModelEntity, IResettable
 
 	private void Explode()
 	{
+		if ( HasExploded ) return;
+
 		DoScreenShake( To.Everyone );
+		HasExploded = true;
 
 		BlastInDirection( Vector3.Forward );
 		BlastInDirection( Vector3.Backward );
@@ -162,7 +172,7 @@ public partial class Bomb : ModelEntity, IResettable
 		if ( Game.Random.Float() < 0.5f )
 		{
 			var availableBlock = All.OfType<BombableEntity>()
-				.Where( e => e.IsHidden )
+				.Where( e => !e.IsSpaceOccupied() )
 				.Shuffle()
 				.FirstOrDefault();
 
@@ -184,7 +194,7 @@ public partial class Bomb : ModelEntity, IResettable
 		var cellSize = 32f;
 		var totalRange = (Range * cellSize);
 		var trace = Trace.Ray( startPosition, startPosition + direction * totalRange )
-			.WithAnyTags( "solid", "player", "pickup" )
+			.WithAnyTags( "solid", "player", "pickup", "placed_bomb" )
 			.Ignore( this )
 			.Run();
 
@@ -213,6 +223,10 @@ public partial class Bomb : ModelEntity, IResettable
 		else if ( trace.Entity is Pickup pickup )
 		{
 			pickup.Delete();
+		}
+		else if ( trace.Entity is Bomb bomb )
+		{
+			bomb.Explode();
 		}
 	}
 }

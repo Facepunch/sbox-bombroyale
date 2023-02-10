@@ -1,10 +1,11 @@
 ﻿PickupSprite {
     justify-content: center;
     align-items: center;
+    opacity: 0.97;
 
     .icon {
         background-size: cover;
-        width: 350px;
-        height: 350px;
+        width: 320px;
+        height: 320px;
     }
 }

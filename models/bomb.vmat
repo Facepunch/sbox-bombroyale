@@ -22,9 +22,11 @@ Layer0
 
 	//---- Settings ----
 	g_ExplodeTime "0.000"
+	g_vBombColor "[1.000000 1.000000 1.000000 0.000000]"
 
 	DynamicParams
 	{
 		g_ExplodeTime "Whiteness"
+		g_vBombColor "BombColor"
 	}
 }

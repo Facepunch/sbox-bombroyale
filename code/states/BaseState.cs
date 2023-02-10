@@ -7,6 +7,7 @@ public class BaseState : BaseNetworkable
 	public StateSystem System { get; set; }
 
 	public virtual int TimeLeft => 0;
+	public virtual bool IsPaused => false;
 	public virtual string Name => string.Empty;
 
 	public virtual void OnEnter() { }

@@ -78,6 +78,8 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		return Colors[index];
 	}
 
+	public int GetBombsLeft() => MaxBombs - GetPlacedBombCount();
+
 	public int GetPlacedBombCount()
 	{
 		return All.OfType<Bomb>().Count( b => b.Player == this && b.IsPlaced );
@@ -194,11 +196,17 @@ public partial class BombRoyalePlayer : AnimatedEntity
 
 			if ( LivesLeft <= 0 )
 			{
+				Sound.FromScreen( To.Single( this ), "player.die" );
+
 				var direction = Vector3.Up + new Vector3( Game.Random.Float( -0.25f, 0.25f ), Game.Random.Float( -0.25f, 0.25f ), 0f );
 				BecomeRagdollOnClient( To.Everyone, direction * 100f * 10f, 0 );
 				EnableAllCollisions = false;
 				EnableDrawing = false;
 				LifeState = LifeState.Dead;
+			}
+			else
+			{
+				Sound.FromScreen( To.Single( this ), "lose.life" );
 			}
 		}
 
@@ -217,29 +225,41 @@ public partial class BombRoyalePlayer : AnimatedEntity
 
 	public override void Simulate( IClient client )
 	{
-		if ( LifeState == LifeState.Alive )
+		if ( LifeState == LifeState.Dead )
+			return;
+
+		if ( BombRoyaleGame.IsPaused )
 		{
-			if ( Game.IsServer && Input.Released( InputButton.PrimaryAttack ) )
+			Controller.WishVelocity = 0f;
+			Velocity = 0f;
+			SimulateAnimation();
+			return;
+		}
+
+		if ( Game.IsServer && Input.Released( InputButton.PrimaryAttack ) )
+		{
+			if ( !Controller.IsInsideBomb( Position ) )
 			{
-				if ( !Controller.IsInsideBomb( Position ) )
+				if ( HoldingBomb.IsValid() )
 				{
-					if ( HoldingBomb.IsValid() )
-					{
-						// TODO: Throw bomb.
-						HoldingBomb.Place( this );
-						HoldingBomb = null;
-					}
-					else if ( GetPlacedBombCount() < MaxBombs )
-					{
-						var bomb = new Bomb();
-						bomb.Place( this );
-					}
+					// TODO: Throw bomb.
+					HoldingBomb.Place( this );
+					HoldingBomb = null;
+				}
+				else if ( GetBombsLeft() > 0 )
+				{
+					var bomb = new Bomb();
+					bomb.Place( this );
+				}
+				else
+				{
+					Sound.FromScreen( To.Single( this ), "bomb.nobomb" );
 				}
 			}
-
-			Controller?.Simulate();
-			SimulateAnimation();
 		}
+
+		Controller?.Simulate();
+		SimulateAnimation();
 	}
 
 	protected virtual float GetFootstepVolume()

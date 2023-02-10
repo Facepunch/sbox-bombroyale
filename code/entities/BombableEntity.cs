@@ -18,6 +18,19 @@ public partial class BombableEntity : ModelEntity, IResettable
 		Show();
 	}
 
+	public bool IsSpaceOccupied()
+	{
+		if ( !IsHidden ) return true;
+
+		var trace = Trace.Ray( WorldSpaceBounds.Center, WorldSpaceBounds.Center )
+			.EntitiesOnly()
+			.Radius( 8f )
+			.WithAnyTags( "solid", "pickup", "bomb" )
+			.Run();
+
+		return trace.Hit;
+	}
+
 	public override void Spawn()
 	{
 		EnableAllCollisions = true;

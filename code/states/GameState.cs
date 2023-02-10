@@ -1,4 +1,5 @@
 ﻿using Sandbox;
+using System.Linq;
 
 namespace Facepunch.BombRoyale;
 
@@ -15,6 +16,8 @@ public partial class GameState : BaseState
 	{
 		if ( Game.IsServer )
 		{
+			Sound.FromScreen( To.Everyone, "round.start" );
+
 			IResettable.ResetAll();
 
 			foreach ( var client in Game.Clients )
@@ -24,7 +27,7 @@ public partial class GameState : BaseState
 				pawn.Respawn();
 			}
 
-			RoundEndTime = 120f;
+			RoundEndTime = 180f;
 		}
 		else
 		{
@@ -36,6 +39,7 @@ public partial class GameState : BaseState
 	{
 		if ( Game.IsClient )
 		{
+			Sound.FromScreen( "round.end" );
 			Music.Stop();
 		}
 	}
@@ -43,7 +47,11 @@ public partial class GameState : BaseState
 	[Event.Tick.Server]
 	private void ServerTick()
 	{
-		if ( RoundEndTime )
+		var alivePlayers = Entity.All.OfType<BombRoyalePlayer>()
+			.Where( p => p.LifeState == LifeState.Alive )
+			.Count();
+
+		if ( RoundEndTime || ( Game.Clients.Count > 1 && alivePlayers < 1 ) )
 		{
 			System.Set( new SummaryState() );
 		}

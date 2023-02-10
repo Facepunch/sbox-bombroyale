@@ -39,7 +39,10 @@ public partial class BombRoyaleGame : GameManager
 	public override void Spawn()
 	{
 		InernalStateSystem = new();
-		InernalStateSystem.Set( new LobbyState() );
+		InernalStateSystem.Set( new LobbyState
+		{
+			RoundDuration = 30f
+		} );
 
 		base.Spawn();
 	}

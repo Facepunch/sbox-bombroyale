@@ -18,7 +18,7 @@
     "MaxPlayers": 4,
     "MinPlayers": 2,
     "GameNetworkType": "Multiplayer",
-    "MapSelect": "Official",
+    "MapSelect": "Hidden",
     "MapList": [
       "br_multiple_arena"
     ],
@@ -99,28 +99,15 @@
     "DefaultLeaderboards": null,
     "Summary": "Blow up your enemies and be the last one standing!",
     "Description": "",
-    "Public": false,
-    "SavedGames": true,
+    "Public": true,
+    "SavedGames": false,
     "MapDependentSaves": true,
     "SaveFormatVersion": 1001,
     "PackageSettings": [
       {
-        "DisplayType": "Boolean",
         "Choices": [],
-        "ConVarName": "fsk.pvp",
-        "DisplayName": "Enable PvP",
-        "DefaultValue": "true",
-        "Description": "Whether or not players are allowed to attack eachother.",
-        "Group": ""
-      },
-      {
-        "DisplayType": "Boolean",
-        "Choices": [],
-        "ConVarName": "fsk.isometric",
-        "DisplayName": "Isometric Camera",
-        "DefaultValue": "true",
-        "Description": "Enable the isometric camera. The alternative option is a top-down view.",
-        "Group": ""
+        "ConVarName": "",
+        "DisplayName": "New Setting..."
       }
     ],
     "CsProjName": ""

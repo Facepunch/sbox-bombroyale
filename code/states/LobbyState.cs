@@ -13,6 +13,7 @@ public partial class LobbyState : BaseState
 	private bool PlayedCountdown { get; set; }
 	private Sound Countdown { get; set; }
 
+	public float RoundDuration { get; set; } = 10f;
 	public bool RandomizeArena { get; set; }
 
 	public override void OnEnter()
@@ -31,7 +32,7 @@ public partial class LobbyState : BaseState
 				pawn.Delete();
 			}
 
-			RoundEndTime = 10f;
+			RoundEndTime = RoundDuration;
 		}
 	}
 

@@ -110,6 +110,9 @@ public partial class Bomb : ModelEntity, IResettable
 	[Event.PreRender]
 	private void ClientTick()
 	{
+		if ( !SceneObject.IsValid() || !Player.IsValid() )
+			return;
+
 		var tx = SceneObject.Transform;
 
 		if ( IsPlaced )

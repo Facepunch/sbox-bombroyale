@@ -84,6 +84,18 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		return Colors[index];
 	}
 
+	public void PassDisease( BombRoyalePlayer target )
+	{
+		if ( Game.IsServer && Disease > DiseaseType.None && target.Disease == DiseaseType.None )
+		{
+			using ( Prediction.Off() )
+			{
+				Sound.FromWorld( To.Everyone, "player.cough", Position );
+				target.GiveDisease( Disease );
+			}
+		}
+	}
+
 	public void GiveDisease( DiseaseType disease )
 	{
 		RemoveDiseaseTime = Game.Random.Float( 10f, 20f );
@@ -137,7 +149,6 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		SetModel( "models/citizen/citizen.vmdl" );
 
 		EnableLagCompensation = true;
-		EnableTouch = true;
 		Tags.Add( "player" );
 
 		base.Spawn();
@@ -192,25 +203,6 @@ public partial class BombRoyalePlayer : AnimatedEntity
 			var rotation = Rotation.LookAt( InputDirection, Vector3.Up );
 			ViewAngles = rotation.Angles();
 		}
-	}
-
-	public override void StartTouch( Entity other )
-	{
-		if ( Game.IsServer && other is BombRoyalePlayer target && Disease > DiseaseType.None )
-		{
-			if ( target.Disease == DiseaseType.None )
-			{
-				Sound.FromWorld( To.Everyone, "player.cough", Position );
-				target.GiveDisease( Disease );
-			}
-		}
-
-		base.StartTouch( other );
-	}
-
-	public override void EndTouch( Entity other )
-	{
-		base.EndTouch( other );
 	}
 
 	public override void TakeDamage( DamageInfo info )

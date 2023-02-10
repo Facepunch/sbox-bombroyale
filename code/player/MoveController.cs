@@ -276,6 +276,13 @@ public partial class MoveController
 		mover.MaxStandableAngle = GroundAngle;
 		mover.TryMove( Time.Delta );
 
+		var result = mover.TraceFromTo( Player.Position, Player.Position + Player.Velocity * Time.Delta );
+
+		if ( result.Entity is BombRoyalePlayer target )
+		{
+			Player.PassDisease( target );
+		}
+
 		Player.Position = mover.Position;
 		Player.Velocity = mover.Velocity;
 	}

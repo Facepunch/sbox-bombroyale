@@ -25,7 +25,7 @@ public partial class BombableEntity : ModelEntity, IResettable
 		var trace = Trace.Ray( WorldSpaceBounds.Center, WorldSpaceBounds.Center )
 			.EntitiesOnly()
 			.Radius( 8f )
-			.WithAnyTags( "solid", "pickup", "bomb" )
+			.WithAnyTags( "solid", "pickup", "player", "bomb" )
 			.Run();
 
 		return trace.Hit;

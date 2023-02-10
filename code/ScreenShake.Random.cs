@@ -22,7 +22,7 @@ public partial class ScreenShake
 		public override bool Update()
 		{
 			var random = Vector3.Random;
-			random.z = 0;
+			random.z = 0f;
 			random = random.Normal;
 
 			Camera.Position += (Camera.Rotation.Right * random.x + Camera.Rotation.Up * random.y) * (1f - Progress) * Size;

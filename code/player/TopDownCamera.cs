@@ -1,4 +1,5 @@
 ﻿using Sandbox;
+using System.Linq;
 
 namespace Facepunch.BombRoyale;
 
@@ -19,10 +20,9 @@ public partial class TopDownCamera
 			worldBounds = Game.PhysicsWorld.Body.GetBounds();
 
 		var totalHeight = worldBounds.Size.Length;
-		Camera.Position = worldBounds.Center + Vector3.Up * totalHeight * .85f + Vector3.Backward * totalHeight * .15f;
-     //   Camera.ZNear = 60f;
-     //   Camera.ZFar = 1200f;
-        var direction = (worldBounds.Center - Camera.Position).Normal - Vector3.Backward *.00f;
+		Camera.Position = worldBounds.Center + Vector3.Up * totalHeight * 0.85f + Vector3.Backward * totalHeight * 0.15f;
+
+		var direction = (worldBounds.Center - Camera.Position).Normal;
 		Camera.Rotation = Rotation.LookAt( direction );
 
 		Camera.FieldOfView = Screen.CreateVerticalFieldOfView( 50f );

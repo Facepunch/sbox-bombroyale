@@ -59,6 +59,46 @@
 					},
 				]
 			},
+			{
+				_class = "GameDataList"
+				children = 
+				[
+					{
+						_class = "GenericGameData"
+						disabled = true
+						game_class = "particle"
+						game_keys = 
+						{
+							name = resource:"particles/bomb_wick.vpcf"
+							attachment_point = ""
+							attachment_type = "5"
+							attachment_offset = [ 0.0, 0.0, 18.0 ]
+						}
+					},
+					{
+						_class = "GenericGameData"
+						game_class = "particle"
+						game_keys = 
+						{
+							name = resource:"particles/bomb_wick_spark.vpcf"
+							attachment_point = ""
+							attachment_type = "5"
+							attachment_offset = [ 1.0, 2.0, 29.0 ]
+						}
+					},
+					{
+						_class = "GenericGameData"
+						disabled = true
+						game_class = "ao_proxy_sphere"
+						game_keys = 
+						{
+							bonename = ""
+							radius = 12.0
+							center = [ 0.0, 0.0, 0.0 ]
+						}
+					},
+				]
+			},
 		]
 		model_archetype = ""
 		primary_associated_entity = ""

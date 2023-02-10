@@ -51,7 +51,7 @@ public partial class GameState : BaseState
 			.Where( p => p.LifeState == LifeState.Alive )
 			.Count();
 
-		if ( RoundEndTime || ( Game.Clients.Count > 1 && alivePlayers < 1 ) )
+		if ( RoundEndTime || ( Game.Clients.Count > 1 && alivePlayers <= 1 ) )
 		{
 			System.Set( new SummaryState() );
 		}

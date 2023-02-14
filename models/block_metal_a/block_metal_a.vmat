@@ -9,8 +9,8 @@ Layer0
 	F_SPECULAR 1
 
 	//---- Ambient Occlusion ----
-	g_flAmbientOcclusionDirectDiffuse "0.000"
-	g_flAmbientOcclusionDirectSpecular "0.000"
+	g_flAmbientOcclusionDirectDiffuse "0.500"
+	g_flAmbientOcclusionDirectSpecular "0.500"
 	TextureAmbientOcclusion "models/block_metal_a/block_metal_a_ao.tga"
 
 	//---- Color ----

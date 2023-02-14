@@ -145,6 +145,10 @@ PlayerCard {
         > .name {
             position: absolute;
             font-family: LilitaOne;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 180px;
             font-size: 30px;
             color: white;
         }

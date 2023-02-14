@@ -311,14 +311,11 @@ public partial class BombRoyalePlayer : AnimatedEntity
 		{
 			NextRandomBomb = Game.Random.Float( 1f, 2f );
 
-			if ( !Controller.IsInsideBomb( Position ) )
+			if ( !Controller.IsInsideBomb( Position ) && GetBombsLeft() > 0 )
 			{
-				if ( GetBombsLeft() > 0 )
-				{
-					PlaySound( "disease.poop" );
-					var bomb = new Bomb();
-					bomb.Place( this );
-				}
+				PlaySound( "disease.poop" );
+				var bomb = new Bomb();
+				bomb.Place( this );
 			}
 		}
 		else if ( Disease == DiseaseType.Teleport && NextRandomTeleport )

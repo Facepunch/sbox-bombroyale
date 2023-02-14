@@ -91,6 +91,17 @@ public partial class Bomb : ModelEntity, IResettable
 		FuseSound.Stop();
 	}
 
+	[Event.Tick]
+	private void CheckInsideBomb()
+	{
+		if ( !IsPlaced || BombRoyaleGame.IsPaused ) return;
+		if ( !Player.IsValid() || !Player.IsAuthority ) return;
+		if ( Player.LifeState != LifeState.Alive ) return;
+		if ( Player.Controller.IsInsideBomb( Player.Position ) ) return;
+
+		Tags.Remove( $"bomb{Player.Client.NetworkIdent}" );
+	}
+
 	[Event.Tick.Server]
 	private void ServerTick()
 	{

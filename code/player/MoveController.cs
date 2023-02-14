@@ -49,14 +49,13 @@ public partial class MoveController
 
 	public bool IsInsideBomb( Vector3 position )
 	{
-		// TODO: Is this the best way to do this?
 		var bomb = Trace.Ray( position, position )
 			.Size( Mins, Maxs )
 			.Ignore( Player )
 			.WithTag( "bomb" )
 			.Run();
 
-		return (bomb.StartedSolid && bomb.Hit);
+		return (bomb.StartedSolid && bomb.Entity is Bomb);
 	}
 
 	public virtual TraceResult TraceBBox( Vector3 start, Vector3 end, Vector3 mins, Vector3 maxs, float liftFeet = 0.0f )
@@ -69,14 +68,9 @@ public partial class MoveController
 
 		var query = Trace.Ray( start + TraceOffset, end + TraceOffset )
 			.Size( mins, maxs )
-			.WithoutTags( "passplayers" )
+			.WithoutTags( "passplayers", $"bomb{Player.Client.NetworkIdent}" )
 			.WithAnyTags( "solid", "playerclip", "passbullets", "player" )
 			.Ignore( Player );
-
-		if ( IsInsideBomb( start ) )
-		{
-			query = query.WithoutTags( $"bomb{Player.Client.NetworkIdent}" );
-		}
 
 		var tr = query.Run();
 		tr.EndPosition -= TraceOffset;
@@ -263,15 +257,10 @@ public partial class MoveController
 		var mover = new MoveHelper( Player.Position, Player.Velocity );
 
 		mover.Trace = mover.SetupTrace()
-			.WithoutTags( "passplayers" )
+			.WithoutTags( "passplayers", $"bomb{Player.Client.NetworkIdent}" )
 			.WithAnyTags( "solid", "playerclip", "passbullets", "player" )
 			.Size( Mins, Maxs )
 			.Ignore( Player );
-
-		if ( IsInsideBomb( Player.Position ) )
-		{
-			mover.Trace = mover.Trace.WithoutTags( $"bomb{Player.Client.NetworkIdent}" );
-		}
 
 		mover.MaxStandableAngle = GroundAngle;
 		mover.TryMove( Time.Delta );

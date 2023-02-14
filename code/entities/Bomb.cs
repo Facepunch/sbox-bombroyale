@@ -74,7 +74,7 @@ public partial class Bomb : ModelEntity, IResettable
 		glow.InsideColor = glow.InsideObscuredColor;
 		glow.Color = Color.Transparent;
 
-		FuseSound = Sound.FromEntity( To.Everyone, "bomb.fuse", this );
+		FuseSound = PlaySound( "bomb.fuse" );
 	}
 
 	public void Pickup( BombRoyalePlayer player )

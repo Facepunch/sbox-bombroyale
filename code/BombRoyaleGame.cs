@@ -95,6 +95,11 @@ public partial class BombRoyaleGame : GameManager
 		pawn.Transform = spawnpoint.Transform;
 	}
 
+	public override bool CanHearPlayerVoice( IClient source, IClient receiver )
+	{
+		return true;
+	}
+
 	public override void ClientDisconnect( IClient client, NetworkDisconnectionReason reason )
 	{
 		base.ClientDisconnect( client, reason );

@@ -82,6 +82,18 @@ ChatboxEntry {
         }
     }
 
+    &.death {
+        .message {
+            color: palevioletred;
+        }
+    }
+
+    &.infected {
+        .message {
+            color: palegreen;
+        }
+    }
+
     &.system {
         .name, .message {
             color: lightyellow;

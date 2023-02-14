@@ -32,6 +32,12 @@ public partial class Chatbox : Panel
 		Instance.AddMessage( message, "system" );
 	}
 
+	[ClientRpc]
+	public static void AddPlayerEvent( string eventName, string name, Color color, string message )
+	{
+		Instance.AddNamedMessage( name, color, message, eventName );
+	}
+
 	[ConCmd.Client( "br.say", CanBeCalledFromServer = true )]
 	public static void AddChat( string name, Color color, string message )
 	{

@@ -96,6 +96,8 @@ public partial class BombRoyalePlayer : AnimatedEntity
 			NextRandomBomb = Game.Random.Float( 1f, 2f );
 		else if ( disease == DiseaseType.Teleport )
 			NextRandomTeleport = Game.Random.Float( 0.5f, 1f );
+
+		UI.Chatbox.AddPlayerEvent( "infected", Client.Name, GetTeamColor(), $"has been infected with {disease.GetName()}" );
 	}
 
 	public int GetBombsLeft() => MaxBombs - GetPlacedBombCount();
@@ -219,6 +221,8 @@ public partial class BombRoyalePlayer : AnimatedEntity
 				EnableAllCollisions = false;
 				EnableDrawing = false;
 				LifeState = LifeState.Dead;
+
+				UI.Chatbox.AddPlayerEvent( "death", Client.Name, GetTeamColor(), "has been blown to smithereens!" );
 			}
 			else
 			{

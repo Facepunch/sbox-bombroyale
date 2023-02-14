@@ -19,9 +19,7 @@
     "MinPlayers": 2,
     "GameNetworkType": "Multiplayer",
     "MapSelect": "Tagged",
-    "MapList": [
-      "br_multiple_arena"
-    ],
+    "MapList": [],
     "RankType": "None",
     "PerMapRanking": false,
     "LeaderboardType": "None",

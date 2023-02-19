@@ -8,7 +8,7 @@ public partial class RangeDown : Pickup
 {
 	public override string PickupSound => "pickup.bad";
 	public override string Icon => "textures/rangedown.png";
-	public override Color Color => Color.Cyan;
+	public override Color Color => Color.Red;
 
 	protected override void OnPickup( BombRoyalePlayer player )
 	{

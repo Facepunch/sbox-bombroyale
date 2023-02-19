@@ -8,7 +8,7 @@ public partial class SpeedBoost : Pickup
 {
 	public override string PickupSound => "pickup.good";
 	public override string Icon => "textures/speedboost.png";
-	public override Color Color => Color.Yellow;
+	public override Color Color => Color.Orange;
 
 	protected override void OnPickup( BombRoyalePlayer player )
 	{

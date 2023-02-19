@@ -8,7 +8,7 @@ public partial class Disease : Pickup
 {
 	public override string PickupSound => "disease.pickup";
 	public override string Icon => "textures/disease.png";
-	public override Color Color => Color.Red;
+	public override Color Color => Color.Magenta;
 
 	protected override void OnPickup( BombRoyalePlayer player )
 	{

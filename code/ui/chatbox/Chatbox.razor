@@ -83,7 +83,7 @@
     [Event.Client.BuildInput]
     private void BuildInput()
     {
-        if ( !IsOpen && Input.Pressed( InputButton.Chat ) )
+        if ( !IsOpen && Input.Pressed( "chat" ) )
         {
             IsOpen = true;
             Entry.Focus();

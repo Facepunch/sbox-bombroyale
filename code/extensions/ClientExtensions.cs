@@ -6,10 +6,10 @@ public static class ClientExtensions
 {
 	private static Color[] Colors = new Color[4]
 	{
-		(Color)"#F6D953",
-		(Color)"#DB3D76",
-		(Color)"#3DBFDB",
-		(Color)"#FF881B"
+		"#F6D953",
+		"#DB3D76",
+		"#3DBFDB",
+		"#FF881B"
 	};
 
 	public static Color GetTeamColor( this IClient self )

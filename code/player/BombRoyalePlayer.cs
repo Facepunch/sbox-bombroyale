@@ -256,7 +256,7 @@ public partial class BombRoyalePlayer : AnimatedEntity
 			return;
 		}
 
-		if ( Game.IsServer && Input.Released( InputButton.PrimaryAttack ) )
+		if ( Game.IsServer && Input.Released( "attack1" ) )
 		{
 			if ( !Controller.IsInsideBomb( Position ) )
 			{

@@ -7,11 +7,8 @@
   "Schema": 1,
   "HasAssets": true,
   "AssetsPath": "",
-  "ResourcePaths": [
-    "fonts/*",
-    "shaders/*",
-    "textures/*"
-  ],
+  "Resources": "fonts/*\nshaders/*\ntextures/*",
+  "MenuResources": null,
   "HasCode": true,
   "CodePath": "/code/",
   "PackageReferences": [],
@@ -110,6 +107,7 @@
         "DisplayName": "New Setting..."
       }
     ],
-    "CsProjName": ""
+    "CsProjName": "",
+    "TickRate": 0
   }
 }

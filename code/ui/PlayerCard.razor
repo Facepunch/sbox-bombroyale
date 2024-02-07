@@ -5,31 +5,27 @@
 @using Facepunch.BombRoyale;
 
 @namespace Facepunch.BombRoyale.UI
-@attribute [StyleSheet( "/ui/PlayerCard.scss" )]
 @inherits Panel
 
-<div class="container p@(PlayerIndex) @(!Client.IsValid() ? "empty" : "") @((!Player.IsValid() || Player.LifeState == LifeState.Dead) ? "dead" : "")">
-    <label class="name">@(Client.IsValid() ? Client.Name : "Empty")</label>
+<div class="container p@(PlayerIndex) @(!IsValidPlayer() ? "empty" : "") @(IsDead() ? "dead" : "")">
+    <label class="name">@GetPlayerName()</label>
     <label class="index">P@(PlayerIndex)</label>
 
     <div class="avatar">
         <div class="inner"></div>
         <div class="head"></div>
-
-        @if ( !Player.IsValid() || Player.LifeState == LifeState.Dead )
+		
+        @if ( IsDead() )
         {
             <div class="dead"></div>
         }
     </div>
 
     <div class="lives">
-        @if ( Player.IsValid() )
-        {
-            for ( var i = 0; i < Player.LivesLeft; i++ )
-            {
-                @:<div class="life"><div>
-            }
-        }
+		@for ( var i = 0; i < GetLivesLeft(); i++ )
+		{
+			@:<div class="life"><div>
+		}
     </div>
 
     <div class="pickups">
@@ -47,8 +43,8 @@
             <div class="icon"></div>
             <label class="label">@GetSpeedBoosts()</label>
         </div>
-
-        @if ( Player.IsValid() && Player.HasSuperBomb )
+		
+        @if ( HasSuperBomb() )
         {
             @:<div class="superbomb"><div>
         }
@@ -57,38 +53,46 @@
 
 @code
 {
-    public BombRoyalePlayer Player => Client?.Pawn as BombRoyalePlayer;
-    public IClient Client => Entity.FindByIndex( PlayerIndex ) as IClient;
+    //public BombRoyalePlayer Player => Client?.Pawn as BombRoyalePlayer;
     public int PlayerIndex { get; set; }
 
     protected override int BuildHash()
     {
+		/*
         if ( Player.IsValid() )
             return HashCode.Combine( Player, Player.LifeState, Player.LivesLeft, Player.HasSuperBomb, Player.BombRange, Player.GetBombsLeft(), Player.SpeedBoosts, Player.Disease );
         else if ( Client.IsValid() )
             return HashCode.Combine( Client, Client.Name );
-
+		*/
+		
         return 0;
     }
 
-    private bool HasRangeDisease() => Player.IsValid() && Player.Disease == DiseaseType.LowRange;
+    private bool HasRangeDisease() => false;//Player.IsValid() && Player.Disease == DiseaseType.LowRange;
     private bool HasSpeedDisease() => HasFastDisease() || HasSlowDisease();
-    private bool HasFastDisease() => Player.IsValid() && Player.Disease == DiseaseType.MoveFast;
-    private bool HasSlowDisease() => Player.IsValid() && Player.Disease == DiseaseType.MoveSlow;
-    private bool HasBombDisease() => Player.IsValid() && Player.Disease == DiseaseType.RandomBomb;
+    private bool HasFastDisease() => false;//Player.IsValid() && Player.Disease == DiseaseType.MoveFast;
+    private bool HasSlowDisease() => false;//Player.IsValid() && Player.Disease == DiseaseType.MoveSlow;
+    private bool HasBombDisease() => false;//Player.IsValid() && Player.Disease == DiseaseType.RandomBomb;
 
-    private string GetBombsLeft() => (Player?.GetBombsLeft() ?? 0).ToString();
+    private string GetBombsLeft() => "0";
+	private int GetLivesLeft() => 0;
+	private bool IsValidPlayer() => false;
+	private bool HasSuperBomb() => false;
+	private string GetPlayerName() => "Player";
+	private bool IsDead() => true;
 
     private string GetBombRange()
     {
         if ( HasBombDisease() ) return "1";
-        return (Player?.BombRange ?? 0).ToString();
+        //return (Player?.BombRange ?? 0).ToString();
+		return "0";
     }
 
     private string GetSpeedBoosts()
     {
         if ( HasFastDisease() ) return "8";
         if ( HasSlowDisease() ) return "0";
-        return (Player?.SpeedBoosts ?? 0).ToString();
+        //return (Player?.SpeedBoosts ?? 0).ToString();
+		return "0";
     }
 }

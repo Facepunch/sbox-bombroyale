@@ -5,18 +5,17 @@
 @using Facepunch.BombRoyale;
 
 @namespace Facepunch.BombRoyale.UI
-@attribute [StyleSheet( "/ui/WinnerDisplay.scss" )]
 @inherits Panel
 
-@{
-    var state = BombRoyaleGame.StateSystem?.Active as SummaryState;
-    if ( state is null || state.WinnerIndex == 0 ) return;
-}
-
 <root>
-    <div class="banner p@(state.WinnerIndex)"></div>
+	@{
+		var winnerName = "Player 1";
+		var winnerIndex = 1;
+	}
 
-    <div class="container p@(state.WinnerIndex)">
+    <div class="banner p@winnerIndex"></div>
+
+    <div class="container p@winnerIndex">
         <div class="logo"></div>
 
         <div class="avatar">
@@ -25,7 +24,7 @@
         </div>
 
         <div class="name">
-            <div class="label">@state.WinnerName</div>
+            <div class="label">@winnerName</div>
         </div>
     </div>
 </root>
@@ -34,7 +33,6 @@
 {
     protected override int BuildHash()
     {
-        var state = BombRoyaleGame.StateSystem?.Active as SummaryState;
-        return HashCode.Combine( state, state?.WinnerIndex ?? 0 );
+        return 0;
     }
 }

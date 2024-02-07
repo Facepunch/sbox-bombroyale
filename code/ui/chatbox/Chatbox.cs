@@ -12,7 +12,7 @@ public partial class Chatbox : Panel
 		Instance = this;
 	}
 	
-	[ConCmd.Server]
+	[Broadcast]
 	public static void SendChat( string message )
 	{
 		if ( !ConsoleSystem.Caller.IsValid() ) return;
@@ -20,25 +20,25 @@ public partial class Chatbox : Panel
 		AddChat( To.Everyone, ConsoleSystem.Caller.Name, ConsoleSystem.Caller.GetTeamColor(), message );
 	}
 
-	[ConCmd.Server( "br.chat.system" )]
+	[Broadcast( "br.chat.system" )]
 	public static void AddSystemMsgCmd( string msg )
 	{
 		AddSystem( msg );
 	}
 
-	[ClientRpc]
+	[Broadcast]
 	public static void AddSystem( string message )
 	{
 		Instance.AddMessage( message, "system" );
 	}
 
-	[ClientRpc]
+	[Broadcast]
 	public static void AddPlayerEvent( string eventName, string name, Color color, string message )
 	{
 		Instance.AddNamedMessage( name, color, message, eventName );
 	}
 
-	[ConCmd.Client( "br.say", CanBeCalledFromServer = true )]
+	[Broadcast]
 	public static void AddChat( string name, Color color, string message )
 	{
 		Instance.AddNamedMessage( name, color, message );

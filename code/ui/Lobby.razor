@@ -5,24 +5,24 @@
 @using Sandbox;
 @using Sandbox.Network
 @inherits PanelComponent
-@namespace Facepunch.Arena
+@namespace Facepunch.BombRoyale
 
 <root>
 	<div class="center">
 		<div class="left">
 			<div class="title">
-				Arena
+				💣 Bomb Royale
 			</div>
 
 			<div class="explanation">
 				<p>
-					Simple multiplayer deathmatch game.
+					Survive the longest without getting blown up.
 				</p>
 			</div>
 			
 			<div class="button-list">
-				<div class="button" onclick=@( () => CreateServer() )>
-					Create Server
+				<div class="button" onclick=@( () => CreateLobby() )>
+					Create Lobby
 				</div>
 				
 				<div class="button" onclick=@( () => Quit() )>
@@ -33,16 +33,16 @@
 
 		<div class="lobby-list">
 			<div class="header">
-				<div class="title">Servers</div>
+				<div class="title">Lobbies</div>
 			</div>
 
 			@if ( IsRefreshing )
 			{
-				<label>Refreshing the server list, please wait...</label>
+				<label>Refreshing the lobby list, please wait...</label>
 			}
 			else if ( List.Count == 0 )
 			{
-				<label>No servers were found, create one to play.</label>
+				<label>No lobbies were found, create one to play.</label>
 			}
 			else
 			{
@@ -116,9 +116,9 @@
 		GameNetworkSystem.Connect( lobby.LobbyId );
 	}
 
-	private void CreateServer()
+	private void CreateLobby()
 	{
-		GameManager.ActiveScene.LoadFromFile( "scenes/datacore.scene" );
+		GameManager.ActiveScene.LoadFromFile( "scenes/arena.scene" );
 	}
 
 	private void Quit()

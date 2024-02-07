@@ -7,11 +7,11 @@
 
 <root>
 	<div class="output">
-		@foreach (var entry in Entries)
+		@foreach ( var entry in Entries )
 		{
 			<div class="chat_entry">
-				<div class="author">@entry.author</div>
-				<div class="message">@entry.message</div>
+				<div class="author">@entry.Author</div>
+				<div class="message">@entry.Message</div>
 			</div>
 		}
 	</div>
@@ -23,7 +23,7 @@
 
 @code
 {
-	public record Entry( string author, string message, RealTimeSince timeSinceAdded );
+	public record Entry( string Author, string Message, RealTimeSince TimeSinceAdded );
 	
 	private List<Entry> Entries { get; set; } = new();
 	private TextEntry InputBox { get; set; }
@@ -53,7 +53,7 @@
 			InputBox.Focus();
 		}
 
-		if ( Entries.RemoveAll( x => x.timeSinceAdded > 30f ) > 0 )
+		if ( Entries.RemoveAll( x => x.TimeSinceAdded > 30f ) > 0 )
 		{
 			StateHasChanged();
 		}

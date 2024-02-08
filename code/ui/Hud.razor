@@ -5,7 +5,7 @@
 @using Facepunch.BombRoyale;
 
 @namespace Facepunch.BombRoyale.UI
-@inherits RootPanel
+@inherits PanelComponent
 
 <root>
     <PlayerCards></PlayerCards>
@@ -15,10 +15,5 @@
 
 @code
 {
-    public static Hud Current { get; private set; }
-
-    protected override void OnParametersSet()
-    {
-        Current = this;
-    }
+    
 }

@@ -1,0 +1,30 @@
+{
+  "RootObject": {
+    "Id": "ac006067-f36c-49e8-a767-e7c54c1d803e",
+    "Name": "Breakable",
+    "Position": "-32,-128,0",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "ModelRenderer",
+        "BodyGroups": 1,
+        "MaterialGroup": null,
+        "MaterialOverride": null,
+        "Model": "models/block_a.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "ModelCollider",
+        "IsTrigger": false,
+        "Model": "models/block_metal_a/block_metal_a.vmdl",
+        "Static": false,
+        "Surface": null
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

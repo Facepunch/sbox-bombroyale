@@ -31,16 +31,16 @@
       "Id": "0ec5b686-d757-438f-bdc0-16ffacf69cae",
       "Name": "Sun",
       "Position": "0,0,600",
-      "Rotation": "0,0.6427876,0,0.7660444",
+      "Rotation": "0,0.7660444,0,0.6427876",
       "Enabled": true,
       "Components": [
         {
           "__type": "DirectionalLight",
-          "FogMode": "Enabled",
+          "FogMode": "Disabled",
           "FogStrength": 1,
           "LightColor": "0.91373,0.98039,1,1",
           "Shadows": true,
-          "SkyColor": "0.05882,0.07451,0.08235,1"
+          "SkyColor": "0.46667,0.44706,0.39216,1"
         }
       ]
     },
@@ -95,1751 +95,881 @@
               "Name": "Block",
               "Position": "0,192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "b3974338-5d97-441a-8cb1-c2f1eee3fd69",
               "Name": "Block",
               "Position": "0,-192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "781983ea-d51d-4fc3-b9bc-e4c3c778dc34",
               "Name": "Block",
               "Position": "-32,192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "4333dee9-1f02-44b4-bdf5-20518e7c6623",
               "Name": "Block",
               "Position": "-32,-192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "96e2df6e-394e-43ea-9d90-8c6dfe79da09",
               "Name": "Block",
               "Position": "-64,192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "7cc37215-3554-45e9-9e6c-e312de3c11a5",
               "Name": "Block",
               "Position": "-64,-192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "12087bb8-ad4c-46da-bae2-e13b0aac1323",
               "Name": "Block",
               "Position": "-96,192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "9c6825d3-bfee-4869-807a-c9a3b58adf74",
               "Name": "Block",
               "Position": "-96,-192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "67b57ab9-f8f0-440b-bf55-01d5c1b39b86",
               "Name": "Block",
               "Position": "-128,192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "1ea09ada-8bde-4c4a-bbb9-553de91c8c98",
               "Name": "Block",
               "Position": "-128,-192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "7ec98a85-81d0-4127-a653-795a553c4d63",
               "Name": "Block",
               "Position": "-160,192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "1340d531-09c8-4c27-b997-3aa32a007dfa",
               "Name": "Block",
               "Position": "-160,-192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "5e4910e9-6c0a-45f1-8cbe-b4ae1268f551",
               "Name": "Block",
               "Position": "-192,192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "9809c392-d4d0-4879-a377-35deb4158945",
               "Name": "Block",
               "Position": "-192,-192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "e608ed01-5725-4fa5-82c4-2a55b0e7e33f",
               "Name": "Block",
               "Position": "-192,-160,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "a73d8ddd-65e0-47a8-abe4-1380b5207b50",
               "Name": "Block",
               "Position": "192,-160,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "328fff5f-af48-4b70-95fe-9cc64b7485f4",
               "Name": "Block",
               "Position": "-192,-128,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "0eaca2d3-5e5a-47c2-b229-bace2df29e04",
               "Name": "Block",
               "Position": "192,-128,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "8255e66b-caf0-475a-b9cc-511cd606d229",
               "Name": "Block",
               "Position": "128,-128,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "87caa540-b79c-49fd-ac9f-4334f0096473",
               "Name": "Block",
               "Position": "128,-64,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "593cbc8e-0595-4f76-845d-6fbb26ba053e",
               "Name": "Block",
               "Position": "128,0,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "4d43ca19-23d1-4ee1-8dce-d791f99fe67a",
               "Name": "Block",
               "Position": "128,64,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "8efec935-427f-4c75-a3b3-1b256c71a440",
               "Name": "Block",
               "Position": "128,128,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "71fbbd0d-5a55-49f1-9851-8bba99f52712",
               "Name": "Block",
               "Position": "64,-128,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "47dcd619-aacb-415e-aed6-9532c0c14327",
               "Name": "Block",
               "Position": "64,-64,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "dbc18eb0-e8ec-4a31-9332-f6bc609db355",
               "Name": "Block",
               "Position": "64,0,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "1334b1ba-4b9c-4228-8a60-7f23177ffd31",
               "Name": "Block",
               "Position": "64,64,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "da9fcb4c-a04d-4b6d-8d5c-a5fefb37fc1c",
               "Name": "Block",
               "Position": "64,128,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "88ed70a4-9091-4b17-91a2-8e6dc6545b6e",
               "Name": "Block",
               "Position": "0,-128,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "dd35ac37-297e-418f-8d02-0241e511dd33",
               "Name": "Block",
               "Position": "0,-64,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "93bb5bde-e4cb-455f-b23c-c993a0762a51",
               "Name": "Block",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "7519f468-fb74-4b23-a870-8e6a89b85cab",
               "Name": "Block",
               "Position": "0,64,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "d1d7c075-87d2-4b14-9faf-65b51564209e",
               "Name": "Block",
               "Position": "0,128,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "79323882-65ac-42d6-b529-94b19bce48ed",
               "Name": "Block",
               "Position": "-64,-128,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "c0e957ff-478d-4248-97b4-49a2fc76186c",
               "Name": "Block",
               "Position": "-64,-64,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "471fb414-55fd-4ee6-80b1-54df1d65c198",
               "Name": "Block",
               "Position": "-64,0,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "43abb246-9462-4cb0-a795-27d5f5659c16",
               "Name": "Block",
               "Position": "-64,64,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "9a9afa60-6f23-4447-86da-165b19cb8796",
               "Name": "Block",
               "Position": "-64,128,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "5484a14f-41d4-4944-ac91-2b091f5ace76",
               "Name": "Block",
               "Position": "-128,-128,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "f4cb0626-7333-4a18-afc7-f0d7ec766aa6",
               "Name": "Block",
               "Position": "-128,-64,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "242a4dc3-9f56-4853-afc9-40077d70b4e9",
               "Name": "Block",
               "Position": "-128,0,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "18c54138-4745-443e-ba2e-6f4eefe29d19",
               "Name": "Block",
               "Position": "-128,64,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "972a3ac1-cf47-47f9-b4b1-356952cb5591",
               "Name": "Block",
               "Position": "-128,128,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "d76369ab-4677-4ab4-bdc9-c9a69fd10b1b",
               "Name": "Block",
               "Position": "-192,-96,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "a5921672-32a5-46b3-a8d3-786894e8838a",
               "Name": "Block",
               "Position": "192,-96,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "6a9f1bb2-1aa9-404c-8b2d-d7d9724411f2",
               "Name": "Block",
               "Position": "-192,-64,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "d717dd1e-c8ea-4e24-b9ec-d656540e1221",
               "Name": "Block",
               "Position": "192,-64,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "7f711945-4770-4282-aee0-cf23cd785237",
               "Name": "Block",
               "Position": "-192,-32,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "d25e232e-3789-47a9-a8b6-b2c9ebc87305",
               "Name": "Block",
               "Position": "192,-32,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "1606c484-23d1-4204-aab1-8db5d433d67d",
               "Name": "Block",
               "Position": "-192,0,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "bf21c456-5804-4d71-8d9a-9b0cfb73627c",
               "Name": "Block",
               "Position": "192,0,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "1b0094cb-ac07-4dc4-b946-3b51e686a727",
               "Name": "Block",
               "Position": "-192,32,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "f3252022-d041-4210-b2f2-163ea41db0a9",
               "Name": "Block",
               "Position": "192,32,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "699908eb-7089-4530-91e7-b07e4ae73852",
               "Name": "Block",
               "Position": "-192,64,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "d42e164b-e838-433d-9029-6483d0539350",
               "Name": "Block",
               "Position": "192,64,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "ffcae4aa-0ce2-433f-a8b0-cf7451abd44b",
               "Name": "Block",
               "Position": "-192,96,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "74b2db84-108b-4666-94ce-dc915acef50f",
               "Name": "Block",
               "Position": "192,96,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "06ca5853-7869-4dc9-ae49-c4c619559786",
               "Name": "Block",
               "Position": "-192,128,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "29b5db18-78cc-4089-843f-cc40f21a5e3b",
               "Name": "Block",
               "Position": "192,128,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "ca367d99-d0d6-46fd-ace5-d508732bfe8a",
               "Name": "Block",
               "Position": "-192,160,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "d4663337-8f15-4ee2-81cc-3377b1caf23d",
               "Name": "Block",
               "Position": "192,160,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "aa281171-8b91-45ee-abc8-45bb491d0c8e",
               "Name": "Block",
               "Position": "32,192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "73ad9f78-8097-4543-a252-aa95ab9ab907",
               "Name": "Block",
               "Position": "32,-192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "099f5334-b5f3-41af-8225-efcbbbb0052a",
               "Name": "Block",
               "Position": "64,192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "03da1d25-6a9c-4fbd-a70f-85e9224fab7e",
               "Name": "Block",
               "Position": "64,-192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "38da30a2-ad9b-472c-bf9f-cbc37d44384e",
               "Name": "Block",
               "Position": "96,192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "f556e9ed-598e-458f-84ca-bba6ad15ac3a",
               "Name": "Block",
               "Position": "96,-192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "9aefbd50-2c68-477e-a307-78d6dd419e03",
               "Name": "Block",
               "Position": "128,192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "ebbf9ef9-13fa-4489-8102-7907d0cb589c",
               "Name": "Block",
               "Position": "128,-192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "2a901745-4573-40c4-9226-fedf634921f5",
               "Name": "Block",
               "Position": "160,192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "0103e7a7-ecc1-4736-97f3-71a472c0d9c5",
               "Name": "Block",
               "Position": "160,-192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "dde411f3-4cc0-42e7-9cdd-bf2a5fd1184b",
               "Name": "Block",
               "Position": "192,192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
             },
             {
               "Id": "4d0b122e-c71b-4012-af00-24ca62a29d9c",
               "Name": "Block",
               "Position": "192,-192,0",
               "Enabled": true,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "BodyGroups": 1,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "ModelCollider",
-                  "IsTrigger": false,
-                  "Model": "models/block_metal_a/block_metal_a.vmdl",
-                  "Static": true,
-                  "Surface": null
-                }
-              ]
+              "__Prefab": "prefabs/block.prefab"
+            }
+          ]
+        },
+        {
+          "Id": "9fca7ee9-8274-4a41-9352-26b4a6955732",
+          "Name": "Breakables",
+          "Enabled": true,
+          "Children": [
+            {
+              "Id": "ac006067-f36c-49e8-a767-e7c54c1d803e",
+              "Name": "Breakable",
+              "Position": "-32,-128,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "d54bfb64-7104-47cc-af48-c859532ed606",
+              "Name": "Breakable",
+              "Position": "32,-128,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "3fce5173-e08f-4a8c-baac-2f12a8606d40",
+              "Name": "Breakable",
+              "Position": "32,-160,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "75d6eb1f-127f-46a4-8bdd-7feda8b7c5dc",
+              "Name": "Breakable",
+              "Position": "0,-160,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "a36c1098-f1f3-4c2f-8ced-a514dee97f10",
+              "Name": "Breakable",
+              "Position": "-32,-160,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "ca73d06b-00e2-476f-a009-c31973102ba2",
+              "Name": "Breakable",
+              "Position": "-32,-64,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "3c8bcf35-6b78-4d0f-8422-e567d448ed1b",
+              "Name": "Breakable",
+              "Position": "32,-64,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "14f3edd5-862f-4b7c-8bc2-223844dea73b",
+              "Name": "Breakable",
+              "Position": "32,-96,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "d2110719-3064-42d8-980a-f34c5485ce51",
+              "Name": "Breakable",
+              "Position": "96,-96,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "490f3be9-31e5-4ed3-926b-ad85921ce38b",
+              "Name": "Breakable",
+              "Position": "96,-160,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "7493eab8-6c15-4b58-92b7-1d40edfafe65",
+              "Name": "Breakable",
+              "Position": "96,-128,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "af780434-4a04-4a42-86fe-8893f11d62b8",
+              "Name": "Breakable",
+              "Position": "128,-96,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "ad258d00-adfd-4201-ad37-c7c379995391",
+              "Name": "Breakable",
+              "Position": "-128,-96,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "707fe295-146c-42ca-b26a-f0ef25147643",
+              "Name": "Breakable",
+              "Position": "-160,-96,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "994801bd-d434-4604-bd1f-a1d5327eeaf8",
+              "Name": "Breakable",
+              "Position": "-96,-96,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "392113f8-bcb8-47bf-a7bb-4893271db303",
+              "Name": "Breakable",
+              "Position": "-96,-128,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "e4ca91e2-69fd-4759-9bcc-7227f74d72c1",
+              "Name": "Breakable",
+              "Position": "-96,-160,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "a1b1f26a-3c86-4723-a946-fdc28ab254ba",
+              "Name": "Breakable",
+              "Position": "-96,160,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "d1428933-d027-414f-93b2-ed89d37acb3b",
+              "Name": "Breakable",
+              "Position": "-96,128,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "cd639a72-7662-4cdf-81c9-c2d8882575ae",
+              "Name": "Breakable",
+              "Position": "-96,96,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "f77b64ec-3b66-4134-809f-5d13ee1bcbb7",
+              "Name": "Breakable",
+              "Position": "-128,96,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "440ed0d8-e905-4b52-8cf5-fc9b532b97c9",
+              "Name": "Breakable",
+              "Position": "-160,96,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "06d5f66d-70a3-4795-8082-e24a13214878",
+              "Name": "Breakable",
+              "Position": "-160,96,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "a52b9e77-5f90-49a0-88c5-7c1c341da642",
+              "Name": "Breakable",
+              "Position": "-160,64,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "f219e185-577c-4c28-bb6a-d359dbae31c5",
+              "Name": "Breakable",
+              "Position": "-160,32,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "8a0f745d-0cef-40e6-b1b5-42e2ff5611ce",
+              "Name": "Breakable",
+              "Position": "-128,32,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "40aebd2f-f6ba-4f4e-85eb-7548eeb52b87",
+              "Name": "Breakable",
+              "Position": "-64,32,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "ae436a66-969c-428d-b342-f70cf13704fa",
+              "Name": "Breakable",
+              "Position": "-32,32,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "cbf926ed-d814-42d4-95fc-1dea0d378195",
+              "Name": "Breakable",
+              "Position": "-32,64,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "45023871-f9da-4a6f-a687-d57b7e06bef0",
+              "Name": "Breakable",
+              "Position": "-32,96,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "4abf14ee-88f4-491a-a606-ef0dd8552ff4",
+              "Name": "Breakable",
+              "Position": "32,96,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "b98b7e3d-37ac-46f1-bb81-9f1b43e06a52",
+              "Name": "Breakable",
+              "Position": "32,64,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "bad9fb6f-e3ba-4e32-8fac-bfba5602c21a",
+              "Name": "Breakable",
+              "Position": "32,32,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "07d0a860-d828-49eb-872f-9da26f15cfad",
+              "Name": "Breakable",
+              "Position": "96,32,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "58ef90aa-cf80-4370-9115-8853072a15a5",
+              "Name": "Breakable",
+              "Position": "128,32,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "0e6f5085-db12-4aac-b8e4-b9a5b5cca94d",
+              "Name": "Breakable",
+              "Position": "160,32,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "c5b0d9ae-c102-48fa-a950-4cbfb095d6cc",
+              "Name": "Breakable",
+              "Position": "160,-96,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "3b45869f-23f5-4fdc-a19f-3910a51cff4f",
+              "Name": "Breakable",
+              "Position": "160,-32,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "2a4253da-ad82-4ef1-82b8-9399f1f46c6e",
+              "Name": "Breakable",
+              "Position": "96,-32,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "0c1682d1-1b52-4fea-907f-4413f6bfd08a",
+              "Name": "Breakable",
+              "Position": "0,-32,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "792f9b30-f690-4f96-a95b-2b059b5d5d68",
+              "Name": "Breakable",
+              "Position": "96,96,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "34e9b38f-7cae-4ea0-985b-f9d90d55a623",
+              "Name": "Breakable",
+              "Position": "96,128,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "233f80d4-1ba9-4459-abec-ad0f07a4f351",
+              "Name": "Breakable",
+              "Position": "96,160,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "13c55da4-5283-40d4-887c-608748f8db7b",
+              "Name": "Breakable",
+              "Position": "128,96,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "ab9ffe20-58e4-4e20-a871-e33247bd18a0",
+              "Name": "Breakable",
+              "Position": "160,96,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "e9ad65ba-dfce-4b0c-bd17-aa2bc9ce1e21",
+              "Name": "Breakable",
+              "Position": "-32,128,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "a04da4ce-1772-457f-9cf7-a1c13a79cee1",
+              "Name": "Breakable",
+              "Position": "-32,160,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "2abc9818-b6a3-40ac-ac7d-a1e884b43d92",
+              "Name": "Breakable",
+              "Position": "0,160,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "c60a410b-6bb3-4aa6-b7de-5f0edc6a40e5",
+              "Name": "Breakable",
+              "Position": "-64,-32,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "68159d86-34fe-4e79-ba3e-fbd12f883617",
+              "Name": "Breakable",
+              "Position": "-96,-32,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "9508678a-ce76-4e77-bf3e-2ef87c48a28f",
+              "Name": "Breakable",
+              "Position": "-128,-32,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
+            },
+            {
+              "Id": "1310e8af-db81-405b-b095-5c3ddaefed29",
+              "Name": "Breakable",
+              "Position": "-160,-32,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/breakable.prefab"
             }
           ]
         }
@@ -1869,6 +999,6 @@
   },
   "Title": "arena",
   "Description": "",
-  "LastSaved": "2024-02-08T10:47:31.6220449\u002B00:00",
+  "LastSaved": "2024-02-08T11:01:04.4979096\u002B00:00",
   "__references": []
 }

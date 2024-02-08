@@ -1,0 +1,30 @@
+{
+  "RootObject": {
+    "Id": "4d0b122e-c71b-4012-af00-24ca62a29d9c",
+    "Name": "Block",
+    "Position": "192,-192,0",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "ModelRenderer",
+        "BodyGroups": 1,
+        "MaterialGroup": null,
+        "MaterialOverride": null,
+        "Model": "models/block_metal_a/block_metal_a.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "ModelCollider",
+        "IsTrigger": false,
+        "Model": "models/block_metal_a/block_metal_a.vmdl",
+        "Static": true,
+        "Surface": null
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

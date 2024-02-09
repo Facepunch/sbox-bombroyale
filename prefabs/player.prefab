@@ -1,0 +1,28 @@
+{
+  "RootObject": {
+    "Id": "113cc993-52a0-4dcb-9a37-6347126ec25e",
+    "Name": "Player",
+    "Position": "29.79742,-31.76826,0",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "SkinnedModelRenderer",
+        "BodyGroups": 341,
+        "BoneMergeTarget": null,
+        "CreateBoneObjects": false,
+        "MaterialGroup": null,
+        "MaterialOverride": null,
+        "Model": "models/citizen/citizen.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "Player"
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

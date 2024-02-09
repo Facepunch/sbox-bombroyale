@@ -45,25 +45,6 @@
       ]
     },
     {
-      "Id": "113cc993-52a0-4dcb-9a37-6347126ec25e",
-      "Name": "Object",
-      "Position": "29.79742,-31.76826,0",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "SkinnedModelRenderer",
-          "BodyGroups": 341,
-          "BoneMergeTarget": null,
-          "CreateBoneObjects": false,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/citizen/citizen.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        }
-      ]
-    },
-    {
       "Id": "d282bb80-8b7f-433a-8cbd-67ce9a068fbe",
       "Name": "Arena",
       "Enabled": true,
@@ -974,6 +955,25 @@
           ]
         }
       ]
+    },
+    {
+      "Id": "adf0faf8-45c6-432d-bad4-c3b3b4695b63",
+      "Name": "BombRoyale",
+      "Position": "-17.84023,-0.495842,-36.83762",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "BombRoyale",
+          "BombPrefab": {
+            "_type": "gameobject",
+            "prefab": "prefabs/bomb.prefab"
+          },
+          "PlayerPrefab": {
+            "_type": "gameobject",
+            "prefab": "prefabs/player.prefab"
+          }
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -999,6 +999,6 @@
   },
   "Title": "arena",
   "Description": "",
-  "LastSaved": "2024-02-09T16:21:27.1091532\u002B00:00",
+  "LastSaved": "2024-02-09T16:37:10.2019455\u002B00:00",
   "__references": []
 }

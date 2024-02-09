@@ -14,7 +14,7 @@
   "PackageReferences": [],
   "EditorReferences": null,
   "Metadata": {
-    "MaxPlayers": 64,
+    "MaxPlayers": 4,
     "MinPlayers": 1,
     "TickRate": 50,
     "GameNetworkType": "Multiplayer",
@@ -27,7 +27,7 @@
     "StartupScene": "scenes/lobby.scene",
     "ProjectTemplate": null,
     "MapStartupScene": null,
-    "LaunchMode": "Normal",
+    "LaunchMode": "QuickPlay",
     "Collision": {
       "Defaults": {
         "solid": "Collide",

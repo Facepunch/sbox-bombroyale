@@ -974,23 +974,6 @@
           ]
         }
       ]
-    },
-    {
-      "Id": "9f7367f1-5767-4840-9ef7-4d4b8040f073",
-      "Name": "Bomb",
-      "Position": "32,0,0",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/bomb.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        }
-      ]
     }
   ],
   "SceneProperties": {
@@ -1016,6 +999,6 @@
   },
   "Title": "arena",
   "Description": "",
-  "LastSaved": "2024-02-09T14:24:32.1248266\u002B00:00",
+  "LastSaved": "2024-02-09T16:21:27.1091532\u002B00:00",
   "__references": []
 }

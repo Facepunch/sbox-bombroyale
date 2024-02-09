@@ -1,0 +1,36 @@
+{
+  "RootObject": {
+    "Id": "4fc2b98a-6776-44bf-836e-286494497241",
+    "Name": "Bomb",
+    "Position": "32,0,0",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Bomb"
+      }
+    ],
+    "Children": [
+      {
+        "Id": "9f7367f1-5767-4840-9ef7-4d4b8040f073",
+        "Name": "Model",
+        "Position": "0,0,12",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/bomb.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

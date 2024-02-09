@@ -19,6 +19,12 @@ public class Bombable : Component
 			.WithAnyTags( "solid", "pickup", "player", "bomb" )
 			.Run();
 
+
+		if ( trace.Hit )
+		{
+		    throw new System.Exception("Trace hit an object.");
+		}
+
 		return trace.Hit;
 	}
 

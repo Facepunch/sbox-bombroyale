@@ -1,8 +1,7 @@
 {
   "RootObject": {
     "Id": "ac006067-f36c-49e8-a767-e7c54c1d803e",
-    "Name": "Breakable",
-    "Position": "-32,-128,0",
+    "Name": "breakable",
     "Enabled": true,
     "Components": [
       {
@@ -20,8 +19,12 @@
         "Model": "models/block_metal_a/block_metal_a.vmdl",
         "Static": false,
         "Surface": null
+      },
+      {
+        "__type": "Bombable"
       }
-    ]
+    ],
+    "Children": []
   },
   "ShowInMenu": false,
   "MenuPath": null,

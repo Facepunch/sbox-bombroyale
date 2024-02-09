@@ -1,6 +1,3 @@
-//=========================================================================================================================
-// Optional
-//=========================================================================================================================
 HEADER
 {
 	Description = "Bomb";
@@ -33,7 +30,7 @@ VS
 {
 	#include "common/vertex.hlsl"
 
-	PixelInput MainVs( INSTANCED_SHADER_PARAMS( VertexInput i ) )
+	PixelInput MainVs( VertexInput i )
 	{
 		PixelInput o = ProcessVertex( i );
 		return FinalizeVertex( o );
@@ -46,7 +43,7 @@ PS
 
 	float4 MainPs( PixelInput i ) : SV_Target0
 	{
-		Material m = GatherMaterial( i );
+		Material m = Material::From( i );
 
 		if ( g_ExplodeTime > 0.0 )
 		{
@@ -56,8 +53,7 @@ PS
 			m.Roughness = lerp( m.Roughness, float3( 0.0, 0.0, 0.0 ), g_ExplodeTime );
 			m.AmbientOcclusion = lerp( m.AmbientOcclusion, float3( 0.0, 0.0, 0.0 ), g_ExplodeTime );
 		}
-
-		ShadingModelValveStandard sm;
-		return FinalizePixelMaterial( i, m, sm );
+		
+		return ShadingModelStandard::Shade( i, m );
 	}
 }

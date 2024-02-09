@@ -4,9 +4,6 @@ Layer0
 {
 	shader "shaders/bomb.shader"
 
-	g_flDirectionalLightmapMinZ "0.050"
-	g_flDirectionalLightmapStrength "1.000"
-
 	//---- Fog ----
 	g_bFogEnabled "1"
 
@@ -19,6 +16,7 @@ Layer0
 	TextureNormal "models/bomb_normal.tga"
 	TextureRoughness "models/bomb_rough.tga"
 	TextureTintMask "materials/default/default.tga"
+	TextureTranslucency "materials/default/default_trans.tga"
 
 	//---- Settings ----
 	g_ExplodeTime "0.000"

@@ -974,6 +974,65 @@
           }
         }
       ]
+    },
+    {
+      "Id": "8291c835-2c1e-4660-8fdf-e09719b19be0",
+      "Name": "Spawns",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "2a084a79-4db8-40a1-b9bb-6cde0f62af4e",
+          "Name": "Player1",
+          "Position": "160,-160,0",
+          "Rotation": "0,0,1,0.0000001947072",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "PlayerSpawn",
+              "Index": 0
+            }
+          ]
+        },
+        {
+          "Id": "347d5d68-575d-4f7f-8c32-ef2486661a0c",
+          "Name": "Player2",
+          "Position": "160,160,0",
+          "Rotation": "0,0,1,0.0000001947072",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "PlayerSpawn",
+              "Index": 1
+            }
+          ]
+        },
+        {
+          "Id": "a0ebc685-5bf5-4c4e-99ca-7281cce33daf",
+          "Name": "Player3",
+          "Position": "-160,160,0",
+          "Rotation": "0,0,0.0000003894144,-1",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "PlayerSpawn",
+              "Index": 2
+            }
+          ]
+        },
+        {
+          "Id": "bbd75d52-4093-4fed-8213-508d8c37f8a4",
+          "Name": "Player4",
+          "Position": "-160,-160,0",
+          "Rotation": "0,0,0.0000003894144,-1",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "PlayerSpawn",
+              "Index": 3
+            }
+          ]
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -999,6 +1058,6 @@
   },
   "Title": "arena",
   "Description": "",
-  "LastSaved": "2024-02-09T16:37:10.2019455\u002B00:00",
+  "LastSaved": "2024-02-10T13:24:31.7575067\u002B00:00",
   "__references": []
 }

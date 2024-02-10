@@ -3,6 +3,8 @@ using Editor;
 
 namespace Facepunch.BombRoyale;
 
+[Title( "Bombable" )]
+[Category( "Bomb Royale" )]
 public class Bombable : Component
 {
 	[Sync] public bool IsHidden { get; set; }

@@ -54,6 +54,14 @@
           "go": "553ac0f9-9ac5-4aed-8706-b1f219faf907",
           "component_type": "SkinnedModelRenderer"
         }
+      },
+      {
+        "__type": "PlayerDresser",
+        "BodyRenderer": {
+          "_type": "component",
+          "go": "553ac0f9-9ac5-4aed-8706-b1f219faf907",
+          "component_type": "SkinnedModelRenderer"
+        }
       }
     ],
     "Children": []

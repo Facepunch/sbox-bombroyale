@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Sandbox;
 using Sandbox.Network;
 
@@ -18,6 +20,12 @@ public class BombRoyale : Component, Component.INetworkListener
 	protected override void OnAwake()
 	{
 		Instance = this;
+
+		for ( var i = 0; i < 4; i++ )
+		{
+			Players.Add( null );
+		}
+		
 		base.OnAwake();
 	}
 	
@@ -31,9 +39,44 @@ public class BombRoyale : Component, Component.INetworkListener
 		base.OnStart();
 	}
 
+	private int FindFreeSlot()
+	{
+		for ( var i = 0; i < 4; i++ )
+		{
+			var player = Players[i];
+			if ( player.IsValid() ) continue;
+			return i;
+		}
+
+		return -1;
+	}
+
 	void INetworkListener.OnActive( Connection connection )
 	{
 		var player = PlayerPrefab.Clone();
+		var playerSlot = FindFreeSlot();
+
+		if ( playerSlot < 0 )
+		{
+			throw new( "Player joined but there's no free slots!" );
+		}
+
+		var spawnpoints = Scene.GetAllComponents<PlayerSpawn>().ToList();
+		spawnpoints.Sort( ( a, b ) => a.Index.CompareTo( b.Index ) );
+
+		var spawnpoint = spawnpoints[playerSlot];
+		if ( !spawnpoint.IsValid() )
+		{
+			throw new( $"Can't find spawnpoint for player slot #{playerSlot}" );
+		}
+
+		var playerComponent = player.Components.Get<Player>();
+		playerComponent.PlayerSlot = playerSlot;
+		player.Transform.Position = spawnpoint.Transform.Position;
+		player.Transform.Rotation = spawnpoint.Transform.Rotation;
+		
 		player.NetworkSpawn( connection );
+
+		Players[playerSlot] = playerComponent;
 	}
 }

@@ -1,8 +1,7 @@
 {
   "RootObject": {
-    "Id": "113cc993-52a0-4dcb-9a37-6347126ec25e",
-    "Name": "Player",
-    "Position": "29.79742,-31.76826,0",
+    "Id": "553ac0f9-9ac5-4aed-8706-b1f219faf907",
+    "Name": "player",
     "Enabled": true,
     "Components": [
       {
@@ -18,8 +17,46 @@
       },
       {
         "__type": "Player"
+      },
+      {
+        "__type": "CharacterController",
+        "Acceleration": 10,
+        "Bounciness": 0.3,
+        "GroundAngle": 45,
+        "Height": 64,
+        "IgnoreLayers": "",
+        "Radius": 12,
+        "StepHeight": 18
+      },
+      {
+        "__type": "CitizenAnimationHelper",
+        "BodyWeight": 1,
+        "EyeSource": null,
+        "EyesWeight": 1,
+        "HeadWeight": 1,
+        "Height": 1,
+        "IkLeftFoot": null,
+        "IkLeftHand": null,
+        "IkRightFoot": null,
+        "IkRightHand": null,
+        "LookAt": null,
+        "LookAtEnabled": false,
+        "Target": {
+          "_type": "component",
+          "go": "553ac0f9-9ac5-4aed-8706-b1f219faf907",
+          "component_type": "SkinnedModelRenderer"
+        }
+      },
+      {
+        "__type": "PlayerFootsteps",
+        "ModelRenderer": {
+          "_type": "component",
+          "go": "553ac0f9-9ac5-4aed-8706-b1f219faf907",
+          "component_type": "SkinnedModelRenderer"
+        }
       }
-    ]
+    ],
+    "Children": []
   },
   "ShowInMenu": false,
   "MenuPath": null,

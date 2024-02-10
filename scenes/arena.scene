@@ -48,6 +48,12 @@
       "Id": "d282bb80-8b7f-433a-8cbd-67ce9a068fbe",
       "Name": "Arena",
       "Enabled": true,
+      "Components": [
+        {
+          "__type": "ArenaBounds",
+          "Size": "416,416,0"
+        }
+      ],
       "Children": [
         {
           "Id": "ad80ea75-cabe-4a1d-bf75-13123812f6d2",
@@ -1058,6 +1064,6 @@
   },
   "Title": "arena",
   "Description": "",
-  "LastSaved": "2024-02-10T13:24:31.7575067\u002B00:00",
+  "LastSaved": "2024-02-10T15:41:03.9421154\u002B00:00",
   "__references": []
 }

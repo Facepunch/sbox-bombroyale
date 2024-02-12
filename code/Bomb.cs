@@ -8,7 +8,7 @@ namespace Facepunch.BombRoyale;
 public class Bomb : Component
 {
 	public Player Player =>
-		Scene.GetAllComponents<Player>().FirstOrDefault( p => p.Network.OwnerId == Network.OwnerId );
+		BombRoyale.Players.FirstOrDefault( p => p.Network.OwnerId == Network.OwnerId );
 	
 	[Sync] public bool IsPlaced { get; private set; }
 	[Sync] private TimeSince TimeSincePlaced { get; set; }

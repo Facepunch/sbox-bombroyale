@@ -3,6 +3,7 @@ using System.Linq;
 using Sandbox;
 using Editor;
 using Sandbox.Citizen;
+using Sandbox.Diagnostics;
 
 namespace Facepunch.BombRoyale;
 
@@ -53,7 +54,7 @@ public class Player : Component, IHealthComponent
 		return Colors[PlayerSlot];
 	}
 	
-	[Authority]
+	[Broadcast]
 	public void Respawn()
 	{
 		ShowRespawnEffect();
@@ -90,13 +91,20 @@ public class Player : Component, IHealthComponent
 
 	public int GetPlacedBombCount()
 	{
-		return Scene.GetAllComponents<Bomb>().Count( b => b.Player == this && b.IsPlaced );
+		return !Scene.IsValid() ? 0 : Scene.GetAllComponents<Bomb>().Count( b => b.Player == this && b.IsPlaced );
 	}
 	
 	[Broadcast]
 	public void TakeDamage( DamageType type, float damage, Vector3 position, Vector3 force, Guid attackerId )
 	{
 		
+	}
+
+	public void SetPlayerSlot( int slot )
+	{
+		Assert.True( Networking.IsHost );
+		PlayerSlot = slot;
+		BombRoyale.Players[slot] = this;
 	}
 	
 	protected override void OnAwake()
@@ -111,6 +119,11 @@ public class Player : Component, IHealthComponent
 	protected override void OnStart()
 	{
 		if ( Network.IsOwner ) Me = this;
+
+		if ( !Networking.IsHost )
+		{
+			BombRoyale.Players[PlayerSlot] = this;
+		}
 		
 		base.OnStart();
 	}
@@ -142,7 +155,6 @@ public class Player : Component, IHealthComponent
 		}
 	}
 	
-	[Broadcast]
 	private void ShowRespawnEffect()
 	{
 		var fx = new SceneParticles( Scene.SceneWorld, "particles/gameplay/player/respawn/respawn_effect.vpcf" );

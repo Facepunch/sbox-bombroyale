@@ -1,7 +1,7 @@
 ﻿@using System;
+@using System.Linq
 @using Sandbox;
 @using Sandbox.UI;
-@using Sandbox.UI.Construct;
 @using Facepunch.BombRoyale;
 
 @namespace Facepunch.BombRoyale.UI
@@ -54,46 +54,36 @@
 
 @code
 {
-    //public BombRoyalePlayer Player => Client?.Pawn as BombRoyalePlayer;
+	public Player Player => BombRoyale.Players[PlayerIndex - 1];
     public int PlayerIndex { get; set; }
 
     protected override int BuildHash()
     {
-		/*
-        if ( Player.IsValid() )
-            return HashCode.Combine( Player, Player.LifeState, Player.LivesLeft, Player.HasSuperBomb, Player.BombRange, Player.GetBombsLeft(), Player.SpeedBoosts, Player.Disease );
-        else if ( Client.IsValid() )
-            return HashCode.Combine( Client, Client.Name );
-		*/
-		
-        return 0;
+	    var player = Player;
+	    return player.IsValid() ? HashCode.Combine( player, player.LifeState, player.LivesLeft, player.HasSuperBomb, player.BombRange, player.GetBombsLeft(), player.SpeedBoosts, player.Disease ) : 0;
     }
 
-    private bool HasRangeDisease() => false;//Player.IsValid() && Player.Disease == DiseaseType.LowRange;
+    private bool HasRangeDisease() => Player.IsValid() && Player.Disease == DiseaseType.LowRange;
     private bool HasSpeedDisease() => HasFastDisease() || HasSlowDisease();
-    private bool HasFastDisease() => false;//Player.IsValid() && Player.Disease == DiseaseType.MoveFast;
-    private bool HasSlowDisease() => false;//Player.IsValid() && Player.Disease == DiseaseType.MoveSlow;
-    private bool HasBombDisease() => false;//Player.IsValid() && Player.Disease == DiseaseType.RandomBomb;
+    private bool HasFastDisease() => Player.IsValid() && Player.Disease == DiseaseType.MoveFast;
+    private bool HasSlowDisease() => Player.IsValid() && Player.Disease == DiseaseType.MoveSlow;
+    private bool HasBombDisease() => Player.IsValid() && Player.Disease == DiseaseType.RandomBomb;
 
-    private string GetBombsLeft() => "0";
-	private int GetLivesLeft() => 0;
-	private bool IsValidPlayer() => false;
-	private bool HasSuperBomb() => false;
-	private string GetPlayerName() => "Player";
-	private bool IsDead() => true;
+    private string GetBombsLeft() => (Player?.GetBombsLeft() ?? 0).ToString();
+    private int GetLivesLeft() => Player?.LivesLeft ?? 0;
+	private bool IsValidPlayer() => Player.IsValid();
+	private bool HasSuperBomb() => Player?.HasSuperBomb ?? false;
+	private string GetPlayerName() => Player.IsValid() ? Player.Network.OwnerConnection.Name : "Player";
+	private bool IsDead() => !Player.IsValid() || Player.LifeState == LifeState.Dead;
 
     private string GetBombRange()
     {
-        if ( HasBombDisease() ) return "1";
-        //return (Player?.BombRange ?? 0).ToString();
-		return "0";
+	    return HasBombDisease() ? "1" : (Player?.BombRange ?? 0).ToString();
     }
 
     private string GetSpeedBoosts()
     {
         if ( HasFastDisease() ) return "8";
-        if ( HasSlowDisease() ) return "0";
-        //return (Player?.SpeedBoosts ?? 0).ToString();
-		return "0";
+        return HasSlowDisease() ? "0" : (Player?.SpeedBoosts ?? 0).ToString();
     }
 }

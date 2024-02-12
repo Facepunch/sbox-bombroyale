@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Sandbox;
-using Sandbox.Diagnostics;
 using Sandbox.Network;
 
 namespace Facepunch.BombRoyale;
@@ -11,6 +8,8 @@ namespace Facepunch.BombRoyale;
 [Category( "Bomb Royale" )]
 public class BombRoyale : Component, Component.INetworkListener
 {
+	public static List<Player> Players { get; private set; } = new( 4 ) { null, null, null, null };
+	
 	public static BombRoyale Instance { get; private set; }
 	
 	[Property] public GameObject PlayerPrefab { get; set; }
@@ -20,17 +19,9 @@ public class BombRoyale : Component, Component.INetworkListener
 
 	public int RoundTimeLeft => RoundEndTime.Relative.CeilToInt();
 
-	private List<Player> Players { get; set; } = new();
-
 	protected override void OnAwake()
 	{
 		Instance = this;
-
-		for ( var i = 0; i < 4; i++ )
-		{
-			Players.Add( null );
-		}
-		
 		base.OnAwake();
 	}
 	
@@ -73,9 +64,7 @@ public class BombRoyale : Component, Component.INetworkListener
 		}
 
 		var playerComponent = player.Components.Get<Player>();
-		playerComponent.PlayerSlot = playerSlot;
+		playerComponent.SetPlayerSlot( playerSlot );
 		player.NetworkSpawn( connection );
-
-		Players[playerSlot] = playerComponent;
 	}
 }

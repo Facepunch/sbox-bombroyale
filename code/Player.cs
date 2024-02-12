@@ -86,6 +86,14 @@ public class Player : Component, IHealthComponent
 		Transform.Rotation = spawnpoint.Transform.Rotation;
 	}
 	
+	public int GetBombsLeft() => MaxBombs - GetPlacedBombCount();
+
+	public int GetPlacedBombCount()
+	{
+		return Scene.GetAllComponents<Bomb>().Count( b => b.Player == this && b.IsPlaced );
+	}
+	
+	[Broadcast]
 	public void TakeDamage( DamageType type, float damage, Vector3 position, Vector3 force, Guid attackerId )
 	{
 		
@@ -180,16 +188,14 @@ public class Player : Component, IHealthComponent
 	
 	private float GetWishSpeed()
 	{
-		/*
-		if ( Player.Disease == DiseaseType.MoveFast )
-			return WalkSpeed * 1.75f;
-		else if ( Player.Disease == DiseaseType.MoveSlow )
-			return WalkSpeed * 0.75f;
+		const float walkSpeed = 150f;
 
-		return Scale( WalkSpeed + (25f * Player.SpeedBoosts) );
-		*/
-		
-		return 150f;
+		return Disease switch
+		{
+			DiseaseType.MoveFast => walkSpeed * 1.75f,
+			DiseaseType.MoveSlow => walkSpeed * 0.75f,
+			_ => walkSpeed + (25f * SpeedBoosts)
+		};
 	}
 	
 	private void TryDirectionalMove( Vector3 direction )

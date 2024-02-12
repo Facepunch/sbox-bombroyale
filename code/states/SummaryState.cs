@@ -6,7 +6,6 @@ namespace Facepunch.BombRoyale;
 public class SummaryState : BaseState
 {
 	public override string Name => "END";
-	public override bool IsPaused => true;
 	public override int TimeLeft => RoundEndTime.Relative.CeilToInt();
 
 	[Sync] public string WinnerName { get; private set; }
@@ -25,8 +24,8 @@ public class SummaryState : BaseState
 
 			if ( winner.IsValid() )
 			{
-				//WinnerName = winner.Client.Name;
-				//WinnerIndex = winner.Client.NetworkIdent;
+				WinnerName = winner.Network.OwnerConnection.DisplayName;
+				WinnerIndex = winner.PlayerSlot;
 			}
 
 			foreach ( var bomb in Scene.GetAllComponents<Bomb>() )
@@ -41,15 +40,13 @@ public class SummaryState : BaseState
 
 			RoundEndTime = 10f;
 		}
+		
+		/*
+		if ( WinnerIndex == Game.LocalClient.NetworkIdent )
+			Sound.Play( "round.win" );
 		else
-		{
-			/*
-			if ( WinnerIndex == Game.LocalClient.NetworkIdent )
-				Sound.Play( "round.win" );
-			else
-				Sound.Play( "round.end" );
-			*/
-		}
+			Sound.Play( "round.end" );
+		*/
 	}
 
 	protected override void OnUpdate()

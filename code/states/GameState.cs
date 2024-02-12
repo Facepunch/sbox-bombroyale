@@ -18,22 +18,18 @@ public class GameState : BaseState
 		{
 			IResettable.ResetAll();
 
-			/*
-			foreach ( var client in Game.Clients )
+			var players = Scene.GetAllComponents<Player>();
+
+			foreach ( var player in players )
 			{
-				var pawn = new BombRoyalePlayer();
-				pawn.MakePawnOf( client );
-				pawn.Respawn();
+				player.Respawn();
 			}
-			*/
 			
 			RoundEndTime = 180f;
 		}
-		else
-		{
-			Sound.Play( "round.start" );
-			Music = Sound.Play( "battle.music" );
-		}
+		
+		Sound.Play( "round.start" );
+		Music = Sound.Play( "battle.music" );
 	}
 
 	protected override void OnUpdate()

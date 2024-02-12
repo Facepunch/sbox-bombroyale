@@ -42,13 +42,11 @@ public class LobbyState : BaseState
 				RoundEndTime = 5f;
 			}
 		}
-		else
+		
+		if ( RoundEndTime <= 5f && !PlayedCountdown )
 		{
-			if ( RoundEndTime <= 5f && !PlayedCountdown )
-			{
-				PlayedCountdown = true;
-				Countdown = Sound.Play( "round.countdown" );
-			}
+			PlayedCountdown = true;
+			Countdown = Sound.Play( "round.countdown" );
 		}
 		
 		base.OnUpdate();

@@ -1,21 +1,45 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Sandbox;
 using Editor;
 using Sandbox.Citizen;
 
 namespace Facepunch.BombRoyale;
 
-public class Player : Component
+public class Player : Component, IHealthComponent
 {
 	public static Player Me { get; private set; }
-	
-	[Sync] public LifeState LifeState { get; set; }
+
+	[Sync] public LifeState LifeState { get; private set; } = LifeState.Dead;
+	[Sync] public float MaxHealth { get; private set; } = 100f;
+	[Sync] public float Health { get; private set; }
 	[Sync] public int PlayerSlot { get; set; }
 	
+	[Sync] public TimeSince LastTakeDamageTime { get; private set; }
+	[Sync] public DiseaseType Disease { get; set; } = DiseaseType.None;
+	[Sync] public TimeUntil RemoveDiseaseTime { get; set; }
+	[Sync] public Bomb HoldingBomb { get; set; }
+	[Sync] public bool HasSuperBomb { get; set; }
+	[Sync] public int SpeedBoosts { get; set; }
+	[Sync] public int LivesLeft { get; set; }
+	[Sync] public int BombRange { get; set; }
+	[Sync] public int MaxBombs { get; set; }
+	
+	private TimeUntil NextRandomTeleport { get; set; }
+	private TimeUntil NextRandomBomb { get; set; }
 	private CitizenAnimationHelper Animation { get; set; }
 	private CharacterController Controller { get; set; }
+	private SkinnedModelRenderer Renderer { get; set; }
 	private Vector2 InputDirection { get; set; }
 	[Sync] private Vector3 WishVelocity { get; set; }
+	
+	private static readonly Color[] Colors = new Color[4]
+	{
+		"#F6D953",
+		"#DB3D76",
+		"#3DBFDB",
+		"#FF881B"
+	};
 	
 	private readonly Vector3[] Cardinals = {
 		Vector3.Forward,
@@ -24,10 +48,55 @@ public class Player : Component
 		Vector3.Backward
 	};
 	
+	public Color GetTeamColor()
+	{
+		return Colors[PlayerSlot];
+	}
+	
+	[Authority]
+	public void Respawn()
+	{
+		ShowRespawnEffect();
+		
+		LifeState = LifeState.Alive;
+		SpeedBoosts = 0;
+		LivesLeft = 1;
+		BombRange = 2;
+		Disease = DiseaseType.None;
+		MaxBombs = 1; 
+		Health = MaxHealth;
+		
+		Controller.Velocity = Vector3.Zero;
+
+		MoveToSpawnpoint();
+	}
+
+	public void MoveToSpawnpoint()
+	{
+		var spawnpoints = Scene.GetAllComponents<PlayerSpawn>().ToList();
+		spawnpoints.Sort( ( a, b ) => a.Index.CompareTo( b.Index ) );
+
+		var spawnpoint = spawnpoints[PlayerSlot];
+		if ( !spawnpoint.IsValid() )
+		{
+			throw new( $"Can't find spawnpoint for player slot #{PlayerSlot}" );
+		}
+		
+		Transform.Position = spawnpoint.Transform.Position;
+		Transform.Rotation = spawnpoint.Transform.Rotation;
+	}
+	
+	public void TakeDamage( DamageType type, float damage, Vector3 position, Vector3 force, Guid attackerId )
+	{
+		
+	}
+	
 	protected override void OnAwake()
 	{
-		Controller = Components.Get<CharacterController>();
-		Animation = Components.Get<CitizenAnimationHelper>();
+		Controller = Components.Get<CharacterController>( true );
+		Renderer = Components.Get<SkinnedModelRenderer>( true );
+		Animation = Components.Get<CitizenAnimationHelper>( true );
+		
 		base.OnAwake();
 	}
 
@@ -42,12 +111,38 @@ public class Player : Component
 	{
 		base.OnUpdate();
 
+		UpdateLifeState();
 		UpdateAnimation();
 		
 		if ( IsProxy ) return;
 
 		UpdateCamera();
 		UpdateMovement();
+	}
+
+	private void UpdateLifeState()
+	{
+		var isAlive = LifeState == LifeState.Alive;
+		
+		Controller.Enabled = isAlive;
+		Renderer.Enabled = isAlive;
+
+		var children = Components.GetAll<ModelRenderer>( FindMode.EverythingInDescendants );
+		foreach ( var child in children )
+		{
+			child.Enabled = isAlive;
+		}
+	}
+	
+	[Broadcast]
+	private void ShowRespawnEffect()
+	{
+		var fx = new SceneParticles( Scene.SceneWorld, "particles/gameplay/player/respawn/respawn_effect.vpcf" );
+		fx.SetControlPoint( 0, Transform.Position );
+		fx.SetNamedValue( "Color", GetTeamColor() * 255f );
+		fx.PlayUntilFinished( Task );
+		
+		Sound.Play( "player.teleport", Transform.Position );
 	}
 
 	private void UpdateAnimation()

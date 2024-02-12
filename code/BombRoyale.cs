@@ -72,20 +72,8 @@ public class BombRoyale : Component, Component.INetworkListener
 			throw new( "Player joined but there's no free slots!" );
 		}
 
-		var spawnpoints = Scene.GetAllComponents<PlayerSpawn>().ToList();
-		spawnpoints.Sort( ( a, b ) => a.Index.CompareTo( b.Index ) );
-
-		var spawnpoint = spawnpoints[playerSlot];
-		if ( !spawnpoint.IsValid() )
-		{
-			throw new( $"Can't find spawnpoint for player slot #{playerSlot}" );
-		}
-
 		var playerComponent = player.Components.Get<Player>();
 		playerComponent.PlayerSlot = playerSlot;
-		player.Transform.Position = spawnpoint.Transform.Position;
-		player.Transform.Rotation = spawnpoint.Transform.Rotation;
-		
 		player.NetworkSpawn( connection );
 
 		Players[playerSlot] = playerComponent;

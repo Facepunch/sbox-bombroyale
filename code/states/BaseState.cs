@@ -5,7 +5,6 @@ namespace Facepunch.BombRoyale;
 public abstract class BaseState : Component
 {
 	public virtual int TimeLeft => 0;
-	public virtual bool IsPaused => false;
 	public virtual string Name => string.Empty;
 
 	protected virtual void OnEnter() { }
@@ -16,13 +15,17 @@ public abstract class BaseState : Component
 	{
 		StateSystem.Active = this;
 		OnEnter();
+		
 		base.OnAwake();
 	}
 
 	protected override void OnDestroy()
 	{
-		StateSystem.Active = null;
+		if ( StateSystem.Active == this )
+			StateSystem.Active = null;
+		
 		OnLeave();
+		
 		base.OnDestroy();
 	}
 }

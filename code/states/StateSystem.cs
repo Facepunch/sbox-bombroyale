@@ -13,7 +13,7 @@ public static class StateSystem
 
 		if ( Active.IsValid() )
 		{
-			Active.GameObject.DestroyImmediate();
+			Active.GameObject.Destroy();
 		}
 
 		var go = new GameObject();

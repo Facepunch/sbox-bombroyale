@@ -34,7 +34,7 @@
 
     private string GetRoundName()
     {
-	    var game = BombRoyale.Instance;
-	    return !game.IsValid() ? string.Empty : game.CurrentRound.GetName();
+	    var state = StateSystem.Active;
+	    return !state.IsValid() ? string.Empty : state.Name;
     }
 }

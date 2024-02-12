@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Sandbox;
+using Sandbox.Diagnostics;
 using Sandbox.Network;
 
 namespace Facepunch.BombRoyale;
@@ -14,11 +15,8 @@ public class BombRoyale : Component, Component.INetworkListener
 	
 	[Property] public GameObject PlayerPrefab { get; set; }
 	[Property] public GameObject BombPrefab { get; set; }
-
-	[Sync] public Round CurrentRound { get; set; } = Round.Lobby;
+	
 	[Sync] public TimeUntil RoundEndTime { get; set; }
-	[Sync] public int WinnerIndex { get; set; }
-	[Sync] public int WinnerName { get; set; }
 
 	public int RoundTimeLeft => RoundEndTime.Relative.CeilToInt();
 
@@ -41,6 +39,11 @@ public class BombRoyale : Component, Component.INetworkListener
 		if ( !GameNetworkSystem.IsActive )
 		{
 			GameNetworkSystem.CreateLobby();
+		}
+
+		if ( Networking.IsHost )
+		{
+			StateSystem.Set<LobbyState>();
 		}
 		
 		base.OnStart();

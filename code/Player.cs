@@ -7,6 +7,9 @@ namespace Facepunch.BombRoyale;
 
 public class Player : Component
 {
+	public static Player Me { get; private set; }
+	
+	[Sync] public LifeState LifeState { get; set; }
 	[Sync] public int PlayerSlot { get; set; }
 	
 	private CitizenAnimationHelper Animation { get; set; }
@@ -26,6 +29,13 @@ public class Player : Component
 		Controller = Components.Get<CharacterController>();
 		Animation = Components.Get<CitizenAnimationHelper>();
 		base.OnAwake();
+	}
+
+	protected override void OnStart()
+	{
+		if ( Network.IsOwner ) Me = this;
+		
+		base.OnStart();
 	}
 
 	protected override void OnUpdate()

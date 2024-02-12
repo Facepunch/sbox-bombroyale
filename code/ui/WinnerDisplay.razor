@@ -9,15 +9,15 @@
 @inherits Panel
 
 @{
-	var game = BombRoyale.Instance;
-	if ( !game.IsValid() || game.CurrentRound < Round.GameOver )
+	var state = StateSystem.Active as SummaryState;
+	if ( !state.IsValid() )
 		return;
 }
 
 <root>
 	@{
-		var winnerName = game.WinnerName;
-		var winnerIndex = game.WinnerIndex;
+		var winnerName = state.WinnerName;
+		var winnerIndex = state.WinnerIndex;
 	}
 
     <div class="banner p@(winnerIndex)"></div>
@@ -40,7 +40,7 @@
 {
     protected override int BuildHash()
     {
-	    var game = BombRoyale.Instance;
-	    return !game.IsValid() ? 0 : HashCode.Combine( game.WinnerIndex, game.WinnerName, game.CurrentRound );
+	    var state = StateSystem.Active as SummaryState;
+	    return !state.IsValid() ? 0 : HashCode.Combine( state.WinnerIndex, state.WinnerName );
     }
 }

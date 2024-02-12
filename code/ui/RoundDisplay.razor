@@ -19,7 +19,7 @@
 {
     protected override int BuildHash()
     {
-        return 0;
+	    return HashCode.Combine( GetTimeLeftString(), GetRoundName() );
     }
 
     private string GetTimeLeftString()

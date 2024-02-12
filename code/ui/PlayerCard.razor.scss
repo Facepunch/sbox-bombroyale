@@ -15,6 +15,11 @@ PlayerCard {
 
         &.empty {
             opacity: 0.2;
+
+            .pickups {
+                transition: all 0.2s ease-in;
+                opacity: 0;
+            }
         }
 
         &.dead {

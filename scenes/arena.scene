@@ -29,7 +29,7 @@
           "__type": "ScreenPanel",
           "AutoScreenScale": true,
           "Opacity": 1,
-          "Scale": 1,
+          "Scale": 0.9,
           "ZIndex": 100
         },
         {
@@ -1077,6 +1077,6 @@
   },
   "Title": "arena",
   "Description": "",
-  "LastSaved": "2024-02-12T11:57:02.181224\u002B00:00",
+  "LastSaved": "2024-02-12T12:31:03.4323618\u002B00:00",
   "__references": []
 }

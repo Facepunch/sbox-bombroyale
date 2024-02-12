@@ -1,81 +1,95 @@
-﻿@using System.Collections.Generic
+﻿@using System
 @using Sandbox;
 @using Sandbox.UI;
 @inherits PanelComponent
 @implements Component.INetworkListener
 @namespace Facepunch.BombRoyale
 
-<root>
-	<div class="output">
-		@foreach ( var entry in Entries )
-		{
-			<div class="chat_entry">
-				<div class="author">@entry.Author</div>
-				<div class="message">@entry.Message</div>
-			</div>
-		}
-	</div>
+<root class=@(IsOpen ? "open" : "closed")>
+	<div @ref="EntryCanvas" class="entries"></div>
 
 	<div class="input">
-		<TextEntry @ref="InputBox" onsubmit="@ChatFinished"></TextEntry>
+		<textentry @onblur=@OnEntryBlur @onsubmit=@OnEntrySubmit @ref="Entry"></textentry>
 	</div>
 </root>
 
 @code
 {
-	public record Entry( string Author, string Message, RealTimeSince TimeSinceAdded );
+	private TextEntry Entry { get; set; }
+	private Panel EntryCanvas { get; set; }
+	private bool IsOpen { get; set; }
 	
-	private List<Entry> Entries { get; set; } = new();
-	private TextEntry InputBox { get; set; }
-
-	public void AddTextLocal( string author, string message )
+	public void AddNamedMessage( string name, Color color, string message, string className = null )
 	{
-		message = message.Truncate( 300 );
+		var entry = new ChatboxEntry()
+		{
+			Name = name,
+			Color = color,
+			Message = message
+		};
 
-		if ( string.IsNullOrWhiteSpace( message ) )
-			return;
+		if ( !string.IsNullOrEmpty( className ) )
+		{
+			entry.AddClass( className );
+		}
 
-		Log.Info( $"{author}: {message}" );
+		if ( string.IsNullOrEmpty( name ) )
+		{
+			entry.AddClass( "no-name" );
+		}
 
-		Entries.Add( new ( author, message, 0f ) );
-		StateHasChanged();
+		EntryCanvas.AddChild( entry );
+	}
+
+	public void AddMessage( string message, string className = null )
+	{
+		var entry = new ChatboxEntry()
+		{
+			Message = message
+		};
+
+		if ( !string.IsNullOrEmpty( className ) )
+		{
+			entry.AddClass( className );
+		}
+
+		entry.AddClass( "no-name" );
+
+		EntryCanvas.AddChild( entry );
 	}
 	
 	protected override void OnUpdate()
 	{
-		if ( InputBox is null )
-			return;
+		if ( !Entry.IsValid() ) return;
 
+		Entry.PreferScrollToBottom = true;
 		Panel.AcceptsFocus = false;
 
-		if ( Input.Pressed( "chat" ) )
+		if ( !IsOpen && Input.Pressed( "chat" ) )
 		{
-			InputBox.Focus();
+			Entry.Focus();
+			IsOpen = true;
 		}
-
-		if ( Entries.RemoveAll( x => x.TimeSinceAdded > 30f ) > 0 )
-		{
-			StateHasChanged();
-		}
-
-		SetClass( "open", InputBox.HasFocus );
 	}
-
-	private void ChatFinished()
+	
+	private void OnEntrySubmit()
 	{
-		var text = InputBox.Text;
-		InputBox.Text = "";
-
-		if ( string.IsNullOrWhiteSpace( text ) )
-			return;
-
-		SendText( Sandbox.Utility.Steam.PersonaName, text );
+		if ( !string.IsNullOrWhiteSpace( Entry.Text ) )
+		{
+			SendText( Sandbox.Utility.Steam.PersonaName, Entry.Text.Trim() );
+		}
+	}
+	
+	private void OnEntryBlur()
+	{
+		Entry.Text = string.Empty;
+		IsOpen = false;
 	}
 
 	[Broadcast]
 	private void SendText( string author, string message )
 	{
-		AddTextLocal( author, message );
+		AddNamedMessage( author, Color.Cyan, message );
 	}
 
 	void INetworkListener.OnConnected( Connection channel )
@@ -90,5 +104,10 @@
 		if ( IsProxy ) return;
 
 		SendText(  "💨", $"{channel.DisplayName} has left the game" );
+	}
+	
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( IsOpen );
 	}
 }

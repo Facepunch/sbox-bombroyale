@@ -27,7 +27,8 @@
 	    var game = BombRoyale.Instance;
 	    if ( !game.IsValid() ) return string.Empty;
 	    
-        var t = TimeSpan.FromSeconds( game.RoundTimeLeft );
+	    var timeLeft = MathF.Max( game.RoundEndTime, 0 );
+        var t = TimeSpan.FromSeconds( timeLeft );
         return $"{t.Minutes}:{t.Seconds:D2}";
     }
 

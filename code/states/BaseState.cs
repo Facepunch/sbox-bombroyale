@@ -12,11 +12,11 @@ public abstract class BaseState : Component
 
 	protected virtual void OnLeave() { }
 
-	protected override void OnStart()
+	protected override void OnAwake()
 	{
 		StateSystem.Active = this;
 		OnEnter();
-		base.OnStart();
+		base.OnAwake();
 	}
 
 	protected override void OnDestroy()

@@ -5,6 +5,7 @@
 @using Facepunch.BombRoyale;
 
 @namespace Facepunch.BombRoyale.UI
+@attribute [StyleSheet( "PlayerCard.razor.scss" )]
 @inherits Panel
 
 <div class="container p@(PlayerIndex) @(!IsValidPlayer() ? "empty" : "") @(IsDead() ? "dead" : "")">

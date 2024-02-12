@@ -1,10 +1,10 @@
 ﻿@using System;
 @using Sandbox;
 @using Sandbox.UI;
-@using Sandbox.UI.Construct;
 @using Facepunch.BombRoyale;
 
 @namespace Facepunch.BombRoyale.UI
+@attribute [StyleSheet( "RoundDisplay.razor.scss" )]
 @inherits Panel
 
 <root>
@@ -24,13 +24,16 @@
 
     private string GetTimeLeftString()
     {
-        var timeLeft = 0;
-        var t = TimeSpan.FromSeconds( timeLeft );
-        return string.Format( "{0}:{1:D2}", t.Minutes, t.Seconds );
+	    var game = BombRoyale.Instance;
+	    if ( !game.IsValid() ) return string.Empty;
+	    
+        var t = TimeSpan.FromSeconds( game.RoundTimeLeft );
+        return $"{t.Minutes}:{t.Seconds:D2}";
     }
 
     private string GetRoundName()
     {
-        return string.Empty;
+	    var game = BombRoyale.Instance;
+	    return !game.IsValid() ? string.Empty : game.CurrentRound.GetName();
     }
 }

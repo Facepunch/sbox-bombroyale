@@ -5,17 +5,24 @@
 @using Facepunch.BombRoyale;
 
 @namespace Facepunch.BombRoyale.UI
+@attribute [StyleSheet( "WinnerDisplay.razor.scss" )]
 @inherits Panel
+
+@{
+	var game = BombRoyale.Instance;
+	if ( !game.IsValid() || game.CurrentRound < Round.GameOver )
+		return;
+}
 
 <root>
 	@{
-		var winnerName = "Player 1";
-		var winnerIndex = 1;
+		var winnerName = game.WinnerName;
+		var winnerIndex = game.WinnerIndex;
 	}
 
-    <div class="banner p@winnerIndex"></div>
+    <div class="banner p@(winnerIndex)"></div>
 
-    <div class="container p@winnerIndex">
+    <div class="container p@(winnerIndex)">
         <div class="logo"></div>
 
         <div class="avatar">
@@ -33,6 +40,7 @@
 {
     protected override int BuildHash()
     {
-        return 0;
+	    var game = BombRoyale.Instance;
+	    return !game.IsValid() ? 0 : HashCode.Combine( game.WinnerIndex, game.WinnerName, game.CurrentRound );
     }
 }

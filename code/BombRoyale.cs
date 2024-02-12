@@ -15,6 +15,13 @@ public class BombRoyale : Component, Component.INetworkListener
 	[Property] public GameObject PlayerPrefab { get; set; }
 	[Property] public GameObject BombPrefab { get; set; }
 
+	[Sync] public Round CurrentRound { get; set; } = Round.Lobby;
+	[Sync] public TimeUntil RoundEndTime { get; set; }
+	[Sync] public int WinnerIndex { get; set; }
+	[Sync] public int WinnerName { get; set; }
+
+	public int RoundTimeLeft => RoundEndTime.Relative.CeilToInt();
+
 	private List<Player> Players { get; set; } = new();
 
 	protected override void OnAwake()

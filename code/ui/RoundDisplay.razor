@@ -24,10 +24,10 @@
 
     private string GetTimeLeftString()
     {
-	    var game = BombRoyale.Instance;
-	    if ( !game.IsValid() ) return string.Empty;
+	    var state = StateSystem.Active;
+	    if ( !state.IsValid() ) return string.Empty;
 	    
-	    var timeLeft = MathF.Max( game.RoundEndTime, 0 );
+	    var timeLeft = MathF.Max( state.TimeLeft, 0 );
         var t = TimeSpan.FromSeconds( timeLeft );
         return $"{t.Minutes}:{t.Seconds:D2}";
     }

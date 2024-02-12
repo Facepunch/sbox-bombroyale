@@ -7,7 +7,7 @@ public static class StateSystem
 {
 	public static BaseState Active { get; internal set; }
 
-	public static void Set<T>() where T : BaseState, new()
+	public static T Set<T>() where T : BaseState, new()
 	{
 		Assert.True( Networking.IsHost );
 
@@ -20,5 +20,7 @@ public static class StateSystem
 		var state = go.Components.Create<T>();
 		go.Name = "State";
 		go.NetworkSpawn();
+
+		return state;
 	}
 }

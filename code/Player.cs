@@ -157,10 +157,12 @@ public class Player : Component, IHealthComponent
 	
 	private void ShowRespawnEffect()
 	{
+		/*
 		var fx = new SceneParticles( Scene.SceneWorld, "particles/gameplay/player/respawn/respawn_effect.vpcf" );
 		fx.SetControlPoint( 0, Transform.Position );
 		fx.SetNamedValue( "Color", GetTeamColor() * 255f );
 		fx.PlayUntilFinished( Task );
+		*/
 		
 		Sound.Play( "player.teleport", Transform.Position );
 	}

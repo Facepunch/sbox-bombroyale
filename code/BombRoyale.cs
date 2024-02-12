@@ -35,7 +35,7 @@ public class BombRoyale : Component, Component.INetworkListener
 		if ( Networking.IsHost )
 		{
 			var state = StateSystem.Set<LobbyState>();
-			state.RoundEndTime = 30f;
+			state.RoundEndTime = 5f;
 		}
 		
 		base.OnStart();

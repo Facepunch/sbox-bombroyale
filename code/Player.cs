@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Sandbox;
-using Editor;
 using Sandbox.Citizen;
 using Sandbox.Diagnostics;
 
@@ -212,19 +211,6 @@ public class Player : Component, IHealthComponent
 		};
 	}
 	
-	private void TryDirectionalMove( Vector3 direction )
-	{
-		var position = Transform.Position + direction * Controller.Radius * 0.7f;
-		var trace = Scene.Trace.Ray( position, position + Transform.Rotation.Forward * Controller.Radius )
-			.IgnoreGameObjectHierarchy( GameObject )
-			.Run();
-
-		if ( !trace.Hit )
-		{
-			WishVelocity += (trace.EndPosition - Transform.Position).Normal * WishVelocity.Length;
-		}
-	}
-	
 	private void UpdateMovement()
 	{
 		InputDirection = SnapInputDirection( Input.AnalogMove );
@@ -232,16 +218,6 @@ public class Player : Component, IHealthComponent
 		WishVelocity = new( InputDirection.x, InputDirection.y, 0f );
 		WishVelocity = WishVelocity.WithZ( 0f );
 		WishVelocity *= GetWishSpeed();
-
-		/*
-		var trace = Controller.TraceDirection( WishVelocity * Time.Delta );
-
-		if ( trace.Hit )
-		{
-			TryDirectionalMove( Transform.Rotation.Left );
-			TryDirectionalMove( Transform.Rotation.Right );
-		}
-		*/
 		
 		Controller.Velocity = Controller.Velocity.WithZ( 0f );
 		Controller.Accelerate( WishVelocity );

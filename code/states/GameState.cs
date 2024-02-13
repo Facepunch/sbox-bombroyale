@@ -17,10 +17,8 @@ public class GameState : BaseState
 		if ( Networking.IsHost )
 		{
 			IResettable.ResetAll();
-
-			var players = Scene.GetAllComponents<Player>();
-
-			foreach ( var player in players )
+			
+			foreach ( var player in BombRoyale.Players )
 			{
 				player.Respawn();
 			}
@@ -36,8 +34,7 @@ public class GameState : BaseState
 	{
 		if ( Networking.IsHost )
 		{
-			var alivePlayers = Scene
-				.GetAllComponents<Player>()
+			var alivePlayers = BombRoyale.Players
 				.Count( p => p.LifeState == LifeState.Alive );
 
 			if ( RoundEndTime || ( Networking.Connections.Count > 1 && alivePlayers <= 1 ) )

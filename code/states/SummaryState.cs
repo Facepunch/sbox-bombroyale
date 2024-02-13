@@ -17,10 +17,9 @@ public class SummaryState : BaseState
 	{
 		if ( Networking.IsHost )
 		{
-			var winner = Scene.GetAllComponents<Player>()
+			var winner = BombRoyale.Players
 				.Where( p => p.LifeState == LifeState.Alive )
-				//.OrderByDescending( p => p.MaxBombs + p.BombRange + p.SpeedBoosts )
-				.FirstOrDefault();
+				.MaxBy( p => p.MaxBombs + p.BombRange + p.SpeedBoosts );
 
 			if ( winner.IsValid() )
 			{
@@ -30,12 +29,10 @@ public class SummaryState : BaseState
 
 			foreach ( var bomb in Scene.GetAllComponents<Bomb>() )
 			{
-				/*
 				if ( bomb.IsPlaced )
 				{
-					bomb.Delete();
+					bomb.Destroy();
 				}
-				*/
 			}
 
 			RoundEndTime = 10f;

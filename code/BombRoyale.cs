@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Sandbox;
 using Sandbox.Diagnostics;
 using Sandbox.Network;
@@ -9,7 +10,8 @@ namespace Facepunch.BombRoyale;
 [Category( "Bomb Royale" )]
 public class BombRoyale : Component, Component.INetworkListener
 {
-	public static List<Player> Players { get; private set; } = new( 4 ) { null, null, null, null };
+	public static IEnumerable<Player> Players => InternalPlayers.Where( p => p.IsValid() );
+	private static List<Player> InternalPlayers { get; set; } = new( 4 ) { null, null, null, null };
 	
 	public static BombRoyale Instance { get; private set; }
 	
@@ -20,10 +22,12 @@ public class BombRoyale : Component, Component.INetworkListener
 
 	public int RoundTimeLeft => RoundEndTime.Relative.CeilToInt();
 
+	public static Player GetPlayer( int slot ) => InternalPlayers[slot];
+
 	public static void AddPlayer( int slot, Player player )
 	{
 		player.PlayerSlot = slot;
-		Players[slot] = player;
+		InternalPlayers[slot] = player;
 	}
 
 	protected override void OnAwake()
@@ -52,7 +56,7 @@ public class BombRoyale : Component, Component.INetworkListener
 	{
 		for ( var i = 0; i < 4; i++ )
 		{
-			var player = Players[i];
+			var player = InternalPlayers[i];
 			if ( player.IsValid() ) continue;
 			return i;
 		}

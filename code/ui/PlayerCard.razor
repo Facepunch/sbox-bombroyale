@@ -54,7 +54,7 @@
 
 @code
 {
-	public Player Player => BombRoyale.Players[PlayerIndex - 1];
+	public Player Player => BombRoyale.GetPlayer( PlayerIndex - 1 );
     public int PlayerIndex { get; set; }
 
     protected override int BuildHash()

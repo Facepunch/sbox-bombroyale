@@ -98,13 +98,6 @@ public class Player : Component, IHealthComponent
 	{
 		
 	}
-
-	public void SetPlayerSlot( int slot )
-	{
-		Assert.True( Networking.IsHost );
-		PlayerSlot = slot;
-		BombRoyale.Players[slot] = this;
-	}
 	
 	protected override void OnAwake()
 	{
@@ -121,7 +114,7 @@ public class Player : Component, IHealthComponent
 
 		if ( !Networking.IsHost )
 		{
-			BombRoyale.Players[PlayerSlot] = this;
+			BombRoyale.AddPlayer( PlayerSlot, this );
 		}
 		
 		base.OnStart();

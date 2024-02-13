@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Sandbox;
+using Sandbox.Diagnostics;
 using Sandbox.Network;
 
 namespace Facepunch.BombRoyale;
@@ -18,6 +19,12 @@ public class BombRoyale : Component, Component.INetworkListener
 	[Sync] public TimeUntil RoundEndTime { get; set; }
 
 	public int RoundTimeLeft => RoundEndTime.Relative.CeilToInt();
+
+	public static void AddPlayer( int slot, Player player )
+	{
+		player.PlayerSlot = slot;
+		Players[slot] = player;
+	}
 
 	protected override void OnAwake()
 	{
@@ -64,7 +71,7 @@ public class BombRoyale : Component, Component.INetworkListener
 		}
 
 		var playerComponent = player.Components.Get<Player>();
-		playerComponent.SetPlayerSlot( playerSlot );
+		AddPlayer( playerSlot, playerComponent );
 		player.NetworkSpawn( connection );
 	}
 }

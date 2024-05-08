@@ -58,8 +58,6 @@ public class Player : Component, IHealthComponent
 	[Broadcast( NetPermission.HostOnly )]
 	public void Respawn()
 	{
-		ShowRespawnEffect();
-
 		if ( Networking.IsHost )
 		{
 			LifeState = LifeState.Alive;
@@ -75,6 +73,7 @@ public class Player : Component, IHealthComponent
 		{
 			Controller.Velocity = Vector3.Zero;
 			MoveToSpawnpoint();
+			ShowRespawnEffect( Transform.Position );
 		}
 	}
 
@@ -85,9 +84,7 @@ public class Player : Component, IHealthComponent
 
 		var spawnpoint = spawnpoints[PlayerSlot];
 		if ( !spawnpoint.IsValid() )
-		{
 			throw new( $"Can't find spawnpoint for player slot #{PlayerSlot}" );
-		}
 		
 		Transform.Position = spawnpoint.Transform.Position;
 		Transform.Rotation = spawnpoint.Transform.Rotation;
@@ -154,14 +151,15 @@ public class Player : Component, IHealthComponent
 		}
 	}
 	
-	private void ShowRespawnEffect()
+	[Broadcast]
+	private void ShowRespawnEffect( Vector3 position )
 	{
 		var fx = new SceneParticles( Scene.SceneWorld, "particles/gameplay/player/respawn/respawn_effect.vpcf" );
-		fx.SetControlPoint( 0, Transform.Position );
+		fx.SetControlPoint( 0, position );
 		fx.SetNamedValue( "Color", GetTeamColor() * 255f );
 		fx.PlayUntilFinished( Task );
 		
-		Sound.Play( "player.teleport", Transform.Position );
+		Sound.Play( "player.teleport", position );
 	}
 
 	private void UpdateAnimation()
@@ -171,7 +169,7 @@ public class Player : Component, IHealthComponent
 		animator.WithVelocity( Controller.Velocity );
 		animator.WithWishVelocity( WishVelocity );
 		animator.IsGrounded = true;
-		animator.FootShuffle = 0f;
+		animator.MoveRotationSpeed = 0f;
 		animator.DuckLevel = 0f;
 		animator.MoveStyle = CitizenAnimationHelper.MoveStyles.Run;
 	}

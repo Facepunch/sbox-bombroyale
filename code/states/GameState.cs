@@ -16,7 +16,7 @@ public class GameState : BaseState
 	{
 		if ( Networking.IsHost )
 		{
-			IResettable.ResetAll();
+			IRestartable.RestartAll();
 			
 			foreach ( var player in BombRoyale.Players )
 			{

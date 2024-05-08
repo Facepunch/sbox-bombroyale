@@ -1,14 +1,15 @@
 {
   "RootObject": {
-    "__guid": "9ce78307-60ac-452c-b4a8-42d94095190a",
+    "__guid": "e7ec5b8c-e819-44b4-9e56-705581aeefb8",
     "Name": "player",
+    "Tags": "player",
     "Enabled": true,
     "NetworkMode": 2,
     "NetworkInterpolation": true,
     "Components": [
       {
         "__type": "Sandbox.SkinnedModelRenderer",
-        "__guid": "16d0498e-1f26-4e37-b873-95cdd39fd2a2",
+        "__guid": "5268d77c-58f8-4ba2-9bf4-e2ed7f2f919d",
         "BodyGroups": 341,
         "CreateBoneObjects": false,
         "Model": "models/citizen/citizen.vmdl",
@@ -17,7 +18,7 @@
       },
       {
         "__type": "Facepunch.BombRoyale.Player",
-        "__guid": "5cc10e89-6377-4c4b-b1eb-ac810a5c9783",
+        "__guid": "aaf09a15-8e13-4f63-8893-56e5f301de4c",
         "BombPrefab": {
           "_type": "gameobject",
           "prefab": "prefabs/bomb.prefab"
@@ -25,7 +26,7 @@
       },
       {
         "__type": "Sandbox.CharacterController",
-        "__guid": "aefdc91b-98df-4b53-9878-6547137116aa",
+        "__guid": "dfaebb4f-f36c-4148-959e-914ecf32625c",
         "Acceleration": 10,
         "Bounciness": 0.3,
         "GroundAngle": 45,
@@ -36,7 +37,7 @@
       },
       {
         "__type": "Sandbox.Citizen.CitizenAnimationHelper",
-        "__guid": "de90c28c-a821-47ec-8436-04bb849c231b",
+        "__guid": "0a61a2f8-6878-472d-bd3f-8b1f6f67e1ba",
         "BodyWeight": 1,
         "EyesWeight": 1,
         "HeadWeight": 1,
@@ -44,30 +45,39 @@
         "LookAtEnabled": false,
         "Target": {
           "_type": "component",
-          "component_id": "16d0498e-1f26-4e37-b873-95cdd39fd2a2",
-          "go": "9ce78307-60ac-452c-b4a8-42d94095190a",
+          "component_id": "5268d77c-58f8-4ba2-9bf4-e2ed7f2f919d",
+          "go": "e7ec5b8c-e819-44b4-9e56-705581aeefb8",
           "component_type": "SkinnedModelRenderer"
         }
       },
       {
         "__type": "Facepunch.BombRoyale.PlayerFootsteps",
-        "__guid": "18e2c95e-7d7f-4674-8799-98e63c71c206",
+        "__guid": "a78783e1-77ca-43ce-bc3a-e9b9ef802197",
         "ModelRenderer": {
           "_type": "component",
-          "component_id": "16d0498e-1f26-4e37-b873-95cdd39fd2a2",
-          "go": "9ce78307-60ac-452c-b4a8-42d94095190a",
+          "component_id": "5268d77c-58f8-4ba2-9bf4-e2ed7f2f919d",
+          "go": "e7ec5b8c-e819-44b4-9e56-705581aeefb8",
           "component_type": "SkinnedModelRenderer"
         }
       },
       {
         "__type": "Facepunch.Arena.PlayerDresser",
-        "__guid": "a6f35186-001e-4533-b2c8-1a15ca131051",
+        "__guid": "8daf8f3c-c220-4f25-9464-62afd71bbd29",
         "BodyRenderer": {
           "_type": "component",
-          "component_id": "16d0498e-1f26-4e37-b873-95cdd39fd2a2",
-          "go": "9ce78307-60ac-452c-b4a8-42d94095190a",
+          "component_id": "5268d77c-58f8-4ba2-9bf4-e2ed7f2f919d",
+          "go": "e7ec5b8c-e819-44b4-9e56-705581aeefb8",
           "component_type": "SkinnedModelRenderer"
         }
+      },
+      {
+        "__type": "Sandbox.CapsuleCollider",
+        "__guid": "824b1bc1-42dd-4fd3-babe-119922fd14a0",
+        "End": "0,0,60",
+        "IsTrigger": false,
+        "Radius": 16,
+        "Start": "0,0,12",
+        "Static": false
       }
     ],
     "Children": []

@@ -2,12 +2,13 @@
 using System.Diagnostics;
 using System.Linq;
 using Sandbox;
+using Sandbox.Diagnostics;
 
 namespace Facepunch.BombRoyale;
 
 [Title( "Bomb" )]
 [Category( "Bomb Royale" )]
-public class Bomb : Component, IResettable
+public class Bomb : Component, IRestartable
 {
 	[Sync] private Guid PlacerId { get; set; }
 	public Player Player => Scene.Directory.FindComponentByGuid( PlacerId ) as Player;
@@ -29,13 +30,15 @@ public class Bomb : Component, IResettable
 		UpdateTags( IsPlaced, true );
 		base.OnAwake();
 	}
+
+	void IRestartable.OnRestart()
+	{
+		Destroy();
+	}
 	
 	public void Place( Player player )
 	{
-		if ( !Networking.IsHost )
-		{
-			throw new( "Only the host can place a bomb" );
-		}
+		Assert.True( Networking.IsHost );
 		
 		TimeSincePlaced = 0f;
 		
@@ -74,10 +77,7 @@ public class Bomb : Component, IResettable
 
 	public void Pickup( Player player )
 	{
-		if ( !Networking.IsHost )
-		{
-			throw new( "Only the host can pickup a bomb" );
-		}
+		Assert.True( Networking.IsHost );
 
 		player.SetHoldingBomb( this );
 
@@ -215,8 +215,7 @@ public class Bomb : Component, IResettable
 
 	private void Explode()
 	{
-		if ( !Networking.IsHost )
-			throw new( "Only the host can explode a bomb" );
+		Assert.True( Networking.IsHost );
 		
 		if ( HasExploded ) return;
 
@@ -273,6 +272,7 @@ public class Bomb : Component, IResettable
 		CreateBombParticles( trace.StartPosition, trace.EndPosition + trace.Direction * (cellSize * 0.5f) );
 
 		var hitObject = trace.GameObject;
+		Log.Info( hitObject );
 		if ( !hitObject.IsValid() ) return;
 		
 		if ( hitObject.Components.TryGet<Bombable>( out var bombable ) )

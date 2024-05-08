@@ -92,9 +92,7 @@ public class Player : Component, IHealthComponent
 
 	public void SetHoldingBomb( Bomb bomb )
 	{
-		if ( !Networking.IsHost )
-			throw new( "Only the host can set the holding bomb" );
-		
+		Assert.True( Networking.IsHost );
 		HoldingBombId = bomb.Id;
 	}
 
@@ -120,8 +118,7 @@ public class Player : Component, IHealthComponent
 	
 	public void TakeDamage( DamageType type, float damage, Vector3 position, Vector3 force, Guid attackerId )
 	{
-		if ( !Networking.IsHost )
-			throw new( "Only the host can have a player take damage" );
+		Assert.True( Networking.IsHost );
 	}
 	
 	protected override void OnAwake()

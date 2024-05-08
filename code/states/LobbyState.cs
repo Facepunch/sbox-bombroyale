@@ -16,7 +16,7 @@ public class LobbyState : BaseState
 	{
 		if ( Networking.IsHost )
 		{
-			IResettable.ResetAll();
+			IRestartable.RestartAll();
 			RoundEndTime = 10f;
 		}
 	}

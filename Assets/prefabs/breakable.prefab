@@ -1,27 +1,35 @@
 {
   "RootObject": {
-    "Id": "ac006067-f36c-49e8-a767-e7c54c1d803e",
+    "__guid": "ac006067-f36c-49e8-a767-e7c54c1d803e",
     "Name": "breakable",
     "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
     "Components": [
       {
-        "__type": "ModelRenderer",
+        "__type": "Sandbox.ModelRenderer",
+        "__guid": "12339c0b-ccac-4f77-aa0e-94ed5c114b3f",
         "BodyGroups": 1,
-        "MaterialGroup": null,
-        "MaterialOverride": null,
         "Model": "models/block_a.vmdl",
         "RenderType": "On",
         "Tint": "1,1,1,1"
       },
       {
-        "__type": "ModelCollider",
+        "__type": "Sandbox.ModelCollider",
+        "__guid": "a2849a71-436b-4f27-bbde-503b6a1bf72b",
         "IsTrigger": false,
         "Model": "models/block_metal_a/block_metal_a.vmdl",
-        "Static": false,
-        "Surface": null
+        "Static": false
       },
       {
-        "__type": "Bombable"
+        "__type": "Facepunch.BombRoyale.Bombable",
+        "__guid": "0b62cfe1-8cdd-4dd7-9ed0-847f7ac96682",
+        "Renderer": {
+          "_type": "component",
+          "component_id": "12339c0b-ccac-4f77-aa0e-94ed5c114b3f",
+          "go": "ac006067-f36c-49e8-a767-e7c54c1d803e",
+          "component_type": "ModelRenderer"
+        }
       }
     ],
     "Children": []
@@ -29,5 +37,7 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": []
 }

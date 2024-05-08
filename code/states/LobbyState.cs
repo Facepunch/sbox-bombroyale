@@ -37,7 +37,7 @@ public class LobbyState : BaseState
 				return;
 			}
 			
-			if ( RoundEndTime > 5f && Networking.Connections.Count == 4 )
+			if ( RoundEndTime > 5f && Connection.All.Count == 4 )
 			{
 				RoundEndTime = 5f;
 			}

@@ -40,10 +40,8 @@ public class Bomb : Component, IResettable
 		}
 		
 		TimeSincePlaced = 0f;
-
-		var cellSize = 32f;
-		var gridX = cellSize * (player.Transform.Position.x / cellSize).Floor();
-		var gridY = cellSize * (player.Transform.Position.y / cellSize).Floor();
+		
+		var gridPosition = player.Transform.Position.SnapToGrid( 32f );
 
 		if ( player.HasSuperBomb )
 		{
@@ -66,7 +64,7 @@ public class Bomb : Component, IResettable
 		
 		var collisionSize = Renderer.Bounds;
 
-		Transform.Position = new( gridX + cellSize * 0.5f, gridY + cellSize * 0.5f, player.Transform.Position.z + collisionSize.Size.z * 0.5f );
+		Transform.Position = new( gridPosition.x, gridPosition.y, player.Transform.Position.z );
 		Transform.Scale = 1f;
 		
 		IsPlaced = true;

@@ -37,7 +37,7 @@ public class GameState : BaseState
 			var alivePlayers = BombRoyale.Players
 				.Count( p => p.LifeState == LifeState.Alive );
 
-			if ( RoundEndTime || ( Networking.Connections.Count > 1 && alivePlayers <= 1 ) )
+			if ( RoundEndTime || ( Connection.All.Count > 1 && alivePlayers <= 1 ) )
 			{
 				StateSystem.Set<SummaryState>();
 			}

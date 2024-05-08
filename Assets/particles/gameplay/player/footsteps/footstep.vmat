@@ -1,0 +1,8 @@
+"Layer0"
+{
+	"shader"		"shaders/projected_decals.shader"
+	"F_BLEND_MODE"		"1"
+	"F_TRIPLANAR_MAPPING"		"1"
+	"TextureColor"		"particles/gameplay/player/footsteps/footstep_color.png"
+	"TextureTranslucency"		"particles/gameplay/player/footsteps/footstep_trans.png"
+}

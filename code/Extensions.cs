@@ -24,4 +24,11 @@ public static class Extensions
 
 		particles.Delete();
 	}
+	
+	public static void PlayUntilFinished( this SceneParticles particles )
+	{
+		var go = new GameObject();
+		var simulator = go.Components.Create<ParticuleSimulator>();
+		simulator.Simulate( particles );
+	}
 }

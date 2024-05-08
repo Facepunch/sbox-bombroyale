@@ -1,30 +1,38 @@
 {
   "RootObject": {
-    "Id": "4d0b122e-c71b-4012-af00-24ca62a29d9c",
-    "Name": "Block",
-    "Position": "192,-192,0",
+    "__guid": "4d0b122e-c71b-4012-af00-24ca62a29d9c",
+    "Name": "block",
+    "Tags": "solid",
     "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
     "Components": [
       {
-        "__type": "ModelRenderer",
+        "__type": "Sandbox.ModelRenderer",
+        "__guid": "180e3a51-476c-439c-9553-5dac1e097310",
         "BodyGroups": 1,
-        "MaterialGroup": null,
-        "MaterialOverride": null,
         "Model": "models/block_metal_a/block_metal_a.vmdl",
         "RenderType": "On",
         "Tint": "1,1,1,1"
       },
       {
-        "__type": "ModelCollider",
+        "__type": "Sandbox.ModelCollider",
+        "__guid": "7e388f2b-00ea-44df-8dce-9a760facb21d",
         "IsTrigger": false,
         "Model": "models/block_metal_a/block_metal_a.vmdl",
-        "Static": true,
-        "Surface": null
+        "Static": true
+      },
+      {
+        "__type": "Facepunch.BombRoyale.SolidBlock",
+        "__guid": "253aea87-5563-4107-850f-627313ea8b84"
       }
-    ]
+    ],
+    "Children": []
   },
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": []
 }

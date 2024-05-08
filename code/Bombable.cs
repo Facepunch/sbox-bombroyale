@@ -49,4 +49,10 @@ public class Bombable : Component
 		renderer.Enabled = true;
 		IsHidden = false;
 	}
+	
+	protected override void OnAwake()
+	{
+		Tags.Add( "solid" );
+		base.OnAwake();
+	}
 }

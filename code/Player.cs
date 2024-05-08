@@ -287,7 +287,6 @@ public class Player : Component, IHealthComponent
 		Controller.ApplyFriction( 4f );
 
 		Controller.Move();
-		Transform.Position = Transform.Position.WithZ( 0f );
 		
 		if ( InputDirection.Length > 0f )
 		{

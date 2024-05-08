@@ -257,7 +257,7 @@ public class Bomb : Component, IResettable
 		fx.SetControlPoint( 1, startPosition );
 		fx.SetControlPoint( 2, endPosition );
 		fx.SetNamedValue( "radius", 1f );
-		fx.PlayUntilFinished( Task );
+		fx.PlayUntilFinished();
 	}
 
 	private void BlastInDirection( Vector3 direction )

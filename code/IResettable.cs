@@ -6,7 +6,7 @@ public interface IResettable
 {
 	public static void ResetAll()
 	{
-		var resettables = GameManager.ActiveScene.GetAllComponents<IResettable>();
+		var resettables = Game.ActiveScene.GetAllComponents<IResettable>();
 		foreach ( var resettable in resettables )
 		{
 			resettable.Reset();

@@ -19,6 +19,7 @@ public class BombRoyale : Component, Component.INetworkListener
 	[Property] public GameObject BombPrefab { get; set; }
 	
 	[Sync] public TimeUntil RoundEndTime { get; set; }
+	[Sync] public bool IsPaused { get; set; }
 
 	public int RoundTimeLeft => RoundEndTime.Relative.CeilToInt();
 
@@ -48,6 +49,8 @@ public class BombRoyale : Component, Component.INetworkListener
 			var state = StateSystem.Set<LobbyState>();
 			state.RoundEndTime = 5f;
 		}
+
+		ScreenShake.ClearAll();
 		
 		base.OnStart();
 	}

@@ -35,6 +35,8 @@ public class Player : Component, IHealthComponent
 	private Vector2 InputDirection { get; set; }
 	[Sync] private Vector3 WishVelocity { get; set; }
 	
+	[Property] public GameObject BombPrefab { get; set; }
+	
 	private static readonly Color[] Colors = new Color[4]
 	{
 		"#F6D953",
@@ -76,6 +78,25 @@ public class Player : Component, IHealthComponent
 			ShowRespawnEffect( Transform.Position );
 		}
 	}
+	
+	public bool IsInsideBomb( Vector3 position )
+	{
+		var bomb = Scene.Trace.Ray( position, position )
+			.Size( Controller.BoundingBox.Mins, Controller.BoundingBox.Maxs )
+			.IgnoreGameObject( GameObject )
+			.WithTag( "bomb" )
+			.Run();
+
+		return (bomb.StartedSolid && bomb.GameObject?.Components.Get<Bomb>() is not null );
+	}
+
+	public void SetHoldingBomb( Bomb bomb )
+	{
+		if ( !Networking.IsHost )
+			throw new( "Only the host can set the holding bomb" );
+		
+		HoldingBombId = bomb.Id;
+	}
 
 	public void MoveToSpawnpoint()
 	{
@@ -97,10 +118,10 @@ public class Player : Component, IHealthComponent
 		return !Scene.IsValid() ? 0 : Scene.GetAllComponents<Bomb>().Count( b => b.Player == this && b.IsPlaced );
 	}
 	
-	[Broadcast]
 	public void TakeDamage( DamageType type, float damage, Vector3 position, Vector3 force, Guid attackerId )
 	{
-		
+		if ( !Networking.IsHost )
+			throw new( "Only the host can have a player take damage" );
 	}
 	
 	protected override void OnAwake()
@@ -135,6 +156,50 @@ public class Player : Component, IHealthComponent
 
 		UpdateCamera();
 		UpdateMovement();
+		
+		if ( Input.Released( "attack1" ) )
+		{
+			PlaceBombOnHost();
+		}
+	}
+
+	[Broadcast( NetPermission.OwnerOnly )]
+	private void PlaceBombOnHost()
+	{
+		if ( !Networking.IsHost )
+			return;
+
+		if ( IsInsideBomb( Transform.Position ) )
+			return;
+		
+		if ( HoldingBomb.IsValid() )
+		{
+			PlaySound( "bomb.place" );
+			HoldingBomb.Place( this );
+			HoldingBombId = default;
+		}
+		else if ( GetBombsLeft() > 0 )
+		{
+			var bombGo = BombPrefab.Clone();
+			var bomb = bombGo.Components.Get<Bomb>();
+			bomb.Place( this );
+			bombGo.NetworkSpawn();
+			
+			PlaySound( "bomb.place" );
+		}
+		else
+		{
+			using ( Rpc.FilterInclude( Network.OwnerConnection ) )
+			{
+				PlaySound( "bomb.nobomb" );
+			}
+		}
+	}
+
+	[Broadcast]
+	private void PlaySound( string soundName )
+	{
+		Sound.Play( soundName, Transform.Position );
 	}
 
 	private void UpdateLifeState()

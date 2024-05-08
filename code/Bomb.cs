@@ -24,12 +24,10 @@ public class Bomb : Component, IResettable
 	private SoundHandle FuseSound { get; set; }
 	private bool HasExploded { get; set; }
 
-	protected override void OnStart()
+	protected override void OnAwake()
 	{
-		Tags.Add( "solid" );
-		Tags.Add( "bomb" );
-		
-		base.OnStart();
+		UpdateTags( IsPlaced, true );
+		base.OnAwake();
 	}
 	
 	public void Place( Player player )
@@ -57,25 +55,21 @@ public class Bomb : Component, IResettable
 			Range = player.BombRange;
 		}
 
-		Tags.Add( "placed_bomb" );
-		Tags.Add( $"bomb{player.PlayerSlot}" );
-
 		GameObject.Parent = null;
-		
-		var collisionSize = Renderer.Bounds;
 
 		Transform.Position = new( gridPosition.x, gridPosition.y, player.Transform.Position.z );
 		Transform.Scale = 1f;
 		
 		IsPlaced = true;
 		PlacerId = player.Id;
-
+		
 		var glow = Components.GetOrCreate<HighlightOutline>();
 		glow.InsideObscuredColor = Color.White;
 		glow.InsideColor = glow.InsideObscuredColor;
 		glow.Color = Color.Transparent;
 
 		StartFuseSound( Transform.Position );
+		UpdateTags( IsPlaced, true );
 	}
 
 	public void Pickup( Player player )
@@ -87,15 +81,21 @@ public class Bomb : Component, IResettable
 
 		player.SetHoldingBomb( this );
 
-		Tags.RemoveAll();
-		Tags.Add( "solid" );
-		Tags.Add( "bomb" );
-
 		GameObject.SetParent( player.GameObject );
 		Transform.Position = player.Transform.Position + Vector3.Up * 80f + player.Transform.Rotation.Forward * 4f;
 		IsPlaced = false;
 
 		StopFuseSound();
+		UpdateTags( IsPlaced, false );
+	}
+
+	[Broadcast( NetPermission.HostOnly )]
+	private void UpdateTags( bool isPlaced, bool passPlayers )
+	{
+		Tags.Add( "solid" );
+		Tags.Add( "bomb" );
+		Tags.Set( "placed_bomb", isPlaced );
+		Tags.Set( "passplayers", passPlayers );
 	}
 
 	[Broadcast]
@@ -113,11 +113,7 @@ public class Bomb : Component, IResettable
 
 	protected override void OnFixedUpdate()
 	{
-		if ( Networking.IsHost )
-		{
-			CheckInsideBomb();
-		}
-
+		CheckInsideBomb();
 		Tick();
 		
 		base.OnFixedUpdate();
@@ -125,12 +121,14 @@ public class Bomb : Component, IResettable
 
 	private void CheckInsideBomb()
 	{
+		if ( !Networking.IsHost ) return;
+		if ( !Tags.Has( "passplayers" ) ) return;
 		if ( !IsPlaced || BombRoyale.Instance.IsPaused ) return;
 		if ( !Player.IsValid() ) return;
 		if ( Player.LifeState != LifeState.Alive ) return;
 		if ( Player.IsInsideBomb( Player.Transform.Position ) ) return;
 
-		Tags.Remove( $"bomb{Player.PlayerSlot}" );
+		UpdateTags( IsPlaced, false );
 	}
 
 	private void Tick()
@@ -199,14 +197,6 @@ public class Bomb : Component, IResettable
 		if ( TimeSincePlaced < LifeTime - time )
 		{
 			TimeSincePlaced = LifeTime - time;
-		}
-	}
-
-	private void OnIsPlacedChanged()
-	{
-		if ( IsPlaced )
-		{
-			NextBlinkTime = LifeTime * 0.4f;
 		}
 	}
 

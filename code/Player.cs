@@ -70,7 +70,7 @@ public class Player : Component, IHealthComponent
 			MaxBombs = 1; 
 			Health = MaxHealth;
 		}
-
+		
 		if ( !IsProxy )
 		{
 			Controller.Velocity = Vector3.Zero;
@@ -82,12 +82,12 @@ public class Player : Component, IHealthComponent
 	public bool IsInsideBomb( Vector3 position )
 	{
 		var bomb = Scene.Trace.Ray( position, position )
-			.Size( Controller.BoundingBox.Mins, Controller.BoundingBox.Maxs )
+			.Size( Controller.BoundingBox.Size )
 			.IgnoreGameObject( GameObject )
 			.WithTag( "bomb" )
 			.Run();
 
-		return (bomb.StartedSolid && bomb.GameObject?.Components.Get<Bomb>() is not null );
+		return bomb.GameObject?.Components.Get<Bomb>() is not null;
 	}
 
 	public void SetHoldingBomb( Bomb bomb )
@@ -127,6 +127,8 @@ public class Player : Component, IHealthComponent
 	protected override void OnAwake()
 	{
 		Controller = Components.Get<CharacterController>( true );
+		Controller.IgnoreLayers.Add( "passplayers" );
+		
 		Renderer = Components.Get<SkinnedModelRenderer>( true );
 		Animation = Components.Get<CitizenAnimationHelper>( true );
 		
@@ -285,6 +287,7 @@ public class Player : Component, IHealthComponent
 		Controller.ApplyFriction( 4f );
 
 		Controller.Move();
+		Transform.Position = Transform.Position.WithZ( 0f );
 		
 		if ( InputDirection.Length > 0f )
 		{

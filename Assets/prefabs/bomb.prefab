@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "__guid": "b5f6405a-b634-46d9-8cc1-2ba064f3f98c",
+    "__guid": "ea66d50b-6316-46fd-9438-83c5ea53b7a9",
     "Name": "bomb",
     "Enabled": true,
     "NetworkMode": 2,
@@ -8,18 +8,26 @@
     "Components": [
       {
         "__type": "Facepunch.BombRoyale.Bomb",
-        "__guid": "16ea4cdf-4fa7-4552-baa8-c7627d6420e0",
+        "__guid": "6a9113cc-2467-4502-b24b-4053e0314187",
         "Renderer": {
           "_type": "component",
-          "component_id": "11ff8881-3608-4e29-9765-f7cd40b8beac",
-          "go": "0abcd36a-d993-4ccd-a980-60f9e84e15ae",
+          "component_id": "316be039-8c81-4807-82ef-32417df39cc3",
+          "go": "fcf1ce0b-9654-4ed5-97d4-0d4015cce6b2",
           "component_type": "ModelRenderer"
         }
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "5f5e2116-5724-4633-be14-c23d0ee3280d",
+        "Center": "0,0,12",
+        "IsTrigger": false,
+        "Scale": "24,24,24",
+        "Static": false
       }
     ],
     "Children": [
       {
-        "__guid": "0abcd36a-d993-4ccd-a980-60f9e84e15ae",
+        "__guid": "fcf1ce0b-9654-4ed5-97d4-0d4015cce6b2",
         "Name": "Model",
         "Position": "0,0,12",
         "Enabled": true,
@@ -28,7 +36,7 @@
         "Components": [
           {
             "__type": "Sandbox.ModelRenderer",
-            "__guid": "11ff8881-3608-4e29-9765-f7cd40b8beac",
+            "__guid": "316be039-8c81-4807-82ef-32417df39cc3",
             "BodyGroups": 18446744073709551615,
             "Model": "models/bomb.vmdl",
             "RenderType": "On",

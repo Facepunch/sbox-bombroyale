@@ -10,20 +10,22 @@ public class Player : Component, IHealthComponent
 {
 	public static Player Me { get; private set; }
 
-	[Sync] public LifeState LifeState { get; private set; } = LifeState.Dead;
-	[Sync] public float MaxHealth { get; private set; } = 100f;
-	[Sync] public float Health { get; private set; }
-	[Sync] public int PlayerSlot { get; set; }
+	[HostSync] public LifeState LifeState { get; private set; } = LifeState.Dead;
+	[HostSync] public float MaxHealth { get; private set; } = 100f;
+	[HostSync] public float Health { get; private set; }
+	[HostSync] public int PlayerSlot { get; set; }
 	
-	[Sync] public TimeSince LastTakeDamageTime { get; private set; }
-	[Sync] public DiseaseType Disease { get; set; } = DiseaseType.None;
-	[Sync] public TimeUntil RemoveDiseaseTime { get; set; }
-	[Sync] public Bomb HoldingBomb { get; set; }
-	[Sync] public bool HasSuperBomb { get; set; }
-	[Sync] public int SpeedBoosts { get; set; }
-	[Sync] public int LivesLeft { get; set; }
-	[Sync] public int BombRange { get; set; }
-	[Sync] public int MaxBombs { get; set; }
+	[HostSync] public TimeSince LastTakeDamageTime { get; private set; }
+	[HostSync] public DiseaseType Disease { get; set; } = DiseaseType.None;
+	[HostSync] public TimeUntil RemoveDiseaseTime { get; set; }
+	[HostSync] public bool HasSuperBomb { get; set; }
+	[HostSync] public int SpeedBoosts { get; set; }
+	[HostSync] public int LivesLeft { get; set; }
+	[HostSync] public int BombRange { get; set; }
+	[HostSync] public int MaxBombs { get; set; }
+	
+	[HostSync] private Guid HoldingBombId { get; set; }
+	public Bomb HoldingBomb => Scene.Directory.FindComponentByGuid( HoldingBombId ) as Bomb;
 	
 	private TimeUntil NextRandomTeleport { get; set; }
 	private TimeUntil NextRandomBomb { get; set; }

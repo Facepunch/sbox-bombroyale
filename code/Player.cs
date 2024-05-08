@@ -55,22 +55,27 @@ public class Player : Component, IHealthComponent
 		return Colors[PlayerSlot];
 	}
 	
-	[Broadcast]
+	[Broadcast( NetPermission.HostOnly )]
 	public void Respawn()
 	{
 		ShowRespawnEffect();
-		
-		LifeState = LifeState.Alive;
-		SpeedBoosts = 0;
-		LivesLeft = 1;
-		BombRange = 2;
-		Disease = DiseaseType.None;
-		MaxBombs = 1; 
-		Health = MaxHealth;
-		
-		Controller.Velocity = Vector3.Zero;
 
-		MoveToSpawnpoint();
+		if ( Networking.IsHost )
+		{
+			LifeState = LifeState.Alive;
+			SpeedBoosts = 0;
+			LivesLeft = 1;
+			BombRange = 2;
+			Disease = DiseaseType.None;
+			MaxBombs = 1; 
+			Health = MaxHealth;
+		}
+
+		if ( !IsProxy )
+		{
+			Controller.Velocity = Vector3.Zero;
+			MoveToSpawnpoint();
+		}
 	}
 
 	public void MoveToSpawnpoint()
@@ -151,12 +156,10 @@ public class Player : Component, IHealthComponent
 	
 	private void ShowRespawnEffect()
 	{
-		/*
 		var fx = new SceneParticles( Scene.SceneWorld, "particles/gameplay/player/respawn/respawn_effect.vpcf" );
 		fx.SetControlPoint( 0, Transform.Position );
 		fx.SetNamedValue( "Color", GetTeamColor() * 255f );
 		fx.PlayUntilFinished( Task );
-		*/
 		
 		Sound.Play( "player.teleport", Transform.Position );
 	}

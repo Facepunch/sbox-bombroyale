@@ -272,7 +272,6 @@ public class Bomb : Component, IRestartable
 		CreateBombParticles( trace.StartPosition, trace.EndPosition + trace.Direction * (cellSize * 0.5f) );
 
 		var hitObject = trace.GameObject;
-		Log.Info( hitObject );
 		if ( !hitObject.IsValid() ) return;
 		
 		if ( hitObject.Components.TryGet<Bombable>( out var bombable ) )

@@ -35,6 +35,7 @@ public class Player : Component, IHealthComponent
 	private Vector2 InputDirection { get; set; }
 	[Sync] private Vector3 WishVelocity { get; set; }
 	
+	[Property] public RagdollController Ragdoll { get; set; }
 	[Property] public GameObject BombPrefab { get; set; }
 	
 	private static readonly Color[] Colors = new Color[4]
@@ -119,6 +120,34 @@ public class Player : Component, IHealthComponent
 	public void TakeDamage( DamageType type, float damage, Vector3 position, Vector3 force, Guid attackerId )
 	{
 		Assert.True( Networking.IsHost );
+		
+		if ( LifeState == LifeState.Dead ) return;
+		if ( type != DamageType.Explosion ) return;
+
+		LastTakeDamageTime = 0f;
+		LivesLeft--;
+
+		if ( LivesLeft <= 0 )
+		{
+			using ( Rpc.FilterInclude( Network.OwnerConnection ) )
+			{
+				PlaySound( "player.die" );
+			}
+			
+			LifeState = LifeState.Dead;
+			
+			var direction = Vector3.Up + new Vector3( Game.Random.Float( -0.25f, 0.25f ), Game.Random.Float( -0.25f, 0.25f ), 0f );
+			Ragdoll.Ragdoll( position, direction );
+
+			Chat.AddPlayerEvent( "death", Network.OwnerConnection.DisplayName, GetTeamColor(), "has been blown to smithereens!" );
+		}
+		else
+		{
+			using ( Rpc.FilterInclude( Network.OwnerConnection ) )
+			{
+				PlaySound( "lose.life" );
+			}
+		}
 	}
 	
 	protected override void OnAwake()
@@ -148,14 +177,20 @@ public class Player : Component, IHealthComponent
 	{
 		base.OnUpdate();
 
-		UpdateLifeState();
-		UpdateAnimation();
+		UpdateLifeState( LifeState );
+		
+		if ( LifeState == LifeState.Alive )
+			UpdateAnimation();
 		
 		if ( IsProxy ) return;
 
 		UpdateCamera();
-		UpdateMovement();
+
+		if ( LifeState == LifeState.Dead )
+			return;
 		
+		UpdateMovement();
+	
 		if ( Input.Released( "attack1" ) )
 		{
 			PlaceBombOnHost();
@@ -201,9 +236,9 @@ public class Player : Component, IHealthComponent
 		Sound.Play( soundName, Transform.Position );
 	}
 
-	private void UpdateLifeState()
+	private void UpdateLifeState( LifeState state )
 	{
-		var isAlive = LifeState == LifeState.Alive;
+		var isAlive = state == LifeState.Alive;
 		
 		Controller.Enabled = isAlive;
 		Renderer.Enabled = isAlive;

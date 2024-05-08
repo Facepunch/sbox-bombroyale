@@ -15,9 +15,17 @@
 
 @code
 {
+	private static Chat Instance { get; set; }
 	private TextEntry Entry { get; set; }
 	private Panel EntryCanvas { get; set; }
 	private bool IsOpen { get; set; }
+
+	[Broadcast]
+	public static void AddPlayerEvent( string eventName, string name, Color color, string message )
+	{
+		if ( !Instance.IsValid() ) return;
+		Instance.AddNamedMessage( name, color, message, eventName );
+	}
 	
 	public void AddNamedMessage( string name, Color color, string message, string className = null )
 	{
@@ -57,7 +65,13 @@
 
 		EntryCanvas.AddChild( entry );
 	}
-	
+
+	protected override void OnAwake()
+	{
+		Instance = this;
+		base.OnAwake();
+	}
+
 	protected override void OnUpdate()
 	{
 		if ( !Entry.IsValid() ) return;

@@ -22,6 +22,18 @@
         "BombPrefab": {
           "_type": "gameobject",
           "prefab": "prefabs/bomb.prefab"
+        },
+        "Collider": {
+          "_type": "component",
+          "component_id": "824b1bc1-42dd-4fd3-babe-119922fd14a0",
+          "go": "e7ec5b8c-e819-44b4-9e56-705581aeefb8",
+          "component_type": "CapsuleCollider"
+        },
+        "Ragdoll": {
+          "_type": "component",
+          "component_id": "3d0a9f7e-5995-4479-a0db-07f31ed09adb",
+          "go": "e7ec5b8c-e819-44b4-9e56-705581aeefb8",
+          "component_type": "RagdollController"
         }
       },
       {
@@ -78,6 +90,30 @@
         "Radius": 16,
         "Start": "0,0,12",
         "Static": false
+      },
+      {
+        "__type": "Facepunch.BombRoyale.RagdollController",
+        "__guid": "3d0a9f7e-5995-4479-a0db-07f31ed09adb",
+        "Physics": {
+          "_type": "component",
+          "component_id": "835701c5-f5dc-4b93-9fd5-cfa86443caf8",
+          "go": "e7ec5b8c-e819-44b4-9e56-705581aeefb8",
+          "component_type": "ModelPhysics"
+        }
+      },
+      {
+        "__type": "Sandbox.ModelPhysics",
+        "__guid": "835701c5-f5dc-4b93-9fd5-cfa86443caf8",
+        "__enabled": false,
+        "Locking": {},
+        "Model": "models/citizen/citizen.vmdl",
+        "Renderer": {
+          "_type": "component",
+          "component_id": "5268d77c-58f8-4ba2-9bf4-e2ed7f2f919d",
+          "go": "e7ec5b8c-e819-44b4-9e56-705581aeefb8",
+          "component_type": "SkinnedModelRenderer"
+        },
+        "RigidbodyFlags": 0
       }
     ],
     "Children": []

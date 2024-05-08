@@ -37,23 +37,20 @@ public class SummaryState : BaseState
 
 			RoundEndTime = 10f;
 		}
+
+		var localPlayer = Player.Me;
 		
-		/*
-		if ( WinnerIndex == Game.LocalClient.NetworkIdent )
+		if ( localPlayer.IsValid() && WinnerIndex == localPlayer.PlayerSlot )
 			Sound.Play( "round.win" );
 		else
 			Sound.Play( "round.end" );
-		*/
 	}
 
 	protected override void OnUpdate()
 	{
-		if ( Networking.IsHost )
+		if ( Networking.IsHost && RoundEndTime )
 		{
-			if ( RoundEndTime )
-			{
-				StateSystem.Set<LobbyState>();
-			}
+			StateSystem.Set<LobbyState>();
 		}
 		
 		base.OnUpdate();

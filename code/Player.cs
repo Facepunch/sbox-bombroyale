@@ -288,6 +288,9 @@ public class Player : Component, IHealthComponent
 
 		Controller.Move();
 		
+		// Always make sure we stay on the ground.
+		Transform.Position = Transform.Position.WithZ( 0f );
+		
 		if ( InputDirection.Length > 0f )
 		{
 			Transform.Rotation = Rotation.Lerp( Transform.Rotation, Rotation.LookAt( InputDirection, Vector3.Up ),

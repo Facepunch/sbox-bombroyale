@@ -7,6 +7,7 @@ public class SummaryState : BaseState
 {
 	public override string Name => "END";
 	public override int TimeLeft => RoundEndTime.Relative.CeilToInt();
+	public override bool IsPaused => true;
 
 	[Sync] public string WinnerName { get; private set; }
 	[Sync] public int WinnerIndex { get; private set; }

@@ -123,7 +123,7 @@ public class Bomb : Component, IRestartable
 	{
 		if ( !Networking.IsHost ) return;
 		if ( !Tags.Has( "passable" ) ) return;
-		if ( !IsPlaced || BombRoyale.Instance.IsPaused ) return;
+		if ( !IsPlaced || BombRoyale.IsPaused ) return;
 		if ( !Player.IsValid() ) return;
 		if ( Player.LifeState != LifeState.Alive ) return;
 		if ( Player.IsInsideBomb( Player.Transform.Position ) ) return;
@@ -133,7 +133,7 @@ public class Bomb : Component, IRestartable
 
 	private void Tick()
 	{
-		if ( !IsPlaced || BombRoyale.Instance.IsPaused ) return;
+		if ( !IsPlaced || BombRoyale.IsPaused ) return;
 
 		var fraction = (1f / LifeTime) * TimeSincePlaced;
 		var glow = Components.GetOrCreate<HighlightOutline>();

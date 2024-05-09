@@ -18,10 +18,7 @@ public class BombRoyale : Component, Component.INetworkListener
 	[Property] public GameObject PlayerPrefab { get; set; }
 	[Property] public GameObject BombPrefab { get; set; }
 	
-	[Sync] public TimeUntil RoundEndTime { get; set; }
-	[Sync] public bool IsPaused { get; set; }
-
-	public int RoundTimeLeft => RoundEndTime.Relative.CeilToInt();
+	public static bool IsPaused => StateSystem.Active?.IsPaused ?? false;
 
 	public static Player GetPlayer( int slot ) => InternalPlayers[slot];
 

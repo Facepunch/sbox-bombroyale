@@ -6,6 +6,7 @@ public abstract class BaseState : Component
 {
 	public virtual int TimeLeft => 0;
 	public virtual string Name => string.Empty;
+	public virtual bool IsPaused => false;
 
 	protected virtual void OnEnter() { }
 

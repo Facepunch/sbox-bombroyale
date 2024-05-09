@@ -174,6 +174,12 @@ public class Player : Component, IHealthComponent
 		if ( IsProxy ) return;
 
 		UpdateCamera();
+		
+		if ( BombRoyale.IsPaused )
+		{
+			Controller.Velocity = 0f;
+			return;
+		}
 
 		if ( LifeState == LifeState.Dead )
 			return;

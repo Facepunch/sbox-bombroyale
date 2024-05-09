@@ -3,7 +3,7 @@
     "__guid": "ac006067-f36c-49e8-a767-e7c54c1d803e",
     "Name": "breakable",
     "Enabled": true,
-    "NetworkMode": 2,
+    "NetworkMode": 1,
     "NetworkInterpolation": true,
     "Components": [
       {

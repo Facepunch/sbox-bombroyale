@@ -781,7 +781,7 @@
               "Name": "Breakable",
               "Position": "-32,-128,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -790,7 +790,7 @@
               "Name": "Breakable",
               "Position": "32,-128,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -799,7 +799,7 @@
               "Name": "Breakable",
               "Position": "32,-160,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -808,7 +808,7 @@
               "Name": "Breakable",
               "Position": "0,-160,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -817,7 +817,7 @@
               "Name": "Breakable",
               "Position": "-32,-160,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -826,7 +826,7 @@
               "Name": "Breakable",
               "Position": "-32,-64,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -835,7 +835,7 @@
               "Name": "Breakable",
               "Position": "32,-64,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -844,7 +844,7 @@
               "Name": "Breakable",
               "Position": "32,-96,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -853,7 +853,7 @@
               "Name": "Breakable",
               "Position": "96,-96,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -862,7 +862,7 @@
               "Name": "Breakable",
               "Position": "96,-160,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -871,7 +871,7 @@
               "Name": "Breakable",
               "Position": "96,-128,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -880,7 +880,7 @@
               "Name": "Breakable",
               "Position": "128,-96,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -889,7 +889,7 @@
               "Name": "Breakable",
               "Position": "-128,-96,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -898,7 +898,7 @@
               "Name": "Breakable",
               "Position": "-160,-96,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -907,7 +907,7 @@
               "Name": "Breakable",
               "Position": "-96,-96,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -916,7 +916,7 @@
               "Name": "Breakable",
               "Position": "-96,-128,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -925,7 +925,7 @@
               "Name": "Breakable",
               "Position": "-96,-160,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -934,7 +934,7 @@
               "Name": "Breakable",
               "Position": "-96,160,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -943,7 +943,7 @@
               "Name": "Breakable",
               "Position": "-96,128,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -952,7 +952,7 @@
               "Name": "Breakable",
               "Position": "-96,96,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -961,7 +961,7 @@
               "Name": "Breakable",
               "Position": "-128,96,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -970,7 +970,7 @@
               "Name": "Breakable",
               "Position": "-160,96,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -979,7 +979,7 @@
               "Name": "Breakable",
               "Position": "-160,96,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -988,7 +988,7 @@
               "Name": "Breakable",
               "Position": "-160,64,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -997,7 +997,7 @@
               "Name": "Breakable",
               "Position": "-160,32,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1006,7 +1006,7 @@
               "Name": "Breakable",
               "Position": "-128,32,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1015,7 +1015,7 @@
               "Name": "Breakable",
               "Position": "-64,32,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1024,7 +1024,7 @@
               "Name": "Breakable",
               "Position": "-32,32,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1033,7 +1033,7 @@
               "Name": "Breakable",
               "Position": "-32,64,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1042,7 +1042,7 @@
               "Name": "Breakable",
               "Position": "-32,96,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1051,7 +1051,7 @@
               "Name": "Breakable",
               "Position": "32,96,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1060,7 +1060,7 @@
               "Name": "Breakable",
               "Position": "32,64,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1069,7 +1069,7 @@
               "Name": "Breakable",
               "Position": "32,32,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1078,7 +1078,7 @@
               "Name": "Breakable",
               "Position": "96,32,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1087,7 +1087,7 @@
               "Name": "Breakable",
               "Position": "128,32,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1096,7 +1096,7 @@
               "Name": "Breakable",
               "Position": "160,32,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1105,7 +1105,7 @@
               "Name": "Breakable",
               "Position": "160,-96,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1114,7 +1114,7 @@
               "Name": "Breakable",
               "Position": "160,-32,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1123,7 +1123,7 @@
               "Name": "Breakable",
               "Position": "96,-32,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1132,7 +1132,7 @@
               "Name": "Breakable",
               "Position": "0,-32,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1141,7 +1141,7 @@
               "Name": "Breakable",
               "Position": "96,96,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1150,7 +1150,7 @@
               "Name": "Breakable",
               "Position": "96,128,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1159,7 +1159,7 @@
               "Name": "Breakable",
               "Position": "96,160,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1168,7 +1168,7 @@
               "Name": "Breakable",
               "Position": "128,96,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1177,7 +1177,7 @@
               "Name": "Breakable",
               "Position": "160,96,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1186,7 +1186,7 @@
               "Name": "Breakable",
               "Position": "-32,128,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1195,7 +1195,7 @@
               "Name": "Breakable",
               "Position": "-32,160,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1204,7 +1204,7 @@
               "Name": "Breakable",
               "Position": "0,160,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1213,7 +1213,7 @@
               "Name": "Breakable",
               "Position": "-64,-32,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1222,7 +1222,7 @@
               "Name": "Breakable",
               "Position": "-96,-32,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1231,7 +1231,7 @@
               "Name": "Breakable",
               "Position": "-128,-32,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             },
@@ -1240,7 +1240,7 @@
               "Name": "Breakable",
               "Position": "-160,-32,0",
               "Enabled": true,
-              "NetworkMode": 2,
+              "NetworkMode": 1,
               "NetworkInterpolation": true,
               "__Prefab": "prefabs/breakable.prefab"
             }
@@ -1371,7 +1371,7 @@
   },
   "Title": "arena",
   "Description": "",
-  "LastSaved": "2024-05-09T14:32:02.5489637\u002B01:00",
+  "LastSaved": "2024-05-09T15:04:49.0972038\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

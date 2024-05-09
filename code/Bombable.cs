@@ -1,6 +1,4 @@
 ﻿using Sandbox;
-using Editor;
-using Sandbox.Diagnostics;
 
 namespace Facepunch.BombRoyale;
 

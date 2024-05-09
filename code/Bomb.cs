@@ -27,7 +27,7 @@ public class Bomb : Component, IRestartable
 
 	protected override void OnAwake()
 	{
-		UpdateTags( IsPlaced, true );
+		UpdateTags( IsPlaced, TimeSincePlaced <= 0.5f );
 		base.OnAwake();
 	}
 
@@ -90,12 +90,12 @@ public class Bomb : Component, IRestartable
 	}
 
 	[Broadcast( NetPermission.HostOnly )]
-	private void UpdateTags( bool isPlaced, bool passPlayers )
+	private void UpdateTags( bool isPlaced, bool passable )
 	{
 		Tags.Add( "solid" );
 		Tags.Add( "bomb" );
-		Tags.Set( "placed_bomb", isPlaced );
-		Tags.Set( "passplayers", passPlayers );
+		Tags.Set( "bomb_placed", isPlaced );
+		Tags.Set( "passable", passable );
 	}
 
 	[Broadcast]
@@ -122,7 +122,7 @@ public class Bomb : Component, IRestartable
 	private void CheckInsideBomb()
 	{
 		if ( !Networking.IsHost ) return;
-		if ( !Tags.Has( "passplayers" ) ) return;
+		if ( !Tags.Has( "passable" ) ) return;
 		if ( !IsPlaced || BombRoyale.Instance.IsPaused ) return;
 		if ( !Player.IsValid() ) return;
 		if ( Player.LifeState != LifeState.Alive ) return;
@@ -265,7 +265,7 @@ public class Bomb : Component, IRestartable
 		var cellSize = 32f;
 		var totalRange = (Range * cellSize);
 		var trace = Scene.Trace.Ray( startPosition, startPosition + direction * totalRange )
-			.WithAnyTags( "solid", "player", "pickup", "placed_bomb" )
+			.WithAnyTags( "solid", "player", "pickup", "bomb_placed" )
 			.IgnoreGameObject( GameObject )
 			.Run();
 

@@ -30,7 +30,7 @@ public class Player : Component, IHealthComponent
 	private TimeUntil NextRandomTeleport { get; set; }
 	private TimeUntil NextRandomBomb { get; set; }
 	private CitizenAnimationHelper Animation { get; set; }
-	private CharacterController Controller { get; set; }
+	private MoveController Controller { get; set; }
 	private SkinnedModelRenderer Renderer { get; set; }
 	private Vector2 InputDirection { get; set; }
 	[Sync] private Vector3 WishVelocity { get; set; }
@@ -152,8 +152,8 @@ public class Player : Component, IHealthComponent
 	
 	protected override void OnAwake()
 	{
-		Controller = Components.Get<CharacterController>( true );
-		Controller.IgnoreLayers.Add( "passplayers" );
+		Controller = Components.Get<MoveController>( true );
+		Controller.IgnoreLayers.Add( "passable" );
 		
 		Renderer = Components.Get<SkinnedModelRenderer>( true );
 		Animation = Components.Get<CitizenAnimationHelper>( true );
@@ -318,10 +318,13 @@ public class Player : Component, IHealthComponent
 		Controller.Accelerate( WishVelocity );
 		Controller.ApplyFriction( 4f );
 
+		// Store our previous up position.
+		var previousZ = Transform.Position.z;
+
 		Controller.Move();
 		
-		// Always make sure we stay on the ground.
-		Transform.Position = Transform.Position.WithZ( 0f );
+		// Always make sure we never change our up position.
+		Transform.Position = Transform.Position.WithZ( previousZ );
 		
 		if ( InputDirection.Length > 0f )
 		{

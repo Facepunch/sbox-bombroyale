@@ -46,9 +46,8 @@ public class Bombable : Component, IRestartable
 	[Broadcast( NetPermission.HostOnly )]
 	public void Hide()
 	{
-		Assert.True( Networking.IsHost );
 		Renderer.Enabled = false;
-		Tags.Add( "passplayers" );
+		Tags.Add( "passable" );
 		IsHidden = true;
 	}
 	
@@ -62,7 +61,7 @@ public class Bombable : Component, IRestartable
 	private void Show()
 	{
 		Renderer.Enabled = true;
-		Tags.Remove( "passplayers" );
+		Tags.Remove( "passable" );
 		IsHidden = false;
 	}
 }

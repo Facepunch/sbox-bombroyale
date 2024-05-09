@@ -19,15 +19,33 @@
       {
         "__type": "Facepunch.BombRoyale.Player",
         "__guid": "d4db652f-d6b7-4a72-87e0-22995456e904",
+        "Animation": {
+          "_type": "component",
+          "component_id": "617fc121-fb7b-4e60-917b-cdf395ba2939",
+          "go": "cd44153a-6c1a-4de9-905f-f13afdfef930",
+          "component_type": "CitizenAnimationHelper"
+        },
         "BombPrefab": {
           "_type": "gameobject",
           "prefab": "prefabs/bomb.prefab"
+        },
+        "Controller": {
+          "_type": "component",
+          "component_id": "4a24d5fc-76f6-412c-9b7f-8d5ef38c42cc",
+          "go": "cd44153a-6c1a-4de9-905f-f13afdfef930",
+          "component_type": "MoveController"
         },
         "Ragdoll": {
           "_type": "component",
           "component_id": "052bc4e3-7a9f-4afe-aa22-32626ded8d28",
           "go": "cd44153a-6c1a-4de9-905f-f13afdfef930",
           "component_type": "RagdollController"
+        },
+        "Renderer": {
+          "_type": "component",
+          "component_id": "e31547d9-4b5c-48a9-afff-182f45500ca7",
+          "go": "cd44153a-6c1a-4de9-905f-f13afdfef930",
+          "component_type": "SkinnedModelRenderer"
         }
       },
       {
@@ -86,7 +104,7 @@
         "EnableFixUnstuck": false,
         "GroundAngle": 45,
         "Height": 64,
-        "IgnoreLayers": "",
+        "IgnoreLayers": "passable",
         "Radius": 12,
         "StepHeight": 18
       }

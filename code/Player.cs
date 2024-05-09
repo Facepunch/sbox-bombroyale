@@ -29,12 +29,12 @@ public class Player : Component, IHealthComponent
 	
 	private TimeUntil NextRandomTeleport { get; set; }
 	private TimeUntil NextRandomBomb { get; set; }
-	private CitizenAnimationHelper Animation { get; set; }
-	private MoveController Controller { get; set; }
-	private SkinnedModelRenderer Renderer { get; set; }
 	private Vector2 InputDirection { get; set; }
 	[Sync] private Vector3 WishVelocity { get; set; }
 	
+	[Property] public CitizenAnimationHelper Animation { get; set; }
+	[Property] public MoveController Controller { get; set; }
+	[Property] public SkinnedModelRenderer Renderer { get; set; }
 	[Property] public RagdollController Ragdoll { get; set; }
 	[Property] public GameObject BombPrefab { get; set; }
 	
@@ -148,17 +148,6 @@ public class Player : Component, IHealthComponent
 				PlaySound( "lose.life" );
 			}
 		}
-	}
-	
-	protected override void OnAwake()
-	{
-		Controller = Components.Get<MoveController>( true );
-		Controller.IgnoreLayers.Add( "passable" );
-		
-		Renderer = Components.Get<SkinnedModelRenderer>( true );
-		Animation = Components.Get<CitizenAnimationHelper>( true );
-		
-		base.OnAwake();
 	}
 
 	protected override void OnStart()

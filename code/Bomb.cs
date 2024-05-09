@@ -27,13 +27,13 @@ public class Bomb : Component, IRestartable
 
 	protected override void OnAwake()
 	{
-		UpdateTags( IsPlaced, TimeSincePlaced <= 0.5f );
+		UpdateTags();
 		base.OnAwake();
 	}
 
 	void IRestartable.OnRestart()
 	{
-		Destroy();
+		GameObject.Destroy();
 	}
 	
 	public void Place( Player player )
@@ -65,14 +65,8 @@ public class Bomb : Component, IRestartable
 		
 		IsPlaced = true;
 		PlacerId = player.Id;
-		
-		var glow = Components.GetOrCreate<HighlightOutline>();
-		glow.InsideObscuredColor = Color.White;
-		glow.InsideColor = glow.InsideObscuredColor;
-		glow.Color = Color.Transparent;
 
 		StartFuseSound( Transform.Position );
-		UpdateTags( IsPlaced, true );
 	}
 
 	public void Pickup( Player player )
@@ -86,16 +80,14 @@ public class Bomb : Component, IRestartable
 		IsPlaced = false;
 
 		StopFuseSound();
-		UpdateTags( IsPlaced, false );
 	}
 
-	[Broadcast( NetPermission.HostOnly )]
-	private void UpdateTags( bool isPlaced, bool passable )
+	private void UpdateTags()
 	{
 		Tags.Add( "solid" );
 		Tags.Add( "bomb" );
-		Tags.Set( "bomb_placed", isPlaced );
-		Tags.Set( "passable", passable );
+		Tags.Set( "bomb_placed", IsPlaced );
+		Tags.Set( "passable", IsAnyPlayerColliding() );
 	}
 
 	[Broadcast]
@@ -113,33 +105,31 @@ public class Bomb : Component, IRestartable
 
 	protected override void OnFixedUpdate()
 	{
-		CheckInsideBomb();
+		UpdateTags();
 		Tick();
 		
 		base.OnFixedUpdate();
 	}
 
-	private void CheckInsideBomb()
+	private bool IsAnyPlayerColliding()
 	{
-		if ( !Networking.IsHost ) return;
-		if ( !Tags.Has( "passable" ) ) return;
-		if ( !IsPlaced || BombRoyale.IsPaused ) return;
-		if ( !Player.IsValid() ) return;
-		if ( Player.LifeState != LifeState.Alive ) return;
-		if ( Player.IsInsideBomb( Player.Transform.Position ) ) return;
+		var players = Scene.GetAllComponents<Player>();
 
-		UpdateTags( IsPlaced, false );
+		foreach ( var player in players )
+		{
+			if ( player.LifeState != LifeState.Alive )
+				continue;
+
+			if ( player.IsInsideBomb( this ) )
+				return true;
+		}
+
+		return false;
 	}
 
 	private void Tick()
 	{
 		if ( !IsPlaced || BombRoyale.IsPaused ) return;
-
-		var fraction = (1f / LifeTime) * TimeSincePlaced;
-		var glow = Components.GetOrCreate<HighlightOutline>();
-		glow.InsideObscuredColor = Color.Lerp( Color.White, Color.Red, fraction );
-		glow.InsideColor = glow.InsideObscuredColor;
-		glow.Color = Color.Transparent;
 
 		if ( !Networking.IsHost ) return;
 		if ( TimeSincePlaced < LifeTime ) return;
@@ -238,10 +228,7 @@ public class Bomb : Component, IRestartable
 
 			if ( availableBlock.IsValid() )
 			{
-				/*
-				var p = BombRoyale.Pickup.CreateRandom();
-				p.Position = availableBlock.WorldSpaceBounds.Center;
-				*/
+				Facepunch.BombRoyale.Pickup.CreateRandom( availableBlock.Renderer.Bounds.Center );
 			}
 		}
 

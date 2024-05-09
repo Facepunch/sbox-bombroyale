@@ -33,14 +33,10 @@ public class Bombable : Component, IRestartable
 
 	public void TrySpawnPickup()
 	{
-		/*
 		if ( Game.Random.Float() < 0.35f )
 		{
-			var p = Pickup.CreateRandom();
-			p.Position = WorldSpaceBounds.Center;
-			return;
+			Pickup.CreateRandom( Renderer.Bounds.Center );
 		}
-		*/
 	}
 
 	[Broadcast( NetPermission.HostOnly )]

@@ -17,7 +17,7 @@ public sealed class ParticuleSimulator : Component
 	{
 		if ( !Particles.IsValid() || Particles.Finished )
 		{
-			Destroy();
+			GameObject.Destroy();
 			return;
 		}
 

@@ -3,7 +3,7 @@
 @using System
 @namespace Facepunch.BombRoyale
 @attribute [StyleSheet( "DiseaseSprite.razor.scss" )]
-@inherits Panel
+@inherits PanelComponent
 
 <root>
 	<div class="icon"></div>
@@ -11,5 +11,40 @@
 
 @code
 {
-	//public BombRoyalePlayer Player { get; set; }
+	private Player Player { get; set; }
+
+	public static DiseaseSprite Create( Player player )
+	{
+		var go = new GameObject();
+		go.Components.Create<Sandbox.WorldPanel>();
+		go.Name = "Disease";
+		
+		var sprite = go.Components.Create<DiseaseSprite>();
+		sprite.Player = player;
+		
+		return sprite;
+	}
+
+	protected override void OnFixedUpdate()
+	{
+		if ( Player.IsValid() && Player.LifeState == LifeState.Alive )
+		{
+			var transform = Transform.World;
+			var position = Player.Transform.Position + Vector3.Up * 80f;
+			var direction = (Scene.Camera.Transform.Position - position).Normal;
+			var targetRotation = Rotation.LookAt( direction );
+
+			transform.Position = position;
+			transform.Rotation = targetRotation;
+			transform.Scale = 0.9f + (0.1f + (MathF.Cos( Time.Now * 4f ) * 0.1f));
+
+			Transform.World = transform;
+		}
+		else
+		{
+			GameObject.Destroy();
+		}
+		
+		base.OnFixedUpdate();
+	}
 }

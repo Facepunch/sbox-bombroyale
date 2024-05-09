@@ -1,0 +1,61 @@
+{
+  "RootObject": {
+    "__guid": "3ac632dd-3862-4171-aab3-d666101219e2",
+    "Name": "pickup",
+    "Tags": "pickup,light_point,light",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "Components": [
+      {
+        "__type": "Sandbox.SphereCollider",
+        "__guid": "e4d67086-e3d6-4fa4-8e3b-fea39d70ed36",
+        "Center": "0,0,0",
+        "IsTrigger": true,
+        "Radius": 8,
+        "Static": false
+      },
+      {
+        "__type": "Sandbox.PointLight",
+        "__guid": "4834dde6-9048-4b73-9c22-1500a5715c93",
+        "Attenuation": 1,
+        "FogMode": "Enabled",
+        "FogStrength": 1,
+        "LightColor": "0.8,0.74598,0.5507,1",
+        "Radius": 24,
+        "Shadows": true
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "04777766-4b64-4f8f-8532-0d0b432b73be",
+        "Name": "Sprite",
+        "Rotation": "0,0.7071068,0,0.7071068",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.WorldPanel",
+            "__guid": "4751412e-6bb8-41c0-bf35-1bd4fde8d5d0",
+            "HorizontalAlign": "Center",
+            "LookAtCamera": false,
+            "PanelSize": "512,512",
+            "RenderScale": 1,
+            "VerticalAlign": "Center"
+          },
+          {
+            "__type": "Facepunch.BombRoyale.PickupSprite",
+            "__guid": "2e4b21e3-d0c9-40e5-a7b1-b9fc9e09ab69"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

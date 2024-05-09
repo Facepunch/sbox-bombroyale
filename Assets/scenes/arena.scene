@@ -43,6 +43,10 @@
         {
           "__type": "Facepunch.BombRoyale.UI.Hud",
           "__guid": "64e431b5-c50f-44ba-818f-a2aa4ed817cd"
+        },
+        {
+          "__type": "Sandbox.Highlight",
+          "__guid": "5411af2a-8646-436e-9c35-f767bf2b18d0"
         }
       ]
     },
@@ -1259,6 +1263,10 @@
             "_type": "gameobject",
             "prefab": "prefabs/bomb.prefab"
           },
+          "PickupPrefab": {
+            "_type": "gameobject",
+            "prefab": "prefabs/pickup.prefab"
+          },
           "PlayerPrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/player.prefab"
@@ -1363,7 +1371,7 @@
   },
   "Title": "arena",
   "Description": "",
-  "LastSaved": "2024-05-09T13:18:49.6303091\u002B01:00",
+  "LastSaved": "2024-05-09T14:32:02.5489637\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

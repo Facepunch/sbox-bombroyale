@@ -29,6 +29,7 @@ public class Player : Component, IHealthComponent
 	
 	private TimeUntil NextRandomTeleport { get; set; }
 	private TimeUntil NextRandomBomb { get; set; }
+	private DiseaseSprite DiseaseSprite { get; set; }
 	private Vector2 InputDirection { get; set; }
 	[Sync] private Vector3 WishVelocity { get; set; }
 	
@@ -80,15 +81,26 @@ public class Player : Component, IHealthComponent
 		}
 	}
 	
-	public bool IsInsideBomb( Vector3 position )
+	public bool IsInsideBomb()
 	{
-		var bomb = Scene.Trace.Ray( position, position )
+		var trace = Scene.Trace.Ray( Transform.Position, Transform.Position )
 			.Size( Controller.BoundingBox.Size )
 			.IgnoreGameObject( GameObject )
 			.WithTag( "bomb" )
 			.Run();
-
-		return bomb.GameObject?.Components.Get<Bomb>() is not null;
+		
+		return trace.GameObject?.Components.Get<Bomb>() is not null;
+	}
+	
+	public bool IsInsideBomb( Bomb bomb )
+	{
+		var trace = Scene.Trace.Ray( Transform.Position, Transform.Position )
+			.Size( Controller.BoundingBox.Size )
+			.IgnoreGameObject( GameObject )
+			.WithTag( "bomb" )
+			.Run();
+		
+		return trace.GameObject.IsValid() && trace.GameObject.Components.Get<Bomb>() == bomb;
 	}
 
 	public void SetHoldingBomb( Bomb bomb )
@@ -108,6 +120,21 @@ public class Player : Component, IHealthComponent
 		
 		Transform.Position = spawnpoint.Transform.Position;
 		Transform.Rotation = spawnpoint.Transform.Rotation;
+	}
+	
+	public void GiveDisease( DiseaseType disease )
+	{
+		Assert.True( Networking.IsHost );
+		
+		RemoveDiseaseTime = Game.Random.Float( 10f, 20f );
+		Disease = disease;
+
+		if ( disease == DiseaseType.RandomBomb )
+			NextRandomBomb = Game.Random.Float( 1f, 2f );
+		else if ( disease == DiseaseType.Teleport )
+			NextRandomTeleport = Game.Random.Float( 0.5f, 1f );
+
+		Chat.AddPlayerEvent( "infected", Network.OwnerConnection.DisplayName, GetTeamColor(), $"has been infected with {disease.GetName()}" );
 	}
 	
 	public int GetBombsLeft() => MaxBombs - GetPlacedBombCount();
@@ -162,6 +189,34 @@ public class Player : Component, IHealthComponent
 		base.OnStart();
 	}
 
+	protected override void OnDestroy()
+	{
+		if ( DiseaseSprite.IsValid() )
+		{
+			DiseaseSprite.GameObject.Destroy();
+			DiseaseSprite = null;
+		}
+		
+		base.OnDestroy();
+	}
+
+	protected override void OnFixedUpdate()
+	{
+		if ( Disease == DiseaseType.None && DiseaseSprite.IsValid() )
+		{
+			DiseaseSprite.GameObject.Destroy();
+			DiseaseSprite = null;
+			return;
+		}
+
+		if ( Disease > DiseaseType.None && !DiseaseSprite.IsValid() )
+		{
+			DiseaseSprite = DiseaseSprite.Create( this );
+		}
+		
+		base.OnFixedUpdate();
+	}
+
 	protected override void OnUpdate()
 	{
 		base.OnUpdate();
@@ -198,7 +253,7 @@ public class Player : Component, IHealthComponent
 		if ( !Networking.IsHost )
 			return;
 
-		if ( IsInsideBomb( Transform.Position ) )
+		if ( IsInsideBomb() )
 			return;
 		
 		if ( HoldingBomb.IsValid() )

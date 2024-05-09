@@ -1,14 +1,40 @@
-﻿@using Sandbox
+﻿@using System
+@using Sandbox
 @using Sandbox.UI
 @namespace Facepunch.BombRoyale
 @attribute [StyleSheet( "PickupSprite.razor.scss" )]
-@inherits Panel
+@inherits PanelComponent
 
 <root>
-	<div class="icon"></div>
+	<div @ref="IconPanel" class="icon"></div>
 </root>
 
 @code
 {
-	//public Pickup Pickup { get; set; }
+	public Pickup Pickup { get; set; }
+	
+	private Panel IconPanel { get; set; }
+
+	protected override void OnTreeBuilt()
+	{
+		if ( Pickup.IsValid() )
+		{
+			IconPanel.Style.SetBackgroundImage( Pickup.Icon );
+		}
+		
+		base.OnTreeBuilt();
+	}
+
+	protected override void OnFixedUpdate()
+	{
+		if ( Pickup.IsValid() )
+		{
+			var transform = Transform.Local;
+			transform.Position = Vector3.Up * (4f + (MathF.Sin( Time.Now * 4f ) * 4f));
+			transform.Scale = 0.9f + (0.1f + (MathF.Cos( Time.Now * 4f ) * 0.1f));
+			Transform.Local = transform;
+		}
+		
+		base.OnFixedUpdate();
+	}
 }

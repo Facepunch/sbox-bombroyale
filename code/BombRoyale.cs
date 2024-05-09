@@ -16,6 +16,7 @@ public class BombRoyale : Component, Component.INetworkListener
 	public static BombRoyale Instance { get; private set; }
 	
 	[Property] public GameObject PlayerPrefab { get; set; }
+	[Property] public GameObject PickupPrefab { get; set; }
 	[Property] public GameObject BombPrefab { get; set; }
 	
 	public static bool IsPaused => StateSystem.Active?.IsPaused ?? false;

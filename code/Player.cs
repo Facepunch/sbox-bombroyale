@@ -6,7 +6,7 @@ using Sandbox.Diagnostics;
 
 namespace Facepunch.BombRoyale;
 
-public class Player : Component, IHealthComponent
+public class Player : Component, IHealthComponent, Component.ICollisionListener
 {
 	public static Player Me { get; private set; }
 

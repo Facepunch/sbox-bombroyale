@@ -14,7 +14,7 @@ public class PickupChanceAttribute : Attribute
 	}
 }
 
-public abstract class Pickup : Component, IRestartable, Component.ICollisionListener
+public abstract class Pickup : Component, IRestartable, Component.ITriggerListener
 {
 	public static Pickup CreateRandom( Vector3 position )
 	{
@@ -51,6 +51,7 @@ public abstract class Pickup : Component, IRestartable, Component.ICollisionList
 		var go = BombRoyale.Instance.PickupPrefab.Clone();
 		var pickup = go.Components.Create( type ) as Pickup;
 		go.Transform.Position = position;
+		go.Name = type.ClassName;
 		go.NetworkSpawn();
 		return pickup;
 	}
@@ -86,23 +87,17 @@ public abstract class Pickup : Component, IRestartable, Component.ICollisionList
 		base.OnStart();
 	}
 
-	void ICollisionListener.OnCollisionStart( Collision other )
+	void ITriggerListener.OnTriggerEnter( Collider collider )
 	{
-		/*
-		if ( Game.IsServer && other is BombRoyalePlayer player )
-		{
-			var fx = Particles.Create( "particles/gameplay/player/collectpickup/collectpickup.vpcf", Position );
-			fx.Set( "color", Color * 255f );
+		if ( !Networking.IsHost ) return;
 
-			if ( !string.IsNullOrEmpty( PickupSound ) )
-			{
-				Sound.FromScreen( To.Single( player ), PickupSound );
-			}
+		var player = collider.Components.GetInAncestorsOrSelf<Player>();
+		if ( !player.IsValid() ) return;
 
-			OnPickup( player );
-			Delete();
-		}
-		*/
+		DoPickupEffects();
+		OnPickup( player );
+		
+		GameObject.Destroy();
 	}
 
 	protected virtual void OnPickup( Player player )
@@ -127,6 +122,20 @@ public abstract class Pickup : Component, IRestartable, Component.ICollisionList
 		Effect = null;
 		
 		base.OnDestroy();
+	}
+
+	[Broadcast( NetPermission.HostOnly )]
+	private void DoPickupEffects()
+	{
+		var fx = new SceneParticles( Scene.SceneWorld, "particles/gameplay/player/collectpickup/collectpickup.vpcf" );
+		fx.SetControlPoint( 0, Transform.Position );
+		fx.SetNamedValue( "color", Color * 255f );
+		fx.PlayUntilFinished();
+
+		if ( !string.IsNullOrEmpty( PickupSound ) )
+		{
+			Sound.Play( PickupSound, Transform.Position );
+		}
 	}
 
 	[Broadcast]

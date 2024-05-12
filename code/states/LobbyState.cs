@@ -15,11 +15,16 @@ public class LobbyState : BaseState
 
 	protected override void OnEnter()
 	{
-		if ( Networking.IsHost )
+		if ( !Networking.IsHost ) return;
+
+		IRestartable.RestartAll();
+			
+		foreach ( var player in BombRoyale.Players )
 		{
-			IRestartable.RestartAll();
-			RoundEndTime = 10f;
+			player.Respawn();
 		}
+			
+		RoundEndTime = 10f;
 	}
 
 	protected override void OnLeave()

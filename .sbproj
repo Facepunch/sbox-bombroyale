@@ -5,7 +5,7 @@
   "Ident": "bombroyale",
   "Tags": null,
   "Schema": 1,
-  "Resources": null,
+  "Resources": "*",
   "PackageReferences": [],
   "EditorReferences": null,
   "Metadata": {

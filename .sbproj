@@ -21,7 +21,6 @@
     "CsProjName": "",
     "StartupScene": "scenes/lobby.scene",
     "ProjectTemplate": null,
-    "MapStartupScene": null,
-    "LaunchMode": "QuickPlay"
+    "LaunchMode": "Normal"
   }
 }

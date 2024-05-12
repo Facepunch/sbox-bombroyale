@@ -210,6 +210,11 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 			{
 				Disease = DiseaseType.None;
 			}
+
+			if ( LifeState == LifeState.Alive )
+			{
+				UpdateDiseaseEffects();
+			}
 		}
 		
 		if ( Disease == DiseaseType.None && DiseaseSprite.IsValid() )
@@ -243,6 +248,8 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 			Controller.Velocity = 0f;
 			return;
 		}
+		
+		UpdateDamageScale();
 
 		if ( LifeState == LifeState.Dead )
 			return;
@@ -253,6 +260,68 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 		{
 			PlaceBombOnHost();
 		}
+	}
+
+	private void UpdateDiseaseEffects()
+	{
+		if ( Disease == DiseaseType.RandomBomb && NextRandomBomb )
+		{
+			NextRandomBomb = Game.Random.Float( 1f, 2f );
+
+			if ( !IsInsideBomb() && GetBombsLeft() > 0 )
+			{
+				PlaySound( "disease.poop" );
+				var bombGo = BombPrefab.Clone();
+				var bomb = bombGo.Components.Get<Bomb>();
+				bomb.Place( this );
+				bombGo.NetworkSpawn();
+			}
+		}
+		else if ( Disease == DiseaseType.Teleport && NextRandomTeleport )
+		{
+			NextRandomTeleport = Game.Random.Float( 4f, 8f );
+
+			var randomPlayer = Scene.GetAllComponents<Player>()
+				.Where( p => !p.Equals( this ) )
+				.Shuffle()
+				.FirstOrDefault();
+
+			if ( randomPlayer.IsValid() )
+			{
+				var a = randomPlayer.Transform.Position;
+				var b = Transform.Position;
+
+				randomPlayer.Teleport( b );
+				randomPlayer.ShowRespawnEffect( b );
+
+				Teleport( a );
+				ShowRespawnEffect( a );
+			}
+		}
+	}
+
+	[Broadcast( NetPermission.HostOnly )]
+	public void Teleport( Vector3 position )
+	{
+		if ( IsProxy ) return;
+		Transform.Position = position;
+	}
+
+	private void UpdateDamageScale()
+	{
+		var tx = Transform.Local;
+
+		if ( LastTakeDamageTime < 2f )
+		{
+			var fraction = 1f - (LastTakeDamageTime / 2f);
+			tx.Scale = 1f + (0.2f * MathF.Sin( Time.Now * 20f )) * fraction;
+		}
+		else
+		{
+			tx.Scale = tx.Scale.LerpTo( 1f, Time.Delta * 4f );
+		}
+
+		Transform.Local = tx;
 	}
 
 	[Broadcast( NetPermission.OwnerOnly )]

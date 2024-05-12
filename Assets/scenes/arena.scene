@@ -52,6 +52,30 @@
         {
           "__type": "Facepunch.BombRoyale.PostProcessing",
           "__guid": "01968ca9-48ca-4009-aa2a-f2970cc1cff9"
+        },
+        {
+          "__type": "Sandbox.Pixelate",
+          "__guid": "bb3c2b57-6d91-420b-bb67-710d83b6a004",
+          "Scale": 0
+        },
+        {
+          "__type": "Sandbox.ColorAdjustments",
+          "__guid": "9b2f743b-fa2b-4570-aabb-7132d9db9062",
+          "Brightness": 1,
+          "Contrast": 1,
+          "HueRotate": 0,
+          "Saturation": 1
+        },
+        {
+          "__type": "Sandbox.ChromaticAberration",
+          "__guid": "275d2dd3-f81c-4761-940b-e2d2352e4188",
+          "Offset": "4,6,0",
+          "Scale": 0
+        },
+        {
+          "__type": "Sandbox.Sharpen",
+          "__guid": "f3d541b8-167f-415f-b2d5-d01f241e1ba6",
+          "Scale": 0
         }
       ]
     },
@@ -1512,7 +1536,7 @@
   },
   "Title": "arena",
   "Description": "",
-  "LastSaved": "2024-05-12T21:08:15.7600847\u002B01:00",
+  "LastSaved": "2024-05-12T21:22:25.6954291\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

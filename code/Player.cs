@@ -202,6 +202,16 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 
 	protected override void OnFixedUpdate()
 	{
+		base.OnFixedUpdate();
+
+		if ( Networking.IsHost )
+		{
+			if ( Disease > DiseaseType.None && RemoveDiseaseTime )
+			{
+				Disease = DiseaseType.None;
+			}
+		}
+		
 		if ( Disease == DiseaseType.None && DiseaseSprite.IsValid() )
 		{
 			DiseaseSprite.GameObject.Destroy();
@@ -213,8 +223,6 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 		{
 			DiseaseSprite = DiseaseSprite.Create( this );
 		}
-		
-		base.OnFixedUpdate();
 	}
 
 	protected override void OnUpdate()
@@ -291,12 +299,12 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 		var isAlive = state == LifeState.Alive;
 		
 		Controller.Enabled = isAlive;
-		Renderer.Enabled = isAlive;
+		Renderer.Enabled = Ragdoll.IsRagdolled || isAlive;
 
 		var children = Components.GetAll<ModelRenderer>( FindMode.EverythingInDescendants );
 		foreach ( var child in children )
 		{
-			child.Enabled = isAlive;
+			child.Enabled = Ragdoll.IsRagdolled || isAlive;
 		}
 	}
 	

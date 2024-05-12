@@ -72,7 +72,7 @@
     private int GetLivesLeft() => Player?.LivesLeft ?? 0;
 	private bool IsValidPlayer() => Player.IsValid();
 	private bool HasSuperBomb() => Player?.HasSuperBomb ?? false;
-	private string GetPlayerName() => Player.IsValid() ? Player.Network.OwnerConnection.Name : "Player";
+	private string GetPlayerName() => Player.IsValid() ? Player.Network.OwnerConnection.DisplayName : "Player";
 	private bool IsDead() => !Player.IsValid() || Player.LifeState == LifeState.Dead;
 
     private string GetBombRange()

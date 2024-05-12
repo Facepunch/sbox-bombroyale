@@ -32,7 +32,7 @@ public class SummaryState : BaseState
 			{
 				if ( bomb.IsPlaced )
 				{
-					bomb.Destroy();
+					bomb.GameObject.Destroy();
 				}
 			}
 

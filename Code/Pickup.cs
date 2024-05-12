@@ -78,7 +78,8 @@ public abstract class Pickup : Component, IRestartable, Component.ITriggerListen
 		Sprite = Components.GetInDescendantsOrSelf<PickupSprite>();
 		Sprite.Pickup = this;
 
-		Sound.Play( SpawnSound, Transform.Position );
+		if ( !string.IsNullOrEmpty( SpawnSound ) )
+			Sound.Play( SpawnSound, Transform.Position );
 		
 		Effect = new( Scene.SceneWorld, "particles/gameplay/idle_coin/idle_coin.vpcf" );
 		Effect.SetControlPoint( 0, Transform.Position );

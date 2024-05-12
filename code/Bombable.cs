@@ -26,6 +26,7 @@ public class Bombable : Component, IRestartable
 		var trace = Scene.Trace.Ray( bounds.Center, bounds.Center )
 			.Radius( 8f )
 			.WithAnyTags( "solid", "pickup", "player", "bomb" )
+			.HitTriggers()
 			.Run();
 
 		return trace.Hit;
@@ -42,44 +43,16 @@ public class Bombable : Component, IRestartable
 	[Broadcast( NetPermission.HostOnly )]
 	public void Break()
 	{
-		var rb = Components.Get<Rigidbody>();
-		var breaklist = Renderer.Model.GetData<ModelBreakPiece[]>();
-
-		if ( breaklist == null || breaklist.Length <= 0 )
-			return;
-
-		foreach ( var model in breaklist )
-		{
-			var gib = new GameObject( true, $"{GameObject.Name} (gib)" );
-
-			gib.Transform.Position = Transform.World.PointToWorld( model.Offset );
-			gib.Transform.Rotation = Transform.Rotation;
-			gib.Transform.Scale = Transform.Scale;
-
-			foreach ( var tag in model.CollisionTags.Split( ' ', StringSplitOptions.RemoveEmptyEntries ) )
-			{
-				gib.Tags.Add( tag );
-			}
-
-			var c = gib.Components.Create<Gib>( false );
-			c.FadeTime = model.FadeTime;
-			c.Model = Model.Load( model.Model );
-			c.Enabled = true;
-
-			var phys = gib.Components.Get<Rigidbody>( true );
-
-			if ( phys is not null && rb is not null )
-			{
-				phys.Velocity = rb.Velocity;
-				phys.AngularVelocity = rb.AngularVelocity;
-			}
-		}
+		var fx = new SceneParticles( Scene.SceneWorld, "particles/block_explosion/block_brick_explode.vpcf" );
+		fx.SetControlPoint( 0, Renderer.Bounds.Center );
+		fx.PlayUntilFinished();
 	}
 
 	[Broadcast( NetPermission.HostOnly )]
 	public void Hide()
 	{
 		Renderer.Enabled = false;
+		Tags.Add( "destroyed" );
 		Tags.Add( "passable" );
 		IsHidden = true;
 	}
@@ -94,6 +67,7 @@ public class Bombable : Component, IRestartable
 	private void Show()
 	{
 		Renderer.Enabled = true;
+		Tags.Remove( "destroyed" );
 		Tags.Remove( "passable" );
 		IsHidden = false;
 	}

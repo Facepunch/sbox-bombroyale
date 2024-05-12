@@ -64,6 +64,7 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 	{
 		if ( Networking.IsHost )
 		{
+			Ragdoll.Unragdoll();
 			LifeState = LifeState.Alive;
 			SpeedBoosts = 0;
 			LivesLeft = 1;

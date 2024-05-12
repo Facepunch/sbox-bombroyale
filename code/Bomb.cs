@@ -248,11 +248,13 @@ public class Bomb : Component, IRestartable
 
 	private void BlastInDirection( Vector3 direction )
 	{
-		var startPosition = Renderer.Bounds.Center;
+		var startPosition = Transform.Position + Vector3.Up * 16f;
 		var cellSize = 32f;
 		var totalRange = (Range * cellSize);
 		var trace = Scene.Trace.Ray( startPosition, startPosition + direction * totalRange )
 			.WithAnyTags( "solid", "player", "pickup", "bomb_placed" )
+			.WithoutTags( "destroyed" )
+			.HitTriggers()
 			.IgnoreGameObject( GameObject )
 			.Run();
 
@@ -271,12 +273,10 @@ public class Bomb : Component, IRestartable
 		{
 			player.TakeDamage( DamageType.Explosion, 0f, trace.EndPosition, Vector3.Zero, Id );
 		}
-		/*
 		else if ( hitObject.Components.TryGet<Pickup>( out var pickup ) )
 		{
-			pickup.Delete();
+			pickup.GameObject.Destroy();
 		}
-		*/
 		else if ( hitObject.Components.TryGet<Bomb>( out var bomb ) )
 		{
 			var fuseDelay = Game.Random.Float( 0.15f, 0.3f );

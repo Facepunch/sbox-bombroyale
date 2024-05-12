@@ -85,15 +85,6 @@
         }
       },
       {
-        "__type": "Sandbox.CapsuleCollider",
-        "__guid": "83527092-5532-49d5-9f4b-fbf859af6cbc",
-        "End": "0,0,60",
-        "IsTrigger": false,
-        "Radius": 16,
-        "Start": "0,0,12",
-        "Static": false
-      },
-      {
         "__type": "Facepunch.BombRoyale.RagdollController",
         "__guid": "0509f6e0-6d4f-4c3c-9d64-3d75879ebd8a",
         "Physics": {
@@ -128,6 +119,14 @@
           "component_type": "SkinnedModelRenderer"
         },
         "RigidbodyFlags": "DisableCollisionSounds"
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "5279d5d9-59f4-4d15-8390-798eec0db825",
+        "Center": "0,0,40",
+        "IsTrigger": false,
+        "Scale": "32,32,80",
+        "Static": false
       }
     ],
     "Children": []

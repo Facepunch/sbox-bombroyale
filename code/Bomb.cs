@@ -262,6 +262,8 @@ public class Bomb : Component, IRestartable
 
 		var hitObject = trace.GameObject;
 		if ( !hitObject.IsValid() ) return;
+
+		Log.Info( hitObject );
 		
 		if ( hitObject.Components.TryGet<Bombable>( out var bombable ) )
 		{

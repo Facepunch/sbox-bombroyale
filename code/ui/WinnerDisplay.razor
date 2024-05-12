@@ -12,12 +12,15 @@
 	var state = StateSystem.Active as SummaryState;
 	if ( !state.IsValid() )
 		return;
+
+	if ( state.WinnerIndex == 0 )
+		return;
 }
 
 <root>
 	@{
 		var winnerName = state.WinnerName;
-		var winnerIndex = state.WinnerIndex;
+		var winnerIndex = state.WinnerIndex + 1;
 	}
 
     <div class="banner p@(winnerIndex)"></div>

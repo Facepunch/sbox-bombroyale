@@ -6,6 +6,7 @@ public class LobbyState : BaseState
 {
 	public override string Name => "WAIT";
 	public override int TimeLeft => RoundEndTime.Relative.CeilToInt();
+	public override bool IsPaused => true;
 
 	[Sync] public TimeUntil RoundEndTime { get; set; }
 

@@ -41,7 +41,7 @@ public class SummaryState : BaseState
 
 		var localPlayer = Player.Me;
 		
-		if ( localPlayer.IsValid() && WinnerIndex == localPlayer.PlayerSlot )
+		if ( localPlayer.IsValid() && WinnerIndex > 0 && WinnerIndex == localPlayer.PlayerSlot )
 			Sound.Play( "round.win" );
 		else
 			Sound.Play( "round.end" );

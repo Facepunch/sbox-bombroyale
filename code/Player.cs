@@ -263,6 +263,11 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 		}
 	}
 
+	private bool IsInPlayState()
+	{
+		return StateSystem.Active is GameState;
+	}
+
 	private void UpdateDiseaseEffects()
 	{
 		if ( Disease == DiseaseType.RandomBomb && NextRandomBomb )

@@ -263,7 +263,7 @@ public class Bomb : Component, IRestartable
 		
 		if ( hitObject.Components.TryGet<Bombable>( out var bombable ) )
 		{
-			//Breakables.Break( e );
+			bombable.Break();
 			bombable.TrySpawnPickup();
 			bombable.Hide();
 		}

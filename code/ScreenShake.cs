@@ -6,7 +6,7 @@ namespace Facepunch.BombRoyale;
 
 public abstract partial class ScreenShake
 {
-	private static readonly List<ScreenShake> List = new();
+	internal static readonly List<ScreenShake> List = new();
 
 	public static void Apply( CameraComponent camera )
 	{

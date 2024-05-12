@@ -73,6 +73,7 @@
 
 @code
 {
+	private TimeSince TimeSinceLastConnect { get; set; }
 	private bool IsRefreshing { get; set; }
 	private List<LobbyInformation> List { get; set; } = new();
 	
@@ -113,7 +114,9 @@
 
 	private void OpenLobby( LobbyInformation lobby )
 	{
+		if ( TimeSinceLastConnect < 3f ) return;
 		GameNetworkSystem.Connect( lobby.LobbyId );
+		TimeSinceLastConnect = 0f;
 	}
 
 	private void CreateLobby()

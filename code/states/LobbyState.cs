@@ -37,11 +37,6 @@ public class LobbyState : BaseState
 				StateSystem.Set<GameState>();
 				return;
 			}
-			
-			if ( RoundEndTime > 5f && Connection.All.Count == 4 )
-			{
-				RoundEndTime = 5f;
-			}
 		}
 		
 		if ( RoundEndTime <= 5f && !PlayedCountdown )

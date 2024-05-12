@@ -49,6 +49,8 @@
 				<div class="button-list">
 					@foreach ( var lobby in List )
 					{
+						if ( lobby.Members >= 4 ) continue;
+						
 						<div class="button" onclick=@( () => OpenLobby( lobby ) )>
 							<div class="title">
 								@lobby.Name
@@ -56,7 +58,7 @@
 
 							<div class="meta">
 								<div class="map">
-									@lobby.Map
+									Bomb Royale
 								</div>
 
 								<div class="count">
@@ -115,6 +117,7 @@
 	private void OpenLobby( LobbyInformation lobby )
 	{
 		if ( TimeSinceLastConnect < 3f ) return;
+		if ( lobby.Members >= 4 ) return;
 		GameNetworkSystem.Connect( lobby.LobbyId );
 		TimeSinceLastConnect = 0f;
 	}

@@ -1,15 +1,19 @@
 {
-  "Id": "48a04856-06f0-48ec-95c0-6671b81a6b0f",
+  "__guid": "48a04856-06f0-48ec-95c0-6671b81a6b0f",
   "GameObjects": [
     {
-      "Id": "087cc65d-9421-48d6-b051-6adb3cad2e58",
+      "__guid": "087cc65d-9421-48d6-b051-6adb3cad2e58",
+      "Flags": 0,
       "Name": "Camera",
       "Position": "126.5706,165.5491,-215.7948",
       "Tags": "maincamera",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
-          "__type": "CameraComponent",
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "d97f40f9-1b1a-4c8a-aa51-cd2df5649f26",
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
           "FieldOfView": 60,
@@ -25,23 +29,25 @@
           "ZNear": 10
         },
         {
-          "__type": "ScreenPanel",
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "402d70cb-6fcc-4c5d-86a0-f946701887b3",
           "AutoScreenScale": true,
           "Opacity": 1,
           "Scale": 1,
           "ZIndex": 100
         },
         {
-          "__type": "Lobby"
+          "__type": "Facepunch.BombRoyale.Lobby",
+          "__guid": "121f46c5-d030-4b12-af24-6871a637e033"
         }
       ]
     }
   ],
   "SceneProperties": {
     "FixedUpdateFrequency": 50,
-    "Lerping": true,
     "MaxFixedUpdates": 5,
     "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
     "ThreadedAnimation": true,
     "TimeScale": 1,
     "UseFixedUpdate": true,
@@ -60,6 +66,8 @@
   },
   "Title": "lobby",
   "Description": "",
-  "LastSaved": "2024-02-08T10:18:49.6755581\u002B00:00",
+  "LastSaved": "2024-05-15T04:05:04.8992407\u002B01:00",
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": []
 }

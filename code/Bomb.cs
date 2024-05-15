@@ -252,6 +252,7 @@ public class Bomb : Component, IRestartable
 		var cellSize = 32f;
 		var totalRange = (Range * cellSize);
 		var trace = Scene.Trace.Ray( startPosition, startPosition + direction * totalRange )
+			.Radius( 8f )
 			.WithAnyTags( "solid", "player", "pickup", "bomb_placed" )
 			.WithoutTags( "destroyed" )
 			.HitTriggers()

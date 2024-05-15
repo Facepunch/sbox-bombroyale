@@ -264,21 +264,21 @@ public class Bomb : Component, IRestartable
 		var hitObject = trace.GameObject;
 		if ( !hitObject.IsValid() ) return;
 		
-		if ( hitObject.Components.TryGet<Bombable>( out var bombable ) )
+		if ( hitObject.Components.TryGet<Bombable>( out var bombable, FindMode.EverythingInSelfAndAncestors ) )
 		{
 			bombable.Break();
 			bombable.TrySpawnPickup();
 			bombable.Hide();
 		}
-		else if ( hitObject.Components.TryGet<Player>( out var player ) )
+		else if ( hitObject.Components.TryGet<Player>( out var player, FindMode.EverythingInSelfAndAncestors ) )
 		{
 			player.TakeDamage( DamageType.Explosion, 0f, trace.EndPosition, Vector3.Zero, Id );
 		}
-		else if ( hitObject.Components.TryGet<Pickup>( out var pickup ) )
+		else if ( hitObject.Components.TryGet<Pickup>( out var pickup, FindMode.EverythingInSelfAndAncestors ) )
 		{
 			pickup.GameObject.Destroy();
 		}
-		else if ( hitObject.Components.TryGet<Bomb>( out var bomb ) )
+		else if ( hitObject.Components.TryGet<Bomb>( out var bomb, FindMode.EverythingInSelfAndAncestors ) )
 		{
 			var fuseDelay = Game.Random.Float( 0.15f, 0.3f );
 			bomb.ShortenFuse( fuseDelay );

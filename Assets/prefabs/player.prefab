@@ -3,7 +3,6 @@
     "__guid": "9e2017a0-1901-4851-b29d-2e631cd61a9c",
     "Flags": 0,
     "Name": "player",
-    "Tags": "player",
     "Enabled": true,
     "NetworkMode": 2,
     "NetworkInterpolation": true,
@@ -102,7 +101,7 @@
         "EnableFixUnstuck": true,
         "GroundAngle": 45,
         "Height": 64,
-        "IgnoreLayers": "passable",
+        "IgnoreLayers": "passable,player",
         "Radius": 12,
         "StepHeight": 18
       },
@@ -119,17 +118,30 @@
           "component_type": "SkinnedModelRenderer"
         },
         "RigidbodyFlags": "DisableCollisionSounds"
-      },
-      {
-        "__type": "Sandbox.SphereCollider",
-        "__guid": "7617c359-dfb0-433a-9f70-b438190c4c63",
-        "Center": "0,0,16",
-        "IsTrigger": false,
-        "Radius": 10,
-        "Static": false
       }
     ],
-    "Children": []
+    "Children": [
+      {
+        "__guid": "8af3f0e1-9c66-4204-9d81-6e26d011a30b",
+        "Flags": 0,
+        "Name": "Collider",
+        "Tags": "player",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.CapsuleCollider",
+            "__guid": "b9b06a80-94fc-41df-ac69-a39855254ef7",
+            "End": "0,0,12",
+            "IsTrigger": false,
+            "Radius": 12,
+            "Start": "0,0,60",
+            "Static": false
+          }
+        ]
+      }
+    ]
   },
   "ShowInMenu": false,
   "MenuPath": null,

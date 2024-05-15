@@ -19,6 +19,7 @@ public static class StateSystem
 		var go = new GameObject();
 		var state = go.Components.Create<T>();
 		go.Name = "State";
+		go.Network.SetOrphanedMode( NetworkOrphaned.Host );
 		go.NetworkSpawn();
 
 		return state;

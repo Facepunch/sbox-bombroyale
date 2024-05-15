@@ -264,6 +264,9 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 
 	private void UpdateDiseaseEffects()
 	{
+		if ( BombRoyale.IsPaused )
+			return;
+		
 		if ( Disease == DiseaseType.RandomBomb && NextRandomBomb )
 		{
 			NextRandomBomb = Game.Random.Float( 1f, 2f );

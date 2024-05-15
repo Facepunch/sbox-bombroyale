@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "__guid": "9e2017a0-1901-4851-b29d-2e631cd61a9c",
+    "__guid": "2361c790-a7ec-4b80-b2e4-1e7fefcf7123",
     "Flags": 0,
     "Name": "player",
     "Enabled": true,
@@ -9,7 +9,7 @@
     "Components": [
       {
         "__type": "Sandbox.SkinnedModelRenderer",
-        "__guid": "7641de03-3ca8-49a3-8f96-b5d003ef45d9",
+        "__guid": "29797cd0-66ca-4e56-b5e6-e0defbb0af48",
         "BodyGroups": 341,
         "CreateBoneObjects": false,
         "Model": "models/citizen/citizen.vmdl",
@@ -18,11 +18,11 @@
       },
       {
         "__type": "Facepunch.BombRoyale.Player",
-        "__guid": "1c74c7a5-7ac3-410a-b455-86ebda14b3b3",
+        "__guid": "8630b478-393c-492b-b607-ee9168ea53ca",
         "Animation": {
           "_type": "component",
-          "component_id": "37e4fcc1-d26c-47fd-bf95-efdfbaccfcec",
-          "go": "9e2017a0-1901-4851-b29d-2e631cd61a9c",
+          "component_id": "f086f42b-aa9d-49f4-9feb-e86de2c3419e",
+          "go": "2361c790-a7ec-4b80-b2e4-1e7fefcf7123",
           "component_type": "CitizenAnimationHelper"
         },
         "BombPrefab": {
@@ -31,26 +31,26 @@
         },
         "Controller": {
           "_type": "component",
-          "component_id": "a3392a78-3c87-48bc-822b-d8d7386da709",
-          "go": "9e2017a0-1901-4851-b29d-2e631cd61a9c",
+          "component_id": "52ff4793-b41d-4bdd-9ac0-4782569add91",
+          "go": "2361c790-a7ec-4b80-b2e4-1e7fefcf7123",
           "component_type": "MoveController"
         },
         "Ragdoll": {
           "_type": "component",
-          "component_id": "6a2b5f68-6b98-4139-95cd-1648950325a2",
-          "go": "9e2017a0-1901-4851-b29d-2e631cd61a9c",
+          "component_id": "cee74959-3d7f-4ce8-a0c0-b92e9cbebd01",
+          "go": "2361c790-a7ec-4b80-b2e4-1e7fefcf7123",
           "component_type": "RagdollController"
         },
         "Renderer": {
           "_type": "component",
-          "component_id": "7641de03-3ca8-49a3-8f96-b5d003ef45d9",
-          "go": "9e2017a0-1901-4851-b29d-2e631cd61a9c",
+          "component_id": "29797cd0-66ca-4e56-b5e6-e0defbb0af48",
+          "go": "2361c790-a7ec-4b80-b2e4-1e7fefcf7123",
           "component_type": "SkinnedModelRenderer"
         }
       },
       {
         "__type": "Sandbox.Citizen.CitizenAnimationHelper",
-        "__guid": "37e4fcc1-d26c-47fd-bf95-efdfbaccfcec",
+        "__guid": "f086f42b-aa9d-49f4-9feb-e86de2c3419e",
         "BodyWeight": 1,
         "EyesWeight": 1,
         "HeadWeight": 1,
@@ -58,63 +58,63 @@
         "LookAtEnabled": false,
         "Target": {
           "_type": "component",
-          "component_id": "7641de03-3ca8-49a3-8f96-b5d003ef45d9",
-          "go": "9e2017a0-1901-4851-b29d-2e631cd61a9c",
+          "component_id": "29797cd0-66ca-4e56-b5e6-e0defbb0af48",
+          "go": "2361c790-a7ec-4b80-b2e4-1e7fefcf7123",
           "component_type": "SkinnedModelRenderer"
         }
       },
       {
         "__type": "Facepunch.BombRoyale.PlayerFootsteps",
-        "__guid": "1faaebcd-c851-4ded-bbfc-776ddebdb32b",
+        "__guid": "a0eb380d-7e94-4761-b597-e882e3cbf3fa",
         "ModelRenderer": {
           "_type": "component",
-          "component_id": "7641de03-3ca8-49a3-8f96-b5d003ef45d9",
-          "go": "9e2017a0-1901-4851-b29d-2e631cd61a9c",
+          "component_id": "29797cd0-66ca-4e56-b5e6-e0defbb0af48",
+          "go": "2361c790-a7ec-4b80-b2e4-1e7fefcf7123",
           "component_type": "SkinnedModelRenderer"
         }
       },
       {
         "__type": "Facepunch.Arena.PlayerDresser",
-        "__guid": "04f0445a-9b97-452a-a904-06fc7782d90f",
+        "__guid": "d068694c-2331-4f1e-904c-0dfe6e50708e",
         "BodyRenderer": {
           "_type": "component",
-          "component_id": "7641de03-3ca8-49a3-8f96-b5d003ef45d9",
-          "go": "9e2017a0-1901-4851-b29d-2e631cd61a9c",
+          "component_id": "29797cd0-66ca-4e56-b5e6-e0defbb0af48",
+          "go": "2361c790-a7ec-4b80-b2e4-1e7fefcf7123",
           "component_type": "SkinnedModelRenderer"
         }
       },
       {
         "__type": "Facepunch.BombRoyale.RagdollController",
-        "__guid": "6a2b5f68-6b98-4139-95cd-1648950325a2",
+        "__guid": "cee74959-3d7f-4ce8-a0c0-b92e9cbebd01",
         "Physics": {
           "_type": "component",
-          "component_id": "f2b98b61-bd77-4781-bc26-d3bff234aa39",
-          "go": "9e2017a0-1901-4851-b29d-2e631cd61a9c",
+          "component_id": "f94185b2-4f6c-4b88-87c4-7d5078e411ee",
+          "go": "2361c790-a7ec-4b80-b2e4-1e7fefcf7123",
           "component_type": "ModelPhysics"
         }
       },
       {
         "__type": "Facepunch.BombRoyale.MoveController",
-        "__guid": "a3392a78-3c87-48bc-822b-d8d7386da709",
+        "__guid": "52ff4793-b41d-4bdd-9ac0-4782569add91",
         "Acceleration": 10,
         "Bounciness": 0.3,
         "EnableFixUnstuck": true,
         "GroundAngle": 45,
         "Height": 64,
-        "IgnoreLayers": "passable,player",
+        "IgnoreLayers": "passable",
         "Radius": 12,
         "StepHeight": 18
       },
       {
         "__type": "Sandbox.ModelPhysics",
-        "__guid": "f2b98b61-bd77-4781-bc26-d3bff234aa39",
+        "__guid": "f94185b2-4f6c-4b88-87c4-7d5078e411ee",
         "__enabled": false,
         "Locking": {},
         "Model": "models/citizen/citizen.vmdl",
         "Renderer": {
           "_type": "component",
-          "component_id": "7641de03-3ca8-49a3-8f96-b5d003ef45d9",
-          "go": "9e2017a0-1901-4851-b29d-2e631cd61a9c",
+          "component_id": "29797cd0-66ca-4e56-b5e6-e0defbb0af48",
+          "go": "2361c790-a7ec-4b80-b2e4-1e7fefcf7123",
           "component_type": "SkinnedModelRenderer"
         },
         "RigidbodyFlags": "DisableCollisionSounds"
@@ -122,7 +122,7 @@
     ],
     "Children": [
       {
-        "__guid": "8af3f0e1-9c66-4204-9d81-6e26d011a30b",
+        "__guid": "f3d1b9f2-f0d3-4b38-9748-b206eedd81b9",
         "Flags": 0,
         "Name": "Collider",
         "Tags": "player",
@@ -132,7 +132,7 @@
         "Components": [
           {
             "__type": "Sandbox.CapsuleCollider",
-            "__guid": "b9b06a80-94fc-41df-ac69-a39855254ef7",
+            "__guid": "2556ce64-298a-4841-bf02-e066ce053a63",
             "End": "0,0,12",
             "IsTrigger": false,
             "Radius": 12,

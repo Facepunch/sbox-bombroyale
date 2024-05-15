@@ -101,9 +101,9 @@
 	}
 
 	[Broadcast]
-	private void SendText( string author, string message )
+	private static void SendText( string author, string message )
 	{
-		AddNamedMessage( author, Color.Cyan, message );
+		Instance?.AddNamedMessage( author, Color.Cyan, message );
 	}
 
 	void INetworkListener.OnConnected( Connection channel )

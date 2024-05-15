@@ -203,7 +203,27 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 
 	protected override void OnFixedUpdate()
 	{
-		base.OnFixedUpdate();
+		if ( !IsProxy )
+		{
+			if ( !BombRoyale.IsPaused )
+			{
+				UpdateDamageScale();
+
+				if ( LifeState == LifeState.Alive )
+				{
+					UpdateMovement();
+
+					if ( Input.Released( "attack1" ) )
+					{
+						PlaceBombOnHost();
+					}
+				}
+			}
+			else
+			{
+				Controller.Velocity = 0f;
+			}
+		}
 
 		if ( Networking.IsHost )
 		{
@@ -218,54 +238,28 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 			}
 		}
 		
-		if ( Disease == DiseaseType.None && DiseaseSprite.IsValid() )
+		// Conna: Just because Rider said I could do this I did it for the banter. What the fuck.
+		switch ( Disease )
 		{
-			DiseaseSprite.GameObject.Destroy();
-			DiseaseSprite = null;
-			return;
-		}
-
-		if ( Disease > DiseaseType.None && !DiseaseSprite.IsValid() )
-		{
-			DiseaseSprite = DiseaseSprite.Create( this );
+			case DiseaseType.None when DiseaseSprite.IsValid():
+				DiseaseSprite.GameObject.Destroy();
+				DiseaseSprite = null;
+				return;
+			case > DiseaseType.None when !DiseaseSprite.IsValid():
+				DiseaseSprite = DiseaseSprite.Create( this );
+				break;
 		}
 	}
 
 	protected override void OnUpdate()
 	{
-		base.OnUpdate();
-
 		UpdateLifeState( LifeState );
 		
 		if ( LifeState == LifeState.Alive )
 			UpdateAnimation();
 		
 		if ( IsProxy ) return;
-
 		UpdateCamera();
-		
-		if ( BombRoyale.IsPaused )
-		{
-			Controller.Velocity = 0f;
-			return;
-		}
-		
-		UpdateDamageScale();
-
-		if ( LifeState == LifeState.Dead )
-			return;
-		
-		UpdateMovement();
-	
-		if ( Input.Released( "attack1" ) )
-		{
-			PlaceBombOnHost();
-		}
-	}
-
-	private bool IsInPlayState()
-	{
-		return StateSystem.Active is GameState;
 	}
 
 	private void UpdateDiseaseEffects()

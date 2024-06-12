@@ -1,6 +1,7 @@
 {
   "RootObject": {
     "__guid": "ac006067-f36c-49e8-a767-e7c54c1d803e",
+    "Flags": 0,
     "Name": "breakable",
     "Enabled": true,
     "NetworkMode": 1,
@@ -29,15 +30,28 @@
           "component_id": "12339c0b-ccac-4f77-aa0e-94ed5c114b3f",
           "go": "ac006067-f36c-49e8-a767-e7c54c1d803e",
           "component_type": "ModelRenderer"
-        }
+        },
+        "SpawnPickupChance": 0.35
       }
     ],
-    "Children": []
+    "Children": [],
+    "__variables": [
+      {
+        "Id": "SpawnPickupChance",
+        "Title": "Spawn Pickup Chance",
+        "Targets": [
+          {
+            "Id": "0b62cfe1-8cdd-4dd7-9ed0-847f7ac96682",
+            "Property": "SpawnPickupChance"
+          }
+        ]
+      }
+    ]
   },
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
   "ResourceVersion": 1,
-  "__version": 1,
-  "__references": []
+  "__references": [],
+  "__version": 1
 }

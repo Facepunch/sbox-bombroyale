@@ -11,6 +11,7 @@ public class Bombable : Component, IRestartable
 	[Sync] public bool IsHidden { get; set; }
 	
 	[Property] public ModelRenderer Renderer { get; set; }
+	[Property] public float SpawnPickupChance { get; set; } = 0.35f;
 	
 	void IRestartable.OnRestart()
 	{
@@ -34,7 +35,7 @@ public class Bombable : Component, IRestartable
 
 	public void TrySpawnPickup()
 	{
-		if ( Game.Random.Float() < 0.35f )
+		if ( Game.Random.Float() < SpawnPickupChance )
 		{
 			Pickup.CreateRandom( Renderer.Bounds.Center );
 		}

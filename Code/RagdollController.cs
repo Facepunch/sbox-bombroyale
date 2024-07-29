@@ -1,6 +1,7 @@
 using Sandbox;
 using System;
 using System.Linq;
+using Sandbox.Diagnostics;
 
 namespace Facepunch.BombRoyale;
 
@@ -14,11 +15,9 @@ public sealed class RagdollController : Component
 	[Broadcast( NetPermission.HostOnly )]
 	public void Ragdoll( Vector3 position, Vector3 force )
 	{
+		Physics.Enabled = true;
 		IsRagdolled = true;
 		Tags.Add( "corpse" );
-
-		if ( !Physics.IsValid() ) return;
-		Physics.Enabled = true;
 		
 		foreach ( var body in Physics.PhysicsGroup.Bodies )
 		{
@@ -29,22 +28,8 @@ public sealed class RagdollController : Component
 	[Broadcast( NetPermission.HostOnly )]
 	public void Unragdoll()
 	{
+		Physics.Enabled = false;
 		IsRagdolled = false;
 		Tags.Remove( "corpse" );
-
-		if ( !Physics.IsValid() ) return;
-		Physics.Enabled = false;
-	}
-
-	protected override void OnFixedUpdate()
-	{
-		Tags.Set( "corpse", IsRagdolled );
-
-		if ( Physics.IsValid() )
-		{
-			Physics.Enabled = IsRagdolled;
-		}
-		
-		base.OnFixedUpdate();
 	}
 }

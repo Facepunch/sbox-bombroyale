@@ -34,7 +34,7 @@ public class BombRoyale : Component, Component.INetworkListener
 		Instance = this;
 		base.OnAwake();
 	}
-	
+
 	protected override void OnStart()
 	{
 		if ( !GameNetworkSystem.IsActive )

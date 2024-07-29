@@ -15,7 +15,6 @@ public sealed class RagdollController : Component
 	public void Ragdoll( Vector3 position, Vector3 force )
 	{
 		IsRagdolled = true;
-		Tags.Add( "corpse" );
 
 		if ( !Physics.IsValid() ) return;
 		Physics.Enabled = true;
@@ -34,7 +33,6 @@ public sealed class RagdollController : Component
 	public void Unragdoll()
 	{
 		IsRagdolled = false;
-		Tags.Remove( "corpse" );
 		
 		if ( !Physics.IsValid() ) return;
 		Physics.Enabled = false;
@@ -46,10 +44,14 @@ public sealed class RagdollController : Component
 		{
 			if ( Physics.IsValid() )
 				Physics.Enabled = true;
-			
-			Tags.Add( "corpse" );
 		}
 		
 		base.OnStart();
+	}
+
+	protected override void OnFixedUpdate()
+	{
+		Tags.Set( "corpse", IsRagdolled );
+		base.OnFixedUpdate();
 	}
 }

@@ -41,6 +41,7 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 	[Property] public GameObject BombPrefab { get; set; }
 	
 	public int ConsecutiveWins { get; set; }
+	public int EnemiesKilled { get; set; }
 	
 	private static readonly Color[] Colors = new Color[4]
 	{
@@ -69,6 +70,7 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 		{
 			Ragdoll.Unragdoll();
 			LifeState = LifeState.Alive;
+			EnemiesKilled = 0;
 			SpeedBoosts = 0;
 			LivesLeft = 1;
 			BombRange = 2;
@@ -160,7 +162,7 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 		return !Scene.IsValid() ? 0 : Scene.GetAllComponents<Bomb>().Count( b => b.Player == this && b.IsPlaced );
 	}
 	
-	public void TakeDamage( DamageType type, float damage, Vector3 position, Vector3 force, Guid attackerId )
+	public void TakeDamage( DamageType type, float damage, Vector3 position, Vector3 force, Component attacker )
 	{
 		Assert.True( Networking.IsHost );
 		
@@ -182,7 +184,18 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 			var direction = Vector3.Up + new Vector3( Game.Random.Float( -0.25f, 0.25f ), Game.Random.Float( -0.25f, 0.25f ), 0f );
 			Ragdoll.Ragdoll( position, direction );
 
-			Chat.AddPlayerEvent( "death", Network.OwnerConnection.DisplayName, GetTeamColor(), "has been blown to smithereens!" );
+			var deathMessage = "has been blown to smithereens!";
+
+			if ( attacker is Player attackingPlayer )
+			{
+				attackingPlayer.EnemiesKilled++;
+				deathMessage = $"has been blown to smithereens by {attackingPlayer.Network.OwnerConnection.DisplayName}!";
+				
+				if ( attackingPlayer.EnemiesKilled == 3 )
+					attackingPlayer.UnlockAchievement( "ace_3x" );
+			}
+			
+			Chat.AddPlayerEvent( "death", Network.OwnerConnection.DisplayName, GetTeamColor(), deathMessage );
 		}
 		else
 		{

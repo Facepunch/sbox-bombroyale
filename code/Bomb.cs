@@ -272,7 +272,7 @@ public class Bomb : Component, IRestartable
 		}
 		else if ( hitObject.Components.TryGet<Player>( out var player, FindMode.EverythingInSelfAndAncestors ) )
 		{
-			player.TakeDamage( DamageType.Explosion, 0f, trace.EndPosition, Vector3.Zero, Id );
+			player.TakeDamage( DamageType.Explosion, 0f, trace.EndPosition, Vector3.Zero, Player );
 		}
 		else if ( hitObject.Components.TryGet<Pickup>( out var pickup, FindMode.EverythingInSelfAndAncestors ) )
 		{

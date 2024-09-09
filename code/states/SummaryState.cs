@@ -24,8 +24,18 @@ public class SummaryState : BaseState
 
 			if ( winner.IsValid() )
 			{
+				winner.ConsecutiveWins++;
 				WinnerName = winner.Network.OwnerConnection.DisplayName;
 				WinnerIndex = winner.PlayerSlot;
+				
+				if ( winner.ConsecutiveWins >= 3 )
+					winner.UnlockAchievement( "win_3x" );
+			}
+
+			foreach ( var player in BombRoyale.Players )
+			{
+				if ( player == winner ) continue;
+				player.ConsecutiveWins = 0;
 			}
 
 			foreach ( var bomb in Scene.GetAllComponents<Bomb>() )

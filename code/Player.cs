@@ -40,6 +40,8 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 	[Property] public RagdollController Ragdoll { get; set; }
 	[Property] public GameObject BombPrefab { get; set; }
 	
+	public int ConsecutiveWins { get; set; }
+	
 	private static readonly Color[] Colors = new Color[4]
 	{
 		"#F6D953",

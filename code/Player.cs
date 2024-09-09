@@ -3,6 +3,7 @@ using System.Linq;
 using Sandbox;
 using Sandbox.Citizen;
 using Sandbox.Diagnostics;
+using Sandbox.Services;
 
 namespace Facepunch.BombRoyale;
 
@@ -262,6 +263,12 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 		UpdateCamera();
 	}
 
+	[Authority]
+	private void IncrementStat( string statName, int amount = 1 )
+	{
+		Stats.Increment( statName, amount );
+	}
+
 	private void UpdateDiseaseEffects()
 	{
 		if ( BombRoyale.IsPaused )
@@ -273,9 +280,12 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 
 			if ( !IsInsideBomb() && GetBombsLeft() > 0 )
 			{
+				IncrementStat( "bombs_pooped" );
 				PlaySound( "disease.poop" );
+				
 				var bombGo = BombPrefab.Clone();
 				var bomb = bombGo.Components.Get<Bomb>();
+				
 				bomb.Place( this );
 				bombGo.NetworkSpawn();
 			}

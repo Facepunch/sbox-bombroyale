@@ -83,6 +83,18 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 		}
 	}
 	
+	[Authority]
+	public void IncrementStat( string statName, int amount = 1 )
+	{
+		Stats.Increment( statName, amount );
+	}
+
+	[Authority]
+	public void UnlockAchievement( string achievementName )
+	{
+		Achievements.Unlock( achievementName );
+	}
+	
 	public bool IsInsideBomb()
 	{
 		var trace = Scene.Trace.Ray( Transform.Position, Transform.Position )
@@ -261,12 +273,6 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 		
 		if ( IsProxy ) return;
 		UpdateCamera();
-	}
-
-	[Authority]
-	private void IncrementStat( string statName, int amount = 1 )
-	{
-		Stats.Increment( statName, amount );
 	}
 
 	private void UpdateDiseaseEffects()

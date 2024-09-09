@@ -12,6 +12,10 @@ public class SpeedBoost : Pickup
 
 	protected override void OnPickup( Player player )
 	{
+		var previousSpeed = player.SpeedBoosts;
 		player.SpeedBoosts = Math.Min( player.SpeedBoosts + 1, 4 );
+
+		if ( previousSpeed < 4 && player.SpeedBoosts == 4 )
+			player.UnlockAchievement( "go_fast" );
 	}
 }

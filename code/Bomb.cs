@@ -254,7 +254,7 @@ public class Bomb : Component, IRestartable
 		var trace = Scene.Trace.Ray( startPosition, startPosition + direction * totalRange )
 			.Radius( 8f )
 			.WithAnyTags( "solid", "player", "pickup", "bomb_placed" )
-			.WithoutTags( "destroyed" )
+			.WithoutTags( "destroyed", "spreader" )
 			.HitTriggers()
 			.IgnoreGameObject( GameObject )
 			.Run();

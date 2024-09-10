@@ -98,23 +98,6 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 	{
 		Achievements.Unlock( achievementName );
 	}
-
-	void ICollisionListener.OnCollisionStart( Collision collision )
-	{
-		if ( !Networking.IsHost ) return;
-		
-		var otherPlayer = collision.Other.GameObject.Components.GetInAncestorsOrSelf<Player>();
-		if ( !otherPlayer.IsValid() ) return;
-
-		if ( otherPlayer.Disease == DiseaseType.None )
-			return;
-
-		if ( Disease != DiseaseType.None )
-			return;
-
-		otherPlayer.UnlockAchievement( "catch_disease" );
-		GiveDisease( otherPlayer.Disease );
-	}
 	
 	public bool IsInsideBomb()
 	{
@@ -342,13 +325,22 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 				var a = randomPlayer.Transform.Position;
 				var b = Transform.Position;
 
+				randomPlayer.DisableDiseaseSpreader( 1f );
 				randomPlayer.Teleport( b );
 				randomPlayer.ShowRespawnEffect( b );
 
+				DisableDiseaseSpreader( 1f );
 				Teleport( a );
 				ShowRespawnEffect( a );
 			}
 		}
+	}
+
+	public void DisableDiseaseSpreader( float duration )
+	{
+		var spreader = Components.GetInDescendants<DiseaseSpreader>();
+		if ( !spreader.IsValid() ) return;
+		spreader.IsActive = duration;
 	}
 
 	[Broadcast( NetPermission.HostOnly )]

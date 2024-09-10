@@ -4,8 +4,6 @@
     "Flags": 0,
     "Name": "player",
     "Enabled": true,
-    "NetworkMode": 2,
-    "NetworkInterpolation": true,
     "Components": [
       {
         "__type": "Sandbox.SkinnedModelRenderer",
@@ -14,7 +12,8 @@
         "CreateBoneObjects": false,
         "Model": "models/citizen/citizen.vmdl",
         "RenderType": "On",
-        "Tint": "1,1,1,1"
+        "Tint": "1,1,1,1",
+        "UseAnimGraph": true
       },
       {
         "__type": "Facepunch.BombRoyale.Player",
@@ -111,6 +110,7 @@
         "__enabled": false,
         "Locking": {},
         "Model": "models/citizen/citizen.vmdl",
+        "MotionEnabled": true,
         "Renderer": {
           "_type": "component",
           "component_id": "29797cd0-66ca-4e56-b5e6-e0defbb0af48",
@@ -127,8 +127,6 @@
         "Name": "Collider",
         "Tags": "player",
         "Enabled": true,
-        "NetworkMode": 2,
-        "NetworkInterpolation": true,
         "Components": [
           {
             "__type": "Sandbox.CapsuleCollider",
@@ -140,13 +138,41 @@
             "Static": false
           }
         ]
+      },
+      {
+        "__guid": "b3646fd8-c75e-4863-8161-c24ab2f83563",
+        "Flags": 0,
+        "Name": "DiseaseSpreader",
+        "Tags": "spreader",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SphereCollider",
+            "__guid": "250630ea-28bf-4739-be04-e2a8474b41a1",
+            "Center": "0,0,16",
+            "IsTrigger": true,
+            "Radius": 32,
+            "Static": false
+          },
+          {
+            "__type": "Sandbox.DiseaseSpreader",
+            "__guid": "2f3e107b-0b39-4228-a225-b583d0bcd4ef",
+            "Player": {
+              "_type": "component",
+              "component_id": "8630b478-393c-492b-b607-ee9168ea53ca",
+              "go": "2361c790-a7ec-4b80-b2e4-1e7fefcf7123",
+              "component_type": "Player"
+            }
+          }
+        ]
       }
-    ]
+    ],
+    "__variables": []
   },
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
   "ResourceVersion": 1,
-  "__version": 1,
-  "__references": []
+  "__references": [],
+  "__version": 1
 }

@@ -266,6 +266,11 @@ public class Bomb : Component, IRestartable
 		
 		if ( hitObject.Components.TryGet<Bombable>( out var bombable, FindMode.EverythingInSelfAndAncestors ) )
 		{
+			if ( Player.IsValid() )
+			{
+				Player.IncrementStat( "blocks_exploded" );
+			}
+			
 			bombable.Break();
 			bombable.TrySpawnPickup();
 			bombable.Hide();

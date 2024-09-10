@@ -8,6 +8,7 @@
   "Resources": "*",
   "PackageReferences": [],
   "EditorReferences": null,
+  "IsWhitelistDisabled": false,
   "Metadata": {
     "MaxPlayers": 4,
     "MinPlayers": 1,

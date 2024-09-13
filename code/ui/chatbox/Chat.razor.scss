@@ -88,6 +88,12 @@ ChatboxEntry {
 		}
 	}
 
+	&.pickup {
+		.message {
+			color: deepskyblue;
+		}
+	}
+
 	&.infected {
 		.message {
 			color: palegreen;

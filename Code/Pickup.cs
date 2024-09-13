@@ -95,15 +95,16 @@ public abstract class Pickup : Component, IRestartable, Component.ITriggerListen
 		var player = collider.Components.GetInAncestorsOrSelf<Player>();
 		if ( !player.IsValid() ) return;
 
-		DoPickupEffects();
-		OnPickup( player );
+		if ( !OnPickup( player ) )
+			return;
 		
+		DoPickupEffects();
 		GameObject.Destroy();
 	}
 
-	protected virtual void OnPickup( Player player )
+	protected virtual bool OnPickup( Player player )
 	{
-
+		return false;
 	}
 
 	protected override void OnUpdate()

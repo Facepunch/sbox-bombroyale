@@ -90,7 +90,13 @@ ChatboxEntry {
 
 	&.pickup {
 		.message {
-			color: deepskyblue;
+			color: lightblue;
+		}
+	}
+
+	&.pickup_bad {
+		.message {
+			color: indianred;
 		}
 	}
 

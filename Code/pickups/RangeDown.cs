@@ -15,7 +15,7 @@ public class RangeDown : Pickup
 		if ( player.BombRange == 2 )
 			return false;
 		
-		Chat.AddPlayerEvent( "pickup", Network.OwnerConnection.DisplayName, player.GetTeamColor(), $"has lost some bomb range!" );
+		Chat.AddPlayerEvent( "pickup_bad", Network.OwnerConnection.DisplayName, player.GetTeamColor(), $"has lost some bomb range!" );
 		
 		player.BombRange = Math.Max( player.BombRange - 1, 2 );
 		return true;

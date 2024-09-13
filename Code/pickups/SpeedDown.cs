@@ -15,7 +15,7 @@ public class SpeedDown : Pickup
 		if ( player.SpeedBoosts == 0 )
 			return false;
 		
-		Chat.AddPlayerEvent( "pickup", Network.OwnerConnection.DisplayName, player.GetTeamColor(), $"has lost some speed!" );
+		Chat.AddPlayerEvent( "pickup_bad", Network.OwnerConnection.DisplayName, player.GetTeamColor(), $"has lost some speed!" );
 		
 		player.SpeedBoosts = Math.Max( player.SpeedBoosts - 1, 0 );
 		return true;

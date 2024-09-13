@@ -15,7 +15,7 @@ public class LoseBomb : Pickup
 		if ( player.MaxBombs == 1 )
 			return false;
 		
-		Chat.AddPlayerEvent( "pickup", Network.OwnerConnection.DisplayName, player.GetTeamColor(), $"has lost an extra bomb!" );
+		Chat.AddPlayerEvent( "pickup_bad", Network.OwnerConnection.DisplayName, player.GetTeamColor(), $"has lost an extra bomb!" );
 		player.MaxBombs = Math.Max( player.MaxBombs - 1, 1 );
 		return true;
 	}

@@ -11,6 +11,13 @@
         "BodyGroups": 341,
         "CreateBoneObjects": false,
         "Model": "models/citizen/citizen.vmdl",
+        "Morphs": {},
+        "RenderOptions": {
+          "GameLayer": true,
+          "OverlayLayer": false,
+          "BloomLayer": false,
+          "AfterUILayer": false
+        },
         "RenderType": "On",
         "Tint": "1,1,1,1",
         "UseAnimGraph": true
@@ -157,6 +164,41 @@
           {
             "__type": "Sandbox.DiseaseSpreader",
             "__guid": "2f3e107b-0b39-4228-a225-b583d0bcd4ef",
+            "Player": {
+              "_type": "component",
+              "component_id": "8630b478-393c-492b-b607-ee9168ea53ca",
+              "go": "2361c790-a7ec-4b80-b2e4-1e7fefcf7123",
+              "component_type": "Player"
+            }
+          }
+        ]
+      },
+      {
+        "__guid": "b13a7267-966e-4a0d-85e3-5d88d108893a",
+        "Flags": 0,
+        "Name": "Nameplate",
+        "Position": "0,0,85.0674",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.WorldPanel",
+            "__guid": "a4978b7c-872e-4335-b0ab-196a6c8ed995",
+            "HorizontalAlign": "Center",
+            "InteractionRange": 1000,
+            "LookAtCamera": true,
+            "PanelSize": "512,512",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderScale": 2,
+            "VerticalAlign": "Center"
+          },
+          {
+            "__type": "Facepunch.BombRoyale.Nameplate",
+            "__guid": "bcaea2c2-b1d0-479d-b9b8-08211ae58d39",
             "Player": {
               "_type": "component",
               "component_id": "8630b478-393c-492b-b607-ee9168ea53ca",

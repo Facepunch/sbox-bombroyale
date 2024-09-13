@@ -1,0 +1,41 @@
+﻿@using Sandbox
+@using Sandbox.UI
+@using System
+@namespace Facepunch.BombRoyale
+@attribute [StyleSheet( "Nameplate.razor.scss" )]
+@inherits PanelComponent
+
+<root class="p@( PlayerIndex ) @GetRootClass()">
+	<label class="name">P@( PlayerIndex )</label>
+</root>
+
+@code
+{
+	[Property] public Player Player { get; set; }
+	private int PlayerIndex => (Player?.PlayerSlot ?? 0) + 1;
+	
+	protected override void OnFixedUpdate()
+	{
+		if ( Player.IsValid() && Player.LifeState == LifeState.Alive )
+		{
+			var transform = Transform.World;
+			var position = Player.Transform.Position + Vector3.Up * 100f;
+
+			transform.Position = position;
+
+			Transform.World = transform;
+		}
+		
+		base.OnFixedUpdate();
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( Player, Player?.LifeState );
+	}
+
+	private string GetRootClass()
+	{
+		return Player?.LifeState == LifeState.Dead ? "hidden" : string.Empty;
+	}
+}

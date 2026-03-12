@@ -4,17 +4,12 @@ namespace Facepunch.BombRoyale;
 
 [Title( "Bombable" )]
 [Category( "Bomb Royale" )]
-public class Bombable : Component, IRestartable
+public class Bombable : Component
 {
 	[Sync] public bool IsHidden { get; set; }
-	
+
 	[Property] public ModelRenderer Renderer { get; set; }
 	[Property] public float SpawnPickupChance { get; set; } = 0.35f;
-	
-	void IRestartable.OnRestart()
-	{
-		Show();
-	}
 	
 	public bool IsSpaceOccupied()
 	{
@@ -60,12 +55,4 @@ public class Bombable : Component, IRestartable
 		base.OnAwake();
 	}
 	
-	[Rpc.Broadcast( NetFlags.HostOnly )]
-	private void Show()
-	{
-		Renderer.Enabled = true;
-		Tags.Remove( "destroyed" );
-		Tags.Remove( "passable" );
-		IsHidden = false;
-	}
 }

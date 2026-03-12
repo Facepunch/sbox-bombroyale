@@ -2,27 +2,83 @@
   "__guid": "48a04856-06f0-48ec-95c0-6671b81a6b0f",
   "GameObjects": [
     {
+      "__guid": "6388c9e7-eaa5-4f3f-aadd-4a28e8f68d77",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Scene Information",
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.SceneInformation",
+          "__guid": "6ed52cd3-7f90-47fe-9245-24554f39ad8b",
+          "__enabled": true,
+          "Flags": 0,
+          "Author": null,
+          "Changes": null,
+          "Description": "",
+          "Group": null,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "SceneTags": "",
+          "Title": "lobby",
+          "Version": null
+        }
+      ],
+      "Children": []
+    },
+    {
       "__guid": "087cc65d-9421-48d6-b051-6adb3cad2e58",
+      "__version": 2,
       "Flags": 0,
       "Name": "Camera",
       "Position": "126.5706,165.5491,-215.7948",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
       "Tags": "maincamera",
       "Enabled": true,
       "NetworkMode": 2,
-      "NetworkInterpolation": true,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.CameraComponent",
           "__guid": "d97f40f9-1b1a-4c8a-aa51-cd2df5649f26",
+          "__enabled": true,
+          "Flags": 0,
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
+          "EnablePostProcessing": true,
           "FieldOfView": 60,
+          "FovAxis": "Horizontal",
           "IsMainCamera": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Orthographic": false,
           "OrthographicHeight": 1204,
+          "PostProcessAnchor": null,
           "Priority": 1,
           "RenderExcludeTags": "",
           "RenderTags": "",
+          "RenderTexture": null,
           "TargetEye": "None",
           "Viewport": "0,0,1,1",
           "ZFar": 10000,
@@ -31,26 +87,44 @@
         {
           "__type": "Sandbox.ScreenPanel",
           "__guid": "402d70cb-6fcc-4c5d-86a0-f946701887b3",
+          "__enabled": true,
+          "Flags": 0,
           "AutoScreenScale": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Opacity": 1,
           "Scale": 1,
+          "ScaleStrategy": "ConsistentHeight",
+          "TargetCamera": null,
           "ZIndex": 100
         },
         {
           "__type": "Facepunch.BombRoyale.Lobby",
-          "__guid": "121f46c5-d030-4b12-af24-6871a637e033"
+          "__guid": "121f46c5-d030-4b12-af24-6871a637e033",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         }
-      ]
+      ],
+      "Children": []
     }
   ],
   "SceneProperties": {
-    "FixedUpdateFrequency": 50,
-    "MaxFixedUpdates": 5,
-    "NetworkFrequency": 30,
     "NetworkInterpolation": true,
-    "ThreadedAnimation": true,
     "TimeScale": 1,
-    "UseFixedUpdate": true,
+    "WantsSystemScene": true,
+    "Metadata": {
+      "Title": "lobby"
+    },
     "NavMesh": {
       "Enabled": false,
       "IncludeStaticBodies": true,
@@ -61,13 +135,24 @@
       "AgentStepSize": 18,
       "AgentMaxSlope": 40,
       "ExcludedBodies": "",
-      "IncludedBodies": ""
+      "IncludedBodies": "",
+      "CustomBounds": false,
+      "Bounds": {
+        "Mins": "0,0,0",
+        "Maxs": "0,0,0"
+      }
+    },
+    "GameObjectSystems": {
+      "Sandbox.Clutter.ClutterGridSystem": {
+        "Storage": {
+          "$blob": "e7be4418-660d-42b8-87d8-32cd25fd360c"
+        }
+      }
     }
   },
+  "ResourceVersion": 3,
   "Title": "lobby",
-  "Description": "",
-  "LastSaved": "2024-05-15T05:41:48.830065\u002B01:00",
-  "ResourceVersion": 1,
-  "__version": 1,
-  "__references": []
+  "Description": null,
+  "__references": [],
+  "__version": 3
 }

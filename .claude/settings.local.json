@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find \"C:/Facepunch/sbox2/game/core/shaders\" -type f -name \"*.shader\" 2>/dev/null | head -20)",
+      "Bash(grep -r \"MATERIAL_COMMON_INPUTS_HLSL\\\\|CUSTOM_MATERIAL_INPUTS\" \"C:/Facepunch/sbox2/game\" --include=\"*.shader\" --include=\"*.hlsl\" --include=\"*.fxc\" 2>/dev/null | head -20)"
+    ]
+  }
+}

@@ -3,6 +3,13 @@ HEADER
 	Description = "Bomb";
 }
 
+MODES
+{
+	Forward();
+	Depth( S_MODE_DEPTH );
+	ToolsShadingComplexity( "vr_tools_shading_complexity.shader" );
+}
+
 FEATURES
 {
     #include "common/features.hlsl"
@@ -39,6 +46,7 @@ VS
 
 PS
 {
+    #include "common/utils/Material.CommonInputs.hlsl"
     #include "common/pixel.hlsl"
 
 	float4 MainPs( PixelInput i ) : SV_Target0
@@ -49,9 +57,9 @@ PS
 		{
 			m.Albedo = lerp( m.Albedo, g_vBombColor, g_ExplodeTime );
 			m.Emission = lerp( m.Emission, g_vBombColor, g_ExplodeTime );
-			m.Metalness = lerp( m.Metalness, float3( 0.0, 0.0, 0.0 ), g_ExplodeTime );
-			m.Roughness = lerp( m.Roughness, float3( 0.0, 0.0, 0.0 ), g_ExplodeTime );
-			m.AmbientOcclusion = lerp( m.AmbientOcclusion, float3( 0.0, 0.0, 0.0 ), g_ExplodeTime );
+			m.Metalness = lerp( m.Metalness, 0.0, g_ExplodeTime );
+			m.Roughness = lerp( m.Roughness, 0.0, g_ExplodeTime );
+			m.AmbientOcclusion = lerp( m.AmbientOcclusion, 0.0, g_ExplodeTime );
 		}
 		
 		return ShadingModelStandard::Shade( i, m );

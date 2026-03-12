@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc29:version{3cec427c-1b0e-4d48-a90a-0436f33a6041} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc30:version{8c2d7a91-9c42-4bf0-883a-5a3b1762d4f1} -->
 {
 	rootNode = 
 	{
@@ -106,7 +106,7 @@
 					{
 						_class = "Bone"
 						name = "wick"
-						origin = [ 1.0, 2.5, 32.0 ]
+						origin = [ 0.0, 0.0, 30.0 ]
 						angles = [ 0.0, 0.0, 0.0 ]
 						do_not_discard = true
 					},
@@ -119,7 +119,7 @@
 					{
 						_class = "Attachment"
 						name = "wick"
-						parent_bone = "wick"
+						parent_bone = ""
 						relative_origin = [ 0.0, 0.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0

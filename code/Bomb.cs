@@ -239,11 +239,7 @@ public class Bomb : Component, IRestartable
 	[Rpc.Broadcast]
 	private void CreateBombParticles( Vector3 startPosition, Vector3 endPosition )
 	{
-		var fx = new SceneParticles( Scene.SceneWorld, "particles/gameplay/bombline/bomb_explosion.vpcf" );
-		fx.SetControlPoint( 1, startPosition );
-		fx.SetControlPoint( 2, endPosition );
-		fx.SetNamedValue( "radius", 1f );
-		fx.PlayUntilFinished();
+		BombExplosionEffect.Create( Scene, startPosition, endPosition );
 	}
 
 	private void BlastInDirection( Vector3 direction )

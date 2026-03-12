@@ -12,6 +12,7 @@ public static class BlockBreakEffect
 	{
 		GameObject.Clone( "prefabs/effects/block_break.prefab", new CloneConfig
 		{
+			StartEnabled = true,
 			Transform = new Transform( position ),
 			Name = "BlockBreak"
 		} );

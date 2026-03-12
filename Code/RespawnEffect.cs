@@ -12,6 +12,7 @@ public static class RespawnEffect
 	{
 		var go = GameObject.Clone( "prefabs/effects/respawn.prefab", new CloneConfig
 		{
+			StartEnabled = true,
 			Transform = new Transform( position ),
 			Name = "RespawnEffect"
 		} );

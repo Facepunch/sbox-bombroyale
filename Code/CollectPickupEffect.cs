@@ -12,6 +12,7 @@ public static class CollectPickupEffect
 	{
 		var go = GameObject.Clone( "prefabs/effects/collect_pickup.prefab", new CloneConfig
 		{
+			StartEnabled = true,
 			Transform = new Transform( position ),
 			Name = "CollectPickup"
 		} );

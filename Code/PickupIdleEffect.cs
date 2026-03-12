@@ -12,6 +12,7 @@ public static class PickupIdleEffect
 	{
 		var go = GameObject.Clone( "prefabs/effects/pickup_idle.prefab", new CloneConfig
 		{
+			StartEnabled = true,
 			Transform = Transform.Zero,
 			Parent = parent,
 			Name = "PickupIdleEffect"

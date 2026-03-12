@@ -19,9 +19,14 @@ public sealed class RagdollController : Component
 		IsRagdolled = true;
 		Tags.Add( "corpse" );
 		
-		foreach ( var body in Physics.PhysicsGroup.Bodies )
+		foreach ( var body in Physics.Bodies )
 		{
-			body.ApplyImpulseAt( position, force * 5000f );
+			var component = body.Component;
+
+			if ( component.IsValid() )
+			{
+				component.ApplyImpulseAt( position, force * 5000f );
+			}
 		}
 	}
 

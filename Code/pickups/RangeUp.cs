@@ -15,7 +15,7 @@ public class RangeUp : Pickup
 		if ( player.BombRange == 8 )
 			return false;
 		
-		Chat.AddPlayerEvent( "pickup", Network.OwnerConnection.DisplayName, player.GetTeamColor(), $"has gained some bomb range!" );
+		Chat.AddPlayerEvent( "pickup", Network.Owner.DisplayName, player.GetTeamColor(), $"has gained some bomb range!" );
 		
 		player.BombRange = Math.Min( player.BombRange + 1, 8 );
 		return true;

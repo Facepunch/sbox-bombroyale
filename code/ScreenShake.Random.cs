@@ -25,7 +25,7 @@ public partial class ScreenShake
 			random.z = 0f;
 			random = random.Normal;
 
-			camera.Transform.Position += (camera.Transform.Rotation.Right * random.x + camera.Transform.Rotation.Up * random.y) * (1f - Progress) * Size;
+			camera.WorldPosition += (camera.WorldRotation.Right * random.x + camera.WorldRotation.Up * random.y) * (1f - Progress) * Size;
 
 			return LifeTime < Length;
 		}

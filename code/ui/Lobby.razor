@@ -21,11 +21,11 @@
 			</div>
 			
 			<div class="button-list">
-				<div class="button" onclick=@( () => CreateLobby() )>
+				<div class="button" onclick=@CreateLobby>
 					Create Lobby
 				</div>
 				
-				<div class="button" onclick=@( () => Quit() )>
+				<div class="button" onclick=@Quit>
 					Quit
 				</div>
 			</div>
@@ -77,7 +77,7 @@
 {
 	private TimeSince TimeSinceLastConnect { get; set; }
 	private bool IsRefreshing { get; set; }
-	private List<LobbyInformation> List { get; set; } = new();
+	private List<LobbyInformation> List { get; set; } = [];
 	
 	protected override void OnFixedUpdate()
 	{
@@ -118,7 +118,7 @@
 	{
 		if ( TimeSinceLastConnect < 3f ) return;
 		if ( lobby.Members >= 4 ) return;
-		GameNetworkSystem.Connect( lobby.LobbyId );
+		Networking.Connect( lobby.LobbyId );
 		TimeSinceLastConnect = 0f;
 	}
 

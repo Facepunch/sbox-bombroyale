@@ -12,7 +12,7 @@ public class SuperBomb : Pickup
 		if ( player.HasSuperBomb )
 			return false;
 		
-		Chat.AddPlayerEvent( "pickup", Network.OwnerConnection.DisplayName, player.GetTeamColor(), $"has picked up a Super Bomb!" );
+		Chat.AddPlayerEvent( "pickup", Network.Owner.DisplayName, player.GetTeamColor(), $"has picked up a Super Bomb!" );
 		
 		player.HasSuperBomb = true;
 		return true;

@@ -30,12 +30,12 @@
 		if ( Player.IsValid() && Player.LifeState == LifeState.Alive )
 		{
 			var transform = Transform.World;
-			var position = Player.Transform.Position + Vector3.Up * 80f;
-			var direction = (Scene.Camera.Transform.Position - position).Normal;
+			var position = Player.WorldPosition + Vector3.Up * 80f;
+			var direction = (Scene.Camera.WorldPosition - position).Normal;
 			var targetRotation = Rotation.LookAt( direction );
 
-			transform.Position = position;
-			transform.Rotation = targetRotation;
+			WorldPosition = position;
+			WorldRotation = targetRotation;
 			transform.Scale = 0.9f + (0.1f + (MathF.Cos( Time.Now * 4f ) * 0.1f));
 
 			Transform.World = transform;

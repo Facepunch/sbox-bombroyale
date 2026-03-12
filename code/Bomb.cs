@@ -42,7 +42,7 @@ public class Bomb : Component, IRestartable
 		
 		TimeSincePlaced = 0f;
 		
-		var gridPosition = player.Transform.Position.SnapToGrid( 32f );
+		var gridPosition = player.WorldPosition.SnapToGrid( 32f );
 
 		if ( player.HasSuperBomb )
 		{
@@ -60,13 +60,13 @@ public class Bomb : Component, IRestartable
 
 		GameObject.Parent = null;
 
-		Transform.Position = new( gridPosition.x, gridPosition.y, player.Transform.Position.z );
-		Transform.Scale = 1f;
+		WorldPosition = new( gridPosition.x, gridPosition.y, player.WorldPosition.z );
+		WorldScale = 1f;
 		
 		IsPlaced = true;
 		PlacerId = player.Id;
 
-		StartFuseSound( Transform.Position );
+		StartFuseSound( WorldPosition );
 	}
 
 	public void Pickup( Player player )
@@ -76,7 +76,7 @@ public class Bomb : Component, IRestartable
 		player.SetHoldingBomb( this );
 
 		GameObject.SetParent( player.GameObject );
-		Transform.Position = player.Transform.Position + Vector3.Up * 80f + player.Transform.Rotation.Forward * 4f;
+		WorldPosition = player.WorldPosition + Vector3.Up * 80f + player.WorldRotation.Forward * 4f;
 		IsPlaced = false;
 
 		StopFuseSound();
@@ -90,7 +90,7 @@ public class Bomb : Component, IRestartable
 		Tags.Set( "passable", IsAnyPlayerColliding() );
 	}
 
-	[Broadcast]
+	[Rpc.Broadcast]
 	private void StartFuseSound( Vector3 position )
 	{
 		FuseSound?.Stop();
@@ -190,14 +190,14 @@ public class Bomb : Component, IRestartable
 		}
 	}
 
-	[Broadcast]
+	[Rpc.Broadcast]
 	private void DoScreenShake()
 	{
 		var shake = new ScreenShake.Random( 1.5f, 1f + (Range * 0.5f) );
 		ScreenShake.Add( shake );
 	}
 
-	[Broadcast]
+	[Rpc.Broadcast]
 	private void PlayExplodeSound( Vector3 position )
 	{
 		Sound.Play( "bomb.explode", position );
@@ -217,7 +217,7 @@ public class Bomb : Component, IRestartable
 		BlastInDirection( Vector3.Left );
 		BlastInDirection( Vector3.Right );
 
-		PlayExplodeSound( Transform.Position );
+		PlayExplodeSound( WorldPosition );
 
 		if ( Game.Random.Float() < 0.5f )
 		{
@@ -236,7 +236,7 @@ public class Bomb : Component, IRestartable
 		GameObject.Destroy();
 	}
 
-	[Broadcast]
+	[Rpc.Broadcast]
 	private void CreateBombParticles( Vector3 startPosition, Vector3 endPosition )
 	{
 		var fx = new SceneParticles( Scene.SceneWorld, "particles/gameplay/bombline/bomb_explosion.vpcf" );
@@ -248,7 +248,7 @@ public class Bomb : Component, IRestartable
 
 	private void BlastInDirection( Vector3 direction )
 	{
-		var startPosition = Transform.Position + Vector3.Up * 16f;
+		var startPosition = WorldPosition + Vector3.Up * 16f;
 		var cellSize = 32f;
 		var totalRange = (Range * cellSize);
 		var trace = Scene.Trace.Ray( startPosition, startPosition + direction * totalRange )

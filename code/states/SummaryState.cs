@@ -25,7 +25,7 @@ public class SummaryState : BaseState
 			if ( winner.IsValid() )
 			{
 				winner.ConsecutiveWins++;
-				WinnerName = winner.Network.OwnerConnection.DisplayName;
+				WinnerName = winner.Network.Owner.DisplayName;
 				WinnerIndex = winner.PlayerSlot;
 				
 				if ( winner.ConsecutiveWins >= 3 )

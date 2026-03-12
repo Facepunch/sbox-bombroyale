@@ -15,7 +15,7 @@ public class ExtraBomb : Pickup
 		if ( player.MaxBombs == 6 )
 			return false;
 		
-		Chat.AddPlayerEvent( "pickup", Network.OwnerConnection.DisplayName, player.GetTeamColor(), $"has picked up an extra bomb!" );
+		Chat.AddPlayerEvent( "pickup", Network.Owner.DisplayName, player.GetTeamColor(), $"has picked up an extra bomb!" );
 		player.MaxBombs = Math.Min( player.MaxBombs + 1, 6 );
 		return true;
 	}

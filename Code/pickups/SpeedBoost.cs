@@ -15,7 +15,7 @@ public class SpeedBoost : Pickup
 		if ( player.SpeedBoosts == 4 )
 			return false;
 		
-		Chat.AddPlayerEvent( "pickup", Network.OwnerConnection.DisplayName, player.GetTeamColor(), $"has gained some speed!" );
+		Chat.AddPlayerEvent( "pickup", Network.Owner.DisplayName, player.GetTeamColor(), $"has gained some speed!" );
 		
 		var previousSpeed = player.SpeedBoosts;
 		player.SpeedBoosts = Math.Min( player.SpeedBoosts + 1, 4 );

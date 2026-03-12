@@ -20,7 +20,7 @@
 	private Panel EntryCanvas { get; set; }
 	private bool IsOpen { get; set; }
 
-	[Broadcast]
+	[Rpc.Broadcast]
 	public static void AddPlayerEvent( string eventName, string name, Color color, string message )
 	{
 		if ( !Instance.IsValid() ) return;
@@ -100,7 +100,7 @@
 		IsOpen = false;
 	}
 
-	[Broadcast]
+	[Rpc.Broadcast]
 	private static void SendText( string author, string message )
 	{
 		Instance?.AddNamedMessage( author, Color.Cyan, message );

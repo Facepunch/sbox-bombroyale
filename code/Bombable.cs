@@ -41,7 +41,7 @@ public class Bombable : Component, IRestartable
 		}
 	}
 
-	[Broadcast( NetPermission.HostOnly )]
+	[Rpc.Broadcast( NetFlags.HostOnly )]
 	public void Break()
 	{
 		var fx = new SceneParticles( Scene.SceneWorld, "particles/block_explosion/block_brick_explode.vpcf" );
@@ -49,7 +49,7 @@ public class Bombable : Component, IRestartable
 		fx.PlayUntilFinished();
 	}
 
-	[Broadcast( NetPermission.HostOnly )]
+	[Rpc.Broadcast( NetFlags.HostOnly )]
 	public void Hide()
 	{
 		Renderer.Enabled = false;
@@ -64,7 +64,7 @@ public class Bombable : Component, IRestartable
 		base.OnAwake();
 	}
 	
-	[Broadcast( NetPermission.HostOnly )]
+	[Rpc.Broadcast( NetFlags.HostOnly )]
 	private void Show()
 	{
 		Renderer.Enabled = true;

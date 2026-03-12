@@ -50,7 +50,7 @@ public abstract class Pickup : Component, IRestartable, Component.ITriggerListen
 	{
 		var go = BombRoyale.Instance.PickupPrefab.Clone();
 		var pickup = go.Components.Create( type ) as Pickup;
-		go.Transform.Position = position;
+		go.WorldPosition = position;
 		go.Name = type.ClassName;
 		go.NetworkSpawn();
 		return pickup;
@@ -79,10 +79,10 @@ public abstract class Pickup : Component, IRestartable, Component.ITriggerListen
 		Sprite.Pickup = this;
 
 		if ( !string.IsNullOrEmpty( SpawnSound ) )
-			Sound.Play( SpawnSound, Transform.Position );
+			Sound.Play( SpawnSound, WorldPosition );
 		
 		Effect = new( Scene.SceneWorld, "particles/gameplay/idle_coin/idle_coin.vpcf" );
-		Effect.SetControlPoint( 0, Transform.Position );
+		Effect.SetControlPoint( 0, WorldPosition );
 		Effect.SetNamedValue( "color", Color * 255f );
 		
 		base.OnStart();
@@ -111,7 +111,7 @@ public abstract class Pickup : Component, IRestartable, Component.ITriggerListen
 	{
 		if ( Effect.IsValid() )
 		{
-			Effect.SetControlPoint( 0, Transform.Position );
+			Effect.SetControlPoint( 0, WorldPosition );
 			Effect.Simulate( Time.Delta );
 		}
 		
@@ -126,21 +126,21 @@ public abstract class Pickup : Component, IRestartable, Component.ITriggerListen
 		base.OnDestroy();
 	}
 
-	[Broadcast( NetPermission.HostOnly )]
+	[Rpc.Broadcast( NetFlags.HostOnly )]
 	private void DoPickupEffects()
 	{
 		var fx = new SceneParticles( Scene.SceneWorld, "particles/gameplay/player/collectpickup/collectpickup.vpcf" );
-		fx.SetControlPoint( 0, Transform.Position );
+		fx.SetControlPoint( 0, WorldPosition );
 		fx.SetNamedValue( "color", Color * 255f );
 		fx.PlayUntilFinished();
 
 		if ( !string.IsNullOrEmpty( PickupSound ) )
 		{
-			Sound.Play( PickupSound, Transform.Position );
+			Sound.Play( PickupSound, WorldPosition );
 		}
 	}
 
-	[Broadcast]
+	[Rpc.Broadcast]
 	private void PlaySound( string soundName, Vector3 position )
 	{
 		Sound.Play( soundName, position );

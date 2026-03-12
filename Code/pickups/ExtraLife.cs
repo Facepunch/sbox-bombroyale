@@ -15,7 +15,7 @@ public class ExtraLife : Pickup
 		if ( player.LivesLeft == 2 )
 			return false;
 		
-		Chat.AddPlayerEvent( "pickup", Network.OwnerConnection.DisplayName, player.GetTeamColor(), $"has picked up an extra life!" );
+		Chat.AddPlayerEvent( "pickup", Network.Owner.DisplayName, player.GetTeamColor(), $"has picked up an extra life!" );
 		
 		player.LivesLeft = Math.Min( player.LivesLeft + 1, 2 );
 		player.Disease = DiseaseType.None;

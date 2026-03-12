@@ -75,7 +75,7 @@ public class MoveController : Component
 	/// </summary>
 	public SceneTraceResult TraceDirection( Vector3 direction )
 	{
-		return BuildTrace( GameObject.Transform.Position, GameObject.Transform.Position + direction ).Run();
+		return BuildTrace( GameObject.WorldPosition, GameObject.WorldPosition + direction ).Run();
 	}
 	
 	private void Move( bool step )
@@ -91,7 +91,7 @@ public class MoveController : Component
 			return;
 		}
 
-		var pos = GameObject.Transform.Position;
+		var pos = GameObject.WorldPosition;
 
 		var mover = new CharacterControllerHelper( BuildTrace( pos, pos ), pos, Velocity )
 		{
@@ -108,13 +108,13 @@ public class MoveController : Component
 			mover.TryMove( Time.Delta );
 		}
 
-		Transform.Position = mover.Position;
+		WorldPosition = mover.Position;
 		Velocity = mover.Velocity;
 	}
 
 	private void CategorizePosition()
 	{
-		var Position = Transform.Position;
+		var Position = WorldPosition;
 		var point = Position + Vector3.Down * 2f;
 		var vBumpOrigin = Position;
 		var wasOnGround = IsOnGround;
@@ -146,7 +146,7 @@ public class MoveController : Component
 		
 		if ( wasOnGround && pm is { StartedSolid: false, Fraction: > 0f and < 1f } )
 		{
-			Transform.Position = pm.EndPosition + pm.Normal * 0.01f;
+			WorldPosition = pm.EndPosition + pm.Normal * 0.01f;
 		}
 	}
 
@@ -187,7 +187,7 @@ public class MoveController : Component
 		if ( EnableFixUnstuck && TryUnstuck() )
 			return;
 
-		var pos = Transform.Position;
+		var pos = WorldPosition;
 		var delta = targetPosition - pos;
 
 		var mover = new CharacterControllerHelper( BuildTrace( pos, pos ), pos, delta );
@@ -198,12 +198,12 @@ public class MoveController : Component
 		else
 			mover.TryMove( 1f );
 
-		Transform.Position = mover.Position;
+		WorldPosition = mover.Position;
 	}
 
 	private bool TryUnstuck()
 	{
-		var result = BuildTrace( Transform.Position, Transform.Position ).Run();
+		var result = BuildTrace( WorldPosition, WorldPosition ).Run();
 		
 		if ( !result.StartedSolid )
 		{
@@ -215,17 +215,17 @@ public class MoveController : Component
 
 		for ( int i = 0; i < attemptsPerTick; i++ )
 		{
-			var pos = Transform.Position + Vector3.Random.Normal * (((float)StuckTries) / 2f);
+			var pos = WorldPosition + Vector3.Random.Normal * (((float)StuckTries) / 2f);
 
 			if ( i == 0 )
-				pos = Transform.Position + Vector3.Up * 2f;
+				pos = WorldPosition + Vector3.Up * 2f;
 
 			result = BuildTrace( pos, pos ).Run();
 
 			if ( result.StartedSolid )
 				continue;
 			
-			Transform.Position = pos;
+			WorldPosition = pos;
 			return false;
 		}
 

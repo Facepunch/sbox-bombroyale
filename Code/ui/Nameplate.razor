@@ -19,9 +19,9 @@
 		if ( Player.IsValid() && Player.LifeState == LifeState.Alive )
 		{
 			var transform = Transform.World;
-			var position = Player.Transform.Position + Vector3.Up * 100f;
+			var position = Player.WorldPosition + Vector3.Up * 100f;
 
-			transform.Position = position;
+			WorldPosition = position;
 
 			Transform.World = transform;
 		}

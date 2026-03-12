@@ -11,7 +11,7 @@ namespace Facepunch.BombRoyale;
 public class BombRoyale : Component, Component.INetworkListener
 {
 	public static IEnumerable<Player> Players => InternalPlayers.Where( p => p.IsValid() );
-	private static List<Player> InternalPlayers { get; set; } = new( 4 ) { null, null, null, null };
+	private static List<Player> InternalPlayers { get; set; } = [null, null, null, null];
 	
 	public static BombRoyale Instance { get; private set; }
 	
@@ -37,9 +37,9 @@ public class BombRoyale : Component, Component.INetworkListener
 
 	protected override void OnStart()
 	{
-		if ( !GameNetworkSystem.IsActive )
+		if ( !Networking.IsActive )
 		{
-			GameNetworkSystem.CreateLobby();
+			Networking.CreateLobby( new LobbyConfig() );
 		}
 
 		if ( Networking.IsHost )

@@ -2,28 +2,83 @@
   "__guid": "3b61f8b0-5852-48a0-a9d3-c4753138b8b9",
   "GameObjects": [
     {
+      "__guid": "3c66d441-c671-4c89-944f-8554ef4f0048",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Scene Information",
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.SceneInformation",
+          "__guid": "f024b335-f0d4-48f4-a235-6f643779fbd0",
+          "__enabled": true,
+          "Flags": 0,
+          "Author": null,
+          "Changes": null,
+          "Description": "",
+          "Group": null,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "SceneTags": "",
+          "Title": "arena",
+          "Version": null
+        }
+      ],
+      "Children": []
+    },
+    {
       "__guid": "db021362-5712-415e-9f5e-25267e2c4cbc",
+      "__version": 2,
       "Flags": 0,
       "Name": "Camera",
       "Position": "0,0,500",
       "Rotation": "0,0.7071068,0,0.7071068",
+      "Scale": "1,1,1",
       "Tags": "maincamera",
       "Enabled": true,
       "NetworkMode": 2,
-      "NetworkInterpolation": true,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.CameraComponent",
           "__guid": "3558c34f-1be6-49d4-a068-b962be008611",
+          "__enabled": true,
+          "Flags": 0,
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
+          "EnablePostProcessing": true,
           "FieldOfView": 60,
+          "FovAxis": "Horizontal",
           "IsMainCamera": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Orthographic": false,
           "OrthographicHeight": 1204,
+          "PostProcessAnchor": null,
           "Priority": 1,
           "RenderExcludeTags": "",
           "RenderTags": "",
+          "RenderTexture": null,
           "TargetEye": "None",
           "Viewport": "0,0,1,1",
           "ZFar": 10000,
@@ -32,854 +87,2755 @@
         {
           "__type": "Sandbox.ScreenPanel",
           "__guid": "98f138f9-7292-4de1-9cd0-e9f9057438d1",
+          "__enabled": true,
+          "Flags": 0,
           "AutoScreenScale": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Opacity": 1,
           "Scale": 0.9,
+          "ScaleStrategy": "ConsistentHeight",
+          "TargetCamera": null,
           "ZIndex": 100
         },
         {
           "__type": "Facepunch.BombRoyale.Chat",
-          "__guid": "adaa11c3-33e9-4895-80cf-01d0d8455e84"
+          "__guid": "adaa11c3-33e9-4895-80cf-01d0d8455e84",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         },
         {
           "__type": "Facepunch.BombRoyale.UI.Hud",
-          "__guid": "64e431b5-c50f-44ba-818f-a2aa4ed817cd"
+          "__guid": "64e431b5-c50f-44ba-818f-a2aa4ed817cd",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         },
         {
           "__type": "Sandbox.Highlight",
-          "__guid": "5411af2a-8646-436e-9c35-f767bf2b18d0"
+          "__guid": "5411af2a-8646-436e-9c35-f767bf2b18d0",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         },
         {
           "__type": "Facepunch.BombRoyale.PostProcessing",
-          "__guid": "01968ca9-48ca-4009-aa2a-f2970cc1cff9"
+          "__guid": "01968ca9-48ca-4009-aa2a-f2970cc1cff9",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         },
         {
           "__type": "Sandbox.Pixelate",
           "__guid": "bb3c2b57-6d91-420b-bb67-710d83b6a004",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Scale": 0
         },
         {
           "__type": "Sandbox.ColorAdjustments",
           "__guid": "9b2f743b-fa2b-4570-aabb-7132d9db9062",
+          "__enabled": true,
+          "Flags": 0,
+          "Blend": 1,
           "Brightness": 1,
           "Contrast": 1,
           "HueRotate": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Saturation": 1
         },
         {
           "__type": "Sandbox.ChromaticAberration",
           "__guid": "275d2dd3-f81c-4761-940b-e2d2352e4188",
+          "__enabled": true,
+          "Flags": 0,
           "Offset": "4,6,0",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Scale": 0
         },
         {
           "__type": "Sandbox.Sharpen",
           "__guid": "f3d541b8-167f-415f-b2d5-d01f241e1ba6",
-          "Scale": 0
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Scale": 0,
+          "TexelSize": 1
         }
-      ]
+      ],
+      "Children": []
     },
     {
       "__guid": "0ec5b686-d757-438f-bdc0-16ffacf69cae",
+      "__version": 2,
       "Flags": 0,
       "Name": "Sun",
       "Position": "0,0,600",
       "Rotation": "0,0.7660444,0,0.6427876",
+      "Scale": "1,1,1",
       "Tags": "light_directional,light",
       "Enabled": true,
       "NetworkMode": 2,
-      "NetworkInterpolation": true,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.DirectionalLight",
           "__guid": "c8f123a1-a9a4-462a-a414-361346fb3483",
+          "__enabled": true,
+          "Flags": 0,
           "FogMode": "Disabled",
           "FogStrength": 1,
           "LightColor": "0.91373,0.98039,1,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Shadows": true,
           "SkyColor": "0.46667,0.44706,0.39216,1"
         }
-      ]
+      ],
+      "Children": []
     },
     {
       "__guid": "d282bb80-8b7f-433a-8cbd-67ce9a068fbe",
+      "__version": 2,
       "Flags": 0,
       "Name": "Arena",
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
       "Enabled": true,
       "NetworkMode": 2,
-      "NetworkInterpolation": true,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Facepunch.BombRoyale.ArenaBounds",
           "__guid": "b399ae1c-7cd3-4dc9-b267-18ec5026628d",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Size": "416,416,0"
         },
         {
           "__type": "Facepunch.BombRoyale.ArenaGenerator",
           "__guid": "f1a2b3c4-5678-4000-9000-000000000001",
-          "BreakableBlockModels": [],
-          "SolidBlockModels": [],
+          "__enabled": true,
+          "Flags": 0,
+          "BreakableBlockModels": [
+            "models/block_a.vmdl",
+            "models/block_b.vmdl"
+          ],
           "FillPercentage": 0.65,
-          "PickupSpawnChance": 0.35
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PickupSpawnChance": 0.35,
+          "SolidBlockModels": [
+            "models/block_metal_a/block_metal_a.vmdl",
+            "models/block_metal_a/block_metal_b.vmdl"
+          ]
         }
       ],
       "Children": [
         {
           "__guid": "ad80ea75-cabe-4a1d-bf75-13123812f6d2",
+          "__version": 2,
           "Flags": 0,
           "Name": "Ground",
           "Position": "0,0,-16",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
           "Enabled": true,
           "NetworkMode": 2,
-          "NetworkInterpolation": true,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "Sandbox.ModelRenderer",
               "__guid": "97929136-525b-41a5-9f97-542056b3f3a1",
-              "BodyGroups": 18446744073709552000,
+              "__enabled": true,
+              "Flags": 0,
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "LodOverride": null,
+              "MaterialGroup": null,
               "MaterialOverride": "materials/floors/floor_checker.vmat",
+              "Materials": null,
               "Model": "models/ground_a.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
               "RenderType": "On",
               "Tint": "1,1,1,1"
             }
-          ]
+          ],
+          "Children": []
         },
         {
           "__guid": "6eb0e657-ac17-4c2e-bca7-688006fd14d1",
+          "__version": 2,
           "Flags": 0,
           "Name": "Border",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
           "Enabled": true,
           "NetworkMode": 2,
-          "NetworkInterpolation": true,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [],
           "Children": [
             {
               "__guid": "0d2c9aff-c6f3-42bb-85f9-9a5ee26c9422",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "0,192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "0,192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "0d2c9aff-c6f3-42bb-85f9-9a5ee26c9422",
+                "180e3a51-476c-439c-9553-5dac1e097310": "652fcaf4-156f-4115-a52a-909a920c3b14",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "76803c93-d049-40cb-a8dc-519c4a63c6c7",
+                "253aea87-5563-4107-850f-627313ea8b84": "1ef03f74-d47f-41cc-bf7c-18468bdd2024"
+              }
             },
             {
               "__guid": "b3974338-5d97-441a-8cb1-c2f1eee3fd69",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "0,-192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "0,-192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "b3974338-5d97-441a-8cb1-c2f1eee3fd69",
+                "180e3a51-476c-439c-9553-5dac1e097310": "df3142fa-ef40-4c33-9528-763404e91a5e",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "ea341d7d-57d1-48df-830e-9fd8e504fbd9",
+                "253aea87-5563-4107-850f-627313ea8b84": "76bcab37-247e-49a3-a84f-58abe06174e7"
+              }
             },
             {
               "__guid": "781983ea-d51d-4fc3-b9bc-e4c3c778dc34",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-32,192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-32,192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "781983ea-d51d-4fc3-b9bc-e4c3c778dc34",
+                "180e3a51-476c-439c-9553-5dac1e097310": "b4cd573c-ffd6-4dcd-ac5d-014885c6a3d3",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "056b7a47-ffbb-4288-8697-77468f691617",
+                "253aea87-5563-4107-850f-627313ea8b84": "4c12ff8e-8d9a-4af4-a0fa-bbd47717c339"
+              }
             },
             {
               "__guid": "4333dee9-1f02-44b4-bdf5-20518e7c6623",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-32,-192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-32,-192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "4333dee9-1f02-44b4-bdf5-20518e7c6623",
+                "180e3a51-476c-439c-9553-5dac1e097310": "8b39d219-f6f4-4291-9ca3-ebf01fa8a36c",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "d83b5cfe-94b1-4314-9a9f-ae01358d2e43",
+                "253aea87-5563-4107-850f-627313ea8b84": "580a676c-c4bb-4b73-86f7-b157d436a98d"
+              }
             },
             {
               "__guid": "96e2df6e-394e-43ea-9d90-8c6dfe79da09",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-64,192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-64,192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "96e2df6e-394e-43ea-9d90-8c6dfe79da09",
+                "180e3a51-476c-439c-9553-5dac1e097310": "936da378-c644-4c4e-836a-93d3c0db82a8",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "34019899-1824-4a68-9c12-571a6beee787",
+                "253aea87-5563-4107-850f-627313ea8b84": "ad31e454-d74b-43f9-ac43-91ed32a49633"
+              }
             },
             {
               "__guid": "7cc37215-3554-45e9-9e6c-e312de3c11a5",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-64,-192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-64,-192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "7cc37215-3554-45e9-9e6c-e312de3c11a5",
+                "180e3a51-476c-439c-9553-5dac1e097310": "248ba412-2420-43da-a8c4-7b463bc96759",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "37db5fb3-3c00-4aa7-b324-bf1bad3808ee",
+                "253aea87-5563-4107-850f-627313ea8b84": "29db9d73-d071-4b55-82e1-2fbe0befb6b2"
+              }
             },
             {
               "__guid": "12087bb8-ad4c-46da-bae2-e13b0aac1323",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-96,192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-96,192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "12087bb8-ad4c-46da-bae2-e13b0aac1323",
+                "180e3a51-476c-439c-9553-5dac1e097310": "733382b5-5b49-4636-8941-1396c8950b9c",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "bcd42e1d-f4d8-4ebd-9993-d366de17aa42",
+                "253aea87-5563-4107-850f-627313ea8b84": "124a772d-218b-47a0-9769-0b26aca2b72d"
+              }
             },
             {
               "__guid": "9c6825d3-bfee-4869-807a-c9a3b58adf74",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-96,-192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-96,-192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "9c6825d3-bfee-4869-807a-c9a3b58adf74",
+                "180e3a51-476c-439c-9553-5dac1e097310": "a53a3db6-85f7-4f4e-b4a7-b724948a3f55",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "f857e237-51e7-44d9-8b1d-41ad6e908a26",
+                "253aea87-5563-4107-850f-627313ea8b84": "54176b1e-6b94-44ff-b805-931356739f9b"
+              }
             },
             {
               "__guid": "67b57ab9-f8f0-440b-bf55-01d5c1b39b86",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-128,192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-128,192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "67b57ab9-f8f0-440b-bf55-01d5c1b39b86",
+                "180e3a51-476c-439c-9553-5dac1e097310": "8c9075e3-8385-478d-9f5f-29b28d786124",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "417ce2b2-ac64-476e-b65b-4aa94dbae79d",
+                "253aea87-5563-4107-850f-627313ea8b84": "4b502e52-1aa4-4e15-9d8f-cef90950ac88"
+              }
             },
             {
               "__guid": "1ea09ada-8bde-4c4a-bbb9-553de91c8c98",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-128,-192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-128,-192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "1ea09ada-8bde-4c4a-bbb9-553de91c8c98",
+                "180e3a51-476c-439c-9553-5dac1e097310": "222fbe22-5263-4a55-8ea3-9d52ba00258c",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "4c98fae2-e45a-4989-8fff-315a2cbba68b",
+                "253aea87-5563-4107-850f-627313ea8b84": "e56794a7-0162-4aae-bf2e-4ee332199d86"
+              }
             },
             {
               "__guid": "7ec98a85-81d0-4127-a653-795a553c4d63",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-160,192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-160,192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "7ec98a85-81d0-4127-a653-795a553c4d63",
+                "180e3a51-476c-439c-9553-5dac1e097310": "78b8fb37-bf52-4fe2-9fc7-1902cac574ea",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "acbea2d6-3abb-40fe-a785-8059ebd9307b",
+                "253aea87-5563-4107-850f-627313ea8b84": "1d47d09a-370a-4c45-bc69-9bcdf115dc35"
+              }
             },
             {
               "__guid": "1340d531-09c8-4c27-b997-3aa32a007dfa",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-160,-192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-160,-192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "1340d531-09c8-4c27-b997-3aa32a007dfa",
+                "180e3a51-476c-439c-9553-5dac1e097310": "71ef3c04-463f-44e7-8f1d-95aa1ed9c688",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "00136967-98e9-49a7-94f5-9986d9c92343",
+                "253aea87-5563-4107-850f-627313ea8b84": "d6f18346-243b-4693-8b5a-5cf8643d0418"
+              }
             },
             {
               "__guid": "5e4910e9-6c0a-45f1-8cbe-b4ae1268f551",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-192,192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-192,192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "5e4910e9-6c0a-45f1-8cbe-b4ae1268f551",
+                "180e3a51-476c-439c-9553-5dac1e097310": "0b405ed7-8bca-4bf3-af0b-52b0ed14302c",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "50c59b46-3db1-4fa2-838f-ef076de6e4e5",
+                "253aea87-5563-4107-850f-627313ea8b84": "ac67ee0b-621b-4568-90c4-cc0b1e2da91c"
+              }
             },
             {
               "__guid": "9809c392-d4d0-4879-a377-35deb4158945",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-192,-192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-192,-192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "9809c392-d4d0-4879-a377-35deb4158945",
+                "180e3a51-476c-439c-9553-5dac1e097310": "b3e3f6c7-2a84-460f-b9b0-875cf60837fb",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "ca6ebd44-4e86-48fe-98e2-4278edda2ab3",
+                "253aea87-5563-4107-850f-627313ea8b84": "9ba52f9c-2223-4d2c-bd9c-2c9a42aa5f69"
+              }
             },
             {
               "__guid": "e608ed01-5725-4fa5-82c4-2a55b0e7e33f",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-192,-160,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-192,-160,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "e608ed01-5725-4fa5-82c4-2a55b0e7e33f",
+                "180e3a51-476c-439c-9553-5dac1e097310": "5bcf3eba-fdcf-4c67-9321-7352f4094a3c",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "dc486971-85e0-455d-9666-dec042caf7b8",
+                "253aea87-5563-4107-850f-627313ea8b84": "b9308443-ae03-453d-85f4-c8a60ce05faa"
+              }
             },
             {
               "__guid": "a73d8ddd-65e0-47a8-abe4-1380b5207b50",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "192,-160,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "192,-160,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "a73d8ddd-65e0-47a8-abe4-1380b5207b50",
+                "180e3a51-476c-439c-9553-5dac1e097310": "812929dc-fe63-49e1-8c8f-a56f88eed244",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "d0a10121-2f3f-4b5d-854f-34f07f2311c5",
+                "253aea87-5563-4107-850f-627313ea8b84": "88efc12b-4593-4340-af89-df8280089055"
+              }
             },
             {
               "__guid": "328fff5f-af48-4b70-95fe-9cc64b7485f4",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-192,-128,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-192,-128,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "328fff5f-af48-4b70-95fe-9cc64b7485f4",
+                "180e3a51-476c-439c-9553-5dac1e097310": "0f6f59bd-ebe0-4c66-84c1-7db835fd0c1c",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "a24e2d11-3707-4a25-a26f-96dc446e9983",
+                "253aea87-5563-4107-850f-627313ea8b84": "4bdeadec-1246-4939-aaf4-ae8c0f56c9f9"
+              }
             },
             {
               "__guid": "0eaca2d3-5e5a-47c2-b229-bace2df29e04",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "192,-128,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "192,-128,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "0eaca2d3-5e5a-47c2-b229-bace2df29e04",
+                "180e3a51-476c-439c-9553-5dac1e097310": "24bba5bf-5d7f-43ef-a59a-0693f3dcaab7",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "af2e30ba-48c0-44b1-ae14-41ffcbdba7c4",
+                "253aea87-5563-4107-850f-627313ea8b84": "c69c7eef-5de1-4da1-af8c-85d089226c67"
+              }
             },
             {
               "__guid": "8255e66b-caf0-475a-b9cc-511cd606d229",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "128,-128,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "128,-128,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "8255e66b-caf0-475a-b9cc-511cd606d229",
+                "180e3a51-476c-439c-9553-5dac1e097310": "a1a38a8c-d095-4541-b2ac-18ce4278a513",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "06f9c1fe-c731-4cfb-ab50-b099d41a2c79",
+                "253aea87-5563-4107-850f-627313ea8b84": "f0a9560d-f5d0-4571-b9a4-b741ac618fc8"
+              }
             },
             {
               "__guid": "87caa540-b79c-49fd-ac9f-4334f0096473",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "128,-64,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "128,-64,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "87caa540-b79c-49fd-ac9f-4334f0096473",
+                "180e3a51-476c-439c-9553-5dac1e097310": "9d88caae-b5f7-4c0a-8582-28191867a5c3",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "c5a5ce20-dc6e-43d5-9c3b-ca93292d088d",
+                "253aea87-5563-4107-850f-627313ea8b84": "8b3a80ab-d4c6-42e9-9c2e-be3f843dfe13"
+              }
             },
             {
               "__guid": "593cbc8e-0595-4f76-845d-6fbb26ba053e",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "128,0,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "128,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "593cbc8e-0595-4f76-845d-6fbb26ba053e",
+                "180e3a51-476c-439c-9553-5dac1e097310": "e7200df5-9716-46ed-9ad9-466057e1d234",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "eb6bfd2c-7da5-4aac-b825-d684a46a2342",
+                "253aea87-5563-4107-850f-627313ea8b84": "b70d528d-a2bd-412b-b9fc-58c0280490a5"
+              }
             },
             {
               "__guid": "4d43ca19-23d1-4ee1-8dce-d791f99fe67a",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "128,64,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "128,64,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "4d43ca19-23d1-4ee1-8dce-d791f99fe67a",
+                "180e3a51-476c-439c-9553-5dac1e097310": "c9f55a56-00d5-4389-96b1-97910baaa3ea",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "fc44fa32-afc4-46b5-8cc9-0c1922624b4e",
+                "253aea87-5563-4107-850f-627313ea8b84": "72a42a92-14fc-4283-a42d-2228a1e84029"
+              }
             },
             {
               "__guid": "8efec935-427f-4c75-a3b3-1b256c71a440",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "128,128,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "128,128,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "8efec935-427f-4c75-a3b3-1b256c71a440",
+                "180e3a51-476c-439c-9553-5dac1e097310": "dd107951-558c-43a2-a405-c80457c8aa38",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "6267a7d9-5d71-43e7-a8a3-30e249d85b45",
+                "253aea87-5563-4107-850f-627313ea8b84": "bc52d2ea-7f06-41e7-b24c-4082344e67c3"
+              }
             },
             {
               "__guid": "71fbbd0d-5a55-49f1-9851-8bba99f52712",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "64,-128,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "64,-128,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "71fbbd0d-5a55-49f1-9851-8bba99f52712",
+                "180e3a51-476c-439c-9553-5dac1e097310": "c7feceaa-abd4-4a78-9465-566421a81b60",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "e5663dcd-e37f-43ca-8556-a82b49a1864c",
+                "253aea87-5563-4107-850f-627313ea8b84": "bbd72f31-9bef-44de-bb3a-7c7eaf541a2a"
+              }
             },
             {
               "__guid": "47dcd619-aacb-415e-aed6-9532c0c14327",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "64,-64,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "64,-64,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "47dcd619-aacb-415e-aed6-9532c0c14327",
+                "180e3a51-476c-439c-9553-5dac1e097310": "876d82f3-280b-4e33-a6ce-48fcd72221f0",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "45321424-6491-427f-91cb-3ad41489d214",
+                "253aea87-5563-4107-850f-627313ea8b84": "bfcd9219-7c30-4d52-8b48-e5e1da16d118"
+              }
             },
             {
               "__guid": "dbc18eb0-e8ec-4a31-9332-f6bc609db355",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "64,0,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "64,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "dbc18eb0-e8ec-4a31-9332-f6bc609db355",
+                "180e3a51-476c-439c-9553-5dac1e097310": "96144c6d-da80-4899-a7ef-443a43dc5f3a",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "d1b51147-0f97-4586-b7f2-8d2a03387a41",
+                "253aea87-5563-4107-850f-627313ea8b84": "fb8d5e30-5306-4f31-bcb3-6800c0f1ec04"
+              }
             },
             {
               "__guid": "1334b1ba-4b9c-4228-8a60-7f23177ffd31",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "64,64,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "64,64,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "1334b1ba-4b9c-4228-8a60-7f23177ffd31",
+                "180e3a51-476c-439c-9553-5dac1e097310": "79217eb6-ca40-4850-bffa-53d9e03636b0",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "32495d30-6ab9-4323-9dd2-b5149a0389cf",
+                "253aea87-5563-4107-850f-627313ea8b84": "e7097d0b-c790-4950-87cb-ef306e4b1f83"
+              }
             },
             {
               "__guid": "da9fcb4c-a04d-4b6d-8d5c-a5fefb37fc1c",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "64,128,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "64,128,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "da9fcb4c-a04d-4b6d-8d5c-a5fefb37fc1c",
+                "180e3a51-476c-439c-9553-5dac1e097310": "4848309f-42a7-4830-9daa-d6337b6bf3e0",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "e38608e8-032e-4d4c-bee2-2cdb351d9f63",
+                "253aea87-5563-4107-850f-627313ea8b84": "78d49576-0ce9-4032-bdf3-a90a0057094d"
+              }
             },
             {
               "__guid": "88ed70a4-9091-4b17-91a2-8e6dc6545b6e",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "0,-128,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "0,-128,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "88ed70a4-9091-4b17-91a2-8e6dc6545b6e",
+                "180e3a51-476c-439c-9553-5dac1e097310": "7821aa79-9814-4521-959c-8b198bf61ba5",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "c655c660-1748-4d78-8c7b-0da8ec38a201",
+                "253aea87-5563-4107-850f-627313ea8b84": "d514c675-2cb6-4063-8fe6-8e7d42b7c884"
+              }
             },
             {
               "__guid": "dd35ac37-297e-418f-8d02-0241e511dd33",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "0,-64,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "0,-64,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "dd35ac37-297e-418f-8d02-0241e511dd33",
+                "180e3a51-476c-439c-9553-5dac1e097310": "fa20b8b9-8e22-4f6f-9188-80c84fbad463",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "db5d0801-bdb3-4f50-8705-d0518a4530f2",
+                "253aea87-5563-4107-850f-627313ea8b84": "8e85fbf2-ed0a-49cd-9a1f-dfa919a07862"
+              }
             },
             {
               "__guid": "93bb5bde-e4cb-455f-b23c-c993a0762a51",
-              "Flags": 0,
-              "Name": "Block",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "93bb5bde-e4cb-455f-b23c-c993a0762a51",
+                "180e3a51-476c-439c-9553-5dac1e097310": "a723c312-6167-4e9d-9c48-83726a98796c",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "3be8011b-42c9-4d18-85f0-c647675bcc3c",
+                "253aea87-5563-4107-850f-627313ea8b84": "b192ecea-7157-4d67-a89a-53694a42c2ef"
+              }
             },
             {
               "__guid": "7519f468-fb74-4b23-a870-8e6a89b85cab",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "0,64,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "0,64,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "7519f468-fb74-4b23-a870-8e6a89b85cab",
+                "180e3a51-476c-439c-9553-5dac1e097310": "55323846-5014-40fd-8743-4511698377f1",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "9fd72844-5f07-49e7-a260-5bfe71d3c549",
+                "253aea87-5563-4107-850f-627313ea8b84": "c1692fed-3ae6-4843-af7e-5dfc15e94f10"
+              }
             },
             {
               "__guid": "d1d7c075-87d2-4b14-9faf-65b51564209e",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "0,128,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "0,128,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "d1d7c075-87d2-4b14-9faf-65b51564209e",
+                "180e3a51-476c-439c-9553-5dac1e097310": "0c09aba1-ec26-4816-8b91-b61361924c3d",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "d2e049f8-264e-4c07-85c1-549f7351b454",
+                "253aea87-5563-4107-850f-627313ea8b84": "06d9eda4-c309-42f3-a136-debefed430ba"
+              }
             },
             {
               "__guid": "79323882-65ac-42d6-b529-94b19bce48ed",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-64,-128,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-64,-128,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "79323882-65ac-42d6-b529-94b19bce48ed",
+                "180e3a51-476c-439c-9553-5dac1e097310": "0e13464f-a80e-43e3-a603-cfec7e91cff7",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "09cb13b6-225f-4e74-abca-8b30803677a4",
+                "253aea87-5563-4107-850f-627313ea8b84": "a4564cc6-ace3-4074-9e94-beddba509b19"
+              }
             },
             {
               "__guid": "c0e957ff-478d-4248-97b4-49a2fc76186c",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-64,-64,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-64,-64,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "c0e957ff-478d-4248-97b4-49a2fc76186c",
+                "180e3a51-476c-439c-9553-5dac1e097310": "05763f01-4c4d-40ca-b315-a772a01e484f",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "86ba9b37-bcc1-4f60-aeef-066897b22bda",
+                "253aea87-5563-4107-850f-627313ea8b84": "251f6441-de67-461e-bffd-3ab02b6d6d41"
+              }
             },
             {
               "__guid": "471fb414-55fd-4ee6-80b1-54df1d65c198",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-64,0,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-64,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "471fb414-55fd-4ee6-80b1-54df1d65c198",
+                "180e3a51-476c-439c-9553-5dac1e097310": "065710d1-7ab0-4d7f-b002-63a56b3d2806",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "ea6cb11f-98e3-49dc-8235-0b7b0d696b78",
+                "253aea87-5563-4107-850f-627313ea8b84": "95ba65ba-1029-4961-bdfa-d84d8b7260f2"
+              }
             },
             {
               "__guid": "43abb246-9462-4cb0-a795-27d5f5659c16",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-64,64,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-64,64,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "43abb246-9462-4cb0-a795-27d5f5659c16",
+                "180e3a51-476c-439c-9553-5dac1e097310": "39be4e93-261b-49f1-a8b6-efee4c18987a",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "dbb89a8c-6867-45c3-8ab3-d49b26f886c5",
+                "253aea87-5563-4107-850f-627313ea8b84": "5e17c1d4-3b45-40a8-b898-f4a926b03cb8"
+              }
             },
             {
               "__guid": "9a9afa60-6f23-4447-86da-165b19cb8796",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-64,128,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-64,128,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "9a9afa60-6f23-4447-86da-165b19cb8796",
+                "180e3a51-476c-439c-9553-5dac1e097310": "24f90a06-6e20-42df-aee2-6fe326d9a360",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "6217eb6d-475a-436f-834e-ec8b38960c42",
+                "253aea87-5563-4107-850f-627313ea8b84": "577b901e-d3ea-4f8f-b5b4-cfc63e87bd4e"
+              }
             },
             {
               "__guid": "5484a14f-41d4-4944-ac91-2b091f5ace76",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-128,-128,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-128,-128,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "5484a14f-41d4-4944-ac91-2b091f5ace76",
+                "180e3a51-476c-439c-9553-5dac1e097310": "31f8500c-01cc-4ea2-8249-42e696e53e3e",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "3520d596-ef12-4f37-b313-a3ec889dd313",
+                "253aea87-5563-4107-850f-627313ea8b84": "675123fc-dd41-4f40-bbbd-6196652041d5"
+              }
             },
             {
               "__guid": "f4cb0626-7333-4a18-afc7-f0d7ec766aa6",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-128,-64,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-128,-64,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "f4cb0626-7333-4a18-afc7-f0d7ec766aa6",
+                "180e3a51-476c-439c-9553-5dac1e097310": "07ba133a-42d6-4dae-9c76-93db8b96724c",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "6eee0a87-46c1-4f90-89e3-978a8b706355",
+                "253aea87-5563-4107-850f-627313ea8b84": "884eb204-84cd-486e-b5d5-46cb827c1204"
+              }
             },
             {
               "__guid": "242a4dc3-9f56-4853-afc9-40077d70b4e9",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-128,0,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-128,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "242a4dc3-9f56-4853-afc9-40077d70b4e9",
+                "180e3a51-476c-439c-9553-5dac1e097310": "e5f5fe18-4a43-4b42-be77-b2a6e10004f2",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "e6877128-8f37-4ffb-8fe6-9d61c1c4566e",
+                "253aea87-5563-4107-850f-627313ea8b84": "c701109d-81d3-463e-afcf-b98c1265b3d6"
+              }
             },
             {
               "__guid": "18c54138-4745-443e-ba2e-6f4eefe29d19",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-128,64,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-128,64,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "18c54138-4745-443e-ba2e-6f4eefe29d19",
+                "180e3a51-476c-439c-9553-5dac1e097310": "52d1727d-a431-43aa-9030-e751ce19a669",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "b9400770-4fbf-4547-94b6-b1ff7434b966",
+                "253aea87-5563-4107-850f-627313ea8b84": "655a5402-1a83-4e85-b8f0-709a860bf4ca"
+              }
             },
             {
               "__guid": "972a3ac1-cf47-47f9-b4b1-356952cb5591",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-128,128,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-128,128,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "972a3ac1-cf47-47f9-b4b1-356952cb5591",
+                "180e3a51-476c-439c-9553-5dac1e097310": "32660b1b-08c3-4820-b33f-e5758ce97237",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "bca0ef78-0ef7-4d8d-84c5-35a82eaf5214",
+                "253aea87-5563-4107-850f-627313ea8b84": "11dc3954-5597-4143-801e-5dec7dc64d73"
+              }
             },
             {
               "__guid": "d76369ab-4677-4ab4-bdc9-c9a69fd10b1b",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-192,-96,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-192,-96,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "d76369ab-4677-4ab4-bdc9-c9a69fd10b1b",
+                "180e3a51-476c-439c-9553-5dac1e097310": "0af07bb8-f3c3-41b9-91bb-7c772b70b120",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "c862b6fe-66f2-4adc-a25d-a1d2f73b203c",
+                "253aea87-5563-4107-850f-627313ea8b84": "16113c79-171e-46ad-ac15-5aabef785934"
+              }
             },
             {
               "__guid": "a5921672-32a5-46b3-a8d3-786894e8838a",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "192,-96,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "192,-96,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "a5921672-32a5-46b3-a8d3-786894e8838a",
+                "180e3a51-476c-439c-9553-5dac1e097310": "dac3acf5-528e-4874-a260-84beb0107ef2",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "ceeb4817-1cc0-45f0-a85d-bf2e718fcc3c",
+                "253aea87-5563-4107-850f-627313ea8b84": "bf2ef6ec-b301-45af-8443-4934c2f9f81a"
+              }
             },
             {
               "__guid": "6a9f1bb2-1aa9-404c-8b2d-d7d9724411f2",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-192,-64,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-192,-64,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "6a9f1bb2-1aa9-404c-8b2d-d7d9724411f2",
+                "180e3a51-476c-439c-9553-5dac1e097310": "82707dc0-21bc-4b76-9718-cd28b1408e6d",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "fb1e258d-77bb-4ce7-98f2-e8462b9a2f7e",
+                "253aea87-5563-4107-850f-627313ea8b84": "8ca31d29-90ef-449f-b411-05e78e1cb88a"
+              }
             },
             {
               "__guid": "d717dd1e-c8ea-4e24-b9ec-d656540e1221",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "192,-64,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "192,-64,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "d717dd1e-c8ea-4e24-b9ec-d656540e1221",
+                "180e3a51-476c-439c-9553-5dac1e097310": "22682659-2794-4c6d-b8de-9c44df3295d3",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "615867f2-1e71-4267-a1c4-4ecb90b2426a",
+                "253aea87-5563-4107-850f-627313ea8b84": "48cd278e-23d2-4472-a211-0c4485b7c1be"
+              }
             },
             {
               "__guid": "7f711945-4770-4282-aee0-cf23cd785237",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-192,-32,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-192,-32,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "7f711945-4770-4282-aee0-cf23cd785237",
+                "180e3a51-476c-439c-9553-5dac1e097310": "0581348b-24bb-479e-a582-f305aa7c45c0",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "4cf61fc9-67ec-44c9-8656-7700f7a7e117",
+                "253aea87-5563-4107-850f-627313ea8b84": "f6c71100-437b-435b-852c-2aec698a300b"
+              }
             },
             {
               "__guid": "d25e232e-3789-47a9-a8b6-b2c9ebc87305",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "192,-32,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "192,-32,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "d25e232e-3789-47a9-a8b6-b2c9ebc87305",
+                "180e3a51-476c-439c-9553-5dac1e097310": "4cc0deba-a6ac-4090-9b42-ba18cbc1288d",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "09d821a2-820f-4efa-b881-6c82d231a544",
+                "253aea87-5563-4107-850f-627313ea8b84": "0b4fe53f-bc3d-4f12-bbc3-0c554fb43d35"
+              }
             },
             {
               "__guid": "1606c484-23d1-4204-aab1-8db5d433d67d",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-192,0,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-192,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "1606c484-23d1-4204-aab1-8db5d433d67d",
+                "180e3a51-476c-439c-9553-5dac1e097310": "eb38a5b6-fdc6-4505-9c0e-b288062fd055",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "7761927c-6dbf-4ff8-af0b-42e81c908973",
+                "253aea87-5563-4107-850f-627313ea8b84": "ac49bf96-662a-42ab-b057-aa022babb53b"
+              }
             },
             {
               "__guid": "bf21c456-5804-4d71-8d9a-9b0cfb73627c",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "192,0,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "192,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "bf21c456-5804-4d71-8d9a-9b0cfb73627c",
+                "180e3a51-476c-439c-9553-5dac1e097310": "259b9cd8-cd79-4022-a621-074e64496d78",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "3ab3447e-f1bd-4bb9-b7c8-898bf3a4b466",
+                "253aea87-5563-4107-850f-627313ea8b84": "7c05a86b-db42-407d-a323-07147a574e6c"
+              }
             },
             {
               "__guid": "1b0094cb-ac07-4dc4-b946-3b51e686a727",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-192,32,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-192,32,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "1b0094cb-ac07-4dc4-b946-3b51e686a727",
+                "180e3a51-476c-439c-9553-5dac1e097310": "61408a0c-bbcf-42cd-99fc-3b7b2ddb8428",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "9463efa9-9878-4a30-a611-03b715f9a32d",
+                "253aea87-5563-4107-850f-627313ea8b84": "399c4966-be97-4261-9822-9c42674a8067"
+              }
             },
             {
               "__guid": "f3252022-d041-4210-b2f2-163ea41db0a9",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "192,32,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "192,32,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "f3252022-d041-4210-b2f2-163ea41db0a9",
+                "180e3a51-476c-439c-9553-5dac1e097310": "e3b6a13b-e401-428e-a472-532f3555f415",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "c40ed1b4-61de-4489-82d4-d2def14027d1",
+                "253aea87-5563-4107-850f-627313ea8b84": "59ed9a55-b907-4350-8cbb-f38b22271d27"
+              }
             },
             {
               "__guid": "699908eb-7089-4530-91e7-b07e4ae73852",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-192,64,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-192,64,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "699908eb-7089-4530-91e7-b07e4ae73852",
+                "180e3a51-476c-439c-9553-5dac1e097310": "7f7b673e-544f-48b7-a773-39d76cd9682c",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "e16e863c-46ed-4251-bf0c-6df0f499680b",
+                "253aea87-5563-4107-850f-627313ea8b84": "43a9d9f2-eb16-4b92-b47e-21d76a4cc079"
+              }
             },
             {
               "__guid": "d42e164b-e838-433d-9029-6483d0539350",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "192,64,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "192,64,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "d42e164b-e838-433d-9029-6483d0539350",
+                "180e3a51-476c-439c-9553-5dac1e097310": "c30ea9b6-060a-46e8-a0ed-bff4b78cfb2e",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "2c8d39a1-c71e-4745-85fc-9d43bde599b3",
+                "253aea87-5563-4107-850f-627313ea8b84": "4cc56985-123d-44fa-8455-c1f711dc8972"
+              }
             },
             {
               "__guid": "ffcae4aa-0ce2-433f-a8b0-cf7451abd44b",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-192,96,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-192,96,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "ffcae4aa-0ce2-433f-a8b0-cf7451abd44b",
+                "180e3a51-476c-439c-9553-5dac1e097310": "2dba2658-b123-4909-b218-f48040392911",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "6c707dcb-b3a7-4a7a-876b-b01c32ff3bb5",
+                "253aea87-5563-4107-850f-627313ea8b84": "740659dc-16fa-4a34-b6bf-aee832c6ddf4"
+              }
             },
             {
               "__guid": "74b2db84-108b-4666-94ce-dc915acef50f",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "192,96,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "192,96,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "74b2db84-108b-4666-94ce-dc915acef50f",
+                "180e3a51-476c-439c-9553-5dac1e097310": "deb3577f-7dd5-4e90-a4e6-9809b8fff7f0",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "b1a69326-c2b3-470e-b7f6-bdf42bcac15f",
+                "253aea87-5563-4107-850f-627313ea8b84": "9971e5d8-8ef1-4dad-9914-0c7b9ccd6cc8"
+              }
             },
             {
               "__guid": "06ca5853-7869-4dc9-ae49-c4c619559786",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-192,128,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-192,128,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "06ca5853-7869-4dc9-ae49-c4c619559786",
+                "180e3a51-476c-439c-9553-5dac1e097310": "bcefab4c-8b58-40da-aa3d-a26fd7be7b01",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "c8b054ae-bd6e-4b83-b45e-656a3859b55b",
+                "253aea87-5563-4107-850f-627313ea8b84": "11805d2b-85c5-4517-adc0-efbc4c3d670d"
+              }
             },
             {
               "__guid": "29b5db18-78cc-4089-843f-cc40f21a5e3b",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "192,128,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "192,128,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "29b5db18-78cc-4089-843f-cc40f21a5e3b",
+                "180e3a51-476c-439c-9553-5dac1e097310": "6c66fd5a-a117-4fc7-8cb5-25b0c71cc529",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "d0c66056-ecb3-4871-a206-1c7363ffa263",
+                "253aea87-5563-4107-850f-627313ea8b84": "a94eddd4-96df-44b2-822e-c367d63aa076"
+              }
             },
             {
               "__guid": "ca367d99-d0d6-46fd-ace5-d508732bfe8a",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "-192,160,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "-192,160,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "ca367d99-d0d6-46fd-ace5-d508732bfe8a",
+                "180e3a51-476c-439c-9553-5dac1e097310": "3d32fe2e-2385-4948-9633-cdaf18a4ec20",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "fd08285b-0d23-4ffa-872c-7d15e46d8202",
+                "253aea87-5563-4107-850f-627313ea8b84": "be8af2d7-bf50-4693-8f5f-a2f3150c0976"
+              }
             },
             {
               "__guid": "d4663337-8f15-4ee2-81cc-3377b1caf23d",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "192,160,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "192,160,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "d4663337-8f15-4ee2-81cc-3377b1caf23d",
+                "180e3a51-476c-439c-9553-5dac1e097310": "b7bd5fba-6126-48fd-bbed-c451b69b05be",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "3d2406ba-fd1c-4e34-ab49-f7b40a3ead29",
+                "253aea87-5563-4107-850f-627313ea8b84": "4f96c6db-10f4-4530-a67b-f3cc47ad498c"
+              }
             },
             {
               "__guid": "aa281171-8b91-45ee-abc8-45bb491d0c8e",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "32,192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "32,192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "aa281171-8b91-45ee-abc8-45bb491d0c8e",
+                "180e3a51-476c-439c-9553-5dac1e097310": "89f63f4f-aca3-4a31-8bf9-c7b201cdf85e",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "0e782b8b-08e7-4935-b56b-6f2d04d590a9",
+                "253aea87-5563-4107-850f-627313ea8b84": "31eebfea-e065-47ef-9bc3-7b9fb3e7d965"
+              }
             },
             {
               "__guid": "73ad9f78-8097-4543-a252-aa95ab9ab907",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "32,-192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "32,-192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "73ad9f78-8097-4543-a252-aa95ab9ab907",
+                "180e3a51-476c-439c-9553-5dac1e097310": "dc0c492c-daee-41bb-b107-e00e16eedf3f",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "a2124967-e9c2-4fe5-a23d-cc15dc7631e3",
+                "253aea87-5563-4107-850f-627313ea8b84": "e6e49aea-d44a-4eb5-99ce-191c8213770c"
+              }
             },
             {
               "__guid": "099f5334-b5f3-41af-8225-efcbbbb0052a",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "64,192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "64,192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "099f5334-b5f3-41af-8225-efcbbbb0052a",
+                "180e3a51-476c-439c-9553-5dac1e097310": "5d0a298a-1352-4b4e-a727-3aeb64b9da95",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "6a7d780e-1469-47cc-bf2f-e2bd151ba5b3",
+                "253aea87-5563-4107-850f-627313ea8b84": "a99ad331-8e93-4cd9-ad16-62f5d3961b09"
+              }
             },
             {
               "__guid": "03da1d25-6a9c-4fbd-a70f-85e9224fab7e",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "64,-192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "64,-192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "03da1d25-6a9c-4fbd-a70f-85e9224fab7e",
+                "180e3a51-476c-439c-9553-5dac1e097310": "350feb4b-ba17-4f63-9c68-809b5387fc69",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "93a2858b-fcbf-4ba9-ab6c-03ae32340aa3",
+                "253aea87-5563-4107-850f-627313ea8b84": "33a1a6a4-7c08-4987-ba9e-0ff0e8accaf6"
+              }
             },
             {
               "__guid": "38da30a2-ad9b-472c-bf9f-cbc37d44384e",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "96,192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "96,192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "38da30a2-ad9b-472c-bf9f-cbc37d44384e",
+                "180e3a51-476c-439c-9553-5dac1e097310": "c091ecac-1ae5-4a8b-bb9e-83e1e832eef8",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "a5dfc2d2-0c18-4c9f-b472-0a34ed4122b4",
+                "253aea87-5563-4107-850f-627313ea8b84": "617ae6ba-3660-4e49-af02-d6c55fa23a34"
+              }
             },
             {
               "__guid": "f556e9ed-598e-458f-84ca-bba6ad15ac3a",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "96,-192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "96,-192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "f556e9ed-598e-458f-84ca-bba6ad15ac3a",
+                "180e3a51-476c-439c-9553-5dac1e097310": "626fd76b-306a-41fc-83d3-e93a281ce3da",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "0947d1e4-e33d-4244-8990-fa6168d3ccc9",
+                "253aea87-5563-4107-850f-627313ea8b84": "9b9feaa3-1984-487c-a812-4760c5f715e3"
+              }
             },
             {
               "__guid": "9aefbd50-2c68-477e-a307-78d6dd419e03",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "128,192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "128,192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "9aefbd50-2c68-477e-a307-78d6dd419e03",
+                "180e3a51-476c-439c-9553-5dac1e097310": "24189f5f-600f-4605-ba79-3b1ba8a4d124",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "ac0790b7-c691-4c6a-9d0c-86bccc48effb",
+                "253aea87-5563-4107-850f-627313ea8b84": "9d3174c8-8563-459b-9921-bc835320a20c"
+              }
             },
             {
               "__guid": "ebbf9ef9-13fa-4489-8102-7907d0cb589c",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "128,-192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "128,-192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "ebbf9ef9-13fa-4489-8102-7907d0cb589c",
+                "180e3a51-476c-439c-9553-5dac1e097310": "835595a0-9702-4cfb-a60e-65c2f54f4c1d",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "ccea06cf-7e32-44f7-b2e9-43d50f818183",
+                "253aea87-5563-4107-850f-627313ea8b84": "54628988-c9d8-452b-885a-7732bff8da14"
+              }
             },
             {
               "__guid": "2a901745-4573-40c4-9226-fedf634921f5",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "160,192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "160,192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "2a901745-4573-40c4-9226-fedf634921f5",
+                "180e3a51-476c-439c-9553-5dac1e097310": "66af8c3c-652d-4cb2-b030-21398aa162a0",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "ff9d472b-051f-4ed3-b19f-1fe86fa70adb",
+                "253aea87-5563-4107-850f-627313ea8b84": "7af3dc49-3669-4669-ae37-dd0131f634aa"
+              }
             },
             {
               "__guid": "0103e7a7-ecc1-4736-97f3-71a472c0d9c5",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "160,-192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "160,-192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "0103e7a7-ecc1-4736-97f3-71a472c0d9c5",
+                "180e3a51-476c-439c-9553-5dac1e097310": "53c6422f-9e32-450e-a85a-843dfa57eeb3",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "afa33561-df95-44eb-ac58-d5f8b686871b",
+                "253aea87-5563-4107-850f-627313ea8b84": "12595b36-94a8-43b9-9821-519a12a4ba5a"
+              }
             },
             {
               "__guid": "dde411f3-4cc0-42e7-9cdd-bf2a5fd1184b",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "192,192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "192,192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "dde411f3-4cc0-42e7-9cdd-bf2a5fd1184b",
+                "180e3a51-476c-439c-9553-5dac1e097310": "33720c20-55ac-40f8-b1e2-3f59735f960c",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "76ff4145-00b7-455a-b175-6e947f7beede",
+                "253aea87-5563-4107-850f-627313ea8b84": "3da9ac53-5e46-4960-81de-e76806c62b3e"
+              }
             },
             {
               "__guid": "4d0b122e-c71b-4012-af00-24ca62a29d9c",
-              "Flags": 0,
-              "Name": "Block",
-              "Position": "192,-192,0",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "__Prefab": "prefabs/block.prefab"
+              "__version": 2,
+              "__Prefab": "prefabs/block.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Name",
+                    "Value": "Block"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "4d0b122e-c71b-4012-af00-24ca62a29d9c"
+                    },
+                    "Property": "Position",
+                    "Value": "192,-192,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "4d0b122e-c71b-4012-af00-24ca62a29d9c": "4d0b122e-c71b-4012-af00-24ca62a29d9c",
+                "180e3a51-476c-439c-9553-5dac1e097310": "c371af17-d44e-44b8-9e6e-3c6594cc491e",
+                "7e388f2b-00ea-44df-8dce-9a760facb21d": "89594a91-e3aa-4346-ae9a-c550b43825c7",
+                "253aea87-5563-4107-850f-627313ea8b84": "85ba04d5-11bd-4a20-a32a-b14463091dd5"
+              }
             }
           ]
         }
@@ -887,20 +2843,35 @@
     },
     {
       "__guid": "adf0faf8-45c6-432d-bad4-c3b3b4695b63",
+      "__version": 2,
       "Flags": 0,
       "Name": "BombRoyale",
       "Position": "-17.84023,-0.495842,-36.83762",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
       "Enabled": true,
       "NetworkMode": 2,
-      "NetworkInterpolation": true,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Facepunch.BombRoyale.BombRoyale",
           "__guid": "546e7a37-cbad-47f8-bf0a-d435cc74e837",
+          "__enabled": true,
+          "Flags": 0,
           "BombPrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/bomb.prefab"
           },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "PickupPrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/pickup.prefab"
@@ -910,95 +2881,164 @@
             "prefab": "prefabs/player.prefab"
           }
         }
-      ]
+      ],
+      "Children": []
     },
     {
       "__guid": "8291c835-2c1e-4660-8fdf-e09719b19be0",
+      "__version": 2,
       "Flags": 0,
       "Name": "Spawns",
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
       "Enabled": true,
       "NetworkMode": 2,
-      "NetworkInterpolation": true,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [],
       "Children": [
         {
           "__guid": "2a084a79-4db8-40a1-b9bb-6cde0f62af4e",
+          "__version": 2,
           "Flags": 0,
           "Name": "Player1",
           "Position": "160,-160,0",
           "Rotation": "0,0,1,0.0000001947072",
+          "Scale": "1,1,1",
+          "Tags": "",
           "Enabled": true,
           "NetworkMode": 2,
-          "NetworkInterpolation": true,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "Facepunch.BombRoyale.PlayerSpawn",
               "__guid": "0d84f211-be50-41fd-a2de-54130618e7b3",
-              "Index": 0
+              "__enabled": true,
+              "Flags": 0,
+              "Index": 0,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
-          ]
+          ],
+          "Children": []
         },
         {
           "__guid": "347d5d68-575d-4f7f-8c32-ef2486661a0c",
+          "__version": 2,
           "Flags": 0,
           "Name": "Player2",
           "Position": "160,160,0",
           "Rotation": "0,0,1,0.0000001947072",
+          "Scale": "1,1,1",
+          "Tags": "",
           "Enabled": true,
           "NetworkMode": 2,
-          "NetworkInterpolation": true,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "Facepunch.BombRoyale.PlayerSpawn",
               "__guid": "c2c28fcb-8bba-4a26-8d33-775f7e255541",
-              "Index": 1
+              "__enabled": true,
+              "Flags": 0,
+              "Index": 1,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
-          ]
+          ],
+          "Children": []
         },
         {
           "__guid": "a0ebc685-5bf5-4c4e-99ca-7281cce33daf",
+          "__version": 2,
           "Flags": 0,
           "Name": "Player3",
           "Position": "-160,160,0",
           "Rotation": "0,0,0.0000003894144,-1",
+          "Scale": "1,1,1",
+          "Tags": "",
           "Enabled": true,
           "NetworkMode": 2,
-          "NetworkInterpolation": true,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "Facepunch.BombRoyale.PlayerSpawn",
               "__guid": "228c8e96-cace-4516-bd5d-79096f4cb497",
-              "Index": 2
+              "__enabled": true,
+              "Flags": 0,
+              "Index": 2,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
-          ]
+          ],
+          "Children": []
         },
         {
           "__guid": "bbd75d52-4093-4fed-8213-508d8c37f8a4",
+          "__version": 2,
           "Flags": 0,
           "Name": "Player4",
           "Position": "-160,-160,0",
           "Rotation": "0,0,0.0000003894144,-1",
+          "Scale": "1,1,1",
+          "Tags": "",
           "Enabled": true,
           "NetworkMode": 2,
-          "NetworkInterpolation": true,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
           "Components": [
             {
               "__type": "Facepunch.BombRoyale.PlayerSpawn",
               "__guid": "23935b75-a7c3-4f0f-ad26-ca216f8badd5",
-              "Index": 3
+              "__enabled": true,
+              "Flags": 0,
+              "Index": 3,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
-          ]
+          ],
+          "Children": []
         }
       ]
     }
   ],
   "SceneProperties": {
-    "FixedUpdateFrequency": 50,
-    "MaxFixedUpdates": 5,
-    "NetworkFrequency": 30,
     "NetworkInterpolation": true,
-    "ThreadedAnimation": true,
     "TimeScale": 1,
-    "UseFixedUpdate": true,
+    "WantsSystemScene": true,
+    "Metadata": {
+      "Title": "arena"
+    },
     "NavMesh": {
       "Enabled": false,
       "IncludeStaticBodies": true,
@@ -1009,13 +3049,24 @@
       "AgentStepSize": 18,
       "AgentMaxSlope": 40,
       "ExcludedBodies": "",
-      "IncludedBodies": ""
+      "IncludedBodies": "",
+      "CustomBounds": false,
+      "Bounds": {
+        "Mins": "0,0,0",
+        "Maxs": "0,0,0"
+      }
+    },
+    "GameObjectSystems": {
+      "Sandbox.Clutter.ClutterGridSystem": {
+        "Storage": {
+          "$blob": "647594d5-6924-493b-8404-f56299d63594"
+        }
+      }
     }
   },
+  "ResourceVersion": 3,
   "Title": "arena",
-  "Description": "",
-  "LastSaved": "2024-05-15T06:56:13.1993682+01:00",
-  "ResourceVersion": 1,
-  "__version": 1,
-  "__references": []
+  "Description": null,
+  "__references": [],
+  "__version": 3
 }

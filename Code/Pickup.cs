@@ -74,14 +74,15 @@ public abstract class Pickup : Component, IRestartable, Component.ITriggerListen
 	{
 		Light = Components.Get<PointLight>();
 		Light.LightColor = Color;
-		
+
 		Sprite = Components.GetInDescendantsOrSelf<PickupSprite>();
 		Sprite.Pickup = this;
 
 		if ( !string.IsNullOrEmpty( SpawnSound ) )
 			Sound.Play( SpawnSound, WorldPosition );
-		
+
 		IdleEffect = PickupIdleEffect.Create( GameObject, Color );
+
 
 		base.OnStart();
 	}
@@ -95,7 +96,7 @@ public abstract class Pickup : Component, IRestartable, Component.ITriggerListen
 
 		if ( !OnPickup( player ) )
 			return;
-		
+
 		DoPickupEffects();
 		GameObject.Destroy();
 	}

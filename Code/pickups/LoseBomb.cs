@@ -12,11 +12,12 @@ public class LoseBomb : Pickup
 
 	protected override bool OnPickup( Player player )
 	{
-		if ( player.MaxBombs == 1 )
-			return false;
-		
-		Chat.AddPlayerEvent( "pickup_bad", Network.Owner.DisplayName, player.GetTeamColor(), $"has lost an extra bomb!" );
-		player.MaxBombs = Math.Max( player.MaxBombs - 1, 1 );
+		if ( player.MaxBombs > 1 )
+		{
+			player.MaxBombs = Math.Max( player.MaxBombs - 1, 1 );
+			Chat.AddPlayerEvent( "pickup_bad", Network.Owner.DisplayName, player.GetTeamColor(), $"has lost an extra bomb!" );
+		}
+
 		return true;
 	}
 }

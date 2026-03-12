@@ -12,12 +12,12 @@ public class RangeDown : Pickup
 
 	protected override bool OnPickup( Player player )
 	{
-		if ( player.BombRange == 2 )
-			return false;
-		
-		Chat.AddPlayerEvent( "pickup_bad", Network.Owner.DisplayName, player.GetTeamColor(), $"has lost some bomb range!" );
-		
-		player.BombRange = Math.Max( player.BombRange - 1, 2 );
+		if ( player.BombRange > 2 )
+		{
+			player.BombRange = Math.Max( player.BombRange - 1, 2 );
+			Chat.AddPlayerEvent( "pickup_bad", Network.Owner.DisplayName, player.GetTeamColor(), $"has lost some bomb range!" );
+		}
+
 		return true;
 	}
 }

@@ -12,12 +12,10 @@ public class SpeedDown : Pickup
 
 	protected override bool OnPickup( Player player )
 	{
-		if ( player.SpeedBoosts == 0 )
-			return false;
-		
-		Chat.AddPlayerEvent( "pickup_bad", Network.Owner.DisplayName, player.GetTeamColor(), $"has lost some speed!" );
-		
 		player.SpeedBoosts = Math.Max( player.SpeedBoosts - 1, 0 );
+
+		Chat.AddPlayerEvent( "pickup_bad", Network.Owner.DisplayName, player.GetTeamColor(), $"has lost some speed!" );
+
 		return true;
 	}
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using Sandbox;
-using Sandbox.ModelEditor.Nodes;
+﻿using Sandbox;
 
 namespace Facepunch.BombRoyale;
 
@@ -44,9 +42,7 @@ public class Bombable : Component, IRestartable
 	[Rpc.Broadcast( NetFlags.HostOnly )]
 	public void Break()
 	{
-		var fx = new SceneParticles( Scene.SceneWorld, "particles/block_explosion/block_brick_explode.vpcf" );
-		fx.SetControlPoint( 0, Renderer.Bounds.Center );
-		fx.PlayUntilFinished();
+		BlockBreakEffect.Create( Scene, Renderer.Bounds.Center );
 	}
 
 	[Rpc.Broadcast( NetFlags.HostOnly )]

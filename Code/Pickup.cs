@@ -63,7 +63,7 @@ public abstract class Pickup : Component, IRestartable, Component.ITriggerListen
 
 	private PointLight Light { get; set; }
 	private PickupSprite Sprite { get; set; }
-	private SceneParticles Effect { get; set; }
+	private PickupIdleEffect IdleEffect { get; set; }
 
 	void IRestartable.OnRestart()
 	{
@@ -81,10 +81,9 @@ public abstract class Pickup : Component, IRestartable, Component.ITriggerListen
 		if ( !string.IsNullOrEmpty( SpawnSound ) )
 			Sound.Play( SpawnSound, WorldPosition );
 		
-		Effect = new( Scene.SceneWorld, "particles/gameplay/idle_coin/idle_coin.vpcf" );
-		Effect.SetControlPoint( 0, WorldPosition );
-		Effect.SetNamedValue( "color", Color * 255f );
-		
+		IdleEffect = Components.Create<PickupIdleEffect>();
+		IdleEffect.EffectColor = Color;
+
 		base.OnStart();
 	}
 
@@ -109,30 +108,18 @@ public abstract class Pickup : Component, IRestartable, Component.ITriggerListen
 
 	protected override void OnUpdate()
 	{
-		if ( Effect.IsValid() )
-		{
-			Effect.SetControlPoint( 0, WorldPosition );
-			Effect.Simulate( Time.Delta );
-		}
-		
 		base.OnUpdate();
 	}
 
 	protected override void OnDestroy()
 	{
-		Effect?.Delete();
-		Effect = null;
-		
 		base.OnDestroy();
 	}
 
 	[Rpc.Broadcast( NetFlags.HostOnly )]
 	private void DoPickupEffects()
 	{
-		var fx = new SceneParticles( Scene.SceneWorld, "particles/gameplay/player/collectpickup/collectpickup.vpcf" );
-		fx.SetControlPoint( 0, WorldPosition );
-		fx.SetNamedValue( "color", Color * 255f );
-		fx.PlayUntilFinished();
+		CollectPickupEffect.Create( Scene, WorldPosition, Color );
 
 		if ( !string.IsNullOrEmpty( PickupSound ) )
 		{

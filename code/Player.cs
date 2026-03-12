@@ -447,11 +447,7 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 	[Rpc.Broadcast]
 	private void ShowRespawnEffect( Vector3 position )
 	{
-		var fx = new SceneParticles( Scene.SceneWorld, "particles/gameplay/player/respawn/respawn_effect.vpcf" );
-		fx.SetControlPoint( 0, position );
-		fx.SetNamedValue( "Color", GetTeamColor() * 255f );
-		fx.PlayUntilFinished( Task );
-		
+		RespawnEffect.Create( Scene, position, GetTeamColor() );
 		Sound.Play( "player.teleport", position );
 	}
 

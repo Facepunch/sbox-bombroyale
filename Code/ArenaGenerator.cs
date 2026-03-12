@@ -25,12 +25,6 @@ public class ArenaGenerator : Component, IRestartable
 		Generate();
 	}
 
-	protected override void OnStart()
-	{
-		Generate();
-		base.OnStart();
-	}
-
 	private void Generate()
 	{
 		if ( !Networking.IsHost ) return;

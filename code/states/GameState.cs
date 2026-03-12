@@ -16,16 +16,14 @@ public class GameState : BaseState
 	{
 		if ( Networking.IsHost )
 		{
-			IRestartable.RestartAll();
-			
 			foreach ( var player in BombRoyale.Players )
 			{
 				player.Respawn();
 			}
-			
+
 			RoundEndTime = 180f;
 		}
-		
+
 		Sound.Play( "round.start" );
 		Music = Sound.Play( "battle.music" );
 	}

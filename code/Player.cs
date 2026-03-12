@@ -499,28 +499,83 @@ public class Player : Component, IHealthComponent, Component.ICollisionListener
 	private void UpdateMovement()
 	{
 		InputDirection = SnapInputDirection( Input.AnalogMove );
-		
+
 		WishVelocity = new( InputDirection.x, InputDirection.y, 0f );
 		WishVelocity = WishVelocity.WithZ( 0f );
 		WishVelocity *= GetWishSpeed();
-		
+
 		Controller.Velocity = Controller.Velocity.WithZ( 0f );
 		Controller.Accelerate( WishVelocity );
 		Controller.ApplyFriction( 4f );
 
-		// Store our previous up position.
+		if ( InputDirection.Length > 0f )
+		{
+			ApplyLaneAssist();
+		}
+
 		var previousZ = WorldPosition.z;
 
 		Controller.Move();
-		
-		// Always make sure we never change our up position.
+
 		WorldPosition = WorldPosition.WithZ( previousZ );
-		
+
 		if ( InputDirection.Length > 0f )
 		{
 			WorldRotation = Rotation.Lerp( WorldRotation, Rotation.LookAt( InputDirection, Vector3.Up ),
 				Time.Delta * 16f );
 		}
+	}
+
+	private Vector3 PreviousInputDirection { get; set; }
+
+	private void ApplyLaneAssist()
+	{
+		const float gridSize = 32f;
+		const float assistStrength = 12f;
+		const float maxOffset = 14f;
+
+		var pos = WorldPosition;
+		var movingX = MathF.Abs( InputDirection.x ) > 0.5f;
+		var movingY = MathF.Abs( InputDirection.y ) > 0.5f;
+
+		if ( movingX )
+		{
+			var laneY = GetBestLane( pos.y, PreviousInputDirection.y, gridSize );
+			var offset = laneY - pos.y;
+
+			if ( MathF.Abs( offset ) <= maxOffset )
+				Controller.Velocity = Controller.Velocity.WithY( offset * assistStrength );
+		}
+		else if ( movingY )
+		{
+			var laneX = GetBestLane( pos.x, PreviousInputDirection.x, gridSize );
+			var offset = laneX - pos.x;
+
+			if ( MathF.Abs( offset ) <= maxOffset )
+				Controller.Velocity = Controller.Velocity.WithX( offset * assistStrength );
+		}
+
+		PreviousInputDirection = InputDirection;
+	}
+
+	private static float GetBestLane( float position, float previousAxisInput, float gridSize )
+	{
+		var lower = MathF.Floor( position / gridSize ) * gridSize;
+		var upper = lower + gridSize;
+
+		if ( MathF.Abs( position - lower ) < 0.5f )
+			return lower;
+
+		if ( MathF.Abs( position - upper ) < 0.5f )
+			return upper;
+
+		if ( previousAxisInput > 0.1f )
+			return upper;
+
+		if ( previousAxisInput < -0.1f )
+			return lower;
+
+		return ( position - lower ) < ( upper - position ) ? lower : upper;
 	}
 
 	private void UpdateCamera()

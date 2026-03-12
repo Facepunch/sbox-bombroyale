@@ -4,39 +4,25 @@ namespace Facepunch.BombRoyale;
 
 /// <summary>
 /// Continuous glowing flare particles around a pickup.
-/// Replaces particles/gameplay/idle_coin/idle_coin.vpcf
+/// Configured via prefabs/effects/pickup_idle.prefab
 /// </summary>
-[Title( "Pickup Idle Effect" )]
-[Category( "Bomb Royale" )]
-public class PickupIdleEffect : Component
+public static class PickupIdleEffect
 {
-	public Color EffectColor { get; set; } = Color.Orange;
-
-	protected override void OnEnabled()
+	public static GameObject Create( GameObject parent, Color color )
 	{
-		var effect = Components.GetOrCreate<ParticleEffect>();
-		effect.MaxParticles = 10;
-		effect.Lifetime = new ParticleFloat( 0.25f, 0.5f );
-		effect.ApplyColor = true;
-		effect.Tint = EffectColor;
-		effect.ApplyAlpha = true;
-		effect.Alpha = new ParticleFloat { Type = ParticleFloat.ValueType.Range, Evaluation = ParticleFloat.EvaluationType.Life, ConstantA = 1f, ConstantB = 0f };
-		effect.ApplyShape = true;
-		effect.Scale = new ParticleFloat { Type = ParticleFloat.ValueType.Range, Evaluation = ParticleFloat.EvaluationType.Life, ConstantA = 2f, ConstantB = 0f };
+		var go = GameObject.Clone( "prefabs/effects/pickup_idle.prefab", new CloneConfig
+		{
+			Transform = Transform.Zero,
+			Parent = parent,
+			Name = "PickupIdleEffect"
+		} );
 
-		var emitter = Components.GetOrCreate<ParticleSphereEmitter>();
-		emitter.Radius = 20f;
-		emitter.Velocity = 0f;
-		emitter.OnEdge = true;
-		emitter.Loop = true;
-		emitter.Duration = 10f;
-		emitter.Burst = 0;
-		emitter.Rate = 1f;
+		if ( !go.IsValid() ) return go;
 
-		var renderer = Components.GetOrCreate<ParticleSpriteRenderer>();
-		renderer.Sprite = Sprite.FromTexture( Texture.Load( "materials/particle/particle_flares/particle_flare_002.vtex" ) );
-		renderer.Additive = true;
-		renderer.Scale = 2f;
-		renderer.Shadows = false;
+		var effect = go.Components.Get<ParticleEffect>();
+		if ( effect.IsValid() )
+			effect.Tint = color;
+
+		return go;
 	}
 }

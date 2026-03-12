@@ -63,7 +63,7 @@ public abstract class Pickup : Component, IRestartable, Component.ITriggerListen
 
 	private PointLight Light { get; set; }
 	private PickupSprite Sprite { get; set; }
-	private PickupIdleEffect IdleEffect { get; set; }
+	private GameObject IdleEffect { get; set; }
 
 	void IRestartable.OnRestart()
 	{
@@ -81,8 +81,7 @@ public abstract class Pickup : Component, IRestartable, Component.ITriggerListen
 		if ( !string.IsNullOrEmpty( SpawnSound ) )
 			Sound.Play( SpawnSound, WorldPosition );
 		
-		IdleEffect = Components.Create<PickupIdleEffect>();
-		IdleEffect.EffectColor = Color;
+		IdleEffect = PickupIdleEffect.Create( GameObject, Color );
 
 		base.OnStart();
 	}

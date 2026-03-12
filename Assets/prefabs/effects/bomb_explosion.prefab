@@ -1,0 +1,38 @@
+{
+  "RootObject": {
+    "__guid": "e5f6a7b8-5555-4000-8000-000000000001",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "bomb_explosion",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "TemporaryEffect",
+        "__guid": "e5f6a7b8-5555-4000-8000-000000000002",
+        "__enabled": true,
+        "Flags": 0,
+        "BecomeOrphan": false,
+        "DestroyAfterSeconds": 3,
+        "WaitForChildEffects": true
+      },
+      {
+        "__type": "Facepunch.BombRoyale.BombExplosionEffect",
+        "__guid": "e5f6a7b8-5555-4000-8000-000000000003",
+        "__enabled": true,
+        "Flags": 0
+      }
+    ],
+    "Children": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}

@@ -163,14 +163,14 @@ public class Bomb : Component, IRestartable
 
 			if ( NextBlinkTime )
 			{
-				sceneObject.Attributes.Set( "Whiteness", 1f );
+				sceneObject.Attributes.Set( "ExplodeTime", 1f );
 
 				if ( BlinkEndTime )
 					NextBlinkTime = 1f * (1f - (TimeSincePlaced / LifeTime)).Clamp( 0.1f, 1f );
 			}
 			else
 			{
-				sceneObject.Attributes.Set( "Whiteness", 0f );
+				sceneObject.Attributes.Set( "ExplodeTime", 0f );
 				BlinkEndTime = 0.1f;
 			}
 		}

@@ -19,8 +19,8 @@ COMMON
 {
 	#include "common/shared.hlsl"
 
-	float g_ExplodeTime < UiType( Slider ); Default( 0.0 ); Range( 0.0, 1.0 ); UiGroup( "Settings,10/20" ); >;
-	float3 g_vBombColor < UiType( Color ); Default3( 1.0, 1.0, 1.0 ); UiGroup( "Settings,10/20" ); >;
+	float g_ExplodeTime < Attribute( "ExplodeTime" ); UiType( Slider ); Default( 0.0 ); Range( 0.0, 1.0 ); UiGroup( "Settings,10/20" ); >;
+	float3 g_vBombColor < Attribute( "BombColor" ); UiType( Color ); Default3( 1.0, 1.0, 1.0 ); UiGroup( "Settings,10/20" ); >;
 }
 
 struct VertexInput

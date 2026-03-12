@@ -1,0 +1,148 @@
+{
+  "RootObject": {
+    "__guid": "f2a3b4c5-6666-4000-8000-000000000001",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "bomb_wick",
+    "Position": "0,0,20",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "particles",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.ParticleEffect",
+        "__guid": "f2a3b4c5-6666-4000-8000-000000000002",
+        "__enabled": true,
+        "Flags": 0,
+        "__version": 3,
+        "MaxParticles": 30,
+        "Lifetime": {
+          "Type": "Range",
+          "Evaluation": "Seed",
+          "Constants": "0.2,0.4,0,0"
+        },
+        "TimeScale": 1,
+        "Timing": "GameTime",
+        "PreWarm": 0,
+        "StartDelay": 0,
+        "PerParticleTimeScale": 1,
+        "ApplyColor": true,
+        "ApplyAlpha": true,
+        "Tint": "1,0.7,0.1,1",
+        "Gradient": {
+          "Type": "Constant",
+          "Evaluation": "Particle",
+          "ConstantA": "1,1,1,1",
+          "ConstantB": "1,1,1,1"
+        },
+        "Brightness": 2,
+        "Alpha": {
+          "Type": "Range",
+          "Evaluation": "Life",
+          "Constants": "1,0,0,0"
+        },
+        "ApplyShape": true,
+        "Scale": {
+          "Type": "Range",
+          "Evaluation": "Life",
+          "Constants": "1.5,0,0,0"
+        },
+        "Stretch": 0,
+        "ApplyRotation": false,
+        "Pitch": 0,
+        "Yaw": 0,
+        "Roll": 0,
+        "Force": true,
+        "ForceDirection": "0,0,80",
+        "ForceScale": 1,
+        "ForceSpace": "World",
+        "Damping": 0,
+        "StartVelocity": 0,
+        "InitialVelocity": { "X": 0, "Y": 0, "Z": 0 },
+        "ConstantMovement": { "X": 0, "Y": 0, "Z": 0 },
+        "LocalSpace": 0,
+        "Collision": false,
+        "UsePrefabFeature": false
+      },
+      {
+        "__type": "Sandbox.ParticleSpriteRenderer",
+        "__guid": "f2a3b4c5-6666-4000-8000-000000000003",
+        "__enabled": true,
+        "Flags": 0,
+        "__version": 2,
+        "Additive": true,
+        "Alignment": "LookAtCamera",
+        "BlurAmount": 0.5,
+        "BlurOpacity": 0.5,
+        "BlurSpacing": 0.5,
+        "DepthFeather": 4,
+        "FaceVelocity": false,
+        "FogStrength": 1,
+        "LeadingTrail": true,
+        "Lighting": false,
+        "MotionBlur": false,
+        "Opaque": false,
+        "PlaybackSpeed": 1,
+        "RenderOptions": {
+          "GameLayer": true,
+          "OverlayLayer": false,
+          "BloomLayer": true,
+          "AfterUILayer": false
+        },
+        "RotationOffset": 0,
+        "Scale": 1,
+        "Shadows": false,
+        "SortMode": "Unsorted",
+        "Sprite": {
+          "$compiler": "embed",
+          "$source": null,
+          "data": {
+            "Animations": [
+              {
+                "Name": "Default",
+                "FrameRate": 15,
+                "Origin": "0.5,0.5",
+                "LoopMode": "Loop",
+                "Frames": [
+                  {
+                    "Texture": "materials/particle/particle_flares/particle_flare_002.vtex",
+                    "BroadcastMessages": []
+                  }
+                ]
+              }
+            ],
+            "__references": null
+          },
+          "compiled": null
+        },
+        "StartingAnimationName": "Default",
+        "TextureFilter": "Bilinear"
+      },
+      {
+        "__type": "Sandbox.ParticleSphereEmitter",
+        "__guid": "f2a3b4c5-6666-4000-8000-000000000004",
+        "__enabled": true,
+        "Flags": 0,
+        "Burst": 0,
+        "Delay": 0,
+        "DestroyOnEnd": false,
+        "Duration": 10,
+        "Loop": true,
+        "OnEdge": false,
+        "Radius": 3,
+        "Rate": 40,
+        "RateOverDistance": 0,
+        "Velocity": 30
+      }
+    ],
+    "Children": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}

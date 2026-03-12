@@ -24,6 +24,7 @@ public class Bomb : Component, IRestartable
 	private float LifeTime { get; set; } = 4f;
 	private SoundHandle FuseSound { get; set; }
 	private bool HasExploded { get; set; }
+	private GameObject WickEffect { get; set; }
 
 	protected override void OnAwake()
 	{
@@ -67,6 +68,7 @@ public class Bomb : Component, IRestartable
 		PlacerId = player.Id;
 
 		StartFuseSound( WorldPosition );
+		SpawnWickEffect();
 	}
 
 	public void Pickup( Player player )
@@ -80,6 +82,7 @@ public class Bomb : Component, IRestartable
 		IsPlaced = false;
 
 		StopFuseSound();
+		DestroyWickEffect();
 	}
 
 	private void UpdateTags()
@@ -101,6 +104,35 @@ public class Bomb : Component, IRestartable
 	{
 		FuseSound?.Stop();
 		FuseSound = null;
+	}
+
+	[Rpc.Broadcast]
+	private void SpawnWickEffect()
+	{
+		var renderer = Components.Get<SkinnedModelRenderer>( FindMode.EnabledInSelfAndChildren );
+		var bonePosition = Vector3.Zero;
+
+		if ( renderer.TryGetBoneTransform( "wick", out var boneTx ) )
+		{
+			bonePosition = boneTx.Position;
+		}
+
+		WickEffect = GameObject.Clone( "prefabs/effects/bomb_wick.prefab", new CloneConfig
+		{
+			StartEnabled = true,
+			Transform = new Transform( bonePosition ),
+			Parent = GameObject,
+			Name = "WickEffect"
+		} );
+	}
+
+	private void DestroyWickEffect()
+	{
+		if ( !WickEffect.IsValid() )
+			return;
+
+		WickEffect.Destroy();
+		WickEffect = null;
 	}
 
 	protected override void OnFixedUpdate()
@@ -210,6 +242,7 @@ public class Bomb : Component, IRestartable
 		if ( HasExploded ) return;
 
 		DoScreenShake();
+		DestroyWickEffect();
 		HasExploded = true;
 
 		BlastInDirection( Vector3.Forward );

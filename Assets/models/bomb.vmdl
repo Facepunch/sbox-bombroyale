@@ -60,42 +60,15 @@
 				]
 			},
 			{
-				_class = "GameDataList"
+				_class = "Skeleton"
 				children = 
 				[
 					{
-						_class = "GenericGameData"
-						disabled = true
-						game_class = "particle"
-						game_keys = 
-						{
-							name = resource:"particles/bomb_wick.vpcf"
-							attachment_point = "wick"
-							attachment_type = "5"
-							attachment_offset = [ 0.0, 0.0, 18.0 ]
-						}
-					},
-					{
-						_class = "GenericGameData"
-						game_class = "particle"
-						game_keys = 
-						{
-							name = resource:"particles/bomb_wick_spark.vpcf"
-							attachment_point = "wick"
-							attachment_type = "5"
-							attachment_offset = [ 0.0, 0.0, 0.0 ]
-						}
-					},
-					{
-						_class = "GenericGameData"
-						disabled = true
-						game_class = "ao_proxy_sphere"
-						game_keys = 
-						{
-							bonename = ""
-							radius = 12.0
-							center = [ 0.0, 0.0, 0.0 ]
-						}
+						_class = "Bone"
+						name = "wick"
+						origin = [ 0.949597, 1.614754, 29.637669 ]
+						angles = [ 0.0, 0.0, 0.0 ]
+						do_not_discard = true
 					},
 				]
 			},

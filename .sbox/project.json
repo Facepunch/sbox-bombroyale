@@ -1,37 +1,37 @@
 {
   "LocalAssetBrowser.History": {
-    "Value": "[\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\scenes\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\shaders\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\particles\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\particles\\\\walkcloud\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\particles\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\particles\\\\explosion\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\particles\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\particles\\\\debris\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\particles\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\particles\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\prefabs\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\prefabs\\\\effects\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\prefabs\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\scenes\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\scenes\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_brick_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_brick_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_metal_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_brick_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_metal_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\dmx\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_metal_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_brick_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_brick_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_metal_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_metal_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_brick_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_brick_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_metal_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_brick_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\scenes\u0022]",
-    "Timeout": 1775922435,
+    "Value": "[\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\scenes\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\shaders\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\particles\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\particles\\\\walkcloud\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\particles\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\particles\\\\explosion\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\particles\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\particles\\\\debris\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\particles\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\particles\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\prefabs\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\prefabs\\\\effects\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\prefabs\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\scenes\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\scenes\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_brick_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_brick_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_metal_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_brick_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_metal_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\dmx\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_metal_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_brick_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_brick_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_metal_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_metal_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_brick_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_brick_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_metal_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\\\\block_brick_a\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\scenes\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\models\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\prefabs\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\u0022,\u0022C:\\\\Facepunch\\\\sbox-bombroyale\\\\Assets\\\\scenes\u0022]",
+    "Timeout": 1775924096,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.HistoryIdx": {
-    "Value": "62",
-    "Timeout": 1775922435,
+    "Value": "69",
+    "Timeout": 1775924096,
     "DeleteAt": 0
   },
   "SceneView.Viewport0.Settings": {
     "Value": "{\u0022CameraPosition\u0022:\u002239.45553,-88.4931,121.6546\u0022,\u0022CameraRotation\u0022:\u00220.09222255,0.4789032,-0.1650828,0.8572598\u0022,\u0022View\u0022:0,\u0022RenderMode\u0022:0,\u0022WireframeMode\u0022:false,\u0022EnablePostProcessing\u0022:true,\u0022EnablePrefabLighting\u0022:true,\u0022ShowSkyIn2D\u0022:true,\u0022ShowGrid\u0022:true,\u0022GridOpacity\u0022:0.2,\u0022GridAxis\u0022:0,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1775922681,
+    "Timeout": 1775924121,
     "DeleteAt": 0
   },
   "Window.SboxSceneEditor.Dock": {
-    "Value": "{\u0022floatingWindows\u0022:[],\u0022mainWrapper\u0022:{\u0022geometry\u0022:\u0022AdnQywADAAAAAAAAAAAAAAAACfcAAAUrAAAAAAAAAAAAAAn3AAAFKwAAAAAAAAAACgAAAAAAAAAAAAAACfcAAAUr\u0022,\u0022splitter\u0022:{\u0022items\u0022:[{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneTreeWidget\u0022,\u0022name\u0022:\u0022Hierarchy\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022PanelInspectorWidget\u0022,\u0022name\u0022:\u0022UI Panels\u0022}],\u0022type\u0022:\u0022area\u0022},{\u0022items\u0022:[{\u0022items\u0022:[{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:scenes/lobby.scene\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:scenes/arena.scene\u0022}],\u0022type\u0022:\u0022area\u0022},{\u0022currentIndex\u0022:1,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022MainAssetBrowser\u0022,\u0022name\u0022:\u0022Asset Browser\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022ConsoleWidget\u0022,\u0022name\u0022:\u0022Console\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022MixerDock\u0022,\u0022name\u0022:\u0022Mixer\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022LibraryManagerDock\u0022,\u0022name\u0022:\u0022Library Manager\u0022}],\u0022type\u0022:\u0022area\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAADvQAAAh0A/////wEAAAACAA==\u0022,\u0022type\u0022:\u0022splitter\u0022},{\u0022items\u0022:[{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022Inspector\u0022,\u0022name\u0022:\u0022Inspector\u0022}],\u0022type\u0022:\u0022area\u0022},{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022PerformanceDock\u0022,\u0022name\u0022:\u0022Performance\u0022}],\u0022type\u0022:\u0022area\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAAEuQAAAVEA/////wEAAAACAA==\u0022,\u0022type\u0022:\u0022splitter\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAAGuwAAAdsA/////wEAAAABAA==\u0022,\u0022type\u0022:\u0022splitter\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAABmwAACjQA/////wEAAAABAA==\u0022,\u0022type\u0022:\u0022splitter\u0022}},\u0022toolWindowManagerStateFormat\u0022:1}",
-    "Timeout": 1775922673,
+    "Value": "{\u0022floatingWindows\u0022:[],\u0022mainWrapper\u0022:{\u0022geometry\u0022:\u0022AdnQywADAAAAAAAAAAAAAAAACfcAAAUrAAAAAAAAAAAAAAn3AAAFKwAAAAAAAAAACgAAAAAAAAAAAAAACfcAAAUr\u0022,\u0022splitter\u0022:{\u0022items\u0022:[{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneTreeWidget\u0022,\u0022name\u0022:\u0022Hierarchy\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022PanelInspectorWidget\u0022,\u0022name\u0022:\u0022UI Panels\u0022}],\u0022type\u0022:\u0022area\u0022},{\u0022items\u0022:[{\u0022items\u0022:[{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:scenes/lobby.scene\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:prefabs/bomb.prefab\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:scenes/arena.scene\u0022}],\u0022type\u0022:\u0022area\u0022},{\u0022currentIndex\u0022:1,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022MainAssetBrowser\u0022,\u0022name\u0022:\u0022Asset Browser\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022ConsoleWidget\u0022,\u0022name\u0022:\u0022Console\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022MixerDock\u0022,\u0022name\u0022:\u0022Mixer\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022LibraryManagerDock\u0022,\u0022name\u0022:\u0022Library Manager\u0022}],\u0022type\u0022:\u0022area\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAADvQAAAh0A/////wEAAAACAA==\u0022,\u0022type\u0022:\u0022splitter\u0022},{\u0022items\u0022:[{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022Inspector\u0022,\u0022name\u0022:\u0022Inspector\u0022}],\u0022type\u0022:\u0022area\u0022},{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022PerformanceDock\u0022,\u0022name\u0022:\u0022Performance\u0022}],\u0022type\u0022:\u0022area\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAAEuQAAAVEA/////wEAAAACAA==\u0022,\u0022type\u0022:\u0022splitter\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAAGuwAAAdsA/////wEAAAABAA==\u0022,\u0022type\u0022:\u0022splitter\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAABmwAACjQA/////wEAAAABAA==\u0022,\u0022type\u0022:\u0022splitter\u0022}},\u0022toolWindowManagerStateFormat\u0022:1}",
+    "Timeout": 1775924112,
     "DeleteAt": 0
   },
   "scenes/lobby.scene.Viewport0": {
     "Value": "{\u0022CameraPosition\u0022:\u002239.45553,-88.4931,121.6546\u0022,\u0022CameraRotation\u0022:\u00220.09222255,0.4789032,-0.1650828,0.8572598\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1775922595,
+    "Timeout": 1775924121,
     "DeleteAt": 0
   },
   ".Viewport0": {
     "Value": "{\u0022CameraPosition\u0022:\u002239.45553,-88.4931,121.6546\u0022,\u0022CameraRotation\u0022:\u00220.09222255,0.4789032,-0.1650828,0.8572598\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1775922596,
+    "Timeout": 1775924100,
     "DeleteAt": 0
   },
   "scenes/arena.scene.Viewport0": {
-    "Value": "{\u0022CameraPosition\u0022:\u002239.45553,-88.4931,121.6546\u0022,\u0022CameraRotation\u0022:\u00220.09222255,0.4789032,-0.1650828,0.8572598\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1775922681,
+    "Value": "{\u0022CameraPosition\u0022:\u0022-391.0236,61.53967,697.3505\u0022,\u0022CameraRotation\u0022:\u0022-0.006616907,0.4738825,0.01229426,0.8804774\u0022,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1775924121,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Model.History": {
@@ -46,7 +46,7 @@
   },
   "SceneView.Layout": {
     "Value": "{\u0022Layout\u0022:0,\u0022SplitterState\u0022:[]}",
-    "Timeout": 1775922435,
+    "Timeout": 1775924096,
     "DeleteAt": 0
   },
   "gizmo.settings": {
@@ -72,6 +72,46 @@
   "prefabs/effects/respawn.prefab.Viewport0": {
     "Value": "{\u0022CameraPosition\u0022:\u0022-163.7681,-162.7452,153.1177\u0022,\u0022CameraRotation\u0022:\u0022-0.0961396,0.2321013,0.3704107,0.8942495\u0022,\u0022CameraOrthoHeight\u0022:1000}",
     "Timeout": 1775919064,
+    "DeleteAt": 0
+  },
+  "LocalAssetBrowser.ViewMode": {
+    "Value": "0",
+    "Timeout": 1775922785,
+    "DeleteAt": 0
+  },
+  "LocalAssetBrowser.ShowJunkFiles": {
+    "Value": "false",
+    "Timeout": 1775922785,
+    "DeleteAt": 0
+  },
+  "LocalAssetBrowser.HideNonAssets": {
+    "Value": "false",
+    "Timeout": 1775922785,
+    "DeleteAt": 0
+  },
+  "LocalAssetBrowser.ShowRecursiveFiles": {
+    "Value": "false",
+    "Timeout": 1775922785,
+    "DeleteAt": 0
+  },
+  "LocalAssetBrowser.Search": {
+    "Value": "\u0022\u0022",
+    "Timeout": 1775922785,
+    "DeleteAt": 0
+  },
+  "LocalAssetBrowser.ActiveTags": {
+    "Value": "\u0022\u0022",
+    "Timeout": 1775922785,
+    "DeleteAt": 0
+  },
+  "LocalAssetBrowser.ExcludedTags": {
+    "Value": "\u0022\u0022",
+    "Timeout": 1775922785,
+    "DeleteAt": 0
+  },
+  "prefabs/bomb.prefab.Viewport0": {
+    "Value": "{\u0022CameraPosition\u0022:\u0022-21.59497,-21.59497,51.38056\u0022,\u0022CameraRotation\u0022:\u0022-0.1464466,0.3535534,0.3535534,0.8535534\u0022,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1775924121,
     "DeleteAt": 0
   }
 }

@@ -4,7 +4,8 @@ using Sandbox;
 namespace Facepunch.BombRoyale;
 
 /// <summary>
-/// Spawns explosion cloud particles along a line between two points.
+/// Spawns explosion cloud particles along a line between two points,
+/// with yellow spark/ember sprites flying off.
 /// </summary>
 [Title( "Bomb Explosion Effect" )]
 [Category( "Bomb Royale" )]
@@ -36,11 +37,12 @@ public class BombExplosionEffect : Component
 	private Vector3 StartPosition { get; set; }
 	private Vector3 EndPosition { get; set; }
 
-	private const int ParticleCount = 20;
+	private const int CloudCount = 20;
+	private const int SparkCount = 50;
 	private const float EffectLifetime = 2f;
 	private const float BaseScale = 0.5f;
 
-	private struct ExplosionParticle
+	private struct CloudParticle
 	{
 		public SceneObject SceneObject;
 		public float BornTime;
@@ -50,16 +52,31 @@ public class BombExplosionEffect : Component
 		public float InitialScale;
 	}
 
-	private ExplosionParticle[] _particles;
+	private struct SparkParticle
+	{
+		public SceneObject SceneObject;
+		public float BornTime;
+		public float Lifetime;
+		public Vector3 Velocity;
+	}
+
+	private CloudParticle[] _clouds;
+	private SparkParticle[] _sparks;
 
 	protected override void OnEnabled()
 	{
-		_particles = new ExplosionParticle[ParticleCount];
+		SpawnClouds();
+		SpawnSparks();
+	}
+
+	private void SpawnClouds()
+	{
+		_clouds = new CloudParticle[CloudCount];
 		var model = Model.Load( "models/particles/explosion/explosioncloud.vmdl" );
 
-		for ( var i = 0; i < ParticleCount; i++ )
+		for ( var i = 0; i < CloudCount; i++ )
 		{
-			var t = (float)i / (ParticleCount - 1);
+			var t = (float)i / (CloudCount - 1);
 			var position = Vector3.Lerp( StartPosition, EndPosition, t );
 
 			var so = new SceneObject( Scene.SceneWorld, model )
@@ -68,7 +85,7 @@ public class BombExplosionEffect : Component
 				RenderingEnabled = true
 			};
 
-			_particles[i] = new ExplosionParticle
+			_clouds[i] = new CloudParticle
 			{
 				SceneObject = so,
 				BornTime = Time.Now,
@@ -88,13 +105,51 @@ public class BombExplosionEffect : Component
 		}
 	}
 
+	private void SpawnSparks()
+	{
+		_sparks = new SparkParticle[SparkCount];
+		var sparkModel = Model.Load( "models/dev/sphere.vmdl" );
+
+		for ( var i = 0; i < SparkCount; i++ )
+		{
+			var t = Game.Random.Float( 0f, 1f );
+			var position = Vector3.Lerp( StartPosition, EndPosition, t );
+			position += Vector3.Random.Normal * 12f;
+
+			var so = new SceneObject( Scene.SceneWorld, sparkModel )
+			{
+				Transform = new Transform( position, Rotation.Identity, Game.Random.Float( 0.01f, 0.03f ) ),
+				RenderingEnabled = true,
+				ColorTint = new Color( 1f, 0.85f, 0.2f )
+			};
+
+			_sparks[i] = new SparkParticle
+			{
+				SceneObject = so,
+				BornTime = Time.Now,
+				Lifetime = Game.Random.Float( 1f, 2f ),
+				Velocity = new Vector3(
+					Game.Random.Float( -50f, 50f ),
+					Game.Random.Float( -50f, 50f ),
+					Game.Random.Float( 20f, 80f )
+				)
+			};
+		}
+	}
+
 	protected override void OnPreRender()
 	{
-		if ( _particles == null ) return;
+		UpdateClouds();
+		UpdateSparks();
+	}
 
-		for ( var i = 0; i < _particles.Length; i++ )
+	private void UpdateClouds()
+	{
+		if ( _clouds == null ) return;
+
+		for ( var i = 0; i < _clouds.Length; i++ )
 		{
-			ref var p = ref _particles[i];
+			ref var p = ref _clouds[i];
 			if ( !p.SceneObject.IsValid() ) continue;
 
 			var age = Time.Now - p.BornTime;
@@ -124,6 +179,38 @@ public class BombExplosionEffect : Component
 		}
 	}
 
+	private void UpdateSparks()
+	{
+		if ( _sparks == null ) return;
+
+		var dt = Time.Delta;
+		const float gravity = -150f;
+
+		for ( var i = 0; i < _sparks.Length; i++ )
+		{
+			ref var s = ref _sparks[i];
+			if ( !s.SceneObject.IsValid() ) continue;
+
+			var age = Time.Now - s.BornTime;
+			var normalizedAge = age / s.Lifetime;
+
+			if ( normalizedAge >= 1f )
+			{
+				s.SceneObject.Delete();
+				continue;
+			}
+
+			s.Velocity += Vector3.Up * gravity * dt;
+			var pos = s.SceneObject.Transform.Position + s.Velocity * dt;
+
+			var alpha = 1f - normalizedAge;
+			var color = Color.Lerp( new Color( 1f, 1f, 0.8f ), new Color( 1f, 0.5f, 0f ), normalizedAge );
+
+			s.SceneObject.Transform = new Transform( pos, Rotation.Identity, s.SceneObject.Transform.Scale );
+			s.SceneObject.ColorTint = color.WithAlpha( alpha );
+		}
+	}
+
 	private static float EvaluateSizeCurve( float age )
 	{
 		if ( age <= 0f ) return 0f;
@@ -136,26 +223,29 @@ public class BombExplosionEffect : Component
 		return MathX.Lerp( 0.7f, 0f, t * t );
 	}
 
-	protected override void OnDisabled()
-	{
-		CleanupParticles();
-	}
+	protected override void OnDisabled() => Cleanup();
+	protected override void OnDestroy() => Cleanup();
 
-	protected override void OnDestroy()
+	private void Cleanup()
 	{
-		CleanupParticles();
-	}
-
-	private void CleanupParticles()
-	{
-		if ( _particles == null ) return;
-
-		for ( var i = 0; i < _particles.Length; i++ )
+		if ( _clouds != null )
 		{
-			if ( _particles[i].SceneObject.IsValid() )
-				_particles[i].SceneObject.Delete();
+			for ( var i = 0; i < _clouds.Length; i++ )
+			{
+				if ( _clouds[i].SceneObject.IsValid() )
+					_clouds[i].SceneObject.Delete();
+			}
+			_clouds = null;
 		}
 
-		_particles = null;
+		if ( _sparks != null )
+		{
+			for ( var i = 0; i < _sparks.Length; i++ )
+			{
+				if ( _sparks[i].SceneObject.IsValid() )
+					_sparks[i].SceneObject.Delete();
+			}
+			_sparks = null;
+		}
 	}
 }

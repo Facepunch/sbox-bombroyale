@@ -4,14 +4,15 @@
     "*.hlsl": "slang"
   },
   "slang.additionalSearchPaths": [
-    "C:\\program files (x86)\\steam\\steamapps\\common\\sbox\\core\\shaders",
-    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\sbox\\addons\\base\\Assets\\shaders",
-    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\sbox\\addons\\menu\\Assets\\shaders",
-    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\sbox\\addons\\tools\\Assets\\shaders",
-    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\sbox\\editor\\ShaderGraph\\Assets\\shaders",
-    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\sbox\\editor\\ActionGraph\\Assets\\shaders",
-    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\sbox\\editor\\MovieMaker\\Assets\\shaders",
-    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\sbox\\editor\\Hammer\\Assets\\shaders",
+    "C:\\facepunch\\sbox2\\game\\core\\shaders",
+    "C:\\Facepunch\\sbox2\\game\\addons\\base\\Assets\\shaders",
+    "C:\\Facepunch\\sbox2\\game\\addons\\menu\\Assets\\shaders",
+    "C:\\Facepunch\\sbox2\\game\\addons\\tools\\Assets\\shaders",
+    "C:\\Facepunch\\sbox2\\game\\editor\\ShaderGraph\\Assets\\shaders",
+    "C:\\Facepunch\\sbox2\\game\\editor\\ActionGraph\\Assets\\shaders",
+    "C:\\Facepunch\\sbox2\\game\\editor\\MovieMaker\\Assets\\shaders",
+    "C:\\Facepunch\\sbox2\\game\\editor\\Hammer\\Assets\\shaders",
+    "C:\\Facepunch\\sbox2\\game\\editor\\DooEditor\\Assets\\shaders",
     "C:\\Facepunch\\sbox-bombroyale\\Assets\\shaders"
   ],
   "slang.predefinedMacros": [],

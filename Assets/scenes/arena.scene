@@ -245,11 +245,13 @@
           "__guid": "f1a2b3c4-5678-4000-9000-000000000001",
           "__enabled": true,
           "Flags": 0,
-          "BreakableBlockModels": [
-            "models/block_a.vmdl",
-            "models/block_b.vmdl"
-          ],
           "FillPercentage": 0.65,
+          "GroundRenderer": {
+            "_type": "component",
+            "component_id": "97929136-525b-41a5-9f97-542056b3f3a1",
+            "go": "ad80ea75-cabe-4a1d-bf75-13123812f6d2",
+            "component_type": "ModelRenderer"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -257,9 +259,9 @@
           "OnComponentStart": null,
           "OnComponentUpdate": null,
           "PickupSpawnChance": 0.35,
-          "SolidBlockModels": [
-            "models/block_metal_a/block_metal_a.vmdl",
-            "models/block_metal_a/block_metal_b.vmdl"
+          "Themes": [
+            "standard.theme",
+            "jungle.theme"
           ]
         }
       ],
@@ -3034,6 +3036,24 @@
           "Visualizer": {}
         }
       ],
+      "Children": []
+    },
+    {
+      "__guid": "f7913b95-535f-43d7-b65c-f13fbbaab3d5",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Background",
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [],
       "Children": []
     }
   ],

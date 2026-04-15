@@ -9,29 +9,93 @@ namespace Facepunch.BombRoyale;
 [Category( "Bomb Royale" )]
 public class ArenaGenerator : Component, IRestartable
 {
-	[Property] public List<Model> BreakableBlockModels { get; set; } = new();
-	[Property] public List<Model> SolidBlockModels { get; set; } = new();
+	[Property] public List<ArenaTheme> Themes { get; set; } = new();
+	[Property] public ModelRenderer GroundRenderer { get; set; }
 	[Property, Range( 0f, 1f )] public float FillPercentage { get; set; } = 0.65f;
 	[Property] public float PickupSpawnChance { get; set; } = 0.35f;
+
+	[Sync] private string ActiveThemePath { get; set; }
+
+	private ArenaTheme ActiveTheme { get; set; }
+	private string AppliedThemePath { get; set; }
 
 	private const float GridSize = 32f;
 
 	private const int InnerExtent = 5;
 
 	private GameObject BreakablesContainer { get; set; }
+	private GameObject AmbienceInstance { get; set; }
 
 	void IRestartable.OnRestart()
 	{
 		Generate();
 	}
 
+	protected override void OnUpdate()
+	{
+		if ( ActiveThemePath == AppliedThemePath ) return;
+
+		ActiveTheme = ResolveTheme( ActiveThemePath );
+		AppliedThemePath = ActiveThemePath;
+
+		ApplyFloorMaterial();
+		ApplyBackgroundColor();
+	}
+
 	private void Generate()
 	{
 		if ( !Networking.IsHost ) return;
 
+		PickTheme();
+		SpawnAmbience();
 		DestroyBreakables();
 		RandomizeSolidBlockModels();
 		GenerateBreakables();
+	}
+
+	private void SpawnAmbience()
+	{
+		if ( AmbienceInstance.IsValid() )
+		{
+			AmbienceInstance.Destroy();
+			AmbienceInstance = null;
+		}
+
+		var prefab = ActiveTheme?.AmbiencePrefab;
+		if ( prefab is null ) return;
+
+		AmbienceInstance = prefab.Clone();
+		AmbienceInstance.Name = "Ambience";
+		AmbienceInstance.NetworkSpawn();
+	}
+
+	private void PickTheme()
+	{
+		ActiveTheme = Themes.Count > 0 ? Game.Random.FromList( Themes ) : null;
+		ActiveThemePath = ActiveTheme?.ResourcePath;
+	}
+
+	private ArenaTheme ResolveTheme( string path )
+	{
+		if ( string.IsNullOrEmpty( path ) ) return null;
+		return Themes.FirstOrDefault( t => t is not null && t.ResourcePath == path );
+	}
+
+	private void ApplyFloorMaterial()
+	{
+		if ( !GroundRenderer.IsValid() ) return;
+		if ( ActiveTheme?.FloorMaterial is null ) return;
+
+		GroundRenderer.MaterialOverride = ActiveTheme.FloorMaterial;
+	}
+
+	private void ApplyBackgroundColor()
+	{
+		var camera = Scene.Camera;
+		if ( !camera.IsValid() ) return;
+		if ( ActiveTheme is null ) return;
+
+		camera.BackgroundColor = ActiveTheme.BackgroundColor;
 	}
 
 	private void DestroyBreakables()
@@ -51,13 +115,14 @@ public class ArenaGenerator : Component, IRestartable
 
 	private void RandomizeSolidBlockModels()
 	{
-		if ( SolidBlockModels.Count == 0 )
+		var models = ActiveTheme?.SolidBlockModels;
+		if ( models is null || models.Count == 0 )
 			return;
 
 		var solids = Scene.GetAllComponents<SolidBlock>().ToList();
 		foreach ( var solid in solids )
 		{
-			var model = Game.Random.FromList( SolidBlockModels );
+			var model = Game.Random.FromList( models );
 
 			var renderer = solid.Components.Get<ModelRenderer>();
 			if ( renderer.IsValid() )
@@ -122,7 +187,8 @@ public class ArenaGenerator : Component, IRestartable
 
 	private Model GetRandomBreakableModel()
 	{
-		return BreakableBlockModels.Count > 0 ? Game.Random.FromList( BreakableBlockModels ) : Model.Load( "models/block_a.vmdl" );
+		var models = ActiveTheme?.BreakableBlockModels;
+		return models is { Count: > 0 } ? Game.Random.FromList( models ) : Model.Load( "models/block_a.vmdl" );
 	}
 
 	private List<Vector2Int> GetValidBreakablePositions()

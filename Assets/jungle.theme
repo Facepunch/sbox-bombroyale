@@ -1,0 +1,16 @@
+{
+  "BreakableBlockModels": [
+    "models/block_jungle.vmdl"
+  ],
+  "SolidBlockModels": [
+    "models/block_metal_a/block_jungle_solid.vmdl"
+  ],
+  "FloorMaterial": "materials/floors/floor_jungle.vmat",
+  "BackgroundColor": "0.08627,0.1098,0.04314,1",
+  "AmbiencePrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/jungle_fog.prefab"
+  },
+  "__references": [],
+  "__version": 0
+}

@@ -1,0 +1,11 @@
+{
+  "BreakableBlockModels": [
+    "models/block_a.vmdl",
+    "models/block_b.vmdl"
+  ],
+  "SolidBlockModels": [
+    "models/block_metal_a/block_metal_a.vmdl",
+    "models/block_metal_a/block_metal_b.vmdl"
+  ],
+  "FloorMaterial": "materials/floors/floor_checker.vmat"
+}

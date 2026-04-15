@@ -1,0 +1,11 @@
+{
+  "BreakableBlockModels": [
+    "models/block_desert.vmdl"
+  ],
+  "SolidBlockModels": [
+    "models/block_metal_a/block_desert_solid.vmdl"
+  ],
+  "FloorMaterial": "materials/floors/floor_desert.vmat",
+  "__references": [],
+  "__version": 0
+}

@@ -1,0 +1,12 @@
+{
+  "BreakableBlockModels": [
+    "models/block_a.vmdl"
+  ],
+  "SolidBlockModels": [
+    "models/block_metal_a/block_metal_a.vmdl"
+  ],
+  "FloorMaterial": "materials/floors/floor_checker.vmat",
+  "BackgroundColor": "0.15814,0.15814,0.15814,1",
+  "__references": [],
+  "__version": 0
+}

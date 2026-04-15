@@ -15,7 +15,7 @@
 						[
 							{
 								from = "models/block_brick_a/block_brick_a.vmat"
-								to = "models/block_brick_a/block_brick_b.vmat"
+								to = "models/block_brick_a/block_jungle.vmat"
 							},
 						]
 						use_global_default = false

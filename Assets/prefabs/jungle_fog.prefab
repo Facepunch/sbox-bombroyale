@@ -1,0 +1,46 @@
+{
+  "RootObject": {
+    "__guid": "ee4ed1d5-0f99-4bd2-adb2-5669255ef36f",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "Fog",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [
+      {
+        "__type": "Sandbox.GradientFog",
+        "__guid": "3fc48d7a-5a60-4670-81ba-1c0a796c613b",
+        "__enabled": true,
+        "Flags": 0,
+        "Color": "0.15319,0.19535,0.1163,1",
+        "EndDistance": 1024,
+        "FalloffExponent": 1,
+        "Height": 25,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "StartDistance": 0,
+        "VerticalFalloffExponent": 1
+      }
+    ],
+    "Children": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}

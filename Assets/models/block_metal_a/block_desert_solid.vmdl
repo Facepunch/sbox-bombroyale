@@ -32,7 +32,7 @@
 						[
 							{
 								from = "block_metal.vmat"
-								to = "models/block_metal_a/block_metal_b.vmat"
+								to = "models/block_metal_a/block_desert_solid.vmat"
 							},
 						]
 						use_global_default = false

@@ -17,7 +17,6 @@ public class ArenaGenerator : Component, IRestartable
 	[Sync] private string ActiveThemePath { get; set; }
 
 	private ArenaTheme ActiveTheme { get; set; }
-	private string AppliedThemePath { get; set; }
 
 	private const float GridSize = 32f;
 
@@ -31,15 +30,10 @@ public class ArenaGenerator : Component, IRestartable
 		Generate();
 	}
 
-	protected override void OnUpdate()
+	protected override void OnStart()
 	{
-		if ( ActiveThemePath == AppliedThemePath ) return;
-
-		ActiveTheme = ResolveTheme( ActiveThemePath );
-		AppliedThemePath = ActiveThemePath;
-
-		ApplyFloorMaterial();
-		ApplyBackgroundColor();
+		if ( !string.IsNullOrEmpty( ActiveThemePath ) )
+			ApplyTheme( ActiveThemePath );
 	}
 
 	private void Generate()
@@ -47,10 +41,46 @@ public class ArenaGenerator : Component, IRestartable
 		if ( !Networking.IsHost ) return;
 
 		PickTheme();
+		BroadcastTheme( ActiveThemePath );
 		SpawnAmbience();
 		DestroyBreakables();
-		RandomizeSolidBlockModels();
 		GenerateBreakables();
+	}
+
+	[Rpc.Broadcast( NetFlags.HostOnly )]
+	private void BroadcastTheme( string path )
+	{
+		ActiveThemePath = path;
+		ApplyTheme( path );
+	}
+
+	private void ApplyTheme( string path )
+	{
+		ActiveTheme = ResolveTheme( path );
+		ApplyFloorMaterial();
+		ApplyBackgroundColor();
+		ApplySolidBlockModels();
+	}
+
+	private void ApplySolidBlockModels()
+	{
+		var models = ActiveTheme?.SolidBlockModels;
+		if ( models is null || models.Count == 0 ) return;
+
+		var themeSeed = ActiveTheme.ResourcePath?.GetHashCode() ?? 0;
+		foreach ( var solid in Scene.GetAllComponents<SolidBlock>() )
+		{
+			var seed = HashCode.Combine( solid.GameObject.Id, themeSeed );
+			var model = models[(int)((uint)seed % models.Count)];
+
+			var renderer = solid.Components.Get<ModelRenderer>();
+			if ( renderer.IsValid() )
+				renderer.Model = model;
+
+			var collider = solid.Components.Get<ModelCollider>();
+			if ( collider.IsValid() )
+				collider.Model = model;
+		}
 	}
 
 	private void SpawnAmbience()
@@ -71,8 +101,8 @@ public class ArenaGenerator : Component, IRestartable
 
 	private void PickTheme()
 	{
-		ActiveTheme = Themes.Count > 0 ? Game.Random.FromList( Themes ) : null;
-		ActiveThemePath = ActiveTheme?.ResourcePath;
+		var theme = Themes.Count > 0 ? Game.Random.FromList( Themes ) : null;
+		ActiveThemePath = theme?.ResourcePath;
 	}
 
 	private ArenaTheme ResolveTheme( string path )
@@ -113,28 +143,7 @@ public class ArenaGenerator : Component, IRestartable
 		}
 	}
 
-	private void RandomizeSolidBlockModels()
-	{
-		var models = ActiveTheme?.SolidBlockModels;
-		if ( models is null || models.Count == 0 )
-			return;
-
-		var solids = Scene.GetAllComponents<SolidBlock>().ToList();
-		foreach ( var solid in solids )
-		{
-			var model = Game.Random.FromList( models );
-
-			var renderer = solid.Components.Get<ModelRenderer>();
-			if ( renderer.IsValid() )
-				renderer.Model = model;
-
-			var collider = solid.Components.Get<ModelCollider>();
-			if ( collider.IsValid() )
-				collider.Model = model;
-		}
-	}
-
-	private void GenerateBreakables()
+private void GenerateBreakables()
 	{
 		BreakablesContainer = new GameObject( true, "Breakables" )
 		{
